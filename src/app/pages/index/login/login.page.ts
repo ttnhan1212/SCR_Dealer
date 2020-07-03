@@ -1,4 +1,4 @@
-import { ToastService } from './../../services/toast.service';
+import { ToastService } from '../../../services/toast.service';
 import { LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component, OnInit } from '@angular/core';

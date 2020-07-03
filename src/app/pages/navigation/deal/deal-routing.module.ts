@@ -7,15 +7,6 @@ const routes: Routes = [
 	{
 		path: '',
 		component: DealPage,
-		children: [
-			{
-				path: 'details',
-				loadChildren: () =>
-					import('../dealdetail/dealdetail.module').then(
-						(m) => m.DealdetailPageModule,
-					),
-			},
-		],
 	},
 ];
 

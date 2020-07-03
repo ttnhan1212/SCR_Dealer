@@ -1,4 +1,4 @@
-import { NavigationComponent } from './navigation.component';
+import { NavigationPage } from './navigation.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -9,7 +9,7 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const routes: Routes = [
 	{
 		path: '',
-		component: NavigationComponent,
+		component: NavigationPage,
 		children: [
 			{
 				path: 'deal',
@@ -17,9 +17,9 @@ const routes: Routes = [
 					import('./deal/deal.module').then((m) => m.DealPageModule),
 			},
 			{
-				path: 'details',
+				path: 'deal/detail',
 				loadChildren: () =>
-					import('../navigation/dealdetail/dealdetail.module').then(
+					import('./dealdetail/dealdetail.module').then(
 						(m) => m.DealdetailPageModule,
 					),
 			},
@@ -40,6 +40,11 @@ const routes: Routes = [
 				loadChildren: () =>
 					import('./ongoing/ongoing.module').then((m) => m.OngoingPageModule),
 			},
+			{
+				path: '',
+				redirectTo: 'deal',
+				pathMatch: 'full',
+			},
 		],
 		...canActivate(redirectUnauthorizedToLogin),
 	},
@@ -48,4 +53,4 @@ const routes: Routes = [
 	imports: [RouterModule.forChild(routes)],
 	exports: [RouterModule],
 })
-export class NavigationRouter {}
+export class NavigationRoutingModule {}

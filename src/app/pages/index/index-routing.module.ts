@@ -4,7 +4,7 @@ import { IndexPage } from './index.page';
 
 import { canActivate, redirectLoggedInTo } from '@angular/fire/auth-guard';
 
-const redirectLoggedInToRequest = () => redirectLoggedInTo(['home/deal']);
+const redirectLoggedInToRequest = () => redirectLoggedInTo(['home', 'deal']);
 
 const routes: Routes = [
 	{
@@ -14,17 +14,22 @@ const routes: Routes = [
 			{
 				path: '',
 				loadChildren: () =>
-					import('../welcome/welcome.module').then((m) => m.WelcomePageModule),
+					import('./welcome/welcome.module').then((m) => m.WelcomePageModule),
 			},
 			{
 				path: 'login',
 				loadChildren: () =>
-					import('../login/login.module').then((m) => m.LoginPageModule),
+					import('./login/login.module').then((m) => m.LoginPageModule),
 			},
 			{
 				path: 'signup',
 				loadChildren: () =>
-					import('../signup/signup.module').then((m) => m.SignupPageModule),
+					import('./signup/signup.module').then((m) => m.SignupPageModule),
+			},
+			{
+				path: '',
+				redirectTo: '',
+				pathMatch: 'full',
 			},
 		],
 		...canActivate(redirectLoggedInToRequest),
@@ -34,4 +39,4 @@ const routes: Routes = [
 	imports: [RouterModule.forChild(routes)],
 	exports: [RouterModule],
 })
-export class IndexRouter {}
+export class IndexRoutingModule {}

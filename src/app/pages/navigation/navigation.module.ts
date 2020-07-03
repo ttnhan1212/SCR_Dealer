@@ -1,12 +1,12 @@
-import { NavigationComponent } from './navigation.component';
-import { NavigationRouter } from './navigation.router';
+import { NavigationRoutingModule } from './navigation-routing.module';
+import { NavigationPage } from './navigation.page';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-	declarations: [NavigationComponent],
-	imports: [CommonModule, FormsModule, IonicModule, NavigationRouter],
+	declarations: [NavigationPage],
+	imports: [CommonModule, FormsModule, IonicModule, NavigationRoutingModule],
 })
-export class NavigationModule {}
+export class NavigationPageModule {}

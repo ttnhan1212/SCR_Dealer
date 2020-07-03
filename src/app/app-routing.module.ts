@@ -12,7 +12,7 @@ const routes: Routes = [
 		path: 'home',
 		loadChildren: () =>
 			import('./pages/navigation/navigation.module').then(
-				(m) => m.NavigationModule,
+				(m) => m.NavigationPageModule,
 			),
 	},
 	{
