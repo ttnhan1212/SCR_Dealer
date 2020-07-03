@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -31,18 +31,24 @@
 							<form id="login" class="card-body" tabindex="500">
 								<h3>Login as:</h3>
 								<div class="mail">
-									<input type="email" name="mail" style="color: #080e1b;" />
+									<input
+										type="email"
+										name="mail"
+										[(ngModel)]="email"
+										style="color: #080e1b;"
+									/>
 									<label>Email</label>
 								</div>
 								<div class="mail">
-									<input type="password" name="password" style="color: #080e1b;" />
+									<input
+										type="password"
+										name="password"
+										[(ngModel)]="password"
+										style="color: #080e1b;"
+									/>
 									<label>Password</label>
 								</div>
-								<ion-button
-									expand="block"
-									color="tertiary"
-									(click)="login()"
-								>
+								<ion-button expand="block" color="tertiary" (click)="login()">
 									PROCEED
 								</ion-button>
 								<ion-button
@@ -58,9 +64,9 @@
 							<ion-grid>
 								<ion-text class="text-body text-center">
 									Continue using Social Accounts
-                </ion-text>
-                <br/>
-                <ion-row style="height: 1rem;"></ion-row>
+								</ion-text>
+								<br />
+								<ion-row style="height: 1rem;"></ion-row>
 								<ion-row>
 									<ion-col>
 										<ion-button

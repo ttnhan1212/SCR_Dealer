@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexPage } from './index.page';
 
+import { canActivate, redirectLoggedInTo } from '@angular/fire/auth-guard';
+
+const redirectLoggedInToRequest = () => redirectLoggedInTo(['home/deal']);
+
 const routes: Routes = [
 	{
 		path: '',
@@ -23,6 +27,7 @@ const routes: Routes = [
 					import('../signup/signup.module').then((m) => m.SignupPageModule),
 			},
 		],
+		...canActivate(redirectLoggedInToRequest),
 	},
 ];
 @NgModule({

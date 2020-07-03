@@ -2,6 +2,10 @@ import { NavigationComponent } from './navigation.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+
 const routes: Routes = [
 	{
 		path: '',
@@ -37,6 +41,7 @@ const routes: Routes = [
 					import('./ongoing/ongoing.module').then((m) => m.OngoingPageModule),
 			},
 		],
+		...canActivate(redirectUnauthorizedToLogin),
 	},
 ];
 @NgModule({

@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -31,25 +31,43 @@
 							<form id="login" class="card-body" tabindex="500">
 								<h3>Register as:</h3>
 								<div class="mail">
-									<input type="email" name="mail" style="color: #080e1b;" />
-									<label>Name</label>
-								</div>
-								<div class="mail">
-									<input type="email" name="mail" />
-									<label>Mail or Username</label>
+									<input
+										type="email"
+										name="mail"
+										[(ngModel)]="email"
+										style="color: #080e1b;"
+									/>
+									<label>Email</label>
 								</div>
 								<div class="passwd">
-									<input type="password" name="password" />
+									<input
+										type="password"
+										name="password"
+										[(ngModel)]="password"
+										style="color: #080e1b;"
+									/>
 									<label>Password</label>
 								</div>
-								<ion-button expand="block" color="tertiary" (click)="Signup()">
-									PROCEED
+								<div class="passwd">
+									<input
+										type="password"
+										name="cPassword"
+										[(ngModel)]="cPassword"
+										style="color: #080e1b;"
+									/>
+									<label>Confirm Password</label>
+								</div>
+								<ion-button expand="block" color="tertiary" (click)="signup()">
+									Register
 								</ion-button>
-								<p class="text-dark mb-0">
-									Already have an account?<a [routerLink]="['/login']" class="text-primary ml-1"
-										>Sign In</a
-									>
-								</p>
+								<ion-button
+									fill="clear"
+									expand="block"
+									class="text-dark mb-0"
+									routerLink="/login"
+								>
+									Already have an account? Log In
+								</ion-button>
 							</form>
 							<hr class="divider" />
 							<ion-grid class="card-body social-images">

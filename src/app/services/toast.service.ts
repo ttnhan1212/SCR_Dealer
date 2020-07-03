@@ -1,9 +1,25 @@
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root',
 })
 export class ToastService {
+	myToast: any;
+	constructor(public toast: ToastController) {}
 
-  constructor() { }
+	showToast(message: string) {
+		this.myToast = this.toast
+			.create({
+				message,
+				duration: 2500,
+			})
+			.then((toastData) => {
+				toastData.present();
+			});
+	}
+
+	HideToast() {
+		this.myToast = this.toast.dismiss();
+	}
 }
