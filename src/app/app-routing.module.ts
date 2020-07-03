@@ -5,12 +5,19 @@ const routes: Routes = [
 	{
 		path: '',
 		loadChildren: () =>
-			import('./index/index.module').then((m) => m.IndexPageModule),
+			import('./pages/index/index.module').then((m) => m.IndexPageModule),
+	},
+	{
+		path: 'home',
+		loadChildren: () =>
+			import('./pages/navigation/navigation.module').then(
+				(m) => m.NavigationModule,
+			),
 	},
 	{
 		path: '',
-		loadChildren: () =>
-			import('./home/home.module').then((m) => m.HomePageModule),
+		redirectTo: '',
+		pathMatch: 'full',
 	},
 ];
 

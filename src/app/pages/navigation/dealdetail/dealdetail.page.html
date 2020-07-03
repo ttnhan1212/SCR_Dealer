@@ -1,0 +1,502 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<!--BreadCrumb-->
+	<ion-card>
+		<div class="container">
+			<div class="page-header">
+				<!-- <h4 class="page-title">Cars</h4> -->
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Request</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Details</li>
+				</ol>
+			</div>
+		</div>
+	</ion-card>
+	<!--/BreadCrumb-->
+	<ion-item>
+		<ion-grid class="container">
+			<ion-row class="row">
+				<ion-col class="col-xl-8 col-lg-8 col-md-12">
+					<!--Classified Description-->
+					<div class="card overflow-hidden">
+						<div class="ribbon ribbon-top-right text-danger">
+							<span class="bg-danger">Offer</span>
+						</div>
+						<div class="card-body">
+							<div class="item-det mb-4">
+								<a href="#" class="text-dark">
+									<h3>Harlequini Dawn</h3>
+								</a>
+								<div class="d-flex">
+									<ul class="d-flex mb-0">
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-car text-muted mr-1 fs-18"></i> Cars</a
+											>
+										</li>
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-location-pin text-muted mr-1"></i> USA</a
+											>
+										</li>
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-calendar text-muted mr-1"></i> 5 hours
+												ago</a
+											>
+										</li>
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a
+											>
+										</li>
+									</ul>
+									<div class="rating-stars d-flex mr-5">
+										<input
+											type="number"
+											readonly="readonly"
+											class="rating-value star"
+											name="rating-stars-value"
+											id="rating-stars-value"
+											value="4"
+										/>
+										<div class="rating-stars-container mr-2">
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+										</div>
+										4.0
+									</div>
+									<div class="rating-stars d-flex">
+										<div class="rating-stars-container mr-2">
+											<div class="rating-star sm">
+												<i class="fa fa-heart"></i>
+											</div>
+										</div>
+										135
+									</div>
+								</div>
+							</div>
+							<ion-slides pager="true" [options]="slideOpts">
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+							</ion-slides>
+							<!-- <div class="product-slider">
+                <div id="carousel" class="carousel slide" data-ride="carousel">
+                  <div class="arrow-ribbon2 bg-primary">$539</div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active"> <img src="../../../assets/images/cars/2010-marussia-b2-2.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/v2.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/v3.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/v4.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/v5.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/1.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/2.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/3.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/4.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/5.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/6.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/7.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/8.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/9.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/10.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/11.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/12.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/13.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/14.jpg" alt="img"> </div>
+                    <div class="carousel-item"> <img src="../assets/images/media/gallery/v6.jpg" alt="img"> </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  </a>
+                  <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <div class="clearfix">
+                  <div id="thumbcarousel" class="carousel thumbcarousel slide" data-interval="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div data-target="#carousel" data-slide-to="0" class="thumb"><img src="../assets/images/media/gallery/v1.png" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="1" class="thumb"><img src="../assets/images/media/gallery/v2.png" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="2" class="thumb"><img src="../assets/images/media/gallery/v3.png" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="3" class="thumb"><img src="../assets/images/media/gallery/v4.png" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="4" class="thumb"><img src="../assets/images/media/gallery/v5.png" alt="img"></div>
+                      </div>
+                      <div class="carousel-item ">
+                        <div data-target="#carousel" data-slide-to="5" class="thumb"><img src="../assets/images/media/gallery/1.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="6" class="thumb"><img src="../assets/images/media/gallery/2.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="7" class="thumb"><img src="../assets/images/media/gallery/3.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="8" class="thumb"><img src="../assets/images/media/gallery/4.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="9" class="thumb"><img src="../assets/images/media/gallery/5.jpg" alt="img"></div>
+                      </div>
+                      <div class="carousel-item ">
+                        <div data-target="#carousel" data-slide-to="10" class="thumb"><img src="../assets/images/media/gallery/6.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="11" class="thumb"><img src="../assets/images/media/gallery/7.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="12" class="thumb"><img src="../assets/images/media/gallery/8.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="13" class="thumb"><img src="../assets/images/media/gallery/9.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="14" class="thumb"><img src="../assets/images/media/gallery/10.jpg" alt="img"></div>
+                      </div>
+                      <div class="carousel-item ">
+                        <div data-target="#carousel" data-slide-to="15" class="thumb"><img src="../assets/images/media/gallery/11.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="16" class="thumb"><img src="../assets/images/media/gallery/12.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="17" class="thumb"><img src="../assets/images/media/gallery/13.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="18" class="thumb"><img src="../assets/images/media/gallery/14.jpg" alt="img"></div>
+                        <div data-target="#carousel" data-slide-to="19" class="thumb"><img src="../assets/images/media/gallery/v6.png" alt="img"></div>
+                      </div>
+  
+                    </div>
+                    <a class="carousel-control-prev" href="#thumbcarousel" role="button" data-slide="prev">
+                      <i class="fa fa-angle-left" aria-hidden="true"></i>
+                    </a>
+                    <a class="carousel-control-next" href="#thumbcarousel" role="button" data-slide="next">
+                      <i class="fa fa-angle-right" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+              </div> -->
+						</div>
+					</div>
+					<!-- <div class="mb-4 overflow-hidden">
+            <div class="">
+              <div class="border-0">
+                <div class="wideget-user-tab wideget-user-tab3">
+                  <div class="tab-menu-heading">
+                    <div class="tabs-menu1">
+                      <ul class="nav">
+                        <li class=""><a href="#tab-1" class="active" data-toggle="tab">Overview</a></li>
+                        <li><a href="#tab-3" data-toggle="tab" class="">Features & Option</a></li>
+                        <li><a href="#tab-4" data-toggle="tab" class="">Vehicle Information</a></li>
+                        <li><a href="#tab-5" data-toggle="tab" class="">About Video</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-content border-left border-right border-top br-tr-3 p-5 bg-white">
+                  <div class="tab-pane active" id="tab-1">
+                    <h3 class="card-title mb-3 font-weight-semibold">Overview</h3>
+                    <div class="mb-4">
+                      <p>Killington odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atcorrupti
+                        quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt
+                        in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+                      <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled
+                        and demoraliz the charms of pleasure of the moment, so blinded by desire, that they cannot
+                        foresee the pain and trouble thena bound to ensue; and equal blame belongs to those who fail in
+                        their duty through weakness of will, which is the same as saying through shrinking from toil and
+                        pain.</p>
+                    </div>
+                    <h4 class="mb-4">Specifications</h4>
+                    <div class="row">
+                      <div class="col-xl-12 col-md-12">
+                        <div class="table-responsive">
+                          <table class="table table-bordered w-100 m-0 text-nowrap ">
+                            <tbody>
+                              <tr>
+                                <td><span class="font-weight-bold">Fuel Type :</span> Diesel</td>
+                                <td><span class="font-weight-bold">Breaks :</span> Front , Rear</td>
+                              </tr>
+                              <tr>
+                                <td><span class="font-weight-bold">Seating :</span> 5 members</td>
+                                <td><span class="font-weight-bold">Colors :</span> Red , pink, Gray</td>
+                              </tr>
+                              <tr>
+                                <td><span class="font-weight-bold">Air Bags :</span> Available</td>
+                                <td><span class="font-weight-bold">Colors :</span> Red , pink, Gray</td>
+                              </tr>
+                              <tr>
+                                <td><span class="font-weight-bold">Engine :</span> F8D </td>
+                                <td><span class="font-weight-bold">Power Windows :</span> Available </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="tab-3">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="table-responsive">
+                          <table class="table table-bordered border-top mb-0">
+                            <tbody>
+                              <tr>
+                                <td>Power Steering</td>
+                                <td><i class="icon icon-check text-success"></i></td>
+                              </tr>
+                              <tr>
+                                <td>Power Windows Front</td>
+                                <td><i class="icon icon-check text-success"></i></td>
+                              </tr>
+                              <tr>
+                                <td>Air Conditioner</td>
+                                <td><i class="icon icon-check text-success"></i></td>
+                              </tr>
+                              <tr>
+                                <td>Passenger Airbag</td>
+                                <td><i class="icon icon-close text-danger"></i></td>
+                              </tr>
+                              <tr>
+                                <td>Fog Lights - Front</td>
+                                <td><i class="icon icon-close text-danger"></i></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="table-responsive">
+                          <table class="table table-bordered border-top mb-0">
+                            <tbody>
+
+                              <tr>
+                                <td>Anti Lock Braking System</td>
+                                <td><i class="icon icon-check text-success"></i></td>
+                              </tr>
+                              <tr>
+                                <td>Driver Airbag</td>
+                                <td><i class="icon icon-check text-success"></i></td>
+                              </tr>
+                              <tr>
+                                <td>Wheel Covers</td>
+                                <td><i class="icon icon-check text-success"></i></td>
+                              </tr>
+                              <tr>
+                                <td>Automatic Climate Control</td>
+                                <td><i class="icon icon-close text-danger"></i></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="tab-4">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="table-responsive">
+                          <table class="table table-bordered border-top mb-0">
+                            <tbody>
+                              <tr>
+                                <td>ARAI Mileage</td>
+                                <td>24.7 km/kg</td>
+                              </tr>
+                              <tr>
+                                <td>Engine Displacement (cc)</td>
+                                <td>796</td>
+                              </tr>
+                              <tr>
+                                <td>Max Torque (nm@rpm)</td>
+                                <td>69Nm@3500rpm</td>
+                              </tr>
+                              <tr>
+                                <td>Seating Capacity</td>
+                                <td>5</td>
+                              </tr>
+                              <tr>
+                                <td>Boot Space (Litres)</td>
+                                <td>177</td>
+                              </tr>
+                              <tr>
+                                <td>Fuel Type</td>
+                                <td>CNG</td>
+                              </tr>
+                              <tr>
+                                <td>Max Power (bhp@rpm)</td>
+                                <td>47.3bhp@6000rpm</td>
+                              </tr>
+                              <tr>
+                                <td>TransmissionType</td>
+                                <td>Manual</td>
+                              </tr>
+                              <tr>
+                                <td>Fuel Tank Capacity</td>
+                                <td>35</td>
+                              </tr>
+                              <tr>
+                                <td>Body Type</td>
+                                <td>Hatchback</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="tab-5">
+                    <ul class="list-unstyled video-list-thumbs row ">
+                      <li class="mb-0">
+                        <a data-toggle="modal" data-target="#homeVideo">
+                          <img src="../assets/images/media/others/v1.jpg" alt="Barca" class="img-responsive">
+                          <span class="mdi mdi-arrow-right-drop-circle-outline text-white"></span>
+                        </a>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+                <div class="pt-4 pb-4 pl-5 pr-5 border-top border-left border-right bg-white">
+                  <div class="list-id">
+                    <div class="row">
+                      <div class="col">
+                        <a class="mb-0">Classified ID : #8256358</a>
+                      </div>
+                      <div class="col col-auto">
+                        Posted By <a class="mb-0 font-weight-bold">Individual</a> / 21st Dec 2019
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer bg-white border-left border-right border-bottom br-br-3 br-bl-3">
+                  <div class="icons">
+                    <a href="#" class="btn btn-info icons"><i class="icon icon-share mr-1"></i> Share Ad</a>
+                    <a href="#" class="btn btn-primary icons"><i class="icon icon-heart  mr-1"></i> 678</a>
+                    <a href="#" class="btn btn-secondary icons"><i class="icon icon-printer  mr-1"></i> Print</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+					<!--/Classified Description-->
+
+					<div>
+						<mat-accordion>
+							<!-- <mat-expansion-panel hideToggle>
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    This is the expansion title
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    This is a summary of the content
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>This is the primary content of the panel.</p>
+              </mat-expansion-panel> -->
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										Overview
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>
+									Killington odio dignissimos ducimus qui blanditiis praesentium
+									voluptatum deleniti atcorrupti quos dolores et quas molestias
+									excepturi sint occaecati cupiditate non provident, similique
+									sunt in culpa qui officia deserunt mollitia animi, id est
+									laborum et dolorum fuga.
+								</p>
+							</mat-expansion-panel>
+
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										Features & Options
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>I'm visible because I am open</p>
+							</mat-expansion-panel>
+
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										Vehicle Info
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>I'm visible because I am open</p>
+							</mat-expansion-panel>
+
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										About video
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>I'm visible because I am open</p>
+							</mat-expansion-panel>
+						</mat-accordion>
+					</div>
+					<ion-row style="height: 1rem;"></ion-row>
+					<ion-card class="card-body">
+						<ion-card-content>
+							<div>
+								<div class="form-group">
+									<input
+										type="text"
+										class="form-control"
+										id="name1"
+										placeholder="Input your bidding price"
+									/>
+								</div>
+								<!-- <ion-button href="#">
+                  <ion-icon name="cash-outline"></ion-icon>
+                </ion-button> -->
+								<ion-button expand="full" color="tertiary" size="large">
+									<ion-icon name="wallet"></ion-icon>
+								</ion-button>
+							</div>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
+</ion-content>
