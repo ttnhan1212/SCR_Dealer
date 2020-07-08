@@ -166,7 +166,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n";
+    __webpack_exports__["default"] = "<ion-app>\n\t<ion-router-outlet></ion-router-outlet>\n</ion-app>\n";
     /***/
   },
 
@@ -253,7 +253,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         [__webpack_require__.e("common"), __webpack_require__.e("pages-navigation-navigation-module")]).then(__webpack_require__.bind(null,
         /*! ./pages/navigation/navigation.module */
         "./src/app/pages/navigation/navigation.module.ts")).then(function (m) {
-          return m.NavigationModule;
+          return m.NavigationPageModule;
         });
       }
     }, {
@@ -578,7 +578,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.router = router;
 
         this.navigateHome = function () {
-          _this2.router.navigate(['home/request']);
+          _this2.router.navigate(['home', 'deal']);
         };
       }
 

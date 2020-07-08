@@ -436,7 +436,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n\t<ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
 
 /***/ }),
 
@@ -478,7 +478,7 @@ const routes = [
     },
     {
         path: 'home',
-        loadChildren: () => Promise.all(/*! import() | pages-navigation-navigation-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-navigation-navigation-module")]).then(__webpack_require__.bind(null, /*! ./pages/navigation/navigation.module */ "./src/app/pages/navigation/navigation.module.ts")).then((m) => m.NavigationModule),
+        loadChildren: () => Promise.all(/*! import() | pages-navigation-navigation-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-navigation-navigation-module")]).then(__webpack_require__.bind(null, /*! ./pages/navigation/navigation.module */ "./src/app/pages/navigation/navigation.module.ts")).then((m) => m.NavigationPageModule),
     },
     {
         path: '',
@@ -662,7 +662,7 @@ let ErrorsPage = class ErrorsPage {
     constructor(router) {
         this.router = router;
         this.navigateHome = () => {
-            this.router.navigate(['home/request']);
+            this.router.navigate(['home', 'deal']);
         };
     }
     ngOnInit() { }

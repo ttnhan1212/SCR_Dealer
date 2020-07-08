@@ -28,7 +28,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dealdetail-dealdetail-module~navigation-dealdetail-dealdetail-module~settings-setting-module"], {
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dealdetail-dealdetail-module~settings-setting-module"], {
   /***/
   "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/a11y.js":
   /*!*****************************************************************!*\
@@ -9537,4 +9537,4 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
   }
 }]);
-//# sourceMappingURL=default~dealdetail-dealdetail-module~navigation-dealdetail-dealdetail-module~settings-setting-module-es5.js.map
+//# sourceMappingURL=default~dealdetail-dealdetail-module~settings-setting-module-es5.js.map

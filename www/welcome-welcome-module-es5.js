@@ -6,15 +6,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["welcome-welcome-module"], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/welcome/welcome.page.html":
-  /*!***************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/welcome/welcome.page.html ***!
-    \***************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/index/welcome/welcome.page.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/index/welcome/welcome.page.html ***!
+    \*********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppPagesWelcomeWelcomePageHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppPagesIndexWelcomeWelcomePageHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -26,15 +26,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/pages/welcome/welcome-routing.module.ts":
-  /*!*********************************************************!*\
-    !*** ./src/app/pages/welcome/welcome-routing.module.ts ***!
-    \*********************************************************/
+  "./src/app/pages/index/welcome/welcome-routing.module.ts":
+  /*!***************************************************************!*\
+    !*** ./src/app/pages/index/welcome/welcome-routing.module.ts ***!
+    \***************************************************************/
 
   /*! exports provided: WelcomePageRoutingModule */
 
   /***/
-  function srcAppPagesWelcomeWelcomeRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppPagesIndexWelcomeWelcomeRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -67,7 +67,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _welcome_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ./welcome.page */
-    "./src/app/pages/welcome/welcome.page.ts");
+    "./src/app/pages/index/welcome/welcome.page.ts");
 
     var routes = [{
       path: '',
@@ -86,15 +86,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/pages/welcome/welcome.module.ts":
-  /*!*************************************************!*\
-    !*** ./src/app/pages/welcome/welcome.module.ts ***!
-    \*************************************************/
+  "./src/app/pages/index/welcome/welcome.module.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/pages/index/welcome/welcome.module.ts ***!
+    \*******************************************************/
 
   /*! exports provided: WelcomePageModule */
 
   /***/
-  function srcAppPagesWelcomeWelcomeModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppPagesIndexWelcomeWelcomeModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -114,7 +114,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 
     var _components_components_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./../../components/components.module */
+    /*! ../../../components/components.module */
     "./src/app/components/components.module.ts");
     /* harmony import */
 
@@ -145,13 +145,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _welcome_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./welcome-routing.module */
-    "./src/app/pages/welcome/welcome-routing.module.ts");
+    "./src/app/pages/index/welcome/welcome-routing.module.ts");
     /* harmony import */
 
 
     var _welcome_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./welcome.page */
-    "./src/app/pages/welcome/welcome.page.ts");
+    "./src/app/pages/index/welcome/welcome.page.ts");
 
     var WelcomePageModule = function WelcomePageModule() {
       _classCallCheck(this, WelcomePageModule);
@@ -165,35 +165,35 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/pages/welcome/welcome.page.scss":
-  /*!*************************************************!*\
-    !*** ./src/app/pages/welcome/welcome.page.scss ***!
-    \*************************************************/
+  "./src/app/pages/index/welcome/welcome.page.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/pages/index/welcome/welcome.page.scss ***!
+    \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppPagesWelcomeWelcomePageScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppPagesIndexWelcomeWelcomePageScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3dlbGNvbWUvd2VsY29tZS5wYWdlLnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2luZGV4L3dlbGNvbWUvd2VsY29tZS5wYWdlLnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/pages/welcome/welcome.page.ts":
-  /*!***********************************************!*\
-    !*** ./src/app/pages/welcome/welcome.page.ts ***!
-    \***********************************************/
+  "./src/app/pages/index/welcome/welcome.page.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/pages/index/welcome/welcome.page.ts ***!
+    \*****************************************************/
 
   /*! exports provided: WelcomePage */
 
   /***/
-  function srcAppPagesWelcomeWelcomePageTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppPagesIndexWelcomeWelcomePageTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -237,10 +237,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selector: 'app-welcome',
       template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! raw-loader!./welcome.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/welcome/welcome.page.html"))["default"],
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/index/welcome/welcome.page.html"))["default"],
       styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
       /*! ./welcome.page.scss */
-      "./src/app/pages/welcome/welcome.page.scss"))["default"]]
+      "./src/app/pages/index/welcome/welcome.page.scss"))["default"]]
     })], WelcomePage);
     /***/
   }

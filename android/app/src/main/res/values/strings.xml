@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">scr-dealer</string>
-    <string name="title_activity_main">scr-dealer</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">SCRoads Dealer</string>
+    <string name="title_activity_main">SCRoads Dealer</string>
+    <string name="package_name">io.scroads.dealer</string>
+    <string name="custom_url_scheme">io.scroads.dealer</string>
 </resources>

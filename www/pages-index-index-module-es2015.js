@@ -13,6 +13,61 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/app/pages/index/index-routing.module.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/pages/index/index-routing.module.ts ***!
+  \*****************************************************/
+/*! exports provided: IndexRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRoutingModule", function() { return IndexRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _index_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.page */ "./src/app/pages/index/index.page.ts");
+/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth-guard.js");
+
+
+
+
+
+const redirectLoggedInToRequest = () => Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__["redirectLoggedInTo"])(['home', 'deal']);
+const routes = [
+    Object.assign({ path: '', component: _index_page__WEBPACK_IMPORTED_MODULE_3__["IndexPage"], children: [
+            {
+                path: '',
+                loadChildren: () => Promise.all(/*! import() | welcome-welcome-module */[__webpack_require__.e("common"), __webpack_require__.e("welcome-welcome-module")]).then(__webpack_require__.bind(null, /*! ./welcome/welcome.module */ "./src/app/pages/index/welcome/welcome.module.ts")).then((m) => m.WelcomePageModule),
+            },
+            {
+                path: 'login',
+                loadChildren: () => Promise.all(/*! import() | login-login-module */[__webpack_require__.e("common"), __webpack_require__.e("login-login-module")]).then(__webpack_require__.bind(null, /*! ./login/login.module */ "./src/app/pages/index/login/login.module.ts")).then((m) => m.LoginPageModule),
+            },
+            {
+                path: 'signup',
+                loadChildren: () => Promise.all(/*! import() | signup-signup-module */[__webpack_require__.e("common"), __webpack_require__.e("signup-signup-module")]).then(__webpack_require__.bind(null, /*! ./signup/signup.module */ "./src/app/pages/index/signup/signup.module.ts")).then((m) => m.SignupPageModule),
+            },
+            {
+                path: '',
+                redirectTo: '',
+                pathMatch: 'full',
+            },
+        ] }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__["canActivate"])(redirectLoggedInToRequest)),
+];
+let IndexRoutingModule = class IndexRoutingModule {
+};
+IndexRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
+    })
+], IndexRoutingModule);
+
+
+
+/***/ }),
+
 /***/ "./src/app/pages/index/index.module.ts":
 /*!*********************************************!*\
   !*** ./src/app/pages/index/index.module.ts ***!
@@ -24,7 +79,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IndexPageModule", function() { return IndexPageModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _index_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.router */ "./src/app/pages/index/index.router.ts");
+/* harmony import */ var _index_routing_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-routing.module */ "./src/app/pages/index/index-routing.module.ts");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
@@ -41,7 +96,7 @@ let IndexPageModule = class IndexPageModule {
 };
 IndexPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"], _index_router__WEBPACK_IMPORTED_MODULE_1__["IndexRouter"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"], _index_routing_module__WEBPACK_IMPORTED_MODULE_1__["IndexRoutingModule"]],
         declarations: [_index_page__WEBPACK_IMPORTED_MODULE_6__["IndexPage"]],
     })
 ], IndexPageModule);
@@ -90,56 +145,6 @@ IndexPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./index.page.scss */ "./src/app/pages/index/index.page.scss")).default]
     })
 ], IndexPage);
-
-
-
-/***/ }),
-
-/***/ "./src/app/pages/index/index.router.ts":
-/*!*********************************************!*\
-  !*** ./src/app/pages/index/index.router.ts ***!
-  \*********************************************/
-/*! exports provided: IndexRouter */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IndexRouter", function() { return IndexRouter; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _index_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./index.page */ "./src/app/pages/index/index.page.ts");
-/* harmony import */ var _angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/fire/auth-guard */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth-guard.js");
-
-
-
-
-
-const redirectLoggedInToRequest = () => Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__["redirectLoggedInTo"])(['home/deal']);
-const routes = [
-    Object.assign({ path: '', component: _index_page__WEBPACK_IMPORTED_MODULE_3__["IndexPage"], children: [
-            {
-                path: '',
-                loadChildren: () => Promise.all(/*! import() | welcome-welcome-module */[__webpack_require__.e("common"), __webpack_require__.e("welcome-welcome-module")]).then(__webpack_require__.bind(null, /*! ../welcome/welcome.module */ "./src/app/pages/welcome/welcome.module.ts")).then((m) => m.WelcomePageModule),
-            },
-            {
-                path: 'login',
-                loadChildren: () => Promise.all(/*! import() | login-login-module */[__webpack_require__.e("common"), __webpack_require__.e("login-login-module")]).then(__webpack_require__.bind(null, /*! ../login/login.module */ "./src/app/pages/login/login.module.ts")).then((m) => m.LoginPageModule),
-            },
-            {
-                path: 'signup',
-                loadChildren: () => Promise.all(/*! import() | signup-signup-module */[__webpack_require__.e("common"), __webpack_require__.e("signup-signup-module")]).then(__webpack_require__.bind(null, /*! ../signup/signup.module */ "./src/app/pages/signup/signup.module.ts")).then((m) => m.SignupPageModule),
-            },
-        ] }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__["canActivate"])(redirectLoggedInToRequest)),
-];
-let IndexRouter = class IndexRouter {
-};
-IndexRouter = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]],
-    })
-], IndexRouter);
 
 
 

@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dealdetail-dealdetail-module~navigation-dealdetail-dealdetail-module~settings-setting-module"],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["default~dealdetail-dealdetail-module~settings-setting-module"],{
 
 /***/ "./node_modules/@angular/cdk/__ivy_ngcc__/fesm2015/a11y.js":
 /*!*****************************************************************!*\
@@ -5429,4 +5429,4 @@ MatExpansionModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefin
 /***/ })
 
 }]);
-//# sourceMappingURL=default~dealdetail-dealdetail-module~navigation-dealdetail-dealdetail-module~settings-setting-module-es2015.js.map
+//# sourceMappingURL=default~dealdetail-dealdetail-module~settings-setting-module-es2015.js.map
