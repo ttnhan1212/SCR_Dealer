@@ -24,6 +24,30 @@
 	background-image: url('../../../../assets/images/banners/banner2.jpg');
 }
 
+.avt-view{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 6rem !important;
+	height: 6rem !important;
+	border: 1px solid #d8dde6;
+	overflow: hidden;
+	position: relative;
+	margin: auto;
+	border-radius: 16px;
+
+	input[type='file'] {
+		position: absolute;
+		opacity: 0;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+
+
+
 .bg-background3:before {
 	background: linear-gradient(
 		to right,
@@ -67,7 +91,17 @@
 	width: 0 !important;
 }
 
+.item.sc-ion-label-md-h, .item .sc-ion-label-md-h {
+	font-family: 'Poppins';
+	font-size: 0.9rem;
+}
+
+.basic-container {
+	padding: 30px;
+}
+
 ion-item {
 	--inner-padding-end: 0px;
 	--padding-start: 0px;
 }
+
