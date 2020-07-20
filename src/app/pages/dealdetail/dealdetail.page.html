@@ -1,0 +1,217 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+	<!--BreadCrumb-->
+	<ion-card>
+		<div class="container">
+			<div class="page-header">
+				<!-- <h4 class="page-title">Cars</h4> -->
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Request</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Details</li>
+				</ol>
+			</div>
+		</div>
+	</ion-card>
+	<!--/BreadCrumb-->
+	<ion-item>
+		<ion-grid class="container">
+			<ion-row class="row">
+				<ion-col class="col-xl-8 col-lg-8 col-md-12">
+					<!--Classified Description-->
+					<div class="card overflow-hidden">
+						<div class="ribbon ribbon-top-right text-danger">
+							<span class="bg-danger">Offer</span>
+						</div>
+						<div class="card-body">
+							<div class="item-det mb-4">
+								<a href="#" class="text-dark">
+									<h3>Harlequini Dawn</h3>
+								</a>
+								<div class="d-flex">
+									<ul class="d-flex mb-0">
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-car text-muted mr-1 fs-18"></i> Cars</a
+											>
+										</li>
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-location-pin text-muted mr-1"></i> USA</a
+											>
+										</li>
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-calendar text-muted mr-1"></i> 5 hours
+												ago</a
+											>
+										</li>
+										<li class="mr-5">
+											<a href="#" class="icons"
+												><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a
+											>
+										</li>
+									</ul>
+									<div class="rating-stars d-flex mr-5">
+										<input
+											type="number"
+											readonly="readonly"
+											class="rating-value star"
+											name="rating-stars-value"
+											id="rating-stars-value"
+											value="4"
+										/>
+										<div class="rating-stars-container mr-2">
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+											<div class="rating-star sm">
+												<i class="fa fa-star"></i>
+											</div>
+										</div>
+										4.0
+									</div>
+									<div class="rating-stars d-flex">
+										<div class="rating-stars-container mr-2">
+											<div class="rating-star sm">
+												<i class="fa fa-heart"></i>
+											</div>
+										</div>
+										135
+									</div>
+								</div>
+							</div>
+							<ion-slides pager="true" [options]="slideOpts">
+								<ion-slide>
+									<ion-img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									></ion-img>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+							</ion-slides>
+						</div>
+					</div>
+
+					<ion-item class="mb-5">
+						<mat-accordion>
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										<strong>Overview</strong>
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>
+									Killington odio dignissimos ducimus qui blanditiis praesentium
+									voluptatum deleniti atcorrupti quos dolores et quas molestias
+									excepturi sint occaecati cupiditate non provident, similique
+									sunt in culpa qui officia deserunt mollitia animi, id est
+									laborum et dolorum fuga.
+								</p>
+							</mat-expansion-panel>
+
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										<strong>Features & Options</strong>
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>I'm visible because I am open</p>
+							</mat-expansion-panel>
+
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										<strong>Vehicle Info</strong>
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>I'm visible because I am open</p>
+							</mat-expansion-panel>
+
+							<mat-expansion-panel
+								(opened)="panelOpenState = true"
+								(closed)="panelOpenState = false"
+							>
+								<mat-expansion-panel-header>
+									<mat-panel-title>
+										<strong>About video</strong>
+									</mat-panel-title>
+									<mat-panel-description>
+										Show details
+									</mat-panel-description>
+								</mat-expansion-panel-header>
+								<p>I'm visible because I am open</p>
+							</mat-expansion-panel>
+						</mat-accordion>
+					</ion-item>
+
+					<ion-card class="card-body">
+						<ion-card-content>
+							<div>
+								<div class="form-group">
+									<input
+										type="text"
+										class="form-control"
+										id="name1"
+										placeholder="Input your bidding price"
+									/>
+								</div>
+								<ion-button expand="full" color="tertiary" size="large">
+									<ion-icon name="wallet"></ion-icon>
+								</ion-button>
+							</div>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
+</ion-content>

@@ -17,13 +17,6 @@ const routes: Routes = [
 					import('./deal/deal.module').then((m) => m.DealPageModule),
 			},
 			{
-				path: 'deal/detail',
-				loadChildren: () =>
-					import('./dealdetail/dealdetail.module').then(
-						(m) => m.DealdetailPageModule,
-					),
-			},
-			{
 				path: 'notifications',
 				loadChildren: () =>
 					import('./notifications/notifications.module').then(

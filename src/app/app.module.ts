@@ -1,3 +1,5 @@
+import { AuthService } from './services/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,8 +25,11 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 		BrowserAnimationsModule,
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFireAuthModule,
+		FormsModule,
+		ReactiveFormsModule,
 	],
 	providers: [
+		AuthService,
 		StatusBar,
 		SplashScreen,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

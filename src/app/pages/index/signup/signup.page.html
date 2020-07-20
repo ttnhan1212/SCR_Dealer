@@ -1,153 +1,208 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Header/Banner section -->
-  <ion-item>
-    <div class="bannerimg cover-image bg-background3">
-      <div class="header-text">
-        <div class="container">
-          <div class="text-center text-white">
-            <h1 class="">SCRoads - Registration</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ion-item>
-  <!-- End of Header/Banner section -->
+	<!-- Header/Banner section -->
+	<ion-item>
+		<div class="bannerimg cover-image bg-background3">
+			<div class="header-text">
+				<div class="container">
+					<div class="text-center text-white">
+						<h1 class="">SCRoads - Registration</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-item>
+	<!-- End of Header/Banner section -->
 
-  <!-- Login content section -->
-  <ion-card class="m-5">
-    <div class="container customerpage">
-      <div class="row">
-        <div class="single-page">
-          <div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
-            <div class="wrapper wrapper2">
-              <form id="login" class="card-body" tabindex="500">
-                <h3>Register as:</h3>
-                <div class="avt-view">
-                  <img [src]="imagePreview" alt="" class="img-fluid">
-                  <input type="file" placeholder="" accept=".jpg, .jpeg, .png"
-                    (change)="handleFileInput($event.target.files)" />
-                </div>
-                <h3 style="color:#080e1b; font-size: 1rem;">(Tap to upload profile image)</h3>
-                <div class="mb-6"></div>
-                <div class="mail">
-                  <input type="email" name="mail" [(ngModel)]="email" style="color: #080e1b;" />
-                  <label>Email</label>
-                </div>
-                <div class="passwd">
-                  <input type="password" name="password" [(ngModel)]="password" style="color: #080e1b;" />
-                  <label>Password</label>
-                </div>
-                <div class="passwd">
-                  <input type="password" name="cPassword" [(ngModel)]="cPassword" style="color: #080e1b;" />
-                  <label>Confirm Password</label>
-                </div>
-                <div class="mail">
-                  <input type="email" name="orgname" [(ngModel)]="orgname" style="color: #080e1b;" />
-                  <label>Organization Name</label>
-                </div>
-                <div class="mail">
-                  <input type="number" name="phonenum" [(ngModel)]="phonenum" style="color: #080e1b;" />
-                  <label>Phone Number</label>
-                </div>
-                <div class="mail">
-                  <input type="email" name="faxnum" [(ngModel)]="faxnum" style="color: #080e1b;" />
-                  <label>Fax Number</label>
-                </div>
-                <div class="mail">
-                  <input type="email" name="ceoname" [(ngModel)]="ceoname" style="color: #080e1b;" />
-                  <label>CEO Name</label>
-                </div>
-                <div class="mail">
-                  <input type="email" name="address" [(ngModel)]="address" style="color: #080e1b;" />
-                  <label>Business Address</label>
-                </div>
-                <!-- <ion-list>
-                  <ion-item (click)="privatePolicyModal()">
-                    <ion-label>Private policy</ion-label>
-                    <ion-checkbox color="primary" slot="start"></ion-checkbox>
-                  </ion-item>
-                  <ion-item (click)="termConditionModal()">
-                    <ion-checkbox color="primary" slot="start"></ion-checkbox>
-                    <ion-label>Terms & Condition</ion-label>
-                  </ion-item>
-                  <ion-item (click)="PuaModal()">
-                    <ion-checkbox color="primary" slot="start"></ion-checkbox>
-                    <ion-label>Privacy Usage Agreement</ion-label>
-                  </ion-item>
-                  <ion-item>
-										<ion-checkbox disabled slot="start"></ion-checkbox>
-										<ion-label>Privacy Usage Agreement</ion-label>
-									  </ion-item>
-                  <ion-item>
-										<ion-checkbox color="primary" slot="start"></ion-checkbox>
-										<ion-label>Select All</ion-label>
+	<!-- Login content section -->
+	<ion-card class="m-5">
+		<div class="container customerpage">
+			<div class="row">
+				<div class="single-page">
+					<div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
+						<div class="wrapper wrapper2">
+							<form class="card-body" [formGroup]="signupForm">
+								<h3>Register as:</h3>
+								<div class="avt-view">
+									<img [src]="imagePreview" alt="" class="img-fluid" />
+									<input
+										type="file"
+										placeholder=""
+										accept=".jpg, .jpeg, .png"
+										(change)="handleFileInput($event.target.files)"
+									/>
+								</div>
+								<h3 style="color: #080e1b; font-size: 1rem;">
+									(Tap to upload profile image)
+								</h3>
+								<div class="mb-6"></div>
+								<div class="mail">
+									<input
+										type="email"
+										name="mail"
+										[(ngModel)]="email"
+										style="color: #080e1b;"
+									/>
+									<label>Email</label>
+								</div>
+								<div class="passwd">
+									<input
+										type="password"
+										name="password"
+										[(ngModel)]="password"
+										style="color: #080e1b;"
+									/>
+									<label>Password</label>
+								</div>
+								<div class="passwd">
+									<input
+										type="password"
+										name="cPassword"
+										[(ngModel)]="cPassword"
+										style="color: #080e1b;"
+									/>
+									<label>Confirm Password</label>
+								</div>
+								<div class="mail">
+									<input
+										type="email"
+										name="orgname"
+										[formControl]="orgname"
+										style="color: #080e1b;"
+									/>
+									<label>Organization Name</label>
+								</div>
+								<div class="mail">
+									<input
+										type="number"
+										name="phonenum"
+										[formControl]="phonenum"
+										style="color: #080e1b;"
+									/>
+									<label>Phone Number</label>
+								</div>
+								<div class="mail">
+									<input
+										type="email"
+										name="faxnum"
+										[(ngModel)]="faxnum"
+										style="color: #080e1b;"
+									/>
+									<label>Fax Number</label>
+								</div>
+								<div class="mail">
+									<input
+										type="email"
+										name="ceoname"
+										[(ngModel)]="ceoname"
+										style="color: #080e1b;"
+									/>
+									<label>CEO Name</label>
+								</div>
+								<div class="mail">
+									<input
+										type="email"
+										name="address"
+										[(ngModel)]="address"
+										style="color: #080e1b;"
+									/>
+									<label>Business Address</label>
+								</div>
+
+								<ion-list>
+									<ion-item *ngFor="let item of checkBoxList">
+										<ion-label>{{item.value}}</ion-label>
+										<ion-checkbox
+											slot="start"
+											#checkBoxList
+											name="itemoption"
+											(click)="modalNavigate(item.id)"
+											[(ngModel)]="item.isChecked"
+											[attr.data-id]="item.id"
+											(ionChange)="checkEvent()"
+										></ion-checkbox>
 									</ion-item>
-                </ion-list> -->
-                <ion-list>
-                  <ion-item *ngFor="let item of checkBoxList">
-                    <ion-label>{{item.value}}</ion-label>
-                    <ion-checkbox slot="start"
-                    #checkBoxList
-                    name="itemoption"
-                    (click)="modalNavigate(item.id)" 
-                    [(ngModel)]="item.isChecked" 
-                    [attr.data-id]="item.id"
-                    (ionChange)="checkEvent()"></ion-checkbox>
-                  </ion-item>
-                  <ion-item>
-                    <ion-label><strong>Agree All</strong></ion-label>
-                    <ion-checkbox slot="start" 
-                    name="selectallcheck"
-                    [(ngModel)]="masterCheck"
-                    [indeterminate]="isIndeterminate"
-                      (click)="checkMaster($event)"></ion-checkbox>
-                  </ion-item>
-                </ion-list>
-                <h2 class="item-text-wrap">***</h2>
-                <ion-button expand="block" color="tertiary" (click)="signup()">
-                  Register
-                </ion-button>
-                <ion-button fill="clear" expand="block" class="text-dark mb-0" routerLink="/login">
-                  Already have an account? Log In
-                </ion-button>
-              </form>
-              <hr class="divider" />
-              <ion-grid class="card-body social-images">
-                <p class="text-body text-center">
-                  Continue using Social Accounts
-                </p>
-                <ion-row>
-                  <ion-col>
-                    <ion-button fill="outline" shape="round" color="dark" href="https://www.facebook.com/"
-                      class="text-left">
-                      <ion-icon slot="start" src="../../../assets/images/svgs/facebook.svg">
-                      </ion-icon>
-                      Facebook
-                    </ion-button>
-                  </ion-col>
-                  <ion-col>
-                    <ion-button fill="outline" shape="round" color="dark" href="https://www.google.com/gmail/"
-                      class="text-left">
-                      <ion-icon slot="start" src="../../../assets/images/svgs/search.svg">
-                      </ion-icon>
-                      Google
-                    </ion-button>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ion-card>
-  <!-- End of Login content section -->
+									<ion-item>
+										<ion-label><strong>Agree All</strong></ion-label>
+										<ion-checkbox
+											slot="start"
+											name="selectallcheck"
+											[(ngModel)]="masterCheck"
+											[indeterminate]="isIndeterminate"
+											(click)="checkMaster($event)"
+										></ion-checkbox>
+									</ion-item>
+								</ion-list>
+								<h2 class="item-text-wrap">***</h2>
+								<ion-button
+									expand="block"
+									color="tertiary"
+									(click)="signupDealer()"
+									[disabled]="!masterCheck"
+								>
+									Request Register
+								</ion-button>
+							</form>
+							<ion-button
+								fill="clear"
+								expand="block"
+								class="text-dark mb-0"
+								routerLink="/login"
+							>
+								Already have an account? Log In
+							</ion-button>
+							<hr class="divider" />
+							<ion-grid class="card-body social-images">
+								<p class="text-body text-center">
+									Continue using Social Accounts
+								</p>
+								<ion-row>
+									<ion-col>
+										<ion-button
+											fill="outline"
+											shape="round"
+											color="dark"
+											href="https://www.facebook.com/"
+											class="text-left"
+										>
+											<ion-icon
+												slot="start"
+												src="../../../assets/images/svgs/facebook.svg"
+											>
+											</ion-icon>
+											Facebook
+										</ion-button>
+									</ion-col>
+									<ion-col>
+										<ion-button
+											fill="outline"
+											shape="round"
+											color="dark"
+											href="https://www.google.com/gmail/"
+											class="text-left"
+										>
+											<ion-icon
+												slot="start"
+												src="../../../assets/images/svgs/search.svg"
+											>
+											</ion-icon>
+											Google
+										</ion-button>
+									</ion-col>
+								</ion-row>
+							</ion-grid>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-card>
+	<!-- End of Login content section -->
 </ion-content>

@@ -33,19 +33,28 @@ const routes: Routes = [
 			},
 		],
 		...canActivate(redirectLoggedInToRequest),
-	},  {
-    path: 'privatepolicy',
-    loadChildren: () => import('./modals/privatepolicy/privatepolicy.module').then( m => m.PrivatepolicyPageModule)
-  },
-  {
-    path: 'termcondition',
-    loadChildren: () => import('./modals/termcondition/termcondition.module').then( m => m.TermconditionPageModule)
-  },
-  {
-    path: 'puagreement',
-    loadChildren: () => import('./modals/puagreement/puagreement.module').then( m => m.PuagreementPageModule)
-  },
-
+	},
+	{
+		path: 'privatepolicy',
+		loadChildren: () =>
+			import('./modals/privatepolicy/privatepolicy.module').then(
+				(m) => m.PrivatepolicyPageModule,
+			),
+	},
+	{
+		path: 'termcondition',
+		loadChildren: () =>
+			import('./modals/termcondition/termcondition.module').then(
+				(m) => m.TermconditionPageModule,
+			),
+	},
+	{
+		path: 'puagreement',
+		loadChildren: () =>
+			import('./modals/puagreement/puagreement.module').then(
+				(m) => m.PuagreementPageModule,
+			),
+	},
 ];
 @NgModule({
 	imports: [RouterModule.forChild(routes)],

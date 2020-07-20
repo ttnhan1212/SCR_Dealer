@@ -16,6 +16,13 @@ const routes: Routes = [
 			),
 	},
 	{
+		path: 'home/deal/:id',
+		loadChildren: () =>
+			import('./pages/dealdetail/dealdetail.module').then(
+				(m) => m.DealdetailPageModule,
+			),
+	},
+	{
 		path: '',
 		redirectTo: '',
 		pathMatch: 'full',

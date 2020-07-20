@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import { ToastService } from '../../../services/toast.service';
 import { LoadingController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -15,9 +16,9 @@ export class LoginPage implements OnInit {
 
 	constructor(
 		public afAuth: AngularFireAuth,
-		private router: Router,
 		public loadingController: LoadingController,
 		private toast: ToastService,
+		private authService: AuthService,
 	) {}
 
 	ngOnInit() {}
@@ -30,14 +31,11 @@ export class LoginPage implements OnInit {
 		});
 		try {
 			await loading.present();
-			await this.afAuth.signInWithEmailAndPassword(email, password);
-			this.router.navigate(['home/deal']);
+			this.authService.login(email, password);
 			await loading.dismiss();
-			return true;
 		} catch (error) {
 			this.toast.showToast(error.message);
 			await loading.dismiss();
-			return false;
 		}
 	}
 }

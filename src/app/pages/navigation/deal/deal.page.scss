@@ -20,6 +20,10 @@
 	height: 2.6rem;
 }
 
+.deal-select {
+	min-width: 22rem;
+}
+
 .cover-image {
 	background-size: cover !important;
 	width: 100%;
@@ -145,10 +149,6 @@ select.form-control:not([size]):not([multiple]) {
 	color: #e72a1a;
 	background: #f6f7fb;
 }
-
-// .item-overly-trans .rating-stars .rating-stars-container .rating-star.is--active, .rating-stars .rating-stars-container .rating-star.is--hover {
-//     color: #f1c40f !important;
-// }
 
 .item-overly-trans .rating-stars .rating-stars-container .rating-star.sm {
 	color: #f1c40f !important;
