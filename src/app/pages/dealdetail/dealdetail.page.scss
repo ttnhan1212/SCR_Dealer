@@ -1,47 +1,53 @@
 .breadcrumb-item a {
-    color: #3f80FF;
+	color: #3f80ff;
 }
 
 .page-header {
-    margin-top: 0.8rem;
+	margin-top: 0.7rem;
 }
 
-.bg-primary {
-    background-color: #e72a1a !important;
+.card-body {
+	padding: 0 !important;
+	& > .item-det {
+		padding: 1.5rem;
+	}
+	& > .item-slides {
+		margin-top: -1rem;
+		border-radius: 0.3rem;
+	}
 }
 
-.h3, h3 {
-    font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-}
 @media only screen and (max-width: 800px) {
-    .arrow-ribbon2{
-        font-size: 22px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        &:before {
-            left: 100%;
-            width: unset;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            border-left: 15px solid #e72a1a;
-        }
-    }
+	.arrow-ribbon2 {
+		font-size: 22px;
+		height: 30px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		&:before {
+			left: 100%;
+			width: unset;
+			border-top: 15px solid transparent;
+			border-bottom: 15px solid transparent;
+			border-left: 15px solid #e72a1a;
+		}
+	}
 }
-
 
 ion-item {
-    --inner-padding-end: 0.4rem;
-    --padding-start: 0.4rem;
-    --background: var(--ion-item-background, var(--ion-background-color, #f1f5fd));
+	--inner-padding-end: 0.4rem;
+	--padding-start: 0.4rem;
+	--background: var(
+		--ion-item-background,
+		var(--ion-background-color, #f1f5fd)
+	);
 }
 
 ion-content {
-    --background: #f1f5fd;
+	--background: #f1f5fd;
 }
 
-.mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
-    justify-content: flex-end;
+.mat-expansion-panel-header-title,
+.mat-expansion-panel-header-description {
+	justify-content: flex-end;
 }

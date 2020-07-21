@@ -9,15 +9,17 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
 	<!--BreadCrumb-->
 	<ion-card>
 		<div class="container">
 			<div class="page-header">
 				<!-- <h4 class="page-title">Cars</h4> -->
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="#">Home</a></li>
-					<li class="breadcrumb-item"><a href="#">Request</a></li>
+					<li class="breadcrumb-item"><a>Home</a></li>
+					<li class="breadcrumb-item">
+						<a [routerLink]="['/','home','deal']">Deal</a>
+					</li>
 					<li class="breadcrumb-item active" aria-current="page">Details</li>
 				</ol>
 			</div>
@@ -100,7 +102,11 @@
 									</div>
 								</div>
 							</div>
-							<ion-slides pager="true" [options]="slideOpts">
+							<ion-slides
+								class="item-slides"
+								pager="true"
+								[options]="slideOpts"
+							>
 								<ion-slide>
 									<ion-img
 										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
