@@ -29,6 +29,11 @@ const routes: Routes = [
 					import('./settings/setting.module').then((m) => m.SettingPageModule),
 			},
 			{
+				path: 'infor',
+				loadChildren: () =>
+					import('./infor/infor.module').then((m) => m.InforPageModule),
+			},
+			{
 				path: 'ongoing',
 				loadChildren: () =>
 					import('./ongoing/ongoing.module').then((m) => m.OngoingPageModule),

@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
 		});
 		try {
 			await loading.present();
-			this.authService.login(email, password);
+			await this.authService.login(email, password);
 			await loading.dismiss();
 		} catch (error) {
 			this.toast.showToast(error.message);

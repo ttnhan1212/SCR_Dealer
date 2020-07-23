@@ -1,3 +1,4 @@
+import { NotiService } from './../../services/noti.service';
 import { DealDetail } from './../../models/deal-detail';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -30,6 +31,7 @@ export class DealdetailPage implements OnInit {
 		private dealsService: DealsService,
 		private router: Router,
 		private route: ActivatedRoute,
+		private notiService: NotiService,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 		if (localStorage.getItem('user')) {
@@ -54,6 +56,13 @@ export class DealdetailPage implements OnInit {
 			bidTime: this.bidTime,
 		};
 		await this.dealsService.dealerToDeal(this.id, this.dealer);
+		await this.dealsService.updateDeal(this.id, { status: 'bidding' });
+		await this.notiService.createNoti({
+			requestId: this.id,
+			status: 'bidding',
+			updateDate: Math.floor(new Date().getTime() / 1000.0),
+			user: this.userId,
+		});
 		this.router.navigate(['/', 'home', 'ongoing']);
 	}
 

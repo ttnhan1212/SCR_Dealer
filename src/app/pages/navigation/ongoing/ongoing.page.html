@@ -16,4 +16,30 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content class="ion-padding">
+	<ion-card *ngFor="let item of ongoing">
+		<ion-item [routerLink]="[item.id]" *ngIf="item.status === 'ongoing'">
+			<ion-avatar slot="start">
+				<img src="../../../../assets/images/photos/8627.jpg" />
+			</ion-avatar>
+			<ion-label>
+				<h2>{{item.id}}</h2>
+				<ion-grid class="p-0 m-0">
+					<ion-row>
+						<ion-col>
+							<p>{{item.userId}}</p>
+						</ion-col>
+					</ion-row>
+					<ion-row>
+						<ion-col size="6">
+							<p>{{item.price}}</p>
+						</ion-col>
+						<ion-col size="6">
+							<p>{{item.bidTime}}</p>
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</ion-label>
+		</ion-item>
+	</ion-card>
+</ion-content>
