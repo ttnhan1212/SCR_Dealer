@@ -1,9 +1,19 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>ongoing</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title>
+			<app-logo></app-logo>
+		</ion-title>
+		<ion-button fill="clear" slot="end" [routerLink]="['/','home','infor']">
+			<ion-icon name="information-circle-outline"></ion-icon>
+		</ion-button>
+		<ion-button
+			fill="clear"
+			slot="end"
+			[routerLink]="['/','home','notifications']"
+		>
+			<ion-icon name="notifications-outline"></ion-icon>
+		</ion-button>
+	</ion-toolbar>
 </ion-header>
 
-<ion-content>
-  
-</ion-content>
+<ion-content> </ion-content>

@@ -22,13 +22,13 @@
 	<!-- End of Header/Banner section -->
 
 	<!-- Login content section -->
-	<ion-card class="m-5">
+	<ion-card class="m-3">
 		<div class="container customerpage">
 			<div class="row">
 				<div class="single-page">
 					<div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
 						<div class="wrapper wrapper2">
-							<form class="card-body" [formGroup]="signupForm">
+							<form class="card-body p-4 pb-0" [formGroup]="signupForm">
 								<h3>Register as:</h3>
 								<div class="avt-view">
 									<img [src]="imagePreview" alt="" class="img-fluid" />
@@ -47,7 +47,7 @@
 									<input
 										type="email"
 										name="mail"
-										[(ngModel)]="email"
+										[formControl]="email"
 										style="color: #080e1b;"
 									/>
 									<label>Email</label>
@@ -56,7 +56,7 @@
 									<input
 										type="password"
 										name="password"
-										[(ngModel)]="password"
+										[formControl]="password"
 										style="color: #080e1b;"
 									/>
 									<label>Password</label>
@@ -65,14 +65,14 @@
 									<input
 										type="password"
 										name="cPassword"
-										[(ngModel)]="cPassword"
+										[formControl]="cPassword"
 										style="color: #080e1b;"
 									/>
 									<label>Confirm Password</label>
 								</div>
 								<div class="mail">
 									<input
-										type="email"
+										type="text"
 										name="orgname"
 										[formControl]="orgname"
 										style="color: #080e1b;"
@@ -90,114 +90,74 @@
 								</div>
 								<div class="mail">
 									<input
-										type="email"
+										type="number"
 										name="faxnum"
-										[(ngModel)]="faxnum"
+										[formControl]="faxnum"
 										style="color: #080e1b;"
 									/>
 									<label>Fax Number</label>
 								</div>
 								<div class="mail">
 									<input
-										type="email"
+										type="text"
 										name="ceoname"
-										[(ngModel)]="ceoname"
+										[formControl]="ceoname"
 										style="color: #080e1b;"
 									/>
 									<label>CEO Name</label>
 								</div>
 								<div class="mail">
 									<input
-										type="email"
+										type="text"
 										name="address"
-										[(ngModel)]="address"
+										[formControl]="address"
 										style="color: #080e1b;"
 									/>
 									<label>Business Address</label>
 								</div>
-
-								<ion-list>
-									<ion-item *ngFor="let item of checkBoxList">
-										<ion-label>{{item.value}}</ion-label>
-										<ion-checkbox
-											slot="start"
-											#checkBoxList
-											name="itemoption"
-											(click)="modalNavigate(item.id)"
-											[(ngModel)]="item.isChecked"
-											[attr.data-id]="item.id"
-											(ionChange)="checkEvent()"
-										></ion-checkbox>
-									</ion-item>
-									<ion-item>
-										<ion-label><strong>Agree All</strong></ion-label>
-										<ion-checkbox
-											slot="start"
-											name="selectallcheck"
-											[(ngModel)]="masterCheck"
-											[indeterminate]="isIndeterminate"
-											(click)="checkMaster($event)"
-										></ion-checkbox>
-									</ion-item>
-								</ion-list>
-								<h2 class="item-text-wrap">***</h2>
-								<ion-button
-									expand="block"
-									color="tertiary"
-									(click)="signupDealer()"
-									[disabled]="!masterCheck"
-								>
-									Request Register
-								</ion-button>
 							</form>
+							<ion-list class="ion-padding">
+								<ion-item *ngFor="let item of checkBoxList">
+									<ion-label>{{item.value}}</ion-label>
+									<ion-checkbox
+										slot="start"
+										#checkBoxList
+										name="itemoption"
+										(click)="modalNavigate(item.id)"
+										[(ngModel)]="item.isChecked"
+										[attr.data-id]="item.id"
+										(ionChange)="checkEvent()"
+									></ion-checkbox>
+								</ion-item>
+								<ion-item>
+									<ion-label><strong>Agree All</strong></ion-label>
+									<ion-checkbox
+										slot="start"
+										name="selectallcheck"
+										[(ngModel)]="masterCheck"
+										[indeterminate]="isIndeterminate"
+										(click)="checkMaster($event)"
+									></ion-checkbox>
+								</ion-item>
+							</ion-list>
+							<ion-button
+								expand="block"
+								color="tertiary"
+								class="mr-3 ml-3"
+								(click)="signupDealer()"
+								[disabled]="!masterCheck || !signupForm.valid"
+							>
+								Request Register
+							</ion-button>
+
 							<ion-button
 								fill="clear"
 								expand="block"
-								class="text-dark mb-0"
+								class="text-dark mb-6"
 								routerLink="/login"
 							>
 								Already have an account? Log In
 							</ion-button>
-							<hr class="divider" />
-							<ion-grid class="card-body social-images">
-								<p class="text-body text-center">
-									Continue using Social Accounts
-								</p>
-								<ion-row>
-									<ion-col>
-										<ion-button
-											fill="outline"
-											shape="round"
-											color="dark"
-											href="https://www.facebook.com/"
-											class="text-left"
-										>
-											<ion-icon
-												slot="start"
-												src="../../../assets/images/svgs/facebook.svg"
-											>
-											</ion-icon>
-											Facebook
-										</ion-button>
-									</ion-col>
-									<ion-col>
-										<ion-button
-											fill="outline"
-											shape="round"
-											color="dark"
-											href="https://www.google.com/gmail/"
-											class="text-left"
-										>
-											<ion-icon
-												slot="start"
-												src="../../../assets/images/svgs/search.svg"
-											>
-											</ion-icon>
-											Google
-										</ion-button>
-									</ion-col>
-								</ion-row>
-							</ion-grid>
 						</div>
 					</div>
 				</div>

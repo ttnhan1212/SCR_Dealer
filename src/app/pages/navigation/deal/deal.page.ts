@@ -1,3 +1,4 @@
+import { LocationService } from './../../../services/location.service';
 import { DealsService } from './../../../services/deals.service';
 import { ModelService } from './../../../services/model.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -9,15 +10,19 @@ import { Subscription } from 'rxjs';
 	styleUrls: ['./deal.page.scss'],
 })
 export class DealPage implements OnInit, OnDestroy {
-	models: [];
+	models = [];
 	modelSub: Subscription;
 
-	deals: [];
+	deals = [];
 	dealSub: Subscription;
+
+	locations = [];
+	locationSub: Subscription;
 
 	constructor(
 		private modelService: ModelService,
 		private dealService: DealsService,
+		private locationService: LocationService,
 	) {}
 
 	ngOnInit() {
@@ -34,6 +39,14 @@ export class DealPage implements OnInit, OnDestroy {
 				console.log(error);
 			},
 		);
+
+		this.locationSub = this.locationService.getLocation().subscribe((data) => {
+			this.locations = data.map((val) => {
+				return {
+					city: val.payload.doc.data()['city'],
+				};
+			});
+		});
 
 		this.dealSub = this.dealService.getDeal().subscribe((data: any) => {
 			this.deals = data.map((e) => {

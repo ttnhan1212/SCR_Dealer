@@ -1,3 +1,4 @@
+import { DealdetailPage } from './pages/dealdetail/dealdetail.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ErrorsPage } from './pages/errors/errors.page';
@@ -17,6 +18,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'home/deal/:id',
+		component: DealdetailPage,
 		loadChildren: () =>
 			import('./pages/dealdetail/dealdetail.module').then(
 				(m) => m.DealdetailPageModule,

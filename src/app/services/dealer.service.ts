@@ -10,4 +10,8 @@ export class DealerService {
 	createDealer(dealer: any, id: string) {
 		return this.firestore.collection('Dealer').doc(id).set(dealer);
 	}
+
+	updateDealer(content: any, id: string) {
+		return this.firestore.collection('Dealer').doc(id).update(content);
+	}
 }

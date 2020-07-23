@@ -38,59 +38,36 @@
 						<div class="card-body">
 							<div class="item-det mb-4">
 								<a href="#" class="text-dark">
-									<h3>Harlequini Dawn</h3>
+									<h3>Car Model</h3>
 								</a>
 								<div class="d-flex">
 									<ul class="d-flex mb-0">
 										<li class="mr-5">
-											<a href="#" class="icons"
+											<a class="icons"
 												><i class="ti-car text-muted mr-1 fs-18"></i> Cars</a
 											>
 										</li>
 										<li class="mr-5">
-											<a href="#" class="icons"
-												><i class="ti-location-pin text-muted mr-1"></i> USA</a
+											<a class="icons"
+												><i class="ti-location-pin text-muted mr-1"></i
+												>{{detail.location}}</a
 											>
 										</li>
 										<li class="mr-5">
-											<a href="#" class="icons"
-												><i class="ti-calendar text-muted mr-1"></i> 5 hours
-												ago</a
+											<a class="icons"
+												><i class="ti-calendar text-muted mr-1"></i
+												>{{detail.effectedTime}}</a
 											>
 										</li>
 										<li class="mr-5">
-											<a href="#" class="icons"
+											<a class="icons"
 												><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a
 											>
 										</li>
 									</ul>
 									<div class="rating-stars d-flex mr-5">
-										<input
-											type="number"
-											readonly="readonly"
-											class="rating-value star"
-											name="rating-stars-value"
-											id="rating-stars-value"
-											value="4"
-										/>
-										<div class="rating-stars-container mr-2">
-											<div class="rating-star sm">
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="rating-star sm">
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="rating-star sm">
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="rating-star sm">
-												<i class="fa fa-star"></i>
-											</div>
-											<div class="rating-star sm">
-												<i class="fa fa-star"></i>
-											</div>
-										</div>
-										4.0
+										<ion-icon name="person-outline" class="mr-1"></ion-icon>
+										<ion-label>{{detail.name}}</ion-label>
 									</div>
 									<div class="rating-stars d-flex">
 										<div class="rating-stars-container mr-2">
@@ -140,7 +117,7 @@
 										<strong>Overview</strong>
 									</mat-panel-title>
 									<mat-panel-description>
-										Show details
+										Show
 									</mat-panel-description>
 								</mat-expansion-panel-header>
 								<p>
@@ -151,7 +128,6 @@
 									laborum et dolorum fuga.
 								</p>
 							</mat-expansion-panel>
-
 							<mat-expansion-panel
 								(opened)="panelOpenState = true"
 								(closed)="panelOpenState = false"
@@ -161,7 +137,7 @@
 										<strong>Features & Options</strong>
 									</mat-panel-title>
 									<mat-panel-description>
-										Show details
+										Show
 									</mat-panel-description>
 								</mat-expansion-panel-header>
 								<p>I'm visible because I am open</p>
@@ -176,7 +152,7 @@
 										<strong>Vehicle Info</strong>
 									</mat-panel-title>
 									<mat-panel-description>
-										Show details
+										Show
 									</mat-panel-description>
 								</mat-expansion-panel-header>
 								<p>I'm visible because I am open</p>
@@ -191,7 +167,7 @@
 										<strong>About video</strong>
 									</mat-panel-title>
 									<mat-panel-description>
-										Show details
+										Show
 									</mat-panel-description>
 								</mat-expansion-panel-header>
 								<p>I'm visible because I am open</p>
@@ -204,13 +180,19 @@
 							<div>
 								<div class="form-group">
 									<input
-										type="text"
-										class="form-control"
-										id="name1"
+										type="number"
+										class="form-control text-center"
 										placeholder="Input your bidding price"
+										[(ngModel)]="price"
 									/>
 								</div>
-								<ion-button expand="full" color="tertiary" size="large">
+								<ion-button
+									expand="full"
+									color="tertiary"
+									size="large"
+									shape="round"
+									(click)="addDealerToDeal()"
+								>
 									<ion-icon name="wallet"></ion-icon>
 								</ion-button>
 							</div>

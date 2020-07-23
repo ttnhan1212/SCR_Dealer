@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { DealDetail } from './../../models/deal-detail';
+import { Subscription } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { DealsService } from 'src/app/services/deals.service';
 
 @Component({
 	selector: 'app-dealdetail',
@@ -11,7 +15,51 @@ export class DealdetailPage implements OnInit {
 		speed: 400,
 	};
 
-	constructor() {}
+	id: string;
 
-	ngOnInit() {}
+	dealer: {};
+	price: number;
+	userId: string;
+	bidTime = Math.floor(new Date().getTime() / 1000.0);
+
+	dealSub: Subscription;
+
+	detail = {} as DealDetail;
+
+	constructor(
+		private dealsService: DealsService,
+		private router: Router,
+		private route: ActivatedRoute,
+	) {
+		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
+		if (localStorage.getItem('user')) {
+			this.userId = JSON.parse(localStorage.getItem('user')).uid;
+		}
+	}
+
+	ngOnInit() {
+		this.dealSub = this.dealsService
+			.getDealDetail(this.id)
+			.subscribe((val: any) => {
+				this.detail = {
+					...val.payload.data(),
+				};
+			});
+	}
+
+	async addDealerToDeal() {
+		this.dealer = {
+			price: this.price,
+			userId: this.userId,
+			bidTime: this.bidTime,
+		};
+		await this.dealsService.dealerToDeal(this.id, this.dealer);
+		this.router.navigate(['/', 'home', 'ongoing']);
+	}
+
+	// ngOnDestroy() {
+	// 	if (this.dealSub) {
+	// 		this.dealSub.unsubscribe();
+	// 	}
+	// }
 }

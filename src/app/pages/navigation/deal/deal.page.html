@@ -27,38 +27,56 @@
 							<div class="search-background bg-transparent mt-5">
 								<div class="form row no-gutters">
 									<ion-col class="form-group mb-0 bg-white">
-										<input
-											type="text"
-											class="form-control input-lg br-tr-md-0 br-br-md-0 border-right-0"
-											id="text4"
-											placeholder="Search Product"
-										/>
+										<ion-select
+											placeholder="Location Select"
+											interface="action-sheet"
+											class="deal-select"
+										>
+											<ion-select-option
+												*ngFor="let item of locations"
+												[value]="item.id"
+											>
+												{{item.city}}
+											</ion-select-option>
+										</ion-select>
 									</ion-col>
 								</div>
 								<div class="form row no-gutters">
 									<ion-col class="form-group mb-0 bg-white">
-										<input
-											type="text"
-											class="form-control input-lg br-tr-md-0 br-br-md-0 border-right-0"
-											id="text4"
-											placeholder="Enter location"
-										/>
+										<ion-select
+											placeholder="Model Select"
+											interface="action-sheet"
+											class="deal-select"
+										>
+											<ion-select-option
+												*ngFor="let model of models"
+												[value]="model.id"
+											>
+												{{model.name}}
+											</ion-select-option>
+										</ion-select>
 									</ion-col>
 								</div>
-								<ion-item>
-									<ion-select
-										placeholder="Model Select"
-										interface="action-sheet"
-										class="deal-select"
-									>
-										<ion-select-option
-											*ngFor="let model of models"
-											[value]="model.id"
+								<div class="form row no-gutters">
+									<ion-col class="form-group mb-0 bg-white">
+										<ion-select
+											placeholder="Order By"
+											interface="action-sheet"
+											class="deal-select"
 										>
-											{{model.name}}
-										</ion-select-option>
-									</ion-select>
-								</ion-item>
+											<ion-select-option>
+												Name
+											</ion-select-option>
+											<ion-select-option>
+												Date
+											</ion-select-option>
+											<ion-select-option>
+												Location
+											</ion-select-option>
+										</ion-select>
+									</ion-col>
+								</div>
+
 								<ion-col class="col-xl-2 col-lg-3 col-md-12 mb-0">
 									<a
 										[routerLink]="['details']"
@@ -83,7 +101,7 @@
 					<!--Lists-->
 					<div class="mb-0">
 						<div class="item2-gl">
-							<div class="mb-0">
+							<!-- <div class="mb-0">
 								<div class="">
 									<div class="bg-white p-5 item2-gl-nav d-flex">
 										<div class="d-sm-flex">
@@ -132,7 +150,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<div class="ion-padding">
 								<div class="card overflow-hidden" *ngFor="let item of deals">
 									<div class="d-md-flex">

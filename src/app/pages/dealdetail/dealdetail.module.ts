@@ -11,14 +11,14 @@ import { ComponentsModule } from 'src/app/components/components.module';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ComponentsModule,
-    DealdetailPageRoutingModule,
-    MatExpansionModule
-  ],
-  declarations: [DealdetailPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		ComponentsModule,
+		DealdetailPageRoutingModule,
+		MatExpansionModule,
+	],
+	declarations: [DealdetailPage],
 })
 export class DealdetailPageModule {}

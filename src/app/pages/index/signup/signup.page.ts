@@ -1,6 +1,6 @@
 import { DealerService } from './../../../services/dealer.service';
 import { AuthService } from './../../../services/auth.service';
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
@@ -10,29 +10,91 @@ import { ModalController } from '@ionic/angular';
 import { PrivatepolicyPage } from './../modals/privatepolicy/privatepolicy.page';
 import { PuagreementPage } from './../modals/puagreement/puagreement.page';
 import { TermconditionPage } from './../modals/termcondition/termcondition.page';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import {
+	FormGroup,
+	FormControl,
+	Validators,
+	FormBuilder,
+} from '@angular/forms';
+import {
+	AngularFireStorage,
+	AngularFireUploadTask,
+} from '@angular/fire/storage';
+import { Observable } from 'rxjs';
+import { finalize, tap } from 'rxjs/operators';
+import { AngularFirestoreCollection } from '@angular/fire/firestore';
+import { ThrowStmt } from '@angular/compiler';
+
+export interface MyData {
+	name: string;
+	filepath: string;
+	size: number;
+}
 
 const IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
+
 @Component({
 	selector: 'app-signup',
 	templateUrl: './signup.page.html',
 	styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-	email: string;
-	password: string;
-	cPassword: string;
 	imageSource: File;
 	imagePreview: string = IMG_AVT_DEFAULT;
 	checkBoxList: any;
 	isIndeterminate: boolean;
 	masterCheck: boolean;
 
-	dealer: {};
+	userId: string;
 
 	signupForm: FormGroup;
+	email = new FormControl(
+		'',
+		Validators.compose([
+			Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
+			Validators.required,
+		]),
+	);
+	password = new FormControl(
+		'',
+		Validators.compose([Validators.minLength(8), Validators.required]),
+	);
+	cPassword = new FormControl('', Validators.required);
 	orgname = new FormControl('', Validators.required);
-	phonenum = new FormControl('', Validators.required);
+	phonenum = new FormControl(null, Validators.required);
+	faxnum = new FormControl(
+		null,
+		Validators.compose([Validators.required, Validators.minLength(10)]),
+	);
+	ceoname = new FormControl('', Validators.required);
+	address = new FormControl('', Validators.required);
+
+	selectedFile: any;
+
+	// Upload Task
+	task: AngularFireUploadTask;
+
+	// Progress in percentage
+	percentage: Observable<number>;
+
+	// Snapshot of uploading file
+	snapshot: Observable<any>;
+
+	// Uploaded File URL
+	UploadedFileURL: Observable<string>;
+
+	//Uploaded Image List
+	images: Observable<MyData[]>;
+
+	//File details
+	fileName: string;
+	fileSize: number;
+
+	//Status check
+	isUploading: boolean;
+	isUploaded: boolean;
+
+	private imageCollection: AngularFirestoreCollection<MyData>;
 
 	constructor(
 		public afAuth: AngularFireAuth,
@@ -42,6 +104,8 @@ export class SignupPage implements OnInit {
 		private modalController: ModalController,
 		private authService: AuthService,
 		private dealerService: DealerService,
+		private fb: FormBuilder,
+		private storage: AngularFireStorage,
 	) {
 		this.checkBoxList = [
 			{
@@ -60,6 +124,23 @@ export class SignupPage implements OnInit {
 				isChecked: false,
 			},
 		];
+
+		this.isUploading = false;
+		this.isUploaded = false;
+
+		//Set collection where our documents/ images info will save
+		// this.images = this.imageCollection.valueChanges();
+
+		this.signupForm = this.fb.group({
+			email: this.email,
+			password: this.password,
+			cPassword: this.cPassword,
+			orgname: this.orgname,
+			phone: this.phonenum,
+			fax: this.faxnum,
+			ceoName: this.ceoname,
+			address: this.address,
+		});
 	}
 
 	handleFileInput(files: File[]) {
@@ -69,7 +150,17 @@ export class SignupPage implements OnInit {
 		reader.onload = (e: any) => {
 			this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
 		};
+		console.log(this.imageSource.name);
 	}
+
+	// chooseFile(event) {
+	// 	this.selectedFile = event.target.files;
+	// 	let reader = new FileReader();
+	// 	reader.readAsDataURL(this.selectedFile);
+	// 	reader.onload = (e: any) => {
+	// 		this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
+	// 	};
+	// }
 
 	ngOnInit() {}
 
@@ -107,8 +198,7 @@ export class SignupPage implements OnInit {
 		let checked = 0;
 		this.checkBoxList.map((obj) => {
 			if (obj.isChecked) checked++;
-			//console.log(checked);
-			console.log(obj.isChecked);
+			// console.log(obj.isChecked);
 		});
 		if (checked > 0 && checked < totalItems) {
 			//If even one item is checked but not all
@@ -128,22 +218,100 @@ export class SignupPage implements OnInit {
 	modalNavigate(id) {
 		let checkboxId = id;
 		//let messageId = el.dataset.messageId;
-		console.log('Checkbox Id: ', checkboxId);
 
-		if (checkboxId == 1) {
+		if (checkboxId === 1) {
 			this.privatePolicyModal();
 		} else {
-			if (checkboxId == 2) {
+			if (checkboxId === 2) {
 				this.termConditionModal();
-			} else if (checkboxId == 3) {
+			} else if (checkboxId === 3) {
 				this.PuaModal();
 			}
 		}
 	}
 
+	uploadFile(user: string) {
+		// The File object
+		const file = this.imageSource;
+
+		// Validation for Images Only
+		if (file.type.split('/')[0] !== 'image') {
+			console.error('unsupported file type :( ');
+			return;
+		}
+
+		this.isUploading = true;
+		this.isUploaded = false;
+
+		this.fileName = file.name;
+
+		// The storage path
+		const path = `user-image/${new Date().getTime()}_${file.name}`;
+
+		// Totally optional metadata
+		const customMetadata = { app: 'SCRoads Image Upload Demo' };
+
+		//File reference
+		const fileRef = this.storage.ref(path);
+
+		// The main task
+		this.task = this.storage.upload(path, file, { customMetadata });
+
+		this.UploadedFileURL = fileRef.getDownloadURL();
+		this.UploadedFileURL.subscribe(
+			(resp) => {
+				this.dealerService.updateDealer(
+					{
+						name: file.name,
+						filepath: resp,
+						size: this.fileSize,
+					},
+					user,
+				);
+				this.isUploading = false;
+				this.isUploaded = true;
+			},
+			(error) => {
+				console.error(error);
+			},
+		);
+
+		// Get file progress percentage
+		// this.percentage = this.task.percentageChanges();
+		// this.snapshot = this.task.snapshotChanges().pipe(
+		// 	finalize(() => {
+		// 		// Get uploaded file storage path
+		// 		this.UploadedFileURL = fileRef.getDownloadURL();
+
+		// 		this.UploadedFileURL.subscribe(
+		// 			(resp) => {
+		// 				this.dealerService.updateDealer(
+		// 					// {
+		// 					// 	name: file.name,
+		// 					// 	filepath: resp,
+		// 					// 	size: this.fileSize,
+		// 					// },
+		// 					resp,
+		// 					user,
+		// 				);
+		// 				this.isUploading = false;
+		// 				this.isUploaded = true;
+		// 			},
+		// 			(error) => {
+		// 				console.error(error);
+		// 			},
+		// 		);
+		// 	}),
+		// 	tap((snap) => {
+		// 		this.fileSize = snap.totalBytes;
+		// 	}),
+		// );
+	}
+
 	async signupDealer() {
-		const { email, password } = this;
-		if (this.password !== this.cPassword) {
+		const { email, password, cPassword } = this.signupForm.value;
+		if (password !== cPassword) {
+			console.log(password, cPassword);
 			this.toast.showToast('Password not match, Please try again!');
 		} else {
 			const loading = await this.loadingController.create({
@@ -155,15 +323,18 @@ export class SignupPage implements OnInit {
 				await this.authService.signup(email, password);
 				await this.afAuth.onAuthStateChanged((user) => {
 					if (user) {
-						this.dealerService.createDealer(this.dealer, user.uid);
+						this.userId = user.uid;
+						this.dealerService.createDealer(this.signupForm.value, user.uid);
 					}
 				});
+				await this.uploadFile(this.userId);
 				await loading.dismiss();
-				return true;
 			} catch (error) {
+				if (!this.signupForm.valid) {
+					this.toast.showToast(this.signupForm.errors.message);
+				}
 				this.toast.showToast(error.message);
 				await loading.dismiss();
-				return false;
 			}
 		}
 	}

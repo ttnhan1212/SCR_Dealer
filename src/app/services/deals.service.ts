@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class DealsService {
 	loggedUser: any;
 
-	constructor(private firestore: AngularFirestore) {
+	constructor(private fireStore: AngularFirestore) {
 		if (this.isLoggedIn === true) {
 			this.loggedUser = JSON.parse(localStorage.getItem('user')).uid;
 		}
@@ -19,8 +19,20 @@ export class DealsService {
 	}
 
 	getDeal() {
-		return this.firestore
+		return this.fireStore
 			.collection('requests', (ref) => ref.limit(10))
 			.snapshotChanges();
+	}
+
+	getDealDetail(id: string) {
+		return this.fireStore.collection('requests').doc(id).snapshotChanges();
+	}
+
+	dealerToDeal(id: string, dealer: any) {
+		return this.fireStore
+			.collection('requests')
+			.doc(id)
+			.collection('pacticipants')
+			.add(dealer);
 	}
 }
