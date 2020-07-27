@@ -1,16 +1,16 @@
-import { NotiService } from './../../services/noti.service';
-import { DealDetail } from './../../models/deal-detail';
+import { DealDetail } from '../../models/deal-detail';
 import { Subscription } from 'rxjs';
+import { NotiService } from '../../services/noti.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DealsService } from 'src/app/services/deals.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'app-dealdetail',
-	templateUrl: './dealdetail.page.html',
-	styleUrls: ['./dealdetail.page.scss'],
+	selector: 'app-ongoing-detail',
+	templateUrl: './ongoing-detail.page.html',
+	styleUrls: ['./ongoing-detail.page.scss'],
 })
-export class DealdetailPage implements OnInit {
+export class OngoingDetailPage implements OnInit {
 	slideOpts = {
 		initialSlide: 1,
 		speed: 400,
@@ -26,8 +26,7 @@ export class DealdetailPage implements OnInit {
 
 	dealSub: Subscription;
 
-	detail = {} as DealDetail;
-
+	detail: any = {};
 	constructor(
 		private dealsService: DealsService,
 		private router: Router,
@@ -57,28 +56,6 @@ export class DealdetailPage implements OnInit {
 					return (this.participant = Boolean(val));
 				}
 			});
-	}
-
-	async addDealerToDeal() {
-		this.dealer = {
-			price: this.price,
-			userId: this.userId,
-			bidTime: this.bidTime,
-		};
-		await this.dealsService.dealerToDeal(this.id, this.dealer);
-		await this.dealsService.addDealToDealer(this.userId, {
-			dealId: this.id,
-			price: this.price,
-			bidTime: this.bidTime,
-		});
-		await this.dealsService.updateDeal(this.id, { status: 'bidding' });
-		await this.notiService.createNoti({
-			requestId: this.id,
-			status: 'bidding',
-			updateDate: Math.floor(new Date().getTime() / 1000.0),
-			user: this.userId,
-		});
-		this.router.navigate(['/', 'home', 'ongoing']);
 	}
 
 	// ngOnDestroy() {

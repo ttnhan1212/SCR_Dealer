@@ -18,7 +18,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a>Home</a></li>
 					<li class="breadcrumb-item">
-						<a [routerLink]="['/','home','deal']">Deal</a>
+						<a [routerLink]="['/','home','deal']">Ongoing</a>
 					</li>
 					<li class="breadcrumb-item active" aria-current="page">Details</li>
 				</ol>
@@ -32,8 +32,17 @@
 				<ion-col class="col-xl-8 col-lg-8 col-md-12">
 					<!--Classified Description-->
 					<div class="card overflow-hidden">
-						<div class="ribbon ribbon-top-right text-danger">
-							<span class="bg-danger">Offer</span>
+						<div
+							class="ribbon ribbon-top-right text-danger"
+							*ngIf="detail.dealerId"
+						>
+							<span class="bg-blue-light">Selected</span>
+						</div>
+						<div
+							class="ribbon ribbon-top-right text-danger"
+							*ngIf="!detail.dealerId"
+						>
+							<span class="bg-blue-light">On-going</span>
 						</div>
 						<div class="card-body">
 							<div class="item-det mb-4">
@@ -184,37 +193,33 @@
 					</ion-item>
 
 					<ion-card class="card-body">
-						<ion-card-content>
-							<div [hidden]="!participant">
-								<ion-button
-									expand="full"
-									color="tertiary"
-									size="large"
-									shape="round"
-								>
-									Ongoing Phase
-								</ion-button>
-							</div>
-							<div [hidden]="participant">
-								<div class="form-group">
-									<input
-										type="number"
-										class="form-control text-center"
-										placeholder="Input your bidding price"
-										[(ngModel)]="price"
-									/>
-								</div>
-								<ion-button
-									expand="full"
-									color="tertiary"
-									size="large"
-									shape="round"
-									(click)="addDealerToDeal()"
-								>
-									<ion-icon name="wallet"></ion-icon>
-								</ion-button>
-							</div>
-						</ion-card-content>
+						<ion-grid>
+							<ion-row *ngIf="detail.dealerId">
+								<ion-col size="4">
+									<ion-button expand="full" color="tertiary" size="large">
+										Cancel
+									</ion-button>
+								</ion-col>
+								<ion-col size="8">
+									<ion-button expand="full" color="tertiary" size="large">
+										Purchase
+									</ion-button>
+								</ion-col>
+							</ion-row>
+							<ion-row *ngIf="!detail.dealerId">
+								<ion-col>
+									<ion-button
+										expand="full"
+										color="tertiary"
+										size="large"
+										disabled
+									>
+										Pending Confirm
+										<ion-spinner class="ml-4" name="crescent"></ion-spinner>
+									</ion-button>
+								</ion-col>
+							</ion-row>
+						</ion-grid>
 					</ion-card>
 				</ion-col>
 			</ion-row>

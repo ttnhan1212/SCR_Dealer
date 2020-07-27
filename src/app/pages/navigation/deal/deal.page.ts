@@ -13,6 +13,9 @@ export class DealPage implements OnInit, OnDestroy {
 	models = [];
 	modelSub: Subscription;
 
+	dealerId: string;
+	myDeal: number = 9999999;
+
 	deals = [];
 	dealSub: Subscription;
 
@@ -23,7 +26,9 @@ export class DealPage implements OnInit, OnDestroy {
 		private modelService: ModelService,
 		private dealService: DealsService,
 		private locationService: LocationService,
-	) {}
+	) {
+		this.dealerId = JSON.parse(localStorage.getItem('user')).uid;
+	}
 
 	ngOnInit() {
 		this.modelSub = this.modelService.getModel().subscribe(
@@ -55,6 +60,7 @@ export class DealPage implements OnInit, OnDestroy {
 					...e.payload.doc.data(),
 				};
 			});
+			
 		});
 	}
 	ngOnDestroy() {

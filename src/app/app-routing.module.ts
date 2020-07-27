@@ -25,6 +25,13 @@ const routes: Routes = [
 			),
 	},
 	{
+		path: 'home/ongoing/:id',
+		loadChildren: () =>
+			import('./pages/ongoing-detail/ongoing-detail.module').then(
+				(m) => m.OngoingDetailPageModule,
+			),
+	},
+	{
 		path: '',
 		redirectTo: '',
 		pathMatch: 'full',

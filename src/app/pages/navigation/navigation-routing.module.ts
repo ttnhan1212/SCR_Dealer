@@ -46,6 +46,13 @@ const routes: Routes = [
 		],
 		...canActivate(redirectUnauthorizedToLogin),
 	},
+	{
+		path: 'ongoing-detail',
+		loadChildren: () =>
+			import('../ongoing-detail/ongoing-detail.module').then(
+				(m) => m.OngoingDetailPageModule,
+			),
+	},
 ];
 @NgModule({
 	imports: [RouterModule.forChild(routes)],

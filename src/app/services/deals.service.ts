@@ -22,11 +22,19 @@ export class DealsService {
 		return this.fireStore.collection('requests').snapshotChanges();
 	}
 
-	getOngoingDealWithDealer(id: string, userId: string) {
+	getDealerInParticipant(id: string, user: string) {
 		return this.fireStore
 			.collection('requests')
 			.doc(id)
-			.collection('participants', (ref) => ref.where('userId', '==', userId))
+			.collection('participants', (ref) => ref.where('userId', '==', user))
+			.valueChanges();
+	}
+
+	getOngoingDeal(id: string) {
+		return this.fireStore
+			.collection('Dealer')
+			.doc(id)
+			.collection('Deals')
 			.snapshotChanges();
 	}
 
@@ -40,6 +48,14 @@ export class DealsService {
 			.doc(id)
 			.collection('participants')
 			.add(dealer);
+	}
+
+	addDealToDealer(id: string, deal: any) {
+		return this.fireStore
+			.collection('Dealer')
+			.doc(id)
+			.collection('Deals')
+			.add(deal);
 	}
 
 	updateDeal(id: string, update: any) {

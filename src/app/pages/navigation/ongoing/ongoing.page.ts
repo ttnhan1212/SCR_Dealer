@@ -11,7 +11,6 @@ export class OngoingPage implements OnInit {
 	id: string;
 
 	ongoing: any[];
-	deal: any[];
 	constructor(private dealService: DealsService) {
 		this.logo = '../../../assets/images/logo/scroadslight.svg';
 		if (localStorage.getItem('user')) {
@@ -20,21 +19,20 @@ export class OngoingPage implements OnInit {
 	}
 
 	ngOnInit() {
-		this.dealService.getDeal().subscribe((val) => {
-			this.deal = val.map((e) => {
-				return { id: e.payload.doc.id };
+		this.dealService.getOngoingDeal(this.id).subscribe((val) => {
+			this.ongoing = val.map((e) => {
+				return {
+					...e.payload.doc.data(),
+				};
 			});
-			console.log(this.deal);
-			this.deal.forEach((val) => {
-				this.dealService
-					.getOngoingDealWithDealer(val.id, this.id)
-					.subscribe((e) => {
-						this.ongoing = e.map((m) => {
-							return { ...m.payload.doc.data() };
-						});
-					});
+			this.ongoing.forEach((val) => {
+				this.dealService.getDealDetail(val.dealId).subscribe((m) => {
+					val.deal = {
+						...(m.payload.data() as {}),
+					};
+				});
 			});
-			console.log(this.deal);
+			console.log(this.ongoing);
 		});
 	}
 }

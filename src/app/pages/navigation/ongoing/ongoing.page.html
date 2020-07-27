@@ -18,16 +18,16 @@
 
 <ion-content class="ion-padding">
 	<ion-card *ngFor="let item of ongoing">
-		<ion-item [routerLink]="[item.id]" *ngIf="item.status === 'ongoing'">
+		<ion-item [routerLink]="[item.dealId]">
 			<ion-avatar slot="start">
 				<img src="../../../../assets/images/photos/8627.jpg" />
 			</ion-avatar>
 			<ion-label>
-				<h2>{{item.id}}</h2>
+				<h2>{{item.dealId}}</h2>
 				<ion-grid class="p-0 m-0">
 					<ion-row>
 						<ion-col>
-							<p>{{item.userId}}</p>
+							<p>{{item.deal.name}}</p>
 						</ion-col>
 					</ion-row>
 					<ion-row>

@@ -152,8 +152,11 @@
 								</div>
 							</div> -->
 							<div class="ion-padding">
-								<div class="card overflow-hidden" *ngFor="let item of deals">
-									<div class="d-md-flex">
+								<div class="card overflow-hidden" *ngFor="let item of deals;">
+									<div
+										class="d-md-flex"
+										*ngIf="item.participants?.indexOf(dealerId)==-1"
+									>
 										<div class="item-card9-img">
 											<div
 												id="carouselExampleSlidesOnly"
@@ -171,7 +174,7 @@
 												</div>
 											</div>
 											<div class="item-card9-icons">
-												<a href="#" class="item-card9-icons1 wishlist active">
+												<a class="item-card9-icons1 wishlist active">
 													<i class="fa fa fa-heart-o"></i
 												></a>
 											</div>
@@ -191,7 +194,7 @@
 															value="3"
 														/>
 													</div>
-													<a href="cars.html" class="text-dark">
+													<a class="text-dark">
 														<h4 class="font-weight-semibold mt-1">
 															Tarragon
 														</h4>
