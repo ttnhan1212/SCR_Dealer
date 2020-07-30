@@ -27,7 +27,7 @@ export class DealsService {
 			.collection('requests')
 			.doc(id)
 			.collection('participants', (ref) =>
-				ref.where('userId', '==', user).where('status', '==', true),
+				ref.where('userId', '==', user).where('selected', '==', true),
 			)
 			.valueChanges();
 	}

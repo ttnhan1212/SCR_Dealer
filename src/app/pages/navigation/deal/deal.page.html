@@ -99,8 +99,11 @@
 			<ion-row class="row">
 				<ion-col class="col-xl-9 col-lg-9 col-md-12">
 					<!--Lists-->
-					<div class="mb-0">
-						<div class="item2-gl">
+					<div class="mb-0" *ngFor="let item of deals;">
+						<div
+							class="item2-gl"
+							*ngIf="item.participants.indexOf(dealerId)==-1"
+						>
 							<!-- <div class="mb-0">
 								<div class="">
 									<div class="bg-white p-5 item2-gl-nav d-flex">
@@ -152,11 +155,8 @@
 								</div>
 							</div> -->
 							<div class="ion-padding">
-								<div class="card overflow-hidden" *ngFor="let item of deals;">
-									<div
-										class="d-md-flex"
-										*ngIf="item.participants?.indexOf(dealerId)==-1"
-									>
+								<div class="card overflow-hidden">
+									<div class="d-md-flex">
 										<div class="item-card9-img">
 											<div
 												id="carouselExampleSlidesOnly"
@@ -189,11 +189,11 @@
 															value="3"
 														/>
 													</div>
-													<a class="text-dark">
+													<!-- <a class="text-dark">
 														<h4 class="font-weight-semibold mt-1">
 															Tarragon
 														</h4>
-													</a>
+													</a> -->
 													<div class="item-card9-desc mb-2">
 														<a href="#" class="mr-4"
 															><span class=""
@@ -243,6 +243,7 @@
 							</div>
 						</div>
 					</div>
+
 					<!--/Lists-->
 				</ion-col>
 			</ion-row>

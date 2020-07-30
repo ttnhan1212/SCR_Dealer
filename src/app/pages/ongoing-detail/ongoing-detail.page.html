@@ -6,6 +6,9 @@
 		<ion-title class="smllogo">
 			<app-logo></app-logo>
 		</ion-title>
+		<ion-button slot="end" fill="clear" [routerLink]="['/','home','deal']">
+			<ion-icon name="log-out-outline"></ion-icon>
+		</ion-button>
 	</ion-toolbar>
 </ion-header>
 
@@ -18,7 +21,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a>Home</a></li>
 					<li class="breadcrumb-item">
-						<a [routerLink]="['/','home','deal']">Ongoing</a>
+						<a [routerLink]="['/','home','ongoing']">Ongoing</a>
 					</li>
 					<li class="breadcrumb-item active" aria-current="page">Details</li>
 				</ol>
@@ -47,27 +50,27 @@
 						<div class="card-body">
 							<div class="item-det mb-4">
 								<a href="#" class="text-dark">
-									<h3>Car Model</h3>
+									<h3>Car Model, Year, Plate Number</h3>
 								</a>
 								<div class="d-flex">
 									<ul class="d-flex mb-0">
-										<li class="mr-5">
+										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-car text-muted mr-1 fs-18"></i> Cars</a
 											>
-										</li>
-										<li class="mr-5">
+										</li> -->
+										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-location-pin text-muted mr-1"></i
 												>{{detail.location}}</a
 											>
-										</li>
-										<li class="mr-5">
+										</li> -->
+										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-calendar text-muted mr-1"></i
 												>{{detail.effectedTime}}</a
 											>
-										</li>
+										</li> -->
 										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a
@@ -123,74 +126,32 @@
 						</ion-button>
 					</div>
 
-					<ion-item class="mb-5">
-						<mat-accordion>
-							<mat-expansion-panel
-								(opened)="panelOpenState = true"
-								(closed)="panelOpenState = false"
+					<ion-item-group class="mb-5">
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong>Location</strong>
+							</ion-card-header>
+							<ion-card-content>{{detail.location}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header
+								><i class="ti-location-pin text-muted mr-1"></i>
+								<strong>Mileages</strong></ion-card-header
 							>
-								<mat-expansion-panel-header>
-									<mat-panel-title>
-										<strong>Overview</strong>
-									</mat-panel-title>
-									<mat-panel-description>
-										Show
-									</mat-panel-description>
-								</mat-expansion-panel-header>
-								<p>
-									Killington odio dignissimos ducimus qui blanditiis praesentium
-									voluptatum deleniti atcorrupti quos dolores et quas molestias
-									excepturi sint occaecati cupiditate non provident, similique
-									sunt in culpa qui officia deserunt mollitia animi, id est
-									laborum et dolorum fuga.
-								</p>
-							</mat-expansion-panel>
-							<mat-expansion-panel
-								(opened)="panelOpenState = true"
-								(closed)="panelOpenState = false"
-							>
-								<mat-expansion-panel-header>
-									<mat-panel-title>
-										<strong>Features & Options</strong>
-									</mat-panel-title>
-									<mat-panel-description>
-										Show
-									</mat-panel-description>
-								</mat-expansion-panel-header>
-								<p>I'm visible because I am open</p>
-							</mat-expansion-panel>
-
-							<mat-expansion-panel
-								(opened)="panelOpenState = true"
-								(closed)="panelOpenState = false"
-							>
-								<mat-expansion-panel-header>
-									<mat-panel-title>
-										<strong>Vehicle Info</strong>
-									</mat-panel-title>
-									<mat-panel-description>
-										Show
-									</mat-panel-description>
-								</mat-expansion-panel-header>
-								<p>I'm visible because I am open</p>
-							</mat-expansion-panel>
-
-							<mat-expansion-panel
-								(opened)="panelOpenState = true"
-								(closed)="panelOpenState = false"
-							>
-								<mat-expansion-panel-header>
-									<mat-panel-title>
-										<strong>About video</strong>
-									</mat-panel-title>
-									<mat-panel-description>
-										Show
-									</mat-panel-description>
-								</mat-expansion-panel-header>
-								<p>I'm visible because I am open</p>
-							</mat-expansion-panel>
-						</mat-accordion>
-					</ion-item>
+							<ion-card-content>{{detail.miles}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong>Vehicle 특이 사항</strong>
+							</ion-card-header>
+							<ion-card-content>
+								출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
+								탔어요
+							</ion-card-content>
+						</ion-card>
+					</ion-item-group>
 
 					<ion-card class="card-body">
 						<ion-grid>
@@ -207,7 +168,7 @@
 										size="large"
 										(click)="confirmSelect(participant[0].userId)"
 									>
-										Proceed to Purchase
+										Purchase
 									</ion-button>
 								</ion-col>
 							</ion-row>
