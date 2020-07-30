@@ -22,7 +22,9 @@ export class OngoingDetailPage implements OnInit {
 	price: number;
 	userId: string;
 	bidTime = Math.floor(new Date().getTime() / 1000.0);
-	participant: boolean;
+
+	userExist: boolean;
+	participant: any = {};
 
 	dealSub: Subscription;
 
@@ -51,16 +53,29 @@ export class OngoingDetailPage implements OnInit {
 			.getDealerInParticipant(this.id, this.userId)
 			.subscribe((val) => {
 				if (val.length === 0) {
-					return (this.participant = !Boolean(val));
+					this.participant = {};
+					this.userExist = !Boolean(val);
 				} else {
-					return (this.participant = Boolean(val));
+					this.participant = { ...val };
+					this.userExist = Boolean(val);
 				}
 			});
 	}
 
-	// ngOnDestroy() {
-	// 	if (this.dealSub) {
-	// 		this.dealSub.unsubscribe();
-	// 	}
-	// }
+	async confirmSelect(user) {
+		await this.dealsService.updateDeal(this.id, {
+			participants: [user],
+		});
+		await this.dealsService.getParticipant(this.id).subscribe((val) => {
+			val.forEach((part) => {
+				this.dealsService.deleteParticipant(this.id, part.payload.doc.id);
+			});
+		});
+	}
+
+	ngOnDestroy() {
+		if (this.dealSub) {
+			this.dealSub.unsubscribe();
+		}
+	}
 }

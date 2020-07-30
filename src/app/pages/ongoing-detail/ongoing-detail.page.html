@@ -194,19 +194,24 @@
 
 					<ion-card class="card-body">
 						<ion-grid>
-							<ion-row *ngIf="detail.dealerId">
+							<ion-row *ngIf="userExist">
 								<ion-col size="4">
 									<ion-button expand="full" color="tertiary" size="large">
 										Cancel
 									</ion-button>
 								</ion-col>
 								<ion-col size="8">
-									<ion-button expand="full" color="tertiary" size="large">
-										Purchase
+									<ion-button
+										expand="full"
+										color="tertiary"
+										size="large"
+										(click)="confirmSelect(participant[0].userId)"
+									>
+										Proceed to Purchase
 									</ion-button>
 								</ion-col>
 							</ion-row>
-							<ion-row *ngIf="!detail.dealerId">
+							<ion-row *ngIf="!userExist">
 								<ion-col>
 									<ion-button
 										expand="full"

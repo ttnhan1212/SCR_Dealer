@@ -26,7 +26,9 @@ export class DealsService {
 		return this.fireStore
 			.collection('requests')
 			.doc(id)
-			.collection('participants', (ref) => ref.where('userId', '==', user))
+			.collection('participants', (ref) =>
+				ref.where('userId', '==', user).where('status', '==', true),
+			)
 			.valueChanges();
 	}
 
@@ -60,5 +62,22 @@ export class DealsService {
 
 	updateDeal(id: string, update: any) {
 		return this.fireStore.collection('requests').doc(id).update(update);
+	}
+
+	getParticipant(id: string) {
+		return this.fireStore
+			.collection('requests')
+			.doc(id)
+			.collection('participants')
+			.snapshotChanges();
+	}
+
+	deleteParticipant(id: string, partId: string) {
+		this.fireStore
+			.collection('requests')
+			.doc(id)
+			.collection('participants')
+			.doc(partId)
+			.delete();
 	}
 }

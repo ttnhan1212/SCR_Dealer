@@ -64,6 +64,7 @@ export class DealdetailPage implements OnInit {
 			price: this.price,
 			userId: this.userId,
 			bidTime: this.bidTime,
+			selected: false,
 		};
 		await this.dealsService.dealerToDeal(this.id, this.dealer);
 		await this.dealsService.addDealToDealer(this.userId, {
