@@ -50,7 +50,7 @@ export class OngoingDetailPage implements OnInit {
 				};
 			});
 		this.dealsService
-			.getDealerInParticipant(this.id, this.userId)
+			.getSelectedDealer(this.id, this.userId)
 			.subscribe((val) => {
 				if (val.length === 0) {
 					this.participant = {};
@@ -64,7 +64,7 @@ export class OngoingDetailPage implements OnInit {
 
 	async confirmSelect(user) {
 		await this.dealsService.updateDeal(this.id, {
-			participants: [user],
+			participants: [user, this.participant.price],
 		});
 		await this.dealsService.getParticipant(this.id).subscribe((val) => {
 			val.forEach((part) => {

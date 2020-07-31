@@ -26,6 +26,14 @@ export class DealsService {
 		return this.fireStore
 			.collection('requests')
 			.doc(id)
+			.collection('participants', (ref) => ref.where('userId', '==', user))
+			.valueChanges();
+	}
+
+	getSelectedDealer(id: string, user: string) {
+		return this.fireStore
+			.collection('requests')
+			.doc(id)
 			.collection('participants', (ref) =>
 				ref.where('userId', '==', user).where('selected', '==', true),
 			)
