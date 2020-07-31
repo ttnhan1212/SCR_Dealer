@@ -1,3 +1,4 @@
+import { RouterExtService } from './services/routerext.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './services/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -34,6 +35,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 	],
 	providers: [
 		AuthService,
+		RouterExtService,
 		StatusBar,
 		SplashScreen,
 		{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
