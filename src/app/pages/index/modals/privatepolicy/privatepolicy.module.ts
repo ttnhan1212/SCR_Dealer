@@ -9,12 +9,12 @@ import { PrivatepolicyPageRoutingModule } from './privatepolicy-routing.module';
 import { PrivatepolicyPage } from './privatepolicy.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PrivatepolicyPageRoutingModule
-  ],
-  declarations: [PrivatepolicyPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		PrivatepolicyPageRoutingModule,
+	],
+	declarations: [PrivatepolicyPage],
 })
 export class PrivatepolicyPageModule {}

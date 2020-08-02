@@ -4,14 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { PrivatepolicyPage } from './privatepolicy.page';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: PrivatepolicyPage
-  }
+	{
+		path: '',
+		component: PrivatepolicyPage,
+	},
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class PrivatepolicyPageRoutingModule {}

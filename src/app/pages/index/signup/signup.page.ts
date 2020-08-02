@@ -21,9 +21,7 @@ import {
 	AngularFireUploadTask,
 } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
 import { AngularFirestoreCollection } from '@angular/fire/firestore';
-import { ThrowStmt } from '@angular/compiler';
 
 export interface MyData {
 	name: string;
@@ -110,7 +108,7 @@ export class SignupPage implements OnInit {
 		this.checkBoxList = [
 			{
 				id: 1,
-				value: 'Private Policy',
+				value: 'Privacy Policy',
 				isChecked: false,
 			},
 			{
@@ -311,7 +309,6 @@ export class SignupPage implements OnInit {
 	async signupDealer() {
 		const { email, password, cPassword } = this.signupForm.value;
 		if (password !== cPassword) {
-			console.log(password, cPassword);
 			this.toast.showToast('Password not match, Please try again!');
 		} else {
 			const loading = await this.loadingController.create({

@@ -100,10 +100,7 @@
 				<ion-col class="col-xl-9 col-lg-9 col-md-12">
 					<!--Lists-->
 					<div class="mb-0" *ngFor="let item of deals;">
-						<div
-							class="item2-gl"
-							*ngIf="item.participants.indexOf(dealerId)==-1"
-						>
+						<div class="item2-gl" *ngIf="item.participants.created === true">
 							<!-- <div class="mb-0">
 								<div class="">
 									<div class="bg-white p-5 item2-gl-nav d-flex">

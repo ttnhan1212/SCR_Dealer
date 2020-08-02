@@ -2,18 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-privatepolicy',
-  templateUrl: './privatepolicy.page.html',
-  styleUrls: ['./privatepolicy.page.scss'],
+	selector: 'app-privatepolicy',
+	templateUrl: './privatepolicy.page.html',
+	styleUrls: ['./privatepolicy.page.scss'],
 })
 export class PrivatepolicyPage implements OnInit {
+	constructor(private modalController: ModalController) {}
 
-  constructor(private modalController: ModalController) { }
+	ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  async closePrivatePolicyModal() {
-    await this.modalController.dismiss();
-  }
+	async closePrivatePolicyModal() {
+		await this.modalController.dismiss();
+	}
 }

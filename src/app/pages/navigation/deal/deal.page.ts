@@ -60,7 +60,6 @@ export class DealPage implements OnInit, OnDestroy {
 					...e.payload.doc.data(),
 				};
 			});
-			
 		});
 	}
 	ngOnDestroy() {
