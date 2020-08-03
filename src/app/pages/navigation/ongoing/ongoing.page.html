@@ -6,55 +6,75 @@
 		<ion-button fill="clear" slot="end" [routerLink]="['/','home','infor']">
 			<ion-icon name="information-circle-outline"></ion-icon>
 		</ion-button>
-		<ion-button
-			fill="clear"
-			slot="end"
-			[routerLink]="['/','home','notifications']"
-		>
+		<ion-button fill="clear" slot="end" [routerLink]="['/','home','notifications']">
 			<ion-icon name="notifications-outline"></ion-icon>
 		</ion-button>
 	</ion-toolbar>
 </ion-header>
-
+<ion-item *ngFor="let item of ongoing" lines="none">
+	<ion-thumbnail slot="start">
+		<img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+	</ion-thumbnail>
+	<ion-label style="margin-top: 25px;">
+		<ion-header style="background: #bdc3c7;
+						   background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7); 
+						   background: linear-gradient(to right, #2c3e50, #bdc3c7);" class="m-0 p-0">
+			<p class="fs-15 text-center text-dark">{{item.deal.status}}</p>
+		</ion-header>
+		<div class="first"> 
+			<p>2009
+				<span class="pull-right">K-5<span style="font-size: 10px;">12가1234</span></span>
+			</p>
+			<p>{{item.deal.miles}}
+				<span class="pull-right">${{item.price}}</span>
+			</p>
+		</div>
+	</ion-label>
+</ion-item>
 <ion-content class="ion-padding">
-	<ion-card *ngFor="let item of ongoing">
+	<!-- <ion-card *ngFor="let item of ongoing">
 		<ion-item [routerLink]="[item.dealId]">
-			<ion-thumbnail slot="start">
-				<img
-					src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
-				/>
-			</ion-thumbnail>
 			<ion-grid class="p-0 m-0">
 				<ion-row>
-					<ion-header style="background: gray;" class="m-0 p-0">
-						<p class="fs-20 text-center mt-2 text-dark">{{item.deal.status}}</p>
-					</ion-header>
-				</ion-row>
-				<ion-row>
-					<ion-col>
-						<p>2009</p>
+					<ion-col size="5"><img
+							src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" />
 					</ion-col>
-					<ion-col>
-						<p>K-5</p>
-					</ion-col>
-					<ion-col>
-						<p>12가1234</p>
-					</ion-col>
-				</ion-row>
-				<ion-row>
-					<ion-col>
-						<p>{{item.deal.miles}}</p>
-					</ion-col>
-					<ion-col>
-						<p>${{item.price}}</p>
-					</ion-col>
-				</ion-row>
-				<ion-row>
-					<ion-col>
-						<ion-label>{{item.id}}</ion-label>
+					<ion-col size="7">
+						<ion-grid>
+							<ion-row>
+								<ion-header style="background: #bdc3c7;  /* fallback for old browsers */
+								background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+								background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+								" class="m-0 p-0">
+									<p class="fs-20 text-center mt-2 text-dark">{{item.deal.status}}
+									</p>
+								</ion-header>
+							</ion-row>
+							<ion-row>
+								<ion-col>
+									<p>2009</p>
+								</ion-col>
+								<ion-col>
+									<p>K-5<span style="font-size: 10px;">12가1234</span></p>
+								</ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col>
+									<p>{{item.deal.miles}}</p>
+								</ion-col>
+								<ion-col>
+									<p>${{item.price}}</p>
+								</ion-col>
+							</ion-row>
+							<ion-row>
+								<ion-col>
+									{{item.id}}
+								</ion-col>
+							</ion-row>
+						</ion-grid>
 					</ion-col>
 				</ion-row>
 			</ion-grid>
 		</ion-item>
-	</ion-card>
+	</ion-card> -->
 </ion-content>

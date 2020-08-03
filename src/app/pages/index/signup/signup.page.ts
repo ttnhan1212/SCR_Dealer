@@ -21,8 +21,8 @@ import {
 	AngularFireUploadTask,
 } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
-import { finalize, tap } from 'rxjs/operators';
-import { AngularFirestoreCollection } from '@angular/fire/firestore';
+import { map, finalize, tap } from 'rxjs/operators';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
 import { ThrowStmt } from '@angular/compiler';
 
 export interface MyData {
@@ -39,6 +39,8 @@ const IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
 	styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
+	image: string;
+	newImage: string;
 	imageSource: File;
 	imagePreview: string = IMG_AVT_DEFAULT;
 	checkBoxList: any;
@@ -94,6 +96,8 @@ export class SignupPage implements OnInit {
 	isUploading: boolean;
 	isUploaded: boolean;
 
+	downloadURL: Observable<string>;
+
 	private imageCollection: AngularFirestoreCollection<MyData>;
 
 	constructor(
@@ -106,6 +110,7 @@ export class SignupPage implements OnInit {
 		private dealerService: DealerService,
 		private fb: FormBuilder,
 		private storage: AngularFireStorage,
+		private afs:AngularFirestore
 	) {
 		this.checkBoxList = [
 			{
@@ -153,14 +158,30 @@ export class SignupPage implements OnInit {
 		console.log(this.imageSource.name);
 	}
 
-	// chooseFile(event) {
-	// 	this.selectedFile = event.target.files;
-	// 	let reader = new FileReader();
-	// 	reader.readAsDataURL(this.selectedFile);
-	// 	reader.onload = (e: any) => {
-	// 		this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
-	// 	};
-	// }
+	onFileSelected($event) {
+		var n = $event.target.files[0].name;
+		const file = $event.target.files[0];
+		const filePath = `user-image/`+`${n}`;
+		const fileRef = this.storage.ref(filePath);
+		const task = this.storage.upload(`user-image/`+`${n}`, file);
+		task
+		  .snapshotChanges()
+		  .pipe(
+			finalize(() => {
+			  this.downloadURL = fileRef.getDownloadURL();
+			  this.downloadURL.subscribe(url => {
+				if (url) {
+				  this.newImage = url;
+				  this.image = this.newImage;
+				}
+			  });
+			})
+		  )
+		  .subscribe(url => {
+			if (url) {
+			}
+		  });
+	  }
 
 	ngOnInit() {}
 

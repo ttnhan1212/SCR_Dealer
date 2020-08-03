@@ -62,9 +62,9 @@ export class OngoingDetailPage implements OnInit {
 			});
 	}
 
-	async confirmSelect(user) {
+	async confirmSelect(user:string, price:number) {
 		await this.dealsService.updateDeal(this.id, {
-			participants: [user, this.participant.price],
+			participants: [user, price],
 		});
 		await this.dealsService.getParticipant(this.id).subscribe((val) => {
 			val.forEach((part) => {

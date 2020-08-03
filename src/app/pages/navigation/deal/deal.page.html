@@ -102,7 +102,7 @@
 					<div class="mb-0" *ngFor="let item of deals;">
 						<div
 							class="item2-gl"
-							*ngIf="item.participants.indexOf(dealerId)==-1"
+							*ngIf="item.participants?.created==true"
 						>
 							<!-- <div class="mb-0">
 								<div class="">
