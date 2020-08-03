@@ -1,0 +1,7 @@
+.cancel-input {
+	& > div {
+		& > textarea {
+			min-height: 15rem !important;
+		}
+	}
+}

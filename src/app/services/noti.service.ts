@@ -16,8 +16,4 @@ export class NotiService {
 	createNoti(noti: any) {
 		return this.firestore.collection('notifications').add(noti);
 	}
-
-	updateNoti(noti: any, id: string) {
-		return this.firestore.collection('notifications').doc(id).update(noti);
-	}
 }

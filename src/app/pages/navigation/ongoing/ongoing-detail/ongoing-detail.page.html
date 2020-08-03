@@ -157,7 +157,12 @@
 						<ion-grid>
 							<ion-row *ngIf="userExist">
 								<ion-col size="4">
-									<ion-button expand="full" color="tertiary" size="large">
+									<ion-button
+										expand="full"
+										color="tertiary"
+										size="large"
+										(click)="cancel()"
+									>
 										Cancel
 									</ion-button>
 								</ion-col>

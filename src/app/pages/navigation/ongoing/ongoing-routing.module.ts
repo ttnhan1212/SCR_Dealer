@@ -4,14 +4,18 @@ import { Routes, RouterModule } from '@angular/router';
 import { OngoingPage } from './ongoing.page';
 
 const routes: Routes = [
+	{
+		path: '',
+		component: OngoingPage,
+	},
   {
-    path: '',
-    component: OngoingPage
-  }
+    path: 'cancel',
+    loadChildren: () => import('./cancel/cancel.module').then( m => m.CancelPageModule)
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forChild(routes)],
+	exports: [RouterModule],
 })
 export class OngoingPageRoutingModule {}

@@ -1,6 +1,6 @@
-import { DealDetail } from '../../models/deal-detail';
+import { DealDetail } from '../../../../models/deal-detail';
 import { Subscription } from 'rxjs';
-import { NotiService } from '../../services/noti.service';
+import { NotiService } from '../../../../services/noti.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DealsService } from 'src/app/services/deals.service';
 import { Component, OnInit } from '@angular/core';
@@ -77,6 +77,10 @@ export class OngoingDetailPage implements OnInit {
 				this.dealsService.deleteParticipant(this.id, part.payload.doc.id);
 			});
 		});
+	}
+
+	cancel() {
+		this.router.navigate(['/', 'home', 'ongoing', 'cancel', this.id]);
 	}
 
 	ngOnDestroy() {

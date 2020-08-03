@@ -27,8 +27,15 @@ const routes: Routes = [
 	{
 		path: 'home/ongoing/:id',
 		loadChildren: () =>
-			import('./pages/ongoing-detail/ongoing-detail.module').then(
-				(m) => m.OngoingDetailPageModule,
+			import(
+				'./pages/navigation/ongoing/ongoing-detail/ongoing-detail.module'
+			).then((m) => m.OngoingDetailPageModule),
+	},
+	{
+		path: 'home/ongoing/cancel/:id',
+		loadChildren: () =>
+			import('./pages/navigation/ongoing/cancel/cancel.module').then(
+				(m) => m.CancelPageModule,
 			),
 	},
 	{
