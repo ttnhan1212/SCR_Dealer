@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { NotiService } from './../../../../services/noti.service';
 import { ActivatedRoute } from '@angular/router';
 import { DealsService } from 'src/app/services/deals.service';
@@ -13,6 +14,7 @@ export class CancelPage implements OnInit {
 	message: string;
 
 	userId: string;
+	authState: any = null;
 
 	date = Math.floor(new Date().getTime() / 1000.0);
 
@@ -20,14 +22,23 @@ export class CancelPage implements OnInit {
 		private dealService: DealsService,
 		private notiService: NotiService,
 		private route: ActivatedRoute,
+		private afAuth: AngularFireAuth,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-		if (localStorage.getItem('user')) {
-			this.userId = JSON.parse(localStorage.getItem('user')).uid;
-		}
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.getUser();
+	}
+
+	async getUser() {
+		await this.afAuth.authState.subscribe((authState) => {
+			this.authState = authState;
+			if (this.authState) {
+				this.userId = this.authState.uid;
+			}
+		});
+	}
 
 	async submitCancel() {
 		await this.dealService.updateDeal(this.id, {

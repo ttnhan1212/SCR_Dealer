@@ -16,8 +16,63 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-	<ion-card *ngFor="let item of ongoing">
+<ion-content class="ion-padding" *ngIf="!ongoing">
+	<ion-card>
+		<ion-item>
+			<ion-thumbnail slot="start">
+				<ion-skeleton-text animated></ion-skeleton-text>
+			</ion-thumbnail>
+			<ion-grid class="p-0 m-0">
+				<ion-row>
+					<ion-header style="background: gray;" class="m-0 p-0">
+						<p class="fs-20 text-center mt-2 text-dark">
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</p>
+					</ion-header>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</p>
+					</ion-col>
+					<ion-col>
+						<p>
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</p>
+					</ion-col>
+					<ion-col>
+						<p>
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<p>
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</p>
+					</ion-col>
+					<ion-col>
+						<p>
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</p>
+					</ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col>
+						<ion-label>
+							<ion-skeleton-text animated></ion-skeleton-text>
+						</ion-label>
+					</ion-col>
+				</ion-row>
+			</ion-grid>
+		</ion-item>
+	</ion-card>
+</ion-content>
+
+<ion-content class="ion-padding" *ngIf="ongoing">
+	<ion-card *ngFor="let item of ongoing, let i = index">
 		<ion-item [routerLink]="[item.dealId]">
 			<ion-thumbnail slot="start">
 				<img
@@ -27,7 +82,9 @@
 			<ion-grid class="p-0 m-0">
 				<ion-row>
 					<ion-header style="background: gray;" class="m-0 p-0">
-						<p class="fs-20 text-center mt-2 text-dark">{{item.deal.status}}</p>
+						<p class="fs-20 text-center mt-2 text-dark">
+							{{item.deal['status']}}
+						</p>
 					</ion-header>
 				</ion-row>
 				<ion-row>

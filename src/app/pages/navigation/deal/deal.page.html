@@ -100,7 +100,7 @@
 				<ion-col class="col-xl-9 col-lg-9 col-md-12">
 					<!--Lists-->
 					<div class="mb-0" *ngFor="let item of deals;">
-						<div class="item2-gl" *ngIf="item.participants.created === true">
+						<div class="item2-gl" *ngIf="item.participants?.created === true">
 							<!-- <div class="mb-0">
 								<div class="">
 									<div class="bg-white p-5 item2-gl-nav d-flex">
@@ -192,22 +192,18 @@
 														</h4>
 													</a> -->
 													<div class="item-card9-desc">
-														<a class="mr-4"
-															><span class=""
-																><i
-																	class="fa fa-map-marker text-muted mr-1"
-																></i>
-																{{item.location}}</span
-															></a
-														>
-														<a class="mr-4"
-															><span class=""
-																><i
-																	class="fa fa-calendar-o text-muted mr-1"
-																></i>
-																5 days ago</span
-															></a
-														>
+														<a class="mr-4">
+															<span>
+																<i class="fa fa-map-marker text-muted mr-1"></i>
+																{{item.location}}
+															</span>
+														</a>
+														<a class="mr-4">
+															<span class="">
+																<i class="fa fa-calendar-o text-muted mr-1"></i>
+																5 days ago
+															</span>
+														</a>
 													</div>
 												</div>
 											</div>
@@ -224,12 +220,12 @@
 																name="person-outline"
 																class="mr-1"
 															></ion-icon>
-															{{item.name}}</a
-														>
-														<a class="mr-2" title="Kilometers"
-															><i class="fa fa-road text-muted mr-1"></i>
-															{{item.miles}} Km</a
-														>
+															{{item.name}}
+														</a>
+														<a class="mr-2" title="Kilometers">
+															<i class="fa fa-road text-muted mr-1"></i>
+															{{item.miles}} Km
+														</a>
 														<!-- <a title="Fuel Type"
 															><i class="fa fa-tachometer text-muted mr-1"></i>
 															Hybrid

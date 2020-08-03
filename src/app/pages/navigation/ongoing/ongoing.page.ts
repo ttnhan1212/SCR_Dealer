@@ -1,38 +1,63 @@
+import { Subscription } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { DealsService } from 'src/app/services/deals.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
 	selector: 'app-ongoing',
 	templateUrl: './ongoing.page.html',
 	styleUrls: ['./ongoing.page.scss'],
 })
-export class OngoingPage implements OnInit {
+export class OngoingPage implements OnInit, OnDestroy {
 	logo: any;
+
 	id: string;
+	authState: any = null;
+
+	userSub: Subscription;
 
 	ongoing: any[];
-	constructor(private dealService: DealsService) {
+	constructor(
+		private dealService: DealsService,
+		private afAuth: AngularFireAuth,
+	) {
 		this.logo = '../../../assets/images/logo/scroadslight.svg';
-		if (localStorage.getItem('user')) {
-			this.id = JSON.parse(localStorage.getItem('user')).uid;
-		}
 	}
 
 	ngOnInit() {
-		this.dealService.getOngoingDeal(this.id).subscribe((val) => {
+		this.getUser();
+	}
+
+	async getUser() {
+		this.userSub = await this.afAuth.authState.subscribe((authState) => {
+			this.authState = authState;
+			if (this.authState) {
+				this.id = this.authState.uid;
+				this.getOngoingDeal(this.id);
+			}
+		});
+	}
+
+	getOngoingDeal(id) {
+		this.dealService.getOngoingDeal(id).subscribe((val) => {
 			this.ongoing = val.map((e) => {
 				return {
 					...e.payload.doc.data(),
 				};
 			});
-			this.ongoing.forEach((val) => {
+			this.ongoing.forEach((val: any) => {
 				this.dealService.getDealDetail(val.dealId).subscribe((m) => {
 					val.deal = {
 						...(m.payload.data() as {}),
 					};
 				});
 			});
-			console.log(this.ongoing);
 		});
+	}
+
+	ngOnDestroy() {
+		if (this.userSub) {
+			this.userSub.unsubscribe();
+		}
 	}
 }

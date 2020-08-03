@@ -73,6 +73,17 @@
       var routes = [{
         path: '',
         component: _ongoing_page__WEBPACK_IMPORTED_MODULE_3__["OngoingPage"]
+      }, {
+        path: 'cancel',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | cancel-cancel-module */
+          "cancel-cancel-module").then(__webpack_require__.bind(null,
+          /*! ./cancel/cancel.module */
+          "./src/app/pages/navigation/ongoing/cancel/cancel.module.ts")).then(function (m) {
+            return m.CancelPageModule;
+          });
+        }
       }];
 
       var OngoingPageRoutingModule = function OngoingPageRoutingModule() {

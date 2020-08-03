@@ -110,10 +110,43 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | signup-signup-module */
-            [__webpack_require__.e("default~infor-infor-module~ongoing-detail-ongoing-detail-module~pages-dealdetail-dealdetail-module~s~ac764e68"), __webpack_require__.e("common"), __webpack_require__.e("signup-signup-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("common"), __webpack_require__.e("signup-signup-module")]).then(__webpack_require__.bind(null,
             /*! ./signup/signup.module */
             "./src/app/pages/index/signup/signup.module.ts")).then(function (m) {
               return m.SignupPageModule;
+            });
+          }
+        }, {
+          path: 'privatepolicy',
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | modals-privatepolicy-privatepolicy-module */
+            [__webpack_require__.e("common"), __webpack_require__.e("modals-privatepolicy-privatepolicy-module")]).then(__webpack_require__.bind(null,
+            /*! ./modals/privatepolicy/privatepolicy.module */
+            "./src/app/pages/index/modals/privatepolicy/privatepolicy.module.ts")).then(function (m) {
+              return m.PrivatepolicyPageModule;
+            });
+          }
+        }, {
+          path: 'termcondition',
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | modals-termcondition-termcondition-module */
+            [__webpack_require__.e("common"), __webpack_require__.e("modals-termcondition-termcondition-module")]).then(__webpack_require__.bind(null,
+            /*! ./modals/termcondition/termcondition.module */
+            "./src/app/pages/index/modals/termcondition/termcondition.module.ts")).then(function (m) {
+              return m.TermconditionPageModule;
+            });
+          }
+        }, {
+          path: 'puagreement',
+          loadChildren: function loadChildren() {
+            return Promise.all(
+            /*! import() | modals-puagreement-puagreement-module */
+            [__webpack_require__.e("common"), __webpack_require__.e("modals-puagreement-puagreement-module")]).then(__webpack_require__.bind(null,
+            /*! ./modals/puagreement/puagreement.module */
+            "./src/app/pages/index/modals/puagreement/puagreement.module.ts")).then(function (m) {
+              return m.PuagreementPageModule;
             });
           }
         }, {
@@ -121,40 +154,7 @@
           redirectTo: '',
           pathMatch: 'full'
         }]
-      }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__["canActivate"])(redirectLoggedInToRequest)), {
-        path: 'privatepolicy',
-        loadChildren: function loadChildren() {
-          return Promise.all(
-          /*! import() | modals-privatepolicy-privatepolicy-module */
-          [__webpack_require__.e("common"), __webpack_require__.e("modals-privatepolicy-privatepolicy-module")]).then(__webpack_require__.bind(null,
-          /*! ./modals/privatepolicy/privatepolicy.module */
-          "./src/app/pages/index/modals/privatepolicy/privatepolicy.module.ts")).then(function (m) {
-            return m.PrivatepolicyPageModule;
-          });
-        }
-      }, {
-        path: 'termcondition',
-        loadChildren: function loadChildren() {
-          return Promise.all(
-          /*! import() | modals-termcondition-termcondition-module */
-          [__webpack_require__.e("common"), __webpack_require__.e("modals-termcondition-termcondition-module")]).then(__webpack_require__.bind(null,
-          /*! ./modals/termcondition/termcondition.module */
-          "./src/app/pages/index/modals/termcondition/termcondition.module.ts")).then(function (m) {
-            return m.TermconditionPageModule;
-          });
-        }
-      }, {
-        path: 'puagreement',
-        loadChildren: function loadChildren() {
-          return Promise.all(
-          /*! import() | modals-puagreement-puagreement-module */
-          [__webpack_require__.e("common"), __webpack_require__.e("modals-puagreement-puagreement-module")]).then(__webpack_require__.bind(null,
-          /*! ./modals/puagreement/puagreement.module */
-          "./src/app/pages/index/modals/puagreement/puagreement.module.ts")).then(function (m) {
-            return m.PuagreementPageModule;
-          });
-        }
-      }];
+      }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__["canActivate"])(redirectLoggedInToRequest))];
 
       var IndexRoutingModule = function IndexRoutingModule() {
         _classCallCheck(this, IndexRoutingModule);

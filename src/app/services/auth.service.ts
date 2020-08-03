@@ -8,22 +8,11 @@ import { User } from 'firebase';
 	providedIn: 'root',
 })
 export class AuthService {
-	user: User;
-
 	constructor(
 		public afAuth: AngularFireAuth,
 		public router: Router,
 		private toast: ToastService,
-	) {
-		this.afAuth.authState.subscribe((user) => {
-			if (user) {
-				this.user = user;
-				localStorage.setItem('user', JSON.stringify(this.user));
-			} else {
-				localStorage.setItem('user', null);
-			}
-		});
-	}
+	) {}
 
 	async login(email: string, password: string) {
 		await this.afAuth.signInWithEmailAndPassword(email, password);

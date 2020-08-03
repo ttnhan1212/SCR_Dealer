@@ -34,8 +34,12 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _ongoing_page__WEBPACK_IMPORTED_MODULE_3__["OngoingPage"]
-    }
+        component: _ongoing_page__WEBPACK_IMPORTED_MODULE_3__["OngoingPage"],
+    },
+    {
+        path: 'cancel',
+        loadChildren: () => __webpack_require__.e(/*! import() | cancel-cancel-module */ "cancel-cancel-module").then(__webpack_require__.bind(null, /*! ./cancel/cancel.module */ "./src/app/pages/navigation/ongoing/cancel/cancel.module.ts")).then(m => m.CancelPageModule)
+    },
 ];
 let OngoingPageRoutingModule = class OngoingPageRoutingModule {
 };

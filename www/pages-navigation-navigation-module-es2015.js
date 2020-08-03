@@ -46,11 +46,11 @@ const routes = [
             },
             {
                 path: 'settings',
-                loadChildren: () => Promise.all(/*! import() | settings-setting-module */[__webpack_require__.e("default~infor-infor-module~ongoing-detail-ongoing-detail-module~pages-dealdetail-dealdetail-module~s~ac764e68"), __webpack_require__.e("settings-setting-module")]).then(__webpack_require__.bind(null, /*! ./settings/setting.module */ "./src/app/pages/navigation/settings/setting.module.ts")).then((m) => m.SettingPageModule),
+                loadChildren: () => Promise.all(/*! import() | settings-setting-module */[__webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("settings-setting-module")]).then(__webpack_require__.bind(null, /*! ./settings/setting.module */ "./src/app/pages/navigation/settings/setting.module.ts")).then((m) => m.SettingPageModule),
             },
             {
                 path: 'infor',
-                loadChildren: () => Promise.all(/*! import() | infor-infor-module */[__webpack_require__.e("default~infor-infor-module~ongoing-detail-ongoing-detail-module~pages-dealdetail-dealdetail-module~s~ac764e68"), __webpack_require__.e("infor-infor-module")]).then(__webpack_require__.bind(null, /*! ./infor/infor.module */ "./src/app/pages/navigation/infor/infor.module.ts")).then((m) => m.InforPageModule),
+                loadChildren: () => Promise.all(/*! import() | infor-infor-module */[__webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("infor-infor-module")]).then(__webpack_require__.bind(null, /*! ./infor/infor.module */ "./src/app/pages/navigation/infor/infor.module.ts")).then((m) => m.InforPageModule),
             },
             {
                 path: 'ongoing',
@@ -62,10 +62,6 @@ const routes = [
                 pathMatch: 'full',
             },
         ] }, Object(_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_4__["canActivate"])(redirectUnauthorizedToLogin)),
-    {
-        path: 'ongoing-detail',
-        loadChildren: () => Promise.all(/*! import() | ongoing-detail-ongoing-detail-module */[__webpack_require__.e("default~infor-infor-module~ongoing-detail-ongoing-detail-module~pages-dealdetail-dealdetail-module~s~ac764e68"), __webpack_require__.e("common"), __webpack_require__.e("ongoing-detail-ongoing-detail-module")]).then(__webpack_require__.bind(null, /*! ../ongoing-detail/ongoing-detail.module */ "./src/app/pages/ongoing-detail/ongoing-detail.module.ts")).then((m) => m.OngoingDetailPageModule),
-    },
 ];
 let NavigationRoutingModule = class NavigationRoutingModule {
 };

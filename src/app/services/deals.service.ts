@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class DealsService {
 	loggedUser: any;
+	authState: any = null;
 
 	constructor(private fireStore: AngularFirestore) {
 		if (this.isLoggedIn === true) {

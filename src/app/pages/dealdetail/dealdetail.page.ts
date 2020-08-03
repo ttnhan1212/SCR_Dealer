@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { NotiService } from './../../services/noti.service';
 import { DealDetail } from './../../models/deal-detail';
 import { Subscription } from 'rxjs';
@@ -10,13 +11,14 @@ import { DealsService } from 'src/app/services/deals.service';
 	templateUrl: './dealdetail.page.html',
 	styleUrls: ['./dealdetail.page.scss'],
 })
-export class DealdetailPage implements OnInit {
+export class DealdetailPage implements OnInit, OnDestroy {
 	slideOpts = {
 		initialSlide: 1,
 		speed: 400,
 	};
 
 	id: string;
+	authState: any = null;
 
 	dealer: {};
 	price: number;
@@ -33,30 +35,45 @@ export class DealdetailPage implements OnInit {
 		private router: Router,
 		private route: ActivatedRoute,
 		private notiService: NotiService,
+		private afAuth: AngularFireAuth,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-		if (localStorage.getItem('user')) {
-			this.userId = JSON.parse(localStorage.getItem('user')).uid;
-		}
+		// if (localStorage.getItem('user')) {
+		// 	this.userId = JSON.parse(localStorage.getItem('user')).uid;
+		// }
 	}
 
 	ngOnInit() {
-		this.dealSub = this.dealsService
-			.getDealDetail(this.id)
-			.subscribe((val: any) => {
-				this.detail = {
-					...val.payload.data(),
-				};
-			});
-		this.dealsService
-			.getDealerInParticipant(this.id, this.userId)
-			.subscribe((val) => {
-				if (val.length === 0) {
-					return (this.participant = !Boolean(val));
-				} else {
-					return (this.participant = Boolean(val));
-				}
-			});
+		this.getUser();
+	}
+
+	async getUser() {
+		await this.afAuth.authState.subscribe((authState) => {
+			this.authState = authState;
+			if (this.authState) {
+				this.userId = this.authState.uid;
+				this.getDealDetail(this.id);
+				this.getDealerInParticipant(this.id, this.userId);
+			}
+		});
+	}
+
+	getDealDetail(id: string) {
+		this.dealSub = this.dealsService.getDealDetail(id).subscribe((val: any) => {
+			this.detail = {
+				...val.payload.data(),
+			};
+		});
+	}
+
+	getDealerInParticipant(id: string, userId: string) {
+		this.dealsService.getDealerInParticipant(id, userId).subscribe((val) => {
+			if (val.length === 0) {
+				return (this.participant = !Boolean(val));
+			} else {
+				return (this.participant = Boolean(val));
+			}
+		});
 	}
 
 	async addDealerToDeal() {
@@ -75,16 +92,16 @@ export class DealdetailPage implements OnInit {
 		await this.dealsService.updateDeal(this.id, { status: 'bidding' });
 		await this.notiService.createNoti({
 			requestId: this.id,
-			status: 'bidding',
+			status: 'Bidding',
 			updateDate: Math.floor(new Date().getTime() / 1000.0),
 			user: this.userId,
 		});
 		this.router.navigate(['/', 'home', 'ongoing']);
 	}
 
-	// ngOnDestroy() {
-	// 	if (this.dealSub) {
-	// 		this.dealSub.unsubscribe();
-	// 	}
-	// }
+	ngOnDestroy() {
+		if (this.dealSub) {
+			this.dealSub.unsubscribe();
+		}
+	}
 }

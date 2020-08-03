@@ -19419,7 +19419,7 @@ let SignupPage = class SignupPage {
         this.checkBoxList = [
             {
                 id: 1,
-                value: 'Private Policy',
+                value: 'Privacy Policy',
                 isChecked: false,
             },
             {
@@ -19601,7 +19601,6 @@ let SignupPage = class SignupPage {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             const { email, password, cPassword } = this.signupForm.value;
             if (password !== cPassword) {
-                console.log(password, cPassword);
                 this.toast.showToast('Password not match, Please try again!');
             }
             else {

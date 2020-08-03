@@ -1147,26 +1147,6 @@
     },
 
     /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/components/slides/slides.component.html":
-    /*!***********************************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/slides/slides.component.html ***!
-      \***********************************************************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppComponentsSlidesSlidesComponentHtml(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "<ion-slides pager=\"true\" [options]=\"slideOpts\">\n\t<ion-slide>\n\t\t<app-logo></app-logo>\n\t\t<h2>Hello</h2>\n\t\t<p>Slide 1</p>\n\t</ion-slide>\n\t<ion-slide>\n\t\t<h2>Hello there</h2>\n\t\t<p>Slide 2</p>\n\t</ion-slide>\n\t<ion-slide>\n\t\t<h2>Hello Agian</h2>\n\t\t<p>Slide 3</p>\n\t</ion-slide>\n</ion-slides>\n";
-      /***/
-    },
-
-    /***/
     "./node_modules/raw-loader/dist/cjs.js!./src/app/components/start/start.component.html":
     /*!*********************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/start/start.component.html ***!
@@ -1182,7 +1162,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-button expand=\"block\" color=\"warning\" (click)=\"navigateToLogin()\">\n\tStart\n</ion-button>\n";
+      __webpack_exports__["default"] = "<ion-button expand=\"block\" color=\"tertiary\" (click)=\"navigateToLogin()\">\n\tClick here to Start\n</ion-button>\n";
       /***/
     },
 
@@ -1202,7 +1182,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <ion-title>Private Policy</ion-title>\n    <ion-buttons slot=\"end\">\n      <ion-button (click)=\"closePrivatePolicyModal()\">\n        <ion-icon slot=\"icon-only\" name=\"checkmark-done-outline\"></ion-icon>\n      </ion-button>\n    </ion-buttons>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-item>\n    <p>\n      You can use our services in a variety of ways to manage your privacy. For example, you can sign up for a Google Account if you want to create and manage content like emails and photos, or see more relevant search results. And you can use many Google services when you’re signed out or without creating an account at all, like searching on Google or watching YouTube videos. You can also choose to browse the web privately using Chrome in Incognito mode. And across our services, you can adjust your privacy settings to control what we collect and how your information is used.\n    </p>\n  </ion-item>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-title>Private Policy</ion-title>\n\t\t<ion-buttons slot=\"end\">\n\t\t\t<ion-button (click)=\"closePrivatePolicyModal()\">\n\t\t\t\t<ion-icon slot=\"icon-only\" name=\"checkmark-done-outline\"></ion-icon>\n\t\t\t</ion-button>\n\t\t</ion-buttons>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<ion-item>\n\t\t<p>\n\t\t\tYou can use our services in a variety of ways to manage your privacy. For\n\t\t\texample, you can sign up for a Google Account if you want to create and\n\t\t\tmanage content like emails and photos, or see more relevant search\n\t\t\tresults. And you can use many Google services when you’re signed out or\n\t\t\twithout creating an account at all, like searching on Google or watching\n\t\t\tYouTube videos. You can also choose to browse the web privately using\n\t\t\tChrome in Incognito mode. And across our services, you can adjust your\n\t\t\tprivacy settings to control what we collect and how your information is\n\t\t\tused.\n\t\t</p>\n\t</ion-item>\n</ion-content>\n";
       /***/
     },
 
@@ -1292,25 +1272,19 @@
       /* harmony import */
 
 
-      var _slides_slides_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! ./slides/slides.component */
-      "./src/app/components/slides/slides.component.ts");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_common__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/common */
       "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
       /* harmony import */
 
 
-      var _logo_logo_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _logo_logo_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./logo/logo.component */
       "./src/app/components/logo/logo.component.ts");
 
@@ -1318,10 +1292,10 @@
         _classCallCheck(this, ComponentsModule);
       };
 
-      ComponentsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["NgModule"])({
-        declarations: [_slides_slides_component__WEBPACK_IMPORTED_MODULE_4__["SlidesComponent"], _start_start_component__WEBPACK_IMPORTED_MODULE_3__["StartComponent"], _logo_logo_component__WEBPACK_IMPORTED_MODULE_7__["LogoComponent"]],
-        exports: [_slides_slides_component__WEBPACK_IMPORTED_MODULE_4__["SlidesComponent"], _start_start_component__WEBPACK_IMPORTED_MODULE_3__["StartComponent"], _logo_logo_component__WEBPACK_IMPORTED_MODULE_7__["LogoComponent"]],
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_6__["CommonModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonicModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"]]
+      ComponentsModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["NgModule"])({
+        declarations: [_start_start_component__WEBPACK_IMPORTED_MODULE_3__["StartComponent"], _logo_logo_component__WEBPACK_IMPORTED_MODULE_6__["LogoComponent"]],
+        exports: [_start_start_component__WEBPACK_IMPORTED_MODULE_3__["StartComponent"], _logo_logo_component__WEBPACK_IMPORTED_MODULE_6__["LogoComponent"]],
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_5__["CommonModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonicModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"]]
       })], ComponentsModule);
       /***/
     },
@@ -1406,92 +1380,6 @@
         /*! ./logo.component.scss */
         "./src/app/components/logo/logo.component.scss"))["default"]]
       })], LogoComponent);
-      /***/
-    },
-
-    /***/
-    "./src/app/components/slides/slides.component.scss":
-    /*!*********************************************************!*\
-      !*** ./src/app/components/slides/slides.component.scss ***!
-      \*********************************************************/
-
-    /*! exports provided: default */
-
-    /***/
-    function srcAppComponentsSlidesSlidesComponentScss(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony default export */
-
-
-      __webpack_exports__["default"] = "ion-slide {\n  padding: 160px 20px;\n  display: block;\n}\nion-slide h2 {\n  font-size: 36px;\n  font-weight: bold;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9zbGlkZXMvc2xpZGVzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0MsbUJBQUE7RUFDQSxjQUFBO0FBQ0Q7QUFBQztFQUNDLGVBQUE7RUFDQSxpQkFBQTtBQUVGIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9zbGlkZXMvc2xpZGVzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXNsaWRlIHtcblx0cGFkZGluZzogMTYwcHggMjBweDtcblx0ZGlzcGxheTogYmxvY2s7XG5cdGgyIHtcblx0XHRmb250LXNpemU6IDM2cHg7XG5cdFx0Zm9udC13ZWlnaHQ6IGJvbGQ7XG5cdH1cbn1cbiJdfQ== */";
-      /***/
-    },
-
-    /***/
-    "./src/app/components/slides/slides.component.ts":
-    /*!*******************************************************!*\
-      !*** ./src/app/components/slides/slides.component.ts ***!
-      \*******************************************************/
-
-    /*! exports provided: SlidesComponent */
-
-    /***/
-    function srcAppComponentsSlidesSlidesComponentTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "SlidesComponent", function () {
-        return SlidesComponent;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-      var SlidesComponent = /*#__PURE__*/function () {
-        function SlidesComponent() {
-          _classCallCheck(this, SlidesComponent);
-
-          this.slideOpts = {
-            initialSlide: 1,
-            speed: 400
-          };
-        }
-
-        _createClass(SlidesComponent, [{
-          key: "ngOnInit",
-          value: function ngOnInit() {}
-        }]);
-
-        return SlidesComponent;
-      }();
-
-      SlidesComponent.ctorParameters = function () {
-        return [];
-      };
-
-      SlidesComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-slides',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./slides.component.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/components/slides/slides.component.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./slides.component.scss */
-        "./src/app/components/slides/slides.component.scss"))["default"]]
-      })], SlidesComponent);
       /***/
     },
 

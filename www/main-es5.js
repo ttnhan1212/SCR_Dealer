@@ -255,7 +255,7 @@
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | pages-dealdetail-dealdetail-module */
-          [__webpack_require__.e("default~infor-infor-module~ongoing-detail-ongoing-detail-module~pages-dealdetail-dealdetail-module~s~ac764e68"), __webpack_require__.e("common"), __webpack_require__.e("pages-dealdetail-dealdetail-module")]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("common"), __webpack_require__.e("pages-dealdetail-dealdetail-module")]).then(__webpack_require__.bind(null,
           /*! ./pages/dealdetail/dealdetail.module */
           "./src/app/pages/dealdetail/dealdetail.module.ts")).then(function (m) {
             return m.DealdetailPageModule;
@@ -265,11 +265,22 @@
         path: 'home/ongoing/:id',
         loadChildren: function loadChildren() {
           return Promise.all(
-          /*! import() | pages-ongoing-detail-ongoing-detail-module */
-          [__webpack_require__.e("default~infor-infor-module~ongoing-detail-ongoing-detail-module~pages-dealdetail-dealdetail-module~s~ac764e68"), __webpack_require__.e("common"), __webpack_require__.e("ongoing-detail-ongoing-detail-module")]).then(__webpack_require__.bind(null,
-          /*! ./pages/ongoing-detail/ongoing-detail.module */
-          "./src/app/pages/ongoing-detail/ongoing-detail.module.ts")).then(function (m) {
+          /*! import() | pages-navigation-ongoing-ongoing-detail-ongoing-detail-module */
+          [__webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("common"), __webpack_require__.e("pages-navigation-ongoing-ongoing-detail-ongoing-detail-module")]).then(__webpack_require__.bind(null,
+          /*! ./pages/navigation/ongoing/ongoing-detail/ongoing-detail.module */
+          "./src/app/pages/navigation/ongoing/ongoing-detail/ongoing-detail.module.ts")).then(function (m) {
             return m.OngoingDetailPageModule;
+          });
+        }
+      }, {
+        path: 'home/ongoing/cancel/:id',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() | pages-navigation-ongoing-cancel-cancel-module */
+          "cancel-cancel-module").then(__webpack_require__.bind(null,
+          /*! ./pages/navigation/ongoing/cancel/cancel.module */
+          "./src/app/pages/navigation/ongoing/cancel/cancel.module.ts")).then(function (m) {
+            return m.CancelPageModule;
           });
         }
       }, {
@@ -1183,11 +1194,6 @@
           key: "createNoti",
           value: function createNoti(noti) {
             return this.firestore.collection('notifications').add(noti);
-          }
-        }, {
-          key: "updateNoti",
-          value: function updateNoti(noti, id) {
-            return this.firestore.collection('notifications').doc(id).update(noti);
           }
         }]);
 

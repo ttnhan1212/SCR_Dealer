@@ -32058,7 +32058,7 @@
           this.address = new _angular_forms__WEBPACK_IMPORTED_MODULE_11__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_11__["Validators"].required);
           this.checkBoxList = [{
             id: 1,
-            value: 'Private Policy',
+            value: 'Privacy Policy',
             isChecked: false
           }, {
             id: 2,
@@ -32335,34 +32335,33 @@
                       _this$signupForm$valu = this.signupForm.value, email = _this$signupForm$valu.email, password = _this$signupForm$valu.password, cPassword = _this$signupForm$valu.cPassword;
 
                       if (!(password !== cPassword)) {
-                        _context4.next = 6;
+                        _context4.next = 5;
                         break;
                       }
 
-                      console.log(password, cPassword);
                       this.toast.showToast('Password not match, Please try again!');
-                      _context4.next = 28;
+                      _context4.next = 27;
                       break;
 
-                    case 6:
-                      _context4.next = 8;
+                    case 5:
+                      _context4.next = 7;
                       return this.loadingController.create({
                         message: 'Please wait...',
                         showBackdrop: true
                       });
 
-                    case 8:
+                    case 7:
                       loading = _context4.sent;
-                      _context4.prev = 9;
-                      _context4.next = 12;
+                      _context4.prev = 8;
+                      _context4.next = 11;
                       return loading.present();
 
-                    case 12:
-                      _context4.next = 14;
+                    case 11:
+                      _context4.next = 13;
                       return this.authService.signup(email, password);
 
-                    case 14:
-                      _context4.next = 16;
+                    case 13:
+                      _context4.next = 15;
                       return this.afAuth.onAuthStateChanged(function (user) {
                         if (user) {
                           _this140.userId = user.uid;
@@ -32371,36 +32370,36 @@
                         }
                       });
 
-                    case 16:
-                      _context4.next = 18;
+                    case 15:
+                      _context4.next = 17;
                       return this.uploadFile(this.userId);
 
-                    case 18:
-                      _context4.next = 20;
+                    case 17:
+                      _context4.next = 19;
                       return loading.dismiss();
 
-                    case 20:
-                      _context4.next = 28;
+                    case 19:
+                      _context4.next = 27;
                       break;
 
-                    case 22:
-                      _context4.prev = 22;
-                      _context4.t0 = _context4["catch"](9);
+                    case 21:
+                      _context4.prev = 21;
+                      _context4.t0 = _context4["catch"](8);
 
                       if (!this.signupForm.valid) {
                         this.toast.showToast(this.signupForm.errors.message);
                       }
 
                       this.toast.showToast(_context4.t0.message);
-                      _context4.next = 28;
+                      _context4.next = 27;
                       return loading.dismiss();
 
-                    case 28:
+                    case 27:
                     case "end":
                       return _context4.stop();
                   }
                 }
-              }, _callee4, this, [[9, 22]]);
+              }, _callee4, this, [[8, 21]]);
             }));
           }
         }]);

@@ -21,8 +21,8 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     {
         path: '',
-        component: _privatepolicy_page__WEBPACK_IMPORTED_MODULE_3__["PrivatepolicyPage"]
-    }
+        component: _privatepolicy_page__WEBPACK_IMPORTED_MODULE_3__["PrivatepolicyPage"],
+    },
 ];
 let PrivatepolicyPageRoutingModule = class PrivatepolicyPageRoutingModule {
 };
@@ -69,9 +69,9 @@ PrivatepolicyPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
             _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
-            _privatepolicy_routing_module__WEBPACK_IMPORTED_MODULE_5__["PrivatepolicyPageRoutingModule"]
+            _privatepolicy_routing_module__WEBPACK_IMPORTED_MODULE_5__["PrivatepolicyPageRoutingModule"],
         ],
-        declarations: [_privatepolicy_page__WEBPACK_IMPORTED_MODULE_6__["PrivatepolicyPage"]]
+        declarations: [_privatepolicy_page__WEBPACK_IMPORTED_MODULE_6__["PrivatepolicyPage"]],
     })
 ], PrivatepolicyPageModule);
 

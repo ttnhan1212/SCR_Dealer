@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { DealDetail } from '../../../../models/deal-detail';
 import { Subscription } from 'rxjs';
 import { NotiService } from '../../../../services/noti.service';
@@ -17,6 +18,7 @@ export class OngoingDetailPage implements OnInit {
 	};
 
 	id: string;
+	authState: any = null;
 
 	dealer: {};
 	price: number;
@@ -34,32 +36,44 @@ export class OngoingDetailPage implements OnInit {
 		private router: Router,
 		private route: ActivatedRoute,
 		private notiService: NotiService,
+		private afAuth: AngularFireAuth,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-		if (localStorage.getItem('user')) {
-			this.userId = JSON.parse(localStorage.getItem('user')).uid;
-		}
 	}
 
 	ngOnInit() {
-		this.dealSub = this.dealsService
-			.getDealDetail(this.id)
-			.subscribe((val: any) => {
-				this.detail = {
-					...val.payload.data(),
-				};
-			});
-		this.dealsService
-			.getSelectedDealer(this.id, this.userId)
-			.subscribe((val) => {
-				if (val.length === 0) {
-					this.participant = {};
-					this.userExist = !Boolean(val);
-				} else {
-					this.participant = { ...val };
-					this.userExist = Boolean(val);
-				}
-			});
+		this.getUser();
+	}
+
+	async getUser() {
+		await this.afAuth.authState.subscribe((authState) => {
+			this.authState = authState;
+			if (this.authState) {
+				this.userId = this.authState.uid;
+				this.getDealDetail(this.id);
+				this.getSelectDealer(this.id, this.userId);
+			}
+		});
+	}
+
+	getDealDetail(id: string) {
+		this.dealSub = this.dealsService.getDealDetail(id).subscribe((val: any) => {
+			this.detail = {
+				...val.payload.data(),
+			};
+		});
+	}
+
+	getSelectDealer(id: string, userId: string) {
+		this.dealsService.getSelectedDealer(id, userId).subscribe((val) => {
+			if (val.length === 0) {
+				this.participant = {};
+				this.userExist = !Boolean(val);
+			} else {
+				this.participant = { ...val };
+				this.userExist = Boolean(val);
+			}
+		});
 	}
 
 	async confirmSelect(user: string, price: number) {
