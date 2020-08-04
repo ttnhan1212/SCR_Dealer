@@ -1,5 +1,4 @@
 import { AngularFireAuth } from '@angular/fire/auth';
-import { DealDetail } from '../../../../models/deal-detail';
 import { Subscription } from 'rxjs';
 import { NotiService } from '../../../../services/noti.service';
 import { Router, ActivatedRoute } from '@angular/router';
