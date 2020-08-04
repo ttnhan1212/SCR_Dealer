@@ -616,72 +616,121 @@
       /* harmony import */
 
 
-      var _services_noti_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/fire/auth */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+      /* harmony import */
+
+
+      var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./../../services/noti.service */
       "./src/app/services/noti.service.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! src/app/services/deals.service */
       "./src/app/services/deals.service.ts");
 
       var DealdetailPage = /*#__PURE__*/function () {
-        function DealdetailPage(dealsService, router, route, notiService) {
+        function DealdetailPage(dealsService, router, route, notiService, afAuth) {
           _classCallCheck(this, DealdetailPage);
 
           this.dealsService = dealsService;
           this.router = router;
           this.route = route;
           this.notiService = notiService;
+          this.afAuth = afAuth;
           this.slideOpts = {
             initialSlide: 1,
             speed: 400
           };
+          this.authState = null;
           this.bidTime = Math.floor(new Date().getTime() / 1000.0);
           this.detail = {};
           this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-
-          if (localStorage.getItem('user')) {
-            this.userId = JSON.parse(localStorage.getItem('user')).uid;
-          }
+          // if (localStorage.getItem('user')) {
+          // 	this.userId = JSON.parse(localStorage.getItem('user')).uid;
+          // }
         }
 
         _createClass(DealdetailPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this2 = this;
+            this.getUser();
+          }
+        }, {
+          key: "getUser",
+          value: function getUser() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this2 = this;
 
-            this.dealSub = this.dealsService.getDealDetail(this.id).subscribe(function (val) {
-              _this2.detail = Object.assign({}, val.payload.data());
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return this.afAuth.authState.subscribe(function (authState) {
+                        _this2.authState = authState;
+
+                        if (_this2.authState) {
+                          _this2.userId = _this2.authState.uid;
+
+                          _this2.getDealDetail(_this2.id);
+
+                          _this2.getDealerInParticipant(_this2.id, _this2.userId);
+                        }
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "getDealDetail",
+          value: function getDealDetail(id) {
+            var _this3 = this;
+
+            this.dealSub = this.dealsService.getDealDetail(id).subscribe(function (val) {
+              _this3.detail = Object.assign({}, val.payload.data());
             });
-            this.dealsService.getDealerInParticipant(this.id, this.userId).subscribe(function (val) {
+          }
+        }, {
+          key: "getDealerInParticipant",
+          value: function getDealerInParticipant(id, userId) {
+            var _this4 = this;
+
+            this.dealsService.getDealerInParticipant(id, userId).subscribe(function (val) {
               if (val.length === 0) {
-                return _this2.participant = !Boolean(val);
+                return _this4.participant = !Boolean(val);
               } else {
-                return _this2.participant = Boolean(val);
+                return _this4.participant = Boolean(val);
               }
             });
           }
         }, {
           key: "addDealerToDeal",
           value: function addDealerToDeal() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-              return regeneratorRuntime.wrap(function _callee$(_context) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
-                  switch (_context.prev = _context.next) {
+                  switch (_context2.prev = _context2.next) {
                     case 0:
                       this.dealer = {
                         price: this.price,
@@ -689,11 +738,11 @@
                         bidTime: this.bidTime,
                         selected: false
                       };
-                      _context.next = 3;
+                      _context2.next = 3;
                       return this.dealsService.dealerToDeal(this.id, this.dealer);
 
                     case 3:
-                      _context.next = 5;
+                      _context2.next = 5;
                       return this.dealsService.addDealToDealer(this.userId, {
                         dealId: this.id,
                         price: this.price,
@@ -701,16 +750,16 @@
                       });
 
                     case 5:
-                      _context.next = 7;
+                      _context2.next = 7;
                       return this.dealsService.updateDeal(this.id, {
                         status: 'bidding'
                       });
 
                     case 7:
-                      _context.next = 9;
+                      _context2.next = 9;
                       return this.notiService.createNoti({
                         requestId: this.id,
-                        status: 'bidding',
+                        status: 'Bidding',
                         updateDate: Math.floor(new Date().getTime() / 1000.0),
                         user: this.userId
                       });
@@ -720,11 +769,18 @@
 
                     case 10:
                     case "end":
-                      return _context.stop();
+                      return _context2.stop();
                   }
                 }
-              }, _callee, this);
+              }, _callee2, this);
             }));
+          }
+        }, {
+          key: "ngOnDestroy",
+          value: function ngOnDestroy() {
+            if (this.dealSub) {
+              this.dealSub.unsubscribe();
+            }
           }
         }]);
 
@@ -733,17 +789,19 @@
 
       DealdetailPage.ctorParameters = function () {
         return [{
-          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__["DealsService"]
+          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_5__["DealsService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
-          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_1__["NotiService"]
+          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"]
+        }, {
+          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"]
         }];
       };
 
-      DealdetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+      DealdetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
         selector: 'app-dealdetail',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./dealdetail.page.html */
@@ -815,14 +873,14 @@
 
       var ErrorsPage = /*#__PURE__*/function () {
         function ErrorsPage(router) {
-          var _this3 = this;
+          var _this5 = this;
 
           _classCallCheck(this, ErrorsPage);
 
           this.router = router;
 
           this.navigateHome = function () {
-            _this3.router.navigate(['home', 'deal']);
+            _this5.router.navigate(['home', 'deal']);
           };
         }
 
@@ -904,64 +962,28 @@
 
       var AuthService = /*#__PURE__*/function () {
         function AuthService(afAuth, router, toast) {
-          var _this4 = this;
-
           _classCallCheck(this, AuthService);
 
           this.afAuth = afAuth;
           this.router = router;
           this.toast = toast;
-          this.afAuth.authState.subscribe(function (user) {
-            if (user) {
-              _this4.user = user;
-              localStorage.setItem('user', JSON.stringify(_this4.user));
-            } else {
-              localStorage.setItem('user', null);
-            }
-          });
         }
 
         _createClass(AuthService, [{
           key: "login",
           value: function login(email, password) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                while (1) {
-                  switch (_context2.prev = _context2.next) {
-                    case 0:
-                      _context2.next = 2;
-                      return this.afAuth.signInWithEmailAndPassword(email, password);
-
-                    case 2:
-                      this.router.navigate(['home', 'deal']);
-
-                    case 3:
-                    case "end":
-                      return _context2.stop();
-                  }
-                }
-              }, _callee2, this);
-            }));
-          }
-        }, {
-          key: "signup",
-          value: function signup(email, password) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
               return regeneratorRuntime.wrap(function _callee3$(_context3) {
                 while (1) {
                   switch (_context3.prev = _context3.next) {
                     case 0:
                       _context3.next = 2;
-                      return this.afAuth.createUserWithEmailAndPassword(email, password);
+                      return this.afAuth.signInWithEmailAndPassword(email, password);
 
                     case 2:
-                      _context3.next = 4;
-                      return this.toast.showToast('Your account have been created, Please login!');
+                      this.router.navigate(['home', 'deal']);
 
-                    case 4:
-                      this.router.navigate(['login']);
-
-                    case 5:
+                    case 3:
                     case "end":
                       return _context3.stop();
                   }
@@ -970,14 +992,40 @@
             }));
           }
         }, {
-          key: "logout",
-          value: function logout() {
+          key: "signup",
+          value: function signup(email, password) {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
               return regeneratorRuntime.wrap(function _callee4$(_context4) {
                 while (1) {
                   switch (_context4.prev = _context4.next) {
                     case 0:
                       _context4.next = 2;
+                      return this.afAuth.createUserWithEmailAndPassword(email, password);
+
+                    case 2:
+                      _context4.next = 4;
+                      return this.toast.showToast('Your account have been created, Please login!');
+
+                    case 4:
+                      this.router.navigate(['login']);
+
+                    case 5:
+                    case "end":
+                      return _context4.stop();
+                  }
+                }
+              }, _callee4, this);
+            }));
+          }
+        }, {
+          key: "logout",
+          value: function logout() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+              return regeneratorRuntime.wrap(function _callee5$(_context5) {
+                while (1) {
+                  switch (_context5.prev = _context5.next) {
+                    case 0:
+                      _context5.next = 2;
                       return this.afAuth.signOut();
 
                     case 2:
@@ -985,10 +1033,10 @@
 
                     case 3:
                     case "end":
-                      return _context4.stop();
+                      return _context5.stop();
                   }
                 }
-              }, _callee4, this);
+              }, _callee5, this);
             }));
           }
         }]);
@@ -1055,6 +1103,7 @@
           _classCallCheck(this, DealsService);
 
           this.fireStore = fireStore;
+          this.authState = null;
 
           if (this.isLoggedIn === true) {
             this.loggedUser = JSON.parse(localStorage.getItem('user')).uid;
@@ -1252,7 +1301,7 @@
 
       var RouterExtService = /*#__PURE__*/function () {
         function RouterExtService(router) {
-          var _this5 = this;
+          var _this6 = this;
 
           _classCallCheck(this, RouterExtService);
 
@@ -1262,8 +1311,8 @@
           this.currentUrl = this.router.url;
           router.events.subscribe(function (event) {
             if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_1__["NavigationEnd"]) {
-              _this5.previousUrl = _this5.currentUrl;
-              _this5.currentUrl = event.url;
+              _this6.previousUrl = _this6.currentUrl;
+              _this6.currentUrl = event.url;
             }
           });
         }

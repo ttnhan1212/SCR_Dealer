@@ -111,27 +111,40 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelPage", function() { return CancelPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _services_noti_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../../services/noti.service */ "./src/app/services/noti.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+/* harmony import */ var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../../services/noti.service */ "./src/app/services/noti.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
 
 
 
 
 
 let CancelPage = class CancelPage {
-    constructor(dealService, notiService, route) {
+    constructor(dealService, notiService, route, afAuth) {
         this.dealService = dealService;
         this.notiService = notiService;
         this.route = route;
+        this.afAuth = afAuth;
+        this.authState = null;
         this.date = Math.floor(new Date().getTime() / 1000.0);
         this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-        if (localStorage.getItem('user')) {
-            this.userId = JSON.parse(localStorage.getItem('user')).uid;
-        }
     }
-    ngOnInit() { }
+    ngOnInit() {
+        this.getUser();
+    }
+    getUser() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield this.afAuth.authState.subscribe((authState) => {
+                this.authState = authState;
+                if (this.authState) {
+                    this.userId = this.authState.uid;
+                }
+            });
+        });
+    }
     submitCancel() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.dealService.updateDeal(this.id, {
@@ -157,12 +170,13 @@ let CancelPage = class CancelPage {
     }
 };
 CancelPage.ctorParameters = () => [
-    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__["DealsService"] },
-    { type: _services_noti_service__WEBPACK_IMPORTED_MODULE_1__["NotiService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] }
+    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__["DealsService"] },
+    { type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"] }
 ];
 CancelPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-cancel',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./cancel.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/navigation/ongoing/cancel/cancel.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./cancel.page.scss */ "./src/app/pages/navigation/ongoing/cancel/cancel.page.scss")).default]

@@ -122,42 +122,56 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OngoingDetailPage", function() { return OngoingDetailPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _services_noti_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../services/noti.service */ "./src/app/services/noti.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+/* harmony import */ var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../services/noti.service */ "./src/app/services/noti.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
 
 
 
 
 
 let OngoingDetailPage = class OngoingDetailPage {
-    constructor(dealsService, router, route, notiService) {
+    constructor(dealsService, router, route, notiService, afAuth) {
         this.dealsService = dealsService;
         this.router = router;
         this.route = route;
         this.notiService = notiService;
+        this.afAuth = afAuth;
         this.slideOpts = {
             initialSlide: 1,
             speed: 400,
         };
+        this.authState = null;
         this.bidTime = Math.floor(new Date().getTime() / 1000.0);
         this.participant = {};
         this.detail = {};
         this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-        if (localStorage.getItem('user')) {
-            this.userId = JSON.parse(localStorage.getItem('user')).uid;
-        }
     }
     ngOnInit() {
-        this.dealSub = this.dealsService
-            .getDealDetail(this.id)
-            .subscribe((val) => {
+        this.getUser();
+    }
+    getUser() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield this.afAuth.authState.subscribe((authState) => {
+                this.authState = authState;
+                if (this.authState) {
+                    this.userId = this.authState.uid;
+                    this.getDealDetail(this.id);
+                    this.getSelectDealer(this.id, this.userId);
+                }
+            });
+        });
+    }
+    getDealDetail(id) {
+        this.dealSub = this.dealsService.getDealDetail(id).subscribe((val) => {
             this.detail = Object.assign({}, val.payload.data());
         });
-        this.dealsService
-            .getSelectedDealer(this.id, this.userId)
-            .subscribe((val) => {
+    }
+    getSelectDealer(id, userId) {
+        this.dealsService.getSelectedDealer(id, userId).subscribe((val) => {
             if (val.length === 0) {
                 this.participant = {};
                 this.userExist = !Boolean(val);
@@ -196,13 +210,14 @@ let OngoingDetailPage = class OngoingDetailPage {
     }
 };
 OngoingDetailPage.ctorParameters = () => [
-    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__["DealsService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _services_noti_service__WEBPACK_IMPORTED_MODULE_1__["NotiService"] }
+    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__["DealsService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"] }
 ];
 OngoingDetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-ongoing-detail',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./ongoing-detail.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/navigation/ongoing/ongoing-detail/ongoing-detail.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./ongoing-detail.page.scss */ "./src/app/pages/navigation/ongoing/ongoing-detail/ongoing-detail.page.scss")).default]

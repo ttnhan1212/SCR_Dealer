@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n\t<ion-toolbar>\n\t\t<ion-title>\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t\t<ion-button fill=\"clear\" slot=\"end\" [routerLink]=\"['/','home','infor']\">\n\t\t\t<ion-icon name=\"information-circle-outline\"></ion-icon>\n\t\t</ion-button>\n\t\t<ion-button\n\t\t\tfill=\"clear\"\n\t\t\tslot=\"end\"\n\t\t\t[routerLink]=\"['/','home','notifications']\"\n\t\t>\n\t\t\t<ion-icon name=\"notifications-outline\"></ion-icon>\n\t\t</ion-button>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<ion-card *ngFor=\"let item of ongoing\">\n\t\t<ion-item [routerLink]=\"[item.dealId]\">\n\t\t\t<ion-thumbnail slot=\"start\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y\"\n\t\t\t\t/>\n\t\t\t</ion-thumbnail>\n\t\t\t<ion-grid class=\"p-0 m-0\">\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-header style=\"background: gray;\" class=\"m-0 p-0\">\n\t\t\t\t\t\t<p class=\"fs-20 text-center mt-2 text-dark\">{{item.deal.status}}</p>\n\t\t\t\t\t</ion-header>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>2009</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>K-5</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>12가1234</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>{{item.deal.miles}}</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>${{item.price}}</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<ion-label>{{item.id}}</ion-label>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t</ion-grid>\n\t\t</ion-item>\n\t</ion-card>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n\t<ion-toolbar>\n\t\t<ion-title>\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t\t<ion-button fill=\"clear\" slot=\"end\" [routerLink]=\"['/','home','infor']\">\n\t\t\t<ion-icon name=\"information-circle-outline\"></ion-icon>\n\t\t</ion-button>\n\t\t<ion-button\n\t\t\tfill=\"clear\"\n\t\t\tslot=\"end\"\n\t\t\t[routerLink]=\"['/','home','notifications']\"\n\t\t>\n\t\t\t<ion-icon name=\"notifications-outline\"></ion-icon>\n\t\t</ion-button>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" *ngIf=\"!ongoing\">\n\t<ion-card>\n\t\t<ion-item>\n\t\t\t<ion-thumbnail slot=\"start\">\n\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t</ion-thumbnail>\n\t\t\t<ion-grid class=\"p-0 m-0\">\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-header style=\"background: gray;\" class=\"m-0 p-0\">\n\t\t\t\t\t\t<p class=\"fs-20 text-center mt-2 text-dark\">\n\t\t\t\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</ion-header>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>\n\t\t\t\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<ion-label>\n\t\t\t\t\t\t\t<ion-skeleton-text animated></ion-skeleton-text>\n\t\t\t\t\t\t</ion-label>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t</ion-grid>\n\t\t</ion-item>\n\t</ion-card>\n</ion-content>\n\n<ion-content class=\"ion-padding\" *ngIf=\"ongoing\">\n\t<ion-card *ngFor=\"let item of ongoing, let i = index\">\n\t\t<ion-item [routerLink]=\"[item.dealId]\">\n\t\t\t<ion-thumbnail slot=\"start\">\n\t\t\t\t<img\n\t\t\t\t\tsrc=\"https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y\"\n\t\t\t\t/>\n\t\t\t</ion-thumbnail>\n\t\t\t<ion-grid class=\"p-0 m-0\">\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-header style=\"background: gray;\" class=\"m-0 p-0\">\n\t\t\t\t\t\t<p class=\"fs-20 text-center mt-2 text-dark\">\n\t\t\t\t\t\t\t{{item.deal['status']}}\n\t\t\t\t\t\t</p>\n\t\t\t\t\t</ion-header>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>2009</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>K-5</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>12가1234</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>{{item.deal.miles}}</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<p>${{item.price}}</p>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t\t<ion-row>\n\t\t\t\t\t<ion-col>\n\t\t\t\t\t\t<ion-label>{{item.id}}</ion-label>\n\t\t\t\t\t</ion-col>\n\t\t\t\t</ion-row>\n\t\t\t</ion-grid>\n\t\t</ion-item>\n\t</ion-card>\n</ion-content>\n");
 
 /***/ }),
 
@@ -123,21 +123,36 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OngoingPage", function() { return OngoingPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
 
 
 
 let OngoingPage = class OngoingPage {
-    constructor(dealService) {
+    constructor(dealService, afAuth) {
         this.dealService = dealService;
+        this.afAuth = afAuth;
+        this.authState = null;
         this.logo = '../../../assets/images/logo/scroadslight.svg';
-        if (localStorage.getItem('user')) {
-            this.id = JSON.parse(localStorage.getItem('user')).uid;
-        }
     }
     ngOnInit() {
-        this.dealService.getOngoingDeal(this.id).subscribe((val) => {
+        this.getUser();
+    }
+    getUser() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            this.userSub = yield this.afAuth.authState.subscribe((authState) => {
+                this.authState = authState;
+                if (this.authState) {
+                    this.id = this.authState.uid;
+                    this.getOngoingDeal(this.id);
+                }
+            });
+        });
+    }
+    getOngoingDeal(id) {
+        this.dealService.getOngoingDeal(id).subscribe((val) => {
             this.ongoing = val.map((e) => {
                 return Object.assign({}, e.payload.doc.data());
             });
@@ -146,15 +161,20 @@ let OngoingPage = class OngoingPage {
                     val.deal = Object.assign({}, m.payload.data());
                 });
             });
-            console.log(this.ongoing);
         });
+    }
+    ngOnDestroy() {
+        if (this.userSub) {
+            this.userSub.unsubscribe();
+        }
     }
 };
 OngoingPage.ctorParameters = () => [
-    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_1__["DealsService"] }
+    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_2__["DealsService"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"] }
 ];
 OngoingPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-ongoing',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./ongoing.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/navigation/ongoing/ongoing.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./ongoing.page.scss */ "./src/app/pages/navigation/ongoing/ongoing.page.scss")).default]

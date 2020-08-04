@@ -219,85 +219,131 @@
       /* harmony import */
 
 
-      var _services_noti_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/fire/auth */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+      /* harmony import */
+
+
+      var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ../../../../services/noti.service */
       "./src/app/services/noti.service.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/services/deals.service */
       "./src/app/services/deals.service.ts");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
       var OngoingDetailPage = /*#__PURE__*/function () {
-        function OngoingDetailPage(dealsService, router, route, notiService) {
+        function OngoingDetailPage(dealsService, router, route, notiService, afAuth) {
           _classCallCheck(this, OngoingDetailPage);
 
           this.dealsService = dealsService;
           this.router = router;
           this.route = route;
           this.notiService = notiService;
+          this.afAuth = afAuth;
           this.slideOpts = {
             initialSlide: 1,
             speed: 400
           };
+          this.authState = null;
           this.bidTime = Math.floor(new Date().getTime() / 1000.0);
           this.participant = {};
           this.detail = {};
           this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-
-          if (localStorage.getItem('user')) {
-            this.userId = JSON.parse(localStorage.getItem('user')).uid;
-          }
         }
 
         _createClass(OngoingDetailPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this = this;
-
-            this.dealSub = this.dealsService.getDealDetail(this.id).subscribe(function (val) {
-              _this.detail = Object.assign({}, val.payload.data());
-            });
-            this.dealsService.getSelectedDealer(this.id, this.userId).subscribe(function (val) {
-              if (val.length === 0) {
-                _this.participant = {};
-                _this.userExist = !Boolean(val);
-              } else {
-                _this.participant = Object.assign({}, val);
-                _this.userExist = Boolean(val);
-              }
-            });
+            this.getUser();
           }
         }, {
-          key: "confirmSelect",
-          value: function confirmSelect(user, price) {
+          key: "getUser",
+          value: function getUser() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-              var _this2 = this;
+              var _this = this;
 
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
                     case 0:
                       _context.next = 2;
+                      return this.afAuth.authState.subscribe(function (authState) {
+                        _this.authState = authState;
+
+                        if (_this.authState) {
+                          _this.userId = _this.authState.uid;
+
+                          _this.getDealDetail(_this.id);
+
+                          _this.getSelectDealer(_this.id, _this.userId);
+                        }
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "getDealDetail",
+          value: function getDealDetail(id) {
+            var _this2 = this;
+
+            this.dealSub = this.dealsService.getDealDetail(id).subscribe(function (val) {
+              _this2.detail = Object.assign({}, val.payload.data());
+            });
+          }
+        }, {
+          key: "getSelectDealer",
+          value: function getSelectDealer(id, userId) {
+            var _this3 = this;
+
+            this.dealsService.getSelectedDealer(id, userId).subscribe(function (val) {
+              if (val.length === 0) {
+                _this3.participant = {};
+                _this3.userExist = !Boolean(val);
+              } else {
+                _this3.participant = Object.assign({}, val);
+                _this3.userExist = Boolean(val);
+              }
+            });
+          }
+        }, {
+          key: "confirmSelect",
+          value: function confirmSelect(user, price) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              var _this4 = this;
+
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      _context2.next = 2;
                       return this.dealsService.updateDeal(this.id, {
                         participants: [user, price]
                       });
 
                     case 2:
-                      _context.next = 4;
+                      _context2.next = 4;
                       return this.notiService.createNoti({
                         requestId: this.id,
                         status: 'Bidding',
@@ -306,19 +352,19 @@
                       });
 
                     case 4:
-                      _context.next = 6;
+                      _context2.next = 6;
                       return this.dealsService.getParticipant(this.id).subscribe(function (val) {
                         val.forEach(function (part) {
-                          _this2.dealsService.deleteParticipant(_this2.id, part.payload.doc.id);
+                          _this4.dealsService.deleteParticipant(_this4.id, part.payload.doc.id);
                         });
                       });
 
                     case 6:
                     case "end":
-                      return _context.stop();
+                      return _context2.stop();
                   }
                 }
-              }, _callee, this);
+              }, _callee2, this);
             }));
           }
         }, {
@@ -340,17 +386,19 @@
 
       OngoingDetailPage.ctorParameters = function () {
         return [{
-          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__["DealsService"]
+          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__["DealsService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
         }, {
-          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_1__["NotiService"]
+          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"]
+        }, {
+          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"]
         }];
       };
 
-      OngoingDetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+      OngoingDetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-ongoing-detail',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./ongoing-detail.page.html */

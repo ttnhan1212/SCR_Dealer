@@ -207,43 +207,84 @@
       /* harmony import */
 
 
-      var _services_noti_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/fire/auth */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+      /* harmony import */
+
+
+      var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./../../../services/noti.service */
       "./src/app/services/noti.service.ts");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/services/deals.service */
       "./src/app/services/deals.service.ts");
 
       var NotificationsPage = /*#__PURE__*/function () {
-        function NotificationsPage(notiService, dealsService) {
+        function NotificationsPage(notiService, dealsService, afAuth) {
           _classCallCheck(this, NotificationsPage);
 
           this.notiService = notiService;
           this.dealsService = dealsService;
-          this.sellerId = JSON.parse(localStorage.getItem('user')).uid;
+          this.afAuth = afAuth;
+          this.authState = null; // this.sellerId = JSON.parse(localStorage.getItem('user')).uid;
         }
 
         _createClass(NotificationsPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this = this;
+            this.getUser();
+          }
+        }, {
+          key: "getUser",
+          value: function getUser() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this = this;
 
-            this.notiSub = this.notiService.getNoti(this.sellerId).subscribe(function (data) {
-              _this.noti = data.map(function (e) {
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return this.afAuth.authState.subscribe(function (authState) {
+                        _this.authState = authState;
+
+                        if (_this.authState) {
+                          _this.sellerId = _this.authState.uid;
+
+                          _this.getNoti(_this.sellerId);
+                        }
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "getNoti",
+          value: function getNoti(id) {
+            var _this2 = this;
+
+            this.notiSub = this.notiService.getNoti(id).subscribe(function (data) {
+              _this2.noti = data.map(function (e) {
                 return Object.assign({}, e.payload.doc.data());
               });
 
-              _this.noti.forEach(function (val) {
-                _this.dealsService.getDealDetail(val.requestId).subscribe(function (m) {
+              _this2.noti.forEach(function (val) {
+                _this2.dealsService.getDealDetail(val.requestId).subscribe(function (m) {
                   val.request = Object.assign({}, m.payload.data());
                 });
               });
@@ -269,13 +310,15 @@
 
       NotificationsPage.ctorParameters = function () {
         return [{
-          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_1__["NotiService"]
+          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"]
         }, {
-          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__["DealsService"]
+          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__["DealsService"]
+        }, {
+          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"]
         }];
       };
 
-      NotificationsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Component"])({
+      NotificationsPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-notifications',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./notifications.page.html */

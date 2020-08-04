@@ -207,49 +207,55 @@
       /* harmony import */
 
 
-      var _services_noti_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/fire/auth */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+      /* harmony import */
+
+
+      var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./../../../../services/noti.service */
       "./src/app/services/noti.service.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/services/deals.service */
       "./src/app/services/deals.service.ts");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
 
       var CancelPage = /*#__PURE__*/function () {
-        function CancelPage(dealService, notiService, route) {
+        function CancelPage(dealService, notiService, route, afAuth) {
           _classCallCheck(this, CancelPage);
 
           this.dealService = dealService;
           this.notiService = notiService;
           this.route = route;
+          this.afAuth = afAuth;
+          this.authState = null;
           this.date = Math.floor(new Date().getTime() / 1000.0);
           this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-
-          if (localStorage.getItem('user')) {
-            this.userId = JSON.parse(localStorage.getItem('user')).uid;
-          }
         }
 
         _createClass(CancelPage, [{
           key: "ngOnInit",
-          value: function ngOnInit() {}
+          value: function ngOnInit() {
+            this.getUser();
+          }
         }, {
-          key: "submitCancel",
-          value: function submitCancel() {
+          key: "getUser",
+          value: function getUser() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               var _this = this;
 
@@ -258,6 +264,33 @@
                   switch (_context.prev = _context.next) {
                     case 0:
                       _context.next = 2;
+                      return this.afAuth.authState.subscribe(function (authState) {
+                        _this.authState = authState;
+
+                        if (_this.authState) {
+                          _this.userId = _this.authState.uid;
+                        }
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "submitCancel",
+          value: function submitCancel() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              var _this2 = this;
+
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      _context2.next = 2;
                       return this.dealService.updateDeal(this.id, {
                         cancelMessage: this.message,
                         status: 'Canceled',
@@ -266,7 +299,7 @@
                       });
 
                     case 2:
-                      _context.next = 4;
+                      _context2.next = 4;
                       return this.notiService.createNoti({
                         requestId: this.id,
                         status: 'Canceled',
@@ -274,15 +307,15 @@
                       });
 
                     case 4:
-                      _context.next = 6;
+                      _context2.next = 6;
                       return this.dealService.getParticipant(this.id).subscribe(function (val) {
                         val.forEach(function (part) {
-                          _this.dealService.deleteParticipant(_this.id, part.payload.doc.id);
+                          _this2.dealService.deleteParticipant(_this2.id, part.payload.doc.id);
                         });
                       });
 
                     case 6:
-                      _context.next = 8;
+                      _context2.next = 8;
                       return this.dealService.updateDeal(this.id, {
                         participants: {
                           created: false
@@ -291,10 +324,10 @@
 
                     case 8:
                     case "end":
-                      return _context.stop();
+                      return _context2.stop();
                   }
                 }
-              }, _callee, this);
+              }, _callee2, this);
             }));
           }
         }]);
@@ -304,15 +337,17 @@
 
       CancelPage.ctorParameters = function () {
         return [{
-          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_3__["DealsService"]
+          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__["DealsService"]
         }, {
-          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_1__["NotiService"]
+          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+        }, {
+          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"]
         }];
       };
 
-      CancelPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+      CancelPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-cancel',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./cancel.page.html */

@@ -531,41 +531,58 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DealdetailPage", function() { return DealdetailPage; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _services_noti_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../services/noti.service */ "./src/app/services/noti.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
+/* harmony import */ var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/fire/auth */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+/* harmony import */ var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../services/noti.service */ "./src/app/services/noti.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/services/deals.service */ "./src/app/services/deals.service.ts");
+
 
 
 
 
 
 let DealdetailPage = class DealdetailPage {
-    constructor(dealsService, router, route, notiService) {
+    constructor(dealsService, router, route, notiService, afAuth) {
         this.dealsService = dealsService;
         this.router = router;
         this.route = route;
         this.notiService = notiService;
+        this.afAuth = afAuth;
         this.slideOpts = {
             initialSlide: 1,
             speed: 400,
         };
+        this.authState = null;
         this.bidTime = Math.floor(new Date().getTime() / 1000.0);
         this.detail = {};
         this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-        if (localStorage.getItem('user')) {
-            this.userId = JSON.parse(localStorage.getItem('user')).uid;
-        }
+        // if (localStorage.getItem('user')) {
+        // 	this.userId = JSON.parse(localStorage.getItem('user')).uid;
+        // }
     }
     ngOnInit() {
-        this.dealSub = this.dealsService
-            .getDealDetail(this.id)
-            .subscribe((val) => {
+        this.getUser();
+    }
+    getUser() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield this.afAuth.authState.subscribe((authState) => {
+                this.authState = authState;
+                if (this.authState) {
+                    this.userId = this.authState.uid;
+                    this.getDealDetail(this.id);
+                    this.getDealerInParticipant(this.id, this.userId);
+                }
+            });
+        });
+    }
+    getDealDetail(id) {
+        this.dealSub = this.dealsService.getDealDetail(id).subscribe((val) => {
             this.detail = Object.assign({}, val.payload.data());
         });
-        this.dealsService
-            .getDealerInParticipant(this.id, this.userId)
-            .subscribe((val) => {
+    }
+    getDealerInParticipant(id, userId) {
+        this.dealsService.getDealerInParticipant(id, userId).subscribe((val) => {
             if (val.length === 0) {
                 return (this.participant = !Boolean(val));
             }
@@ -591,22 +608,28 @@ let DealdetailPage = class DealdetailPage {
             yield this.dealsService.updateDeal(this.id, { status: 'bidding' });
             yield this.notiService.createNoti({
                 requestId: this.id,
-                status: 'bidding',
+                status: 'Bidding',
                 updateDate: Math.floor(new Date().getTime() / 1000.0),
                 user: this.userId,
             });
             this.router.navigate(['/', 'home', 'ongoing']);
         });
     }
+    ngOnDestroy() {
+        if (this.dealSub) {
+            this.dealSub.unsubscribe();
+        }
+    }
 };
 DealdetailPage.ctorParameters = () => [
-    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_4__["DealsService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _services_noti_service__WEBPACK_IMPORTED_MODULE_1__["NotiService"] }
+    { type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_5__["DealsService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
+    { type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"] },
+    { type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"] }
 ];
 DealdetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
         selector: 'app-dealdetail',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./dealdetail.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/dealdetail/dealdetail.page.html")).default,
         styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./dealdetail.page.scss */ "./src/app/pages/dealdetail/dealdetail.page.scss")).default]
@@ -695,15 +718,6 @@ let AuthService = class AuthService {
         this.afAuth = afAuth;
         this.router = router;
         this.toast = toast;
-        this.afAuth.authState.subscribe((user) => {
-            if (user) {
-                this.user = user;
-                localStorage.setItem('user', JSON.stringify(this.user));
-            }
-            else {
-                localStorage.setItem('user', null);
-            }
-        });
     }
     login(email, password) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
@@ -759,6 +773,7 @@ __webpack_require__.r(__webpack_exports__);
 let DealsService = class DealsService {
     constructor(fireStore) {
         this.fireStore = fireStore;
+        this.authState = null;
         if (this.isLoggedIn === true) {
             this.loggedUser = JSON.parse(localStorage.getItem('user')).uid;
         }
