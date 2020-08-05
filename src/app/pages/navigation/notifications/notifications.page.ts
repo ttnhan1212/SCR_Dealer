@@ -15,7 +15,6 @@ export class NotificationsPage implements OnInit, OnDestroy {
 	request: Request[];
 
 	notiSub: Subscription;
-	authState: any = null;
 
 	sellerId: string;
 	constructor(
@@ -32,11 +31,10 @@ export class NotificationsPage implements OnInit, OnDestroy {
 
 	async getUser() {
 		await this.afAuth.authState.subscribe((authState) => {
-			this.authState = authState;
-			if (this.authState) {
-				this.sellerId = this.authState.uid;
-				this.getNoti(this.sellerId);
+			if (authState) {
+				this.sellerId = authState.uid;
 			}
+			this.getNoti(this.sellerId);
 		});
 	}
 

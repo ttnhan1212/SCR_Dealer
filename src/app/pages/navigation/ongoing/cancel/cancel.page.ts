@@ -1,6 +1,6 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NotiService } from './../../../../services/noti.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DealsService } from 'src/app/services/deals.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -21,6 +21,7 @@ export class CancelPage implements OnInit {
 	constructor(
 		private dealService: DealsService,
 		private notiService: NotiService,
+		private router: Router,
 		private route: ActivatedRoute,
 		private afAuth: AngularFireAuth,
 	) {
@@ -60,5 +61,6 @@ export class CancelPage implements OnInit {
 		await this.dealService.updateDeal(this.id, {
 			participants: { created: false },
 		});
+		this.router.navigate(['/', 'home', 'deal']);
 	}
 }

@@ -1,4 +1,3 @@
-import { AngularFireAuth } from '@angular/fire/auth';
 import { LocationService } from './../../../services/location.service';
 import { DealsService } from './../../../services/deals.service';
 import { ModelService } from './../../../services/model.service';
@@ -27,25 +26,12 @@ export class DealPage implements OnInit, OnDestroy {
 		private modelService: ModelService,
 		private dealService: DealsService,
 		private locationService: LocationService,
-		private afAuth: AngularFireAuth,
-	) {
-		// this.dealerId = JSON.parse(localStorage.getItem('user')).uid;
-	}
+	) {}
 
 	ngOnInit() {
-		this.getUser();
 		this.getModel();
 		this.getLocation();
-	}
-
-	async getUser() {
-		await this.afAuth.authState.subscribe((authState) => {
-			this.authState = authState;
-			if (this.authState) {
-				this.dealerId = this.authState.uid;
-				this.getDeal();
-			}
-		});
+		this.getDeal();
 	}
 
 	getModel() {

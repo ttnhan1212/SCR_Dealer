@@ -17,7 +17,6 @@ export class OngoingDetailPage implements OnInit {
 	};
 
 	id: string;
-	authState: any = null;
 
 	dealer: {};
 	price: number;
@@ -46,11 +45,10 @@ export class OngoingDetailPage implements OnInit {
 
 	async getUser() {
 		await this.afAuth.authState.subscribe((authState) => {
-			this.authState = authState;
-			if (this.authState) {
-				this.userId = this.authState.uid;
+			if (authState) {
+				this.userId = authState.uid;
 				this.getDealDetail(this.id);
-				this.getSelectDealer(this.id, this.userId);
+				this.getSelectDealer(this.id);
 			}
 		});
 	}
@@ -63,8 +61,8 @@ export class OngoingDetailPage implements OnInit {
 		});
 	}
 
-	getSelectDealer(id: string, userId: string) {
-		this.dealsService.getSelectedDealer(id, userId).subscribe((val) => {
+	getSelectDealer(id: string) {
+		this.dealsService.getSelectedDealer(id).subscribe((val) => {
 			if (val.length === 0) {
 				this.participant = {};
 				this.userExist = !Boolean(val);

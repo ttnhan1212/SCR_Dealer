@@ -11,10 +11,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class OngoingPage implements OnInit, OnDestroy {
 	logo: any;
 
-	id: string;
-	authState: any = null;
-
-	userSub: Subscription;
+	dealSub: Subscription;
 
 	ongoing: any[];
 	constructor(
@@ -25,39 +22,39 @@ export class OngoingPage implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.getUser();
+		this.currentUser();
 	}
 
-	async getUser() {
-		this.userSub = await this.afAuth.authState.subscribe((authState) => {
-			this.authState = authState;
-			if (this.authState) {
-				this.id = this.authState.uid;
-				this.getOngoingDeal(this.id);
+	async currentUser() {
+		await this.afAuth.authState.subscribe((authState) => {
+			if (authState) {
+				this.getOngoingDeal(authState.uid);
 			}
 		});
 	}
 
-	getOngoingDeal(id) {
-		this.dealService.getOngoingDeal(id).subscribe((val) => {
-			this.ongoing = val.map((e) => {
-				return {
-					...e.payload.doc.data(),
-				};
-			});
-			this.ongoing.forEach((val: any) => {
-				this.dealService.getDealDetail(val.dealId).subscribe((m) => {
-					val.deal = {
-						...(m.payload.data() as {}),
+	async getOngoingDeal(id: string) {
+		this.dealSub = await this.dealService
+			.getOngoingDeal(id)
+			.subscribe((val) => {
+				this.ongoing = val.map((e) => {
+					return {
+						...e.payload.doc.data(),
 					};
 				});
+				this.ongoing.forEach((val: any) => {
+					this.dealService.getDealDetail(val.dealId).subscribe((m) => {
+						val.deal = {
+							...(m.payload.data() as {}),
+						};
+					});
+				});
 			});
-		});
 	}
 
 	ngOnDestroy() {
-		if (this.userSub) {
-			this.userSub.unsubscribe();
+		if (this.dealSub) {
+			this.dealSub.unsubscribe();
 		}
 	}
 }

@@ -1,42 +1,47 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
+import { User } from 'firebase';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class DealsService {
 	loggedUser: any;
-	authState: any = null;
 
-	constructor(private fireStore: AngularFirestore) {
-		if (this.isLoggedIn === true) {
-			this.loggedUser = JSON.parse(localStorage.getItem('user')).uid;
-		}
-	}
-
-	get isLoggedIn(): boolean {
-		const user = JSON.parse(localStorage.getItem('user'));
-		return user !== null;
+	constructor(
+		private fireStore: AngularFirestore,
+		private afAuth: AngularFireAuth,
+	) {
+		this.afAuth.authState.subscribe((user) => {
+			if (user) {
+				this.loggedUser = user;
+			}
+		});
 	}
 
 	getDeal() {
 		return this.fireStore.collection('requests').snapshotChanges();
 	}
 
-	getDealerInParticipant(id: string, user: string) {
-		return this.fireStore
-			.collection('requests')
-			.doc(id)
-			.collection('participants', (ref) => ref.where('userId', '==', user))
-			.valueChanges();
-	}
-
-	getSelectedDealer(id: string, user: string) {
+	getDealerInParticipant(id: string) {
 		return this.fireStore
 			.collection('requests')
 			.doc(id)
 			.collection('participants', (ref) =>
-				ref.where('userId', '==', user).where('selected', '==', true),
+				ref.where('userId', '==', this.loggedUser.uid),
+			)
+			.valueChanges();
+	}
+
+	getSelectedDealer(id: string) {
+		return this.fireStore
+			.collection('requests')
+			.doc(id)
+			.collection('participants', (ref) =>
+				ref
+					.where('userId', '==', this.loggedUser.uid)
+					.where('selected', '==', true),
 			)
 			.valueChanges();
 	}
@@ -61,10 +66,10 @@ export class DealsService {
 			.add(dealer);
 	}
 
-	addDealToDealer(id: string, deal: any) {
+	addDealToDealer(deal: any) {
 		return this.fireStore
 			.collection('Dealer')
-			.doc(id)
+			.doc(this.loggedUser.uid)
 			.collection('Deals')
 			.add(deal);
 	}

@@ -18,11 +18,10 @@ export class DealdetailPage implements OnInit, OnDestroy {
 	};
 
 	id: string;
-	authState: any = null;
 
 	dealer: {};
 	price: number;
-	userId: string;
+	userId: any;
 	bidTime = Math.floor(new Date().getTime() / 1000.0);
 	participant: boolean;
 
@@ -38,24 +37,17 @@ export class DealdetailPage implements OnInit, OnDestroy {
 		private afAuth: AngularFireAuth,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-		// if (localStorage.getItem('user')) {
-		// 	this.userId = JSON.parse(localStorage.getItem('user')).uid;
-		// }
+
+		this.afAuth.authState.subscribe((val) => {
+			if (val) {
+				this.userId = val;
+			}
+		});
 	}
 
 	ngOnInit() {
-		this.getUser();
-	}
-
-	async getUser() {
-		await this.afAuth.authState.subscribe((authState) => {
-			this.authState = authState;
-			if (this.authState) {
-				this.userId = this.authState.uid;
-				this.getDealDetail(this.id);
-				this.getDealerInParticipant(this.id, this.userId);
-			}
-		});
+		this.getDealDetail(this.id);
+		this.getDealerInParticipant(this.id);
 	}
 
 	getDealDetail(id: string) {
@@ -66,8 +58,8 @@ export class DealdetailPage implements OnInit, OnDestroy {
 		});
 	}
 
-	getDealerInParticipant(id: string, userId: string) {
-		this.dealsService.getDealerInParticipant(id, userId).subscribe((val) => {
+	getDealerInParticipant(id: string) {
+		this.dealsService.getDealerInParticipant(id).subscribe((val) => {
 			if (val.length === 0) {
 				return (this.participant = !Boolean(val));
 			} else {
@@ -79,22 +71,22 @@ export class DealdetailPage implements OnInit, OnDestroy {
 	async addDealerToDeal() {
 		this.dealer = {
 			price: this.price,
-			userId: this.userId,
+			userId: this.userId.uid,
 			bidTime: this.bidTime,
 			selected: false,
 		};
 		await this.dealsService.dealerToDeal(this.id, this.dealer);
-		await this.dealsService.addDealToDealer(this.userId, {
+		await this.dealsService.addDealToDealer({
 			dealId: this.id,
 			price: this.price,
 			bidTime: this.bidTime,
 		});
-		await this.dealsService.updateDeal(this.id, { status: 'bidding' });
+		await this.dealsService.updateDeal(this.id, { status: 'Bidding' });
 		await this.notiService.createNoti({
 			requestId: this.id,
 			status: 'Bidding',
 			updateDate: Math.floor(new Date().getTime() / 1000.0),
-			user: this.userId,
+			user: this.userId.uid,
 		});
 		this.router.navigate(['/', 'home', 'ongoing']);
 	}
