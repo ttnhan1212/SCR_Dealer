@@ -39,6 +39,13 @@ const routes: Routes = [
 			),
 	},
 	{
+		path: 'home/settings/:id',
+		loadChildren: () =>
+			import('./pages/navigation/settings/user-detail/user-detail.module').then(
+				(m) => m.UserDetailPageModule,
+			),
+	},
+	{
 		path: '',
 		redirectTo: '',
 		pathMatch: 'full',

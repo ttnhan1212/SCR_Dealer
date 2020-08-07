@@ -11,7 +11,7 @@
 				<ion-label>Edit account infor</ion-label>
 			</ion-col>
 			<ion-col size="12">
-				<ion-button expand="block" (click)="showToast('Edit Account Infor')" color="tertiary"
+				<ion-button expand="block" [routerLink]="[id]" color="tertiary"
 					>Edit account information</ion-button
 				>
 			</ion-col>
@@ -38,7 +38,7 @@
 		<ion-row>
 			<ion-col>
 				<ion-label>Version Infor</ion-label>
-				<br/>
+				<br />
 				<mat-accordion class="mt-2 mb-2">
 					<mat-expansion-panel>
 						<mat-expansion-panel-header>
@@ -46,7 +46,7 @@
 								Term & Conditions
 							</mat-panel-title>
 						</mat-expansion-panel-header>
-						<br/>
+						<br />
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
 						tempora magnam quam. Voluptate neque dignissimos eius doloremque
 						vero, fuga voluptatibus laboriosam, nesciunt deserunt nostrum
@@ -67,7 +67,7 @@
 								Privacy Policy
 							</mat-panel-title>
 						</mat-expansion-panel-header>
-						<br/>
+						<br />
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
 						tempora magnam quam. Voluptate neque dignissimos eius doloremque
 						vero, fuga voluptatibus laboriosam, nesciunt deserunt nostrum
@@ -88,7 +88,7 @@
 		<ion-row>
 			<ion-col>
 				<ion-label>Contact</ion-label>
-				<br/>
+				<br />
 				<mat-accordion class="mt-2 mb-2">
 					<mat-expansion-panel>
 						<mat-expansion-panel-header>
@@ -110,7 +110,7 @@
 		<ion-row>
 			<ion-col>
 				<ion-label>Guide</ion-label>
-				<br/>
+				<br />
 				<mat-accordion class="mt-2 mb-2">
 					<mat-expansion-panel>
 						<mat-expansion-panel-header>
@@ -118,7 +118,7 @@
 								FAQ
 							</mat-panel-title>
 						</mat-expansion-panel-header>
-						<br/>
+						<br />
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem culpa
 						quis excepturi. Quisquam tenetur libero iusto beatae ipsa facere
 						nulla distinctio ex praesentium! Voluptatum deserunt alias, odit
@@ -128,7 +128,13 @@
 			</ion-col>
 		</ion-row>
 
-		<ion-button shape="round" expand="block" (click)="logOut()" class="mt-5" color="tertiary">
+		<ion-button
+			shape="round"
+			expand="block"
+			(click)="logOut()"
+			class="mt-5"
+			color="tertiary"
+		>
 			Sign Out
 		</ion-button>
 	</ion-grid>

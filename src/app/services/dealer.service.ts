@@ -7,6 +7,10 @@ import { Injectable } from '@angular/core';
 export class DealerService {
 	constructor(private firestore: AngularFirestore) {}
 
+	getDealer(id: string) {
+		return this.firestore.collection('Dealer').doc(id).get();
+	}
+
 	createDealer(dealer: any, id: string) {
 		return this.firestore.collection('Dealer').doc(id).set(dealer);
 	}

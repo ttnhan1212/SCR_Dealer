@@ -11,12 +11,20 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class SettingPage implements OnInit {
 	panelOpenState = false;
+
+	id: string;
 	constructor(
 		private toast: ToastService,
 		private router: Router,
 		private afAuth: AngularFireAuth,
 		public loadingController: LoadingController,
-	) {}
+	) {
+		this.afAuth.authState.subscribe((user) => {
+			if (user) {
+				this.id = user.uid;
+			}
+		});
+	}
 
 	ngOnInit() {}
 
