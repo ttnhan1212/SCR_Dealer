@@ -18,6 +18,8 @@ export class VisitPage implements OnInit {
 	};
 
 	id: string;
+	now: string = new Date().toISOString();
+	selectDate: Date;
 
 	dealer: {};
 	price: number;
@@ -68,27 +70,10 @@ export class VisitPage implements OnInit {
 		});
 	}
 
-	async addDealerToDeal() {
-		this.dealer = {
-			price: this.price,
-			userId: this.userId.uid,
-			bidTime: this.bidTime,
-			selected: false,
-		};
-		await this.dealsService.dealerToDeal(this.id, this.dealer);
-		await this.dealsService.addDealToDealer({
-			dealId: this.id,
-			price: this.price,
-			bidTime: this.bidTime,
-		});
-		await this.dealsService.updateDeal(this.id, { status: 'Bidding' });
-		await this.notiService.createNoti({
-			requestId: this.id,
-			status: 'Bidding',
-			updateDate: Math.floor(new Date().getTime() / 1000.0),
-			user: this.userId.uid,
-		});
-		this.router.navigate(['/', 'home', 'ongoing']);
+	addVisitDate() {
+		let time = new Date(this.selectDate);
+		let unix = time.getTime();
+		console.log(unix);
 	}
 
 	ngOnDestroy() {
