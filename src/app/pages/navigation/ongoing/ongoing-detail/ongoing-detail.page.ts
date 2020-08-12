@@ -34,7 +34,7 @@ export class OngoingDetailPage implements OnInit {
 		private router: Router,
 		private route: ActivatedRoute,
 		private notiService: NotiService,
-		private afAuth: AngularFireAuth,
+		private afAuth: AngularFireAuth
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 	}
@@ -79,7 +79,7 @@ export class OngoingDetailPage implements OnInit {
 		});
 		await this.notiService.createNoti({
 			requestId: this.id,
-			status: 'Bidding',
+			status: 'Confirm Purchase',
 			updateDate: Math.floor(new Date().getTime() / 1000.0),
 			user: this.userId,
 		});
@@ -88,6 +88,7 @@ export class OngoingDetailPage implements OnInit {
 				this.dealsService.deleteParticipant(this.id, part.payload.doc.id);
 			});
 		});
+		this.router.navigate(['/', 'home', 'visit', this.id]);
 	}
 
 	cancel() {

@@ -1,0 +1,170 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<!--BreadCrumb-->
+	<ion-card>
+		<div class="container">
+			<div class="page-header">
+				<div class="item-det">
+					<a class="text-dark">
+						<ion-label>Seller Infor</ion-label>
+					</a>
+					<div class="d-flex">
+						<div class="rating-stars d-flex mr-5">
+							<ion-icon name="phone-outline" class="mr-1"></ion-icon>
+							<ion-label>{{detail.name}}</ion-label>
+						</div>
+						<div class="rating-stars d-flex">
+							<ion-icon name="phone-outline" class="mr-1"></ion-icon>
+							<ion-label>{{detail.phone}}</ion-label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-card>
+	<!--/BreadCrumb-->
+	<ion-item>
+		<ion-grid class="container">
+			<ion-row class="row">
+				<ion-col class="col-xl-8 col-lg-8 col-md-12">
+					<!--Classified Description-->
+					<div class="card overflow-hidden">
+						<div class="card-body">
+							<div class="item-det">
+								<a class="text-dark">
+									<h3>Car Model, Year, Plate Number</h3>
+								</a>
+								<!-- <div class="d-flex">
+									<ul class="d-flex mb-0">
+										<li class="mr-5">
+											<a class="icons"
+												><i class="ti-car text-muted mr-1 fs-18"></i> Cars</a
+											>
+										</li>
+										<li class="mr-5">
+											<a class="icons"
+												><i class="ti-location-pin text-muted mr-1"></i
+												>{{detail.location}}</a
+											>
+										</li>
+										<li class="mr-5">
+											<a class="icons"
+												><i class="ti-calendar text-muted mr-1"></i
+												>{{detail.effectedTime}}</a
+											>
+										</li>
+										<li class="mr-5">
+											<a class="icons"
+												><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a
+											>
+										</li>
+									</ul>
+									<div class="rating-stars d-flex mr-5">
+										<ion-icon name="person-outline" class="mr-1"></ion-icon>
+										<ion-label>{{detail.name}}</ion-label>
+									</div>
+									<div class="rating-stars d-flex">
+										<div class="rating-stars-container mr-2">
+											<div class="rating-star sm">
+												<i class="fa fa-heart"></i>
+											</div>
+										</div>
+										135
+									</div>
+								</div> -->
+							</div>
+							<ion-slides
+								class="item-slides"
+								pager="true"
+								[options]="slideOpts"
+							>
+								<ion-slide>
+									<ion-img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									></ion-img>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+							</ion-slides>
+						</div>
+					</div>
+
+					<ion-button
+						class="mt-2 mb-2"
+						expand="full"
+						color="tertiary"
+						size="medium"
+					>
+						See Insurance History
+					</ion-button>
+
+					<ion-item-group class="mb-5">
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong>Location</strong>
+							</ion-card-header>
+							<ion-card-content>{{detail.location}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header
+								><i class="ti-location-pin text-muted mr-1"></i>
+								<strong>Mileages</strong></ion-card-header
+							>
+							<ion-card-content>{{detail.miles}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong>Vehicle 특이 사항</strong>
+							</ion-card-header>
+							<ion-card-content>
+								출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
+								탔어요
+							</ion-card-content>
+						</ion-card>
+					</ion-item-group>
+
+					<ion-card class="card-body">
+						<ion-card-content>
+							<div>
+								<div class="form-group">
+									<input
+										type="number"
+										class="form-control text-center"
+										placeholder="Visit date"
+										[(ngModel)]="price"
+									/>
+								</div>
+								<ion-button expand="full" color="tertiary" size="large">
+									Confirm Date
+								</ion-button>
+							</div>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
+</ion-content>

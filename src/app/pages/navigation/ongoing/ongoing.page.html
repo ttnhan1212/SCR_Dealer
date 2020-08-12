@@ -17,9 +17,9 @@
 </ion-header>
 <ion-content class="ion-padding">
 	<ion-item
-		*ngFor="let item of ongoing"
+		*ngFor="let item of ongoing, let i = index"
 		lines="none"
-		[routerLink]="[item.dealId]"
+		[routerLink]="ongoing[i].deal.participants.length === 2 ? ['/','home','visit',item.dealId] : [item.dealId]"
 	>
 		<ion-thumbnail slot="start">
 			<img

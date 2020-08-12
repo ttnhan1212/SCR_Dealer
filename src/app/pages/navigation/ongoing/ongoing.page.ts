@@ -14,9 +14,11 @@ export class OngoingPage implements OnInit, OnDestroy {
 	dealSub: Subscription;
 
 	ongoing: any[];
+
+	confirm: any;
 	constructor(
 		private dealService: DealsService,
-		private afAuth: AngularFireAuth,
+		private afAuth: AngularFireAuth
 	) {
 		this.logo = '../../../assets/images/logo/scroadslight.svg';
 	}
