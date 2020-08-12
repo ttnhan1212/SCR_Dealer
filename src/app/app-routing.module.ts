@@ -1,3 +1,4 @@
+import { RevisitPageModule } from './pages/visit/revisit/revisit.module';
 import { DealdetailPage } from './pages/dealdetail/dealdetail.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -43,6 +44,13 @@ const routes: Routes = [
 		loadChildren: () =>
 			import('./pages/navigation/settings/user-detail/user-detail.module').then(
 				(m) => m.UserDetailPageModule
+			),
+	},
+	{
+		path: 'home/revisit',
+		loadChildren: () =>
+			import('./pages/visit/revisit/revisit.module').then(
+				(m) => m.RevisitPageModule
 			),
 	},
 	{
