@@ -17,7 +17,15 @@ const routes: Routes = [
     path: "home/revisit",
     loadChildren: () =>
       import("./revisit/revisit.module").then((m) => m.RevisitPageModule),
+  },  {
+    path: 'paymentcomplete',
+    loadChildren: () => import('./paymentcomplete/paymentcomplete.module').then( m => m.PaymentcompletePageModule)
   },
+  {
+    path: 'paymentcancel',
+    loadChildren: () => import('./paymentcancel/paymentcancel.module').then( m => m.PaymentcancelPageModule)
+  },
+
 ];
 
 @NgModule({

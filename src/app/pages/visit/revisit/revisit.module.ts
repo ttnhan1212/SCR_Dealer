@@ -1,3 +1,4 @@
+import { ComponentsModule } from 'src/app/components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -13,7 +14,8 @@ import { RevisitPage } from './revisit.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    RevisitPageRoutingModule
+    RevisitPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [RevisitPage]
 })

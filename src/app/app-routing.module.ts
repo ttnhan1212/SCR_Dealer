@@ -1,4 +1,3 @@
-import { RevisitPageModule } from './pages/visit/revisit/revisit.module';
 import { DealdetailPage } from './pages/dealdetail/dealdetail.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
@@ -47,10 +46,24 @@ const routes: Routes = [
 			),
 	},
 	{
-		path: 'home/revisit',
+		path: 'home/visit/result/revisit',
 		loadChildren: () =>
 			import('./pages/visit/revisit/revisit.module').then(
 				(m) => m.RevisitPageModule
+			),
+	},
+	{
+		path: 'home/visit/result/paymentcomplete',
+		loadChildren: () =>
+			import('./pages/visit/paymentcomplete/paymentcomplete.module').then(
+				(m) => m.PaymentcompletePageModule
+			),
+	},
+	{
+		path: 'home/visit/result/paymentcancel',
+		loadChildren: () =>
+			import('./pages/visit/paymentcancel/paymentcancel.module').then(
+				(m) => m.PaymentcancelPageModule
 			),
 	},
 	{
