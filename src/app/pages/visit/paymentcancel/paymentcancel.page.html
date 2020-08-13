@@ -1,63 +1,69 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+		<ion-button slot="end" fill="clear" [routerLink]="['/','home','deal']">
+			<ion-icon name="log-out-outline"></ion-icon>
+		</ion-button>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid class="container">
-    <ion-row class="row">
-      <ion-col class="col-xl-9 col-lg-9 col-md-12">
-        <div class="card m-b-20">
-          <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label class="form-label" for="exampleInputEmail1"
-                  >Visit result</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exampleInputname"
-                  placeholder="Re-visit"
-                />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Revisit reason</label>
-                <textarea
-                  rows="5"
-                  class="form-control"
-                  placeholder=""
-                ></textarea>
-              </div>
-              <div class="form-group">
-                <input type="file" class="dropify" data-height="180" />
-              </div>
-              <div class="form-group">
-                <label class="form-label">Revisit date</label>
-                <input class="form-control" name="date" placeholder="number" />
-              </div>
-              <div class="form-group">
-                <label class="form-label" for="exampleInputPassword1"
-                  >Other</label
-                >
-                <textarea
-                  rows="5"
-                  class="form-control"
-                  placeholder=""
-                ></textarea>
-              </div>
-              <div class="form-group mb-0">
-                <div class="checkbox checkbox-secondary">
-                  <button type="submit" class="btn btn-primary">Confirm</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+	<ion-grid class="container">
+		<ion-row class="row">
+			<ion-col class="col-xl-9 col-lg-9 col-md-12">
+				<div class="card m-b-20">
+					<div class="card-body">
+						<form>
+							<div class="form-group">
+								<label class="form-label" for="exampleInputEmail1"
+									>Visit result</label
+								>
+								<input
+									type="text"
+									class="form-control"
+									id="exampleInputname"
+									placeholder="Re-visit"
+								/>
+							</div>
+							<div class="form-group">
+								<label class="form-label">Revisit reason</label>
+								<textarea
+									rows="5"
+									class="form-control"
+									placeholder=""
+								></textarea>
+							</div>
+							<div class="form-group">
+								<input type="file" class="dropify" data-height="180" />
+							</div>
+							<div class="form-group">
+								<label class="form-label">Revisit date</label>
+								<input class="form-control" name="date" placeholder="number" />
+							</div>
+							<div class="form-group">
+								<label class="form-label" for="exampleInputPassword1"
+									>Other</label
+								>
+								<textarea
+									rows="5"
+									class="form-control"
+									placeholder=""
+								></textarea>
+							</div>
+							<div class="form-group mb-0">
+								<div class="checkbox checkbox-secondary">
+									<button type="submit" class="btn btn-primary">Confirm</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
 </ion-content>
