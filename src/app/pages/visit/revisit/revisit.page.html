@@ -36,8 +36,16 @@
                 <input type="file" class="dropify" data-height="180" />
               </div>
               <div class="form-group">
-                <label class="form-label">Revisit date</label>
-                <input class="form-control" name="date" placeholder="number" />
+                <ion-item>
+									<ion-label class="mylabel">Revisit date</ion-label>
+                  <ion-datetime
+                    class="mytimepicker"
+										displayFormat="D MMM YYYY H:mm A"
+										[min]="now"
+                    [(ngModel)]="selectDate"
+                    [ngModelOptions]="{standalone: true}"
+									></ion-datetime>
+								</ion-item>
               </div>
               <div class="form-group">
                 <label class="form-label" for="exampleInputPassword1"
@@ -50,9 +58,7 @@
                 ></textarea>
               </div>
               <div class="form-group mb-0">
-                <div class="checkbox checkbox-secondary">
-                  <button type="submit" class="btn btn-primary">Confirm</button>
-                </div>
+                <ion-button expand="block" color="tertiary">Confirm</ion-button>
               </div>
             </form>
           </div>

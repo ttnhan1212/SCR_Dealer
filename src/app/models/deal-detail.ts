@@ -7,4 +7,7 @@ export class DealDetail {
 	status: string;
 	effectedTime: number;
 	expriredTime: number;
+	sellerId: string;
+	vehiclesId: string;
+	visitDate: number;
 }

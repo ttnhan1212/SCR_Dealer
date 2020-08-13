@@ -1,9 +1,48 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>result</ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+		<ion-button slot="end" fill="clear" [routerLink]="['/','home','deal']">
+			<ion-icon name="log-out-outline"></ion-icon>
+		</ion-button>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
+	<ion-title class="text-center title">Select Visit Result</ion-title>
+	<ion-list class="result-button">
+		<ion-item lines="none">
+			<ion-button
+				expand="block"
+				color="tertiary"
+				size="large"
+				[routerLink]="['/','home','visit','result','confirm',this.id]"
+				>Purchase Confirm</ion-button
+			>
+		</ion-item>
 
+		<ion-item lines="none">
+			<ion-button
+				expand="block"
+				color="tertiary"
+				size="large"
+				[routerLink]="['/','home','visit','result','revisit',this.id]"
+				>Re Visit</ion-button
+			>
+		</ion-item>
+
+		<ion-item lines="none">
+			<ion-button
+				expand="block"
+				color="tertiary"
+				size="large"
+				[routerLink]="['/','home','visit','result','cancel',this.id]"
+				>Purchase Cancel</ion-button
+			>
+		</ion-item>
+	</ion-list>
 </ion-content>

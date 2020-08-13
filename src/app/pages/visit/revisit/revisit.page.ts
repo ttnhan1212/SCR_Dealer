@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./revisit.page.scss'],
 })
 export class RevisitPage implements OnInit {
-
+  now: string = new Date().toISOString();
+  selectDate: Date;
+  
   constructor() { }
 
   ngOnInit() {

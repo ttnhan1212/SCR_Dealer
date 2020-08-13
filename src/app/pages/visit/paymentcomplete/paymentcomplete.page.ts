@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paymentcomplete.page.scss'],
 })
 export class PaymentcompletePage implements OnInit {
-
+  now: string = new Date().toISOString();
+  selectDate: Date;
+  
   constructor() { }
 
   ngOnInit() {
