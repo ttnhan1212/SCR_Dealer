@@ -51,6 +51,13 @@ const routes: Routes = [
 			import('./pages/visit/visit.module').then((m) => m.VisitPageModule),
 	},
 	{
+		path: 'home/visit/result/:id',
+		loadChildren: () =>
+			import('./pages/visit/result/result.module').then(
+				(m) => m.ResultPageModule
+			),
+	},
+	{
 		path: '',
 		redirectTo: '',
 		pathMatch: 'full',

@@ -72,8 +72,13 @@ export class VisitPage implements OnInit {
 
 	addVisitDate() {
 		let time = new Date(this.selectDate);
-		let unix = time.getTime();
-		console.log(unix);
+		let unix = Math.floor(time.getTime() / 1000.0);
+		this.dealsService.updateDeal(this.id, { visitDate: unix });
+	}
+
+	localeDate(time: number) {
+		const myDate = new Date(time * 1000);
+		return myDate.toLocaleString();
 	}
 
 	ngOnDestroy() {

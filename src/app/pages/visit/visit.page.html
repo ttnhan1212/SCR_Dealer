@@ -152,7 +152,7 @@
 					</ion-item-group>
 
 					<ion-card class="card-body">
-						<ion-card-content>
+						<ion-card-content *ngIf="!detail.visitDate">
 							<div class="form-group">
 								<ion-item>
 									<ion-label>
@@ -160,6 +160,7 @@
 									</ion-label>
 									<ion-datetime
 										displayFormat="D MMM YYYY H:mm A"
+										[min]="now"
 										[(ngModel)]="selectDate"
 									></ion-datetime>
 								</ion-item>
@@ -171,6 +172,19 @@
 								(click)="addVisitDate()"
 							>
 								Confirm Date
+							</ion-button>
+						</ion-card-content>
+						<ion-card-content *ngIf="detail.visitDate">
+							<ion-title class="text-center mb-3">
+								{{localeDate(detail.visitDate) | date:"medium"}}
+							</ion-title>
+							<ion-button
+								expand="full"
+								color="tertiary"
+								size="large"
+								[routerLink]="['/','home','visit','result', this.id]"
+							>
+								Enter Visit Result
 							</ion-button>
 						</ion-card-content>
 					</ion-card>

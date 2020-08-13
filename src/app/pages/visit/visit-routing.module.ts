@@ -8,11 +8,6 @@ const routes: Routes = [
 		path: '',
 		component: VisitPage,
 	},
-	{
-		path: 'result',
-		loadChildren: () =>
-			import('./result/result.module').then((m) => m.ResultPageModule),
-	},
 ];
 
 @NgModule({
