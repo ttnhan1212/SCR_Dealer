@@ -75,6 +75,7 @@ export class OngoingDetailPage implements OnInit {
 
 	async confirmSelect(user: string, price: number) {
 		await this.dealsService.updateDeal(this.id, {
+			status: 'Confirm',
 			participants: [user, price],
 		});
 		await this.notiService.createNoti({
@@ -83,11 +84,17 @@ export class OngoingDetailPage implements OnInit {
 			updateDate: Math.floor(new Date().getTime() / 1000.0),
 			user: this.userId,
 		});
-		await this.dealsService.getParticipant(this.id).subscribe((val) => {
-			val.forEach((part) => {
-				this.dealsService.deleteParticipant(this.id, part.payload.doc.id);
+		// await this.dealsService.getParticipant(this.id).subscribe((val) => {
+		// 	val.forEach((part) => {
+		// 		this.dealsService.deleteParticipant(this.id, part.payload.doc.id);
+		// 	});
+		// });
+		await this.dealsService.getUnselectParticipant(this.id).subscribe((m) => {
+			m.forEach((val) => {
+				this.dealsService.deleteParticipant(this.id, val.payload.doc.id);
 			});
 		});
+
 		this.router.navigate(['/', 'home', 'visit', this.id]);
 	}
 
