@@ -1,3 +1,4 @@
+import { LoadingController } from '@ionic/angular';
 import { LocationService } from './../../../services/location.service';
 import { DealsService } from './../../../services/deals.service';
 import { ModelService } from './../../../services/model.service';
@@ -26,6 +27,7 @@ export class DealPage implements OnInit, OnDestroy {
 		private modelService: ModelService,
 		private dealService: DealsService,
 		private locationService: LocationService,
+		public loadingController: LoadingController,
 	) {}
 
 	ngOnInit() {
@@ -60,14 +62,20 @@ export class DealPage implements OnInit, OnDestroy {
 		});
 	}
 
-	getDeal() {
-		this.dealSub = this.dealService.getDeal().subscribe((data: any) => {
+	async getDeal() {
+		const loading = await this.loadingController.create({
+			message: 'Please wait...',
+			showBackdrop: true,
+		});
+		this.dealSub = await this.dealService.getDeal().subscribe((data: any) => {
+			loading.present();
 			this.deals = data.map((e) => {
 				return {
 					id: e.payload.doc.id,
 					...e.payload.doc.data(),
 				};
 			});
+			loading.dismiss();
 		});
 	}
 

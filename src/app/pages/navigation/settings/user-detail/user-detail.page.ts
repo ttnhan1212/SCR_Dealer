@@ -1,3 +1,4 @@
+import { LoadingController } from '@ionic/angular';
 import { DealerService } from './../../../../services/dealer.service';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -95,6 +96,7 @@ export class UserDetailPage implements OnInit {
 		private fb: FormBuilder,
 		private storage: AngularFireStorage,
 		private dealerService: DealerService,
+		public loadingController: LoadingController,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 	}
@@ -104,12 +106,18 @@ export class UserDetailPage implements OnInit {
 	}
 
 	async getUser() {
+		const loading = await this.loadingController.create({
+			message: 'Please wait...',
+			showBackdrop: true,
+		});
+		await loading.present();
 		await this.afAuth.authState.subscribe((authState) => {
 			if (authState) {
 				this.userId = authState.uid;
 				this.getDealer(this.userId);
 			}
 		});
+		await loading.dismiss();
 	}
 
 	getDealer(id: string) {
