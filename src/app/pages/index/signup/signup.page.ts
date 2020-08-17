@@ -27,8 +27,11 @@ import {
   AngularFirestore,
 } from "@angular/fire/firestore";
 import { ThrowStmt } from "@angular/compiler";
-import { FileChooser } from "@ionic-native/file-chooser/ngx";
-import { FilePath } from "@ionic-native/file-path/ngx";
+import {
+  ImagePicker,
+  ImagePickerOptions,
+} from "@ionic-native/image-picker/ngx";
+import { File } from "@ionic-native/file/ngx";
 
 export interface MyData {
   name: string;
@@ -44,10 +47,10 @@ const IMG_AVT_DEFAULT = "/assets/images/brand/add-photo.png";
   styleUrls: ["./signup.page.scss"],
 })
 export class SignupPage implements OnInit {
-  returnpath: string = "";
+  cordovaImages: any = [];
   image: string;
   newImage: string;
-  imageSource: File;
+  imageSource: any;
   imagePreview: string = IMG_AVT_DEFAULT;
   checkBoxList: any;
   isIndeterminate: boolean;
@@ -117,8 +120,8 @@ export class SignupPage implements OnInit {
     private fb: FormBuilder,
     private storage: AngularFireStorage,
     private afs: AngularFirestore,
-    public filePath: FilePath,
-    public fileChooser: FileChooser
+    private imagePicker: ImagePicker,
+    private file: File
   ) {
     this.checkBoxList = [
       {
@@ -156,23 +159,33 @@ export class SignupPage implements OnInit {
     });
   }
 
-  PickFile() {
-    this.fileChooser.open().then((fileuri) => {
-      this.filePath.resolveNativePath(fileuri).then((resolvednativepath) => {
-        this.returnpath = resolvednativepath;
-      });
+  PickImages() {
+    var options: ImagePickerOptions = {
+      maximumImagesCount: 1,
+      width: 100,
+      height: 100,
+    };
+
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+        let filename = results[i].substring(results[i].lastIndexOf("/") + 1);
+		let path = results[i].substring(0, results[i].lastIndexOf("/") + 1);
+		this.file.readAsDataURL(path, filename).then((base64string) => {
+			this.cordovaImages.push(base64string);
+		})
+      }
     });
   }
 
-  handleFileInput(files: File[]) {
-    this.imageSource = files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(files[0]);
-    reader.onload = (e: any) => {
-      this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
-    };
-    console.log(this.imageSource.name);
-  }
+  //   handleFileInput(files: File[]) {
+  //     this.imageSource = files[0];
+  //     let reader = new FileReader();
+  //     reader.readAsDataURL(files[0]);
+  //     reader.onload = (e: any) => {
+  //       this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
+  //     };
+  //     console.log(this.imageSource.name);
+  //   }
 
   onFileSelected($event) {
     var n = $event.target.files[0].name;
