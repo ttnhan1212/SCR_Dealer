@@ -39,7 +39,11 @@
 										(change)="handleFileInput($event.target.files)"
 									/> -->
 									<!-- <input type="file" class="custom-file-input" (change)="onFileSelected($event)" accept=".png,.jpg"> -->
-									<ion-input type="file" value="" accept=".jpg, .jpeg, .png" (change)="handleFileInput($event.target.files)"></ion-input>
+									<!-- <ion-input type="file" value="" accept=".jpg, .jpeg, .png" (change)="handleFileInput($event.target.files)"></ion-input> -->
+									<ion-input type="file" value="" accept=".jpg, .jpeg, .png" (click)="PickFile()"></ion-input>
+									<div>
+										{{ returnpath }}
+									</div>
 								</div>
 								<h3 style="color: #080e1b; font-size: 1rem;">
 									(Tap to upload profile image)
