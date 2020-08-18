@@ -47,7 +47,7 @@ const IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
 	styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-	cordovaImages: any = [];
+	// cordovaImages: any = [];
 	image: string;
 	newImage: string;
 	imageSource: any;
@@ -143,7 +143,6 @@ export class SignupPage implements OnInit {
 
 		this.isUploading = false;
 		this.isUploaded = false;
-
 		//Set collection where our documents/ images info will save
 		// this.images = this.imageCollection.valueChanges();
 
@@ -159,33 +158,47 @@ export class SignupPage implements OnInit {
 		});
 	}
 
-	PickImages() {
-		var options: ImagePickerOptions = {
-			maximumImagesCount: 1,
-			width: 100,
-			height: 100,
-		};
+	// PickImages() {
+	// 	var options: ImagePickerOptions = {
+	// 		maximumImagesCount: 1,
+	// 		width: 100,
+	// 		height: 100,
+	// 	};
 
-		this.imagePicker.getPictures(options).then((results) => {
-			for (var i = 0; i < results.length; i++) {
-				let filename = results[i].substring(results[i].lastIndexOf('/') + 1);
-				let path = results[i].substring(0, results[i].lastIndexOf('/') + 1);
-				this.file.readAsDataURL(path, filename).then((base64string) => {
-					this.cordovaImages.push(base64string);
-				});
-			}
-		});
+	// 	this.imagePicker.getPictures(options).then((results) => {
+	// 		for (var i = 0; i < results.length; i++) {
+	// 			let filename = results[i].substring(results[i].lastIndexOf('/') + 1);
+	// 			let path = results[i].substring(0, results[i].lastIndexOf('/') + 1);
+	// 			this.file.readAsDataURL(path, filename).then((base64string) => {
+	// 				this.cordovaImages.push(base64string);
+	// 			});
+	// 		}
+	// 	});
+	// }
+
+	// handleFileInput(files: File[]) {
+	// 	this.imageSource = files[0];
+	// 	let reader = new FileReader();
+	// 	reader.readAsDataURL(files[0]);
+	// 	reader.onload = (e: any) => {
+	// 		this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
+	// 	};
+	// 	console.log(this.imageSource.name);
+	// }
+
+	handleFileInput(event) {
+		try {
+			this.imageSource = event.target.files[0];
+			const reader = new FileReader();
+			reader.readAsDataURL(this.imageSource);
+			reader.onload = (e: any) => {
+				this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
+			};
+			console.log(this.imageSource.name);
+		} catch (error) {
+			console.log(error.message);
+		}
 	}
-
-	//   handleFileInput(files: File[]) {
-	//     this.imageSource = files[0];
-	//     let reader = new FileReader();
-	//     reader.readAsDataURL(files[0]);
-	//     reader.onload = (e: any) => {
-	//       this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
-	//     };
-	//     console.log(this.imageSource.name);
-	//   }
 
 	onFileSelected($event) {
 		var n = $event.target.files[0].name;
@@ -280,7 +293,7 @@ export class SignupPage implements OnInit {
 		}
 	}
 
-	uploadFile(user: string) {
+	async uploadFile(user: string) {
 		// The File object
 		const file = this.imageSource;
 
