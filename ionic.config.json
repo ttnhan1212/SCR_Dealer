@@ -1,7 +1,8 @@
 {
   "name": "SCRoads Dealer",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }
