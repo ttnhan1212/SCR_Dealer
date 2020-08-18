@@ -31,7 +31,13 @@
 							<form class="card-body p-4 pb-0" [formGroup]="signupForm">
 								<h3>Register as:</h3>
 								<div class="avt-view">
-									<img [src]="imagePreview" alt="" class="img-fluid" />
+									<img
+										[src]="imagePreview"
+										alt="upload-camera"
+										class="img-fluid"
+										name="pick"
+										(click)="pick.click()"
+									/>
 									<!-- <input
 										type="file"
 										placeholder=""
@@ -44,8 +50,14 @@
 									<div>
 										{{ returnpath }}
 									</div> -->
-									<ion-input type="file" value="" accept=".jpg, .jpeg, .png" (click)="PickImages()"></ion-input>
-									<ion-list *ngFor = "let cordovaImage of cordovaImages">
+									<input
+										type="file"
+										#pick
+										style="display: none;"
+										accept=".jpg, .jpeg, .png"
+										(change)="PickImages()"
+									/>
+									<ion-list *ngFor="let cordovaImage of cordovaImages">
 										<ion-item>
 											<img src="cordovaImage" />
 										</ion-item>
@@ -166,7 +178,7 @@
 								fill="clear"
 								expand="block"
 								class="text-dark mb-6"
-								routerLink="/login"
+								[routerLink]="['login']"
 							>
 								Already have an account? Log In
 							</ion-button>
