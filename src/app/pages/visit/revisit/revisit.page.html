@@ -13,57 +13,44 @@
 </ion-header>
 
 <ion-content>
-	<ion-grid class="container">
-		<ion-row class="row">
-			<ion-col class="col-xl-9 col-lg-9 col-md-12">
-				<div class="card m-b-20">
-					<div class="card-body">
-						<form>
-							<div class="form-group">
-								<label class="form-label" for="exampleInputEmail1"
-									>Visit result</label
-								>
-								<input
-									type="text"
-									class="form-control"
-									id="exampleInputname"
-									placeholder="Re-visit"
-								/>
-							</div>
-							<div class="form-group">
-								<label class="form-label">Revisit reason</label>
-								<textarea
-									rows="5"
-									class="form-control"
-									placeholder=""
-								></textarea>
-							</div>
-							<div class="form-group">
-								<input type="file" class="dropify" data-height="180" />
-							</div>
-							<div class="form-group">
-								<label class="form-label">Revisit date</label>
-								<input class="form-control" name="date" placeholder="number" />
-							</div>
-							<div class="form-group">
-								<label class="form-label" for="exampleInputPassword1"
-									>Other</label
-								>
-								<textarea
-									rows="5"
-									class="form-control"
-									placeholder=""
-								></textarea>
-							</div>
-							<div class="form-group mb-0">
-								<div class="checkbox checkbox-secondary">
-									<button type="submit" class="btn btn-primary">Confirm</button>
-								</div>
-							</div>
-						</form>
-					</div>
+	<ion-card>
+		<ion-card-content>
+			<form>
+				<ion-item class="form-group">
+					<ion-label position="floating">Visit result</ion-label>
+					<ion-input type="text"></ion-input>
+				</ion-item>
+				<ion-item class="form-group">
+					<ion-label position="floating">Revisit reason</ion-label>
+					<ion-textarea rows="5"></ion-textarea>
+				</ion-item>
+				<div class="form-group">
+					<ngx-dropzone (change)="onSelect($event)">
+						<ngx-dropzone-label>Upload your image here</ngx-dropzone-label>
+						<ngx-dropzone-image-preview
+							ngProjectAs="ngx-dropzone-preview"
+							*ngFor="let f of files"
+							[file]="f"
+						>
+						</ngx-dropzone-image-preview>
+					</ngx-dropzone>
+					<!-- <dropzone
+						[message]="'Click here to upload'"
+					></dropzone> -->
 				</div>
-			</ion-col>
-		</ion-row>
-	</ion-grid>
+				<ion-item class="form-group">
+					<ion-label position="floating">Revisit date</ion-label>
+					<ion-datetime
+						displayFormat="D MMM YYYY H:mm A"
+						[min]="now"
+					></ion-datetime>
+				</ion-item>
+				<ion-item class="form-group">
+					<ion-label position="floating">Other</ion-label>
+					<ion-textarea rows="5"></ion-textarea>
+				</ion-item>
+				<ion-button expand="block">Confirm</ion-button>
+			</form>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

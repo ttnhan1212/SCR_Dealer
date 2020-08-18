@@ -9,14 +9,17 @@ import { RevisitPageRoutingModule } from './revisit-routing.module';
 
 import { RevisitPage } from './revisit.page';
 
+import { NgxDropzoneModule } from 'ngx-dropzone';
+
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RevisitPageRoutingModule,
-    ComponentsModule
-  ],
-  declarations: [RevisitPage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		RevisitPageRoutingModule,
+		ComponentsModule,
+		NgxDropzoneModule,
+	],
+	declarations: [RevisitPage],
 })
 export class RevisitPageModule {}
