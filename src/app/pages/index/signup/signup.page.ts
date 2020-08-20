@@ -1,9 +1,15 @@
+import { File } from '@ionic-native/file/ngx';
 import { DealerService } from './../../../services/dealer.service';
 import { AuthService } from './../../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import {
+	LoadingController,
+	ActionSheetController,
+	Platform,
+} from '@ionic/angular';
+
 import { ToastService } from 'src/app/services/toast.service';
 
 import { ModalController } from '@ionic/angular';
@@ -21,23 +27,24 @@ import {
 	AngularFireUploadTask,
 } from '@angular/fire/storage';
 import { Observable } from 'rxjs';
-import { map, finalize, tap } from 'rxjs/operators';
-import {
-	AngularFirestoreCollection,
-	AngularFirestore,
-} from '@angular/fire/firestore';
-import { ThrowStmt } from '@angular/compiler';
-import {
-	ImagePicker,
-	ImagePickerOptions,
-} from '@ionic-native/image-picker/ngx';
-import { File } from '@ionic-native/file/ngx';
+import { finalize, tap } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 
-export interface MyData {
-	name: string;
-	filepath: string;
-	size: number;
-}
+import {
+	CameraSource,
+	Plugins,
+	CameraResultType,
+	CameraPhoto,
+} from '@capacitor/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
+const { Camera } = Plugins;
+
+// export interface MyData {
+// 	name: string;
+// 	filepath: string;
+// 	size: number;
+// }
 
 const IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
 
@@ -48,13 +55,16 @@ const IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
 })
 export class SignupPage implements OnInit {
 	// cordovaImages: any = [];
-	image: string;
-	newImage: string;
-	imageSource: any;
+	// image: string;
+	// newImage: string;
+
+	imageSource: CameraPhoto;
 	imagePreview: string = IMG_AVT_DEFAULT;
 	checkBoxList: any;
 	isIndeterminate: boolean;
 	masterCheck: boolean;
+
+	photo: SafeResourceUrl;
 
 	userId: string;
 
@@ -64,18 +74,18 @@ export class SignupPage implements OnInit {
 		Validators.compose([
 			Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
 			Validators.required,
-		])
+		]),
 	);
 	password = new FormControl(
 		'',
-		Validators.compose([Validators.minLength(8), Validators.required])
+		Validators.compose([Validators.minLength(8), Validators.required]),
 	);
 	cPassword = new FormControl('', Validators.required);
 	orgname = new FormControl('', Validators.required);
 	phonenum = new FormControl(null, Validators.required);
 	faxnum = new FormControl(
 		null,
-		Validators.compose([Validators.required, Validators.minLength(10)])
+		Validators.compose([Validators.required, Validators.minLength(10)]),
 	);
 	ceoname = new FormControl('', Validators.required);
 	address = new FormControl('', Validators.required);
@@ -83,19 +93,16 @@ export class SignupPage implements OnInit {
 	selectedFile: any;
 
 	// Upload Task
-	task: AngularFireUploadTask;
+	// task: AngularFireUploadTask;
 
 	// Progress in percentage
 	percentage: Observable<number>;
-
-	// Snapshot of uploading file
-	snapshot: Observable<any>;
 
 	// Uploaded File URL
 	UploadedFileURL: Observable<string>;
 
 	//Uploaded Image List
-	images: Observable<MyData[]>;
+	// images: Observable<MyData[]>;
 
 	//File details
 	fileName: string;
@@ -105,9 +112,9 @@ export class SignupPage implements OnInit {
 	isUploading: boolean;
 	isUploaded: boolean;
 
-	downloadURL: Observable<string>;
+	// private imageCollection: AngularFirestoreCollection<MyData>;
 
-	private imageCollection: AngularFirestoreCollection<MyData>;
+	@ViewChild('pick', { static: false }) pick: ElementRef<HTMLInputElement>;
 
 	constructor(
 		public afAuth: AngularFireAuth,
@@ -119,9 +126,10 @@ export class SignupPage implements OnInit {
 		private dealerService: DealerService,
 		private fb: FormBuilder,
 		private storage: AngularFireStorage,
-		private afs: AngularFirestore,
-		private imagePicker: ImagePicker,
-		private file: File
+		private afs: AngularFirestore, // private file: File,
+		private actionSheetCtrl: ActionSheetController,
+		private plt: Platform,
+		private sanitizer: DomSanitizer,
 	) {
 		this.checkBoxList = [
 			{
@@ -188,41 +196,78 @@ export class SignupPage implements OnInit {
 
 	handleFileInput(event) {
 		try {
-			this.imageSource = event.target.files[0];
+			const file = event.target.files[0];
+			const pattern = /image-*/;
 			const reader = new FileReader();
-			reader.readAsDataURL(this.imageSource);
+			reader.readAsDataURL(file);
+			if (!file.type.match(pattern)) {
+				console.log('File format not supported');
+				return;
+			}
+
 			reader.onload = (e: any) => {
-				this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
+				this.photo = e.target.result || IMG_AVT_DEFAULT;
 			};
-			console.log(this.imageSource.name);
+			this.imageSource = event.target.files[0];
 		} catch (error) {
 			console.log(error.message);
 		}
 	}
 
-	onFileSelected($event) {
-		var n = $event.target.files[0].name;
-		const file = $event.target.files[0];
-		const filePath = `user-image/` + `${n}`;
-		const fileRef = this.storage.ref(filePath);
-		const task = this.storage.upload(`user-image/` + `${n}`, file);
-		task
-			.snapshotChanges()
-			.pipe(
-				finalize(() => {
-					this.downloadURL = fileRef.getDownloadURL();
-					this.downloadURL.subscribe((url) => {
-						if (url) {
-							this.newImage = url;
-							this.image = this.newImage;
-						}
-					});
-				})
-			)
-			.subscribe((url) => {
-				if (url) {
-				}
+	async selectImageSource() {
+		const buttons = [
+			{
+				text: 'Take Photo',
+				icon: 'camera',
+				handler: () => {
+					this.addImage(CameraSource.Camera);
+				},
+			},
+			{
+				text: 'Choose Image From Gallery',
+				icon: 'image',
+				handler: () => {
+					this.addImage(CameraSource.Photos);
+				},
+			},
+		];
+
+		// Only allow file selection inside a browser
+		if (!this.plt.is('hybrid')) {
+			buttons.push({
+				text: 'Choose a File',
+				icon: 'attach',
+				handler: () => {
+					this.pick.nativeElement.click();
+				},
 			});
+		}
+
+		const actionSheet = await this.actionSheetCtrl.create({
+			header: 'Select Image Source',
+			buttons,
+		});
+		await actionSheet.present();
+	}
+
+	async addImage(source: CameraSource) {
+		const image = await Camera.getPhoto({
+			quality: 100,
+			width: 400,
+			allowEditing: false,
+			resultType: CameraResultType.DataUrl,
+			source,
+		});
+		this.imageSource = image;
+
+		// const blobData = this.b64toBlob(
+		// 	image.base64String,
+		// 	`image/${image.format}`,
+		// );
+		// const imageName = 'Give me a name';
+		this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(
+			image && image.dataUrl,
+		);
 	}
 
 	ngOnInit() {}
@@ -293,82 +338,72 @@ export class SignupPage implements OnInit {
 		}
 	}
 
-	async uploadFile(user: string) {
+	uploadFile(user: string) {
 		// The File object
-		const file = this.imageSource;
+		const blobData = this.b64toBlob(
+			this.imageSource.base64String,
+			'image/jpeg',
+			512,
+		);
 
 		// Validation for Images Only
-		if (file.type.split('/')[0] !== 'image') {
-			console.error('unsupported file type :( ');
-			return;
-		}
+		// if (file.type.split('/')[0] !== 'image') {
+		// 	console.error('unsupported file type :( ');
+		// 	return;
+		// }
 
 		this.isUploading = true;
 		this.isUploaded = false;
 
-		this.fileName = file.name;
+		// File name
 
 		// The storage path
-		const path = `user-image/${new Date().getTime()}_${file.name}`;
-
+		//const i = `user-image/${new Date().getTime()}_${file.name}`;
+		const path = `user-image/${new Date().getTime()}`;
 		// Totally optional metadata
-		const customMetadata = { app: 'SCRoads Image Upload Demo' };
+		const customMetadata = { app: 'SCRoads Image Upload' };
 
-		//File reference
+		// File reference
 		const fileRef = this.storage.ref(path);
 
 		// The main task
-		this.task = this.storage.upload(path, file, { customMetadata });
-
-		this.UploadedFileURL = fileRef.getDownloadURL();
-		this.UploadedFileURL.subscribe(
-			(resp) => {
-				this.dealerService.updateDealer(
-					{
-						name: file.name,
-						filepath: resp,
-						size: this.fileSize,
-					},
-					user
-				);
-				this.isUploading = false;
-				this.isUploaded = true;
-			},
-			(error) => {
-				console.error(error);
-			}
-		);
+		const task = this.storage.upload(path, blobData, { customMetadata });
 
 		// Get file progress percentage
-		// this.percentage = this.task.percentageChanges();
-		// this.snapshot = this.task.snapshotChanges().pipe(
-		// 	finalize(() => {
-		// 		// Get uploaded file storage path
-		// 		this.UploadedFileURL = fileRef.getDownloadURL();
+		this.percentage = task.percentageChanges();
 
-		// 		this.UploadedFileURL.subscribe(
-		// 			(resp) => {
-		// 				this.dealerService.updateDealer(
-		// 					// {
-		// 					// 	name: file.name,
-		// 					// 	filepath: resp,
-		// 					// 	size: this.fileSize,
-		// 					// },
-		// 					resp,
-		// 					user,
-		// 				);
-		// 				this.isUploading = false;
-		// 				this.isUploaded = true;
-		// 			},
-		// 			(error) => {
-		// 				console.error(error);
-		// 			},
-		// 		);
-		// 	}),
-		// 	tap((snap) => {
-		// 		this.fileSize = snap.totalBytes;
-		// 	}),
-		// );
+		task
+			.snapshotChanges()
+			.pipe(
+				finalize(() => {
+					this.UploadedFileURL = fileRef.getDownloadURL();
+					this.UploadedFileURL.subscribe(
+						(url) => {
+							console.log(url);
+							if (url) {
+								this.dealerService.updateDealerImage(
+									{
+										name: 'Hudson',
+										filepath: url,
+									},
+									user,
+								);
+
+								this.isUploading = false;
+								this.isUploaded = true;
+							}
+						},
+						(error) => {
+							console.error(error);
+						},
+					);
+				}),
+			)
+			.subscribe((url) => {
+				if (url) {
+					console.log(url);
+				}
+			});
 	}
 
 	async signupDealer() {
@@ -391,6 +426,7 @@ export class SignupPage implements OnInit {
 				});
 				await this.uploadFile(this.userId);
 				await loading.dismiss();
+				// await this.router.navigate(['/', 'login']);
 			} catch (error) {
 				if (!this.signupForm.valid) {
 					this.toast.showToast(this.signupForm.errors.message);
@@ -399,5 +435,27 @@ export class SignupPage implements OnInit {
 				await loading.dismiss();
 			}
 		}
+	}
+
+	// Helper function
+	// https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
+	b64toBlob(b64Data, contentType = '', sliceSize = 512) {
+		const byteCharacters = atob(b64Data);
+		const byteArrays = [];
+		for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+			const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+			const byteNumbers = new Array(slice.length);
+			for (let i = 0; i < slice.length; i++) {
+				byteNumbers[i] = slice.charCodeAt(i);
+			}
+
+			const byteArray = new Uint8Array(byteNumbers);
+			byteArrays.push(byteArray);
+		}
+
+		const blob = new Blob(byteArrays, { type: contentType });
+
+		return blob;
 	}
 }

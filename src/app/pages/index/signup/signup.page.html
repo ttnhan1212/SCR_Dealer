@@ -33,10 +33,17 @@
 								<div class="avt-view">
 									<img
 										[src]="imagePreview"
+										*ngIf="!photo"
 										alt="upload-camera"
 										class="img-fluid"
-										name="pick"
-										(click)="pick.click()"
+										(click)="selectImageSource()"
+									/>
+									<img
+										[src]="photo"
+										*ngIf="photo"
+										alt="upload-camera"
+										class="img-fluid"
+										(click)="selectImageSource()"
 									/>
 									<input
 										type="file"
@@ -165,6 +172,7 @@
 									></ion-checkbox>
 								</ion-item>
 							</ion-list>
+
 							<ion-button
 								expand="block"
 								color="tertiary"
@@ -173,13 +181,17 @@
 								[disabled]="!masterCheck || !signupForm.valid"
 							>
 								Request Register
+								<ion-item *ngIf="percentage | async as pct">
+									Progress: {{ pct | number }}%
+									<ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
+								</ion-item>
 							</ion-button>
 
 							<ion-button
 								fill="clear"
 								expand="block"
 								class="text-dark mb-6"
-								[routerLink]="['login']"
+								[routerLink]="['/','login']"
 							>
 								Already have an account? Log In
 							</ion-button>

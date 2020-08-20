@@ -22,7 +22,7 @@ export class AuthService {
 	async signup(email: string, password: string) {
 		await this.afAuth.createUserWithEmailAndPassword(email, password);
 		await this.toast.showToast('Your account have been created, Please login!');
-		this.router.navigate(['login']);
+		// this.router.navigate(['login']);
 	}
 
 	async logout() {

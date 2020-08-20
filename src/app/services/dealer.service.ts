@@ -18,4 +18,12 @@ export class DealerService {
 	updateDealer(content: any, id: string) {
 		return this.firestore.collection('Dealer').doc(id).update(content);
 	}
+
+	updateDealerImage(content: any, id: string) {
+		return this.firestore
+			.collection('Dealer')
+			.doc(id)
+			.collection('Images')
+			.add(content);
+	}
 }
