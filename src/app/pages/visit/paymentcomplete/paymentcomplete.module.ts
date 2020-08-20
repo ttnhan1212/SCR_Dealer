@@ -1,3 +1,4 @@
+import { NgxDropzoneModule } from 'ngx-dropzone';
 import { ComponentsModule } from './../../../components/components.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,13 +11,14 @@ import { PaymentcompletePageRoutingModule } from './paymentcomplete-routing.modu
 import { PaymentcompletePage } from './paymentcomplete.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    PaymentcompletePageRoutingModule,
-    ComponentsModule
-  ],
-  declarations: [PaymentcompletePage]
+	imports: [
+		CommonModule,
+		FormsModule,
+		IonicModule,
+		PaymentcompletePageRoutingModule,
+		ComponentsModule,
+		NgxDropzoneModule,
+	],
+	declarations: [PaymentcompletePage],
 })
 export class PaymentcompletePageModule {}
