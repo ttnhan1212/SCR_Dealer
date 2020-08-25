@@ -59,6 +59,7 @@ export class OngoingPage implements OnInit, OnDestroy {
 						};
 					});
 				});
+				console.log(this.ongoing);
 			});
 	}
 

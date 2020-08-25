@@ -1,4 +1,6 @@
+import { DealsService } from './../../../services/deals.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'app-paymentcomplete',
@@ -6,12 +8,16 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./paymentcomplete.page.scss'],
 })
 export class PaymentcompletePage implements OnInit {
+	id: string;
+
 	now: string = new Date().toISOString();
 	selectDate: Date;
 
 	files: File[] = [];
 
-	constructor() {}
+	constructor(public dealService: DealsService, public route: ActivatedRoute) {
+		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
+	}
 
 	ngOnInit() {}
 
@@ -23,6 +29,10 @@ export class PaymentcompletePage implements OnInit {
 	onRemove(event) {
 		console.log(event);
 		this.files.splice(this.files.indexOf(event), 1);
+	}
+
+	completeRequest() {
+		this.dealService.updateDeal(this.id, { status: 'Complete' });
 	}
 
 	localeDate(time: number) {

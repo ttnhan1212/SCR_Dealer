@@ -19,9 +19,11 @@
 	<ion-item lines="none">
 		<ul class="fa-ul">
 			<li><i class="fa-li fa fa-circle wait-status"></i>Please wait</li>
-			<li><i class="fa-li fa fa-circle proceed-status"></i>Proceed to next step</li>
+			<li>
+				<i class="fa-li fa fa-circle proceed-status"></i>Proceed to next step
+			</li>
 			<li><i class="fa-li fa fa-circle ended-status"></i>Ended trade</li>
-		  </ul>
+		</ul>
 	</ion-item>
 	<ion-item
 		*ngFor="let item of ongoing, let i = index"

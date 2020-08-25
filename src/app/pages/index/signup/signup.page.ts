@@ -74,18 +74,18 @@ export class SignupPage implements OnInit {
 		Validators.compose([
 			Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
 			Validators.required,
-		])
+		]),
 	);
 	password = new FormControl(
 		'',
-		Validators.compose([Validators.minLength(8), Validators.required])
+		Validators.compose([Validators.minLength(8), Validators.required]),
 	);
 	cPassword = new FormControl('', Validators.required);
 	orgname = new FormControl('', Validators.required);
 	phonenum = new FormControl(null, Validators.required);
 	faxnum = new FormControl(
 		null,
-		Validators.compose([Validators.required, Validators.minLength(10)])
+		Validators.compose([Validators.required, Validators.minLength(10)]),
 	);
 	ceoname = new FormControl('', Validators.required);
 	address = new FormControl('', Validators.required);
@@ -129,7 +129,7 @@ export class SignupPage implements OnInit {
 		private afs: AngularFirestore, // private file: File,
 		private actionSheetCtrl: ActionSheetController,
 		private plt: Platform,
-		private sanitizer: DomSanitizer
+		private sanitizer: DomSanitizer,
 	) {
 		this.checkBoxList = [
 			{
@@ -266,7 +266,7 @@ export class SignupPage implements OnInit {
 		// );
 		// const imageName = 'Give me a name';
 		this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(
-			image && image.dataUrl
+			image && image.dataUrl,
 		);
 	}
 
@@ -343,7 +343,7 @@ export class SignupPage implements OnInit {
 		const blobData = this.b64toBlob(
 			this.imageSource.base64String,
 			'image/jpeg',
-			512
+			512,
 		);
 
 		// Validation for Images Only
@@ -386,7 +386,7 @@ export class SignupPage implements OnInit {
 										name: 'Hudson',
 										filepath: url,
 									},
-									user
+									user,
 								);
 
 								this.isUploading = false;
@@ -395,9 +395,9 @@ export class SignupPage implements OnInit {
 						},
 						(error) => {
 							console.error(error);
-						}
+						},
 					);
-				})
+				}),
 			)
 			.subscribe((url) => {
 				if (url) {
