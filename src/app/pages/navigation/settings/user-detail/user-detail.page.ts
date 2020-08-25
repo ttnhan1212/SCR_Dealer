@@ -1,225 +1,235 @@
-import { LoadingController } from '@ionic/angular';
-import { DealerService } from './../../../../services/dealer.service';
-import { Observable } from 'rxjs';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { Router, ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { AngularFirestoreCollection } from '@angular/fire/firestore';
+import { TranslateService } from "@ngx-translate/core";
+import { LoadingController } from "@ionic/angular";
+import { DealerService } from "./../../../../services/dealer.service";
+import { Observable } from "rxjs";
+import { AngularFireAuth } from "@angular/fire/auth";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Component, OnInit } from "@angular/core";
+import { AngularFirestoreCollection } from "@angular/fire/firestore";
 import {
-	FormGroup,
-	FormControl,
-	Validators,
-	FormBuilder,
-} from '@angular/forms';
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from "@angular/forms";
 import {
-	AngularFireUploadTask,
-	AngularFireStorage,
-} from '@angular/fire/storage';
+  AngularFireUploadTask,
+  AngularFireStorage,
+} from "@angular/fire/storage";
 
 export interface MyData {
-	name: string;
-	filepath: string;
-	size: number;
+  name: string;
+  filepath: string;
+  size: number;
 }
 
-const IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
+const IMG_AVT_DEFAULT = "/assets/images/brand/add-photo.png";
 
 @Component({
-	selector: 'app-user-detail',
-	templateUrl: './user-detail.page.html',
-	styleUrls: ['./user-detail.page.scss'],
+  selector: "app-user-detail",
+  templateUrl: "./user-detail.page.html",
+  styleUrls: ["./user-detail.page.scss"],
 })
 export class UserDetailPage implements OnInit {
-	id: string;
-	userId: string;
+  id: string;
+  userId: string;
 
-	image: string;
-	newImage: string;
-	imageSource: File;
-	imagePreview: string = IMG_AVT_DEFAULT;
+  image: string;
+  newImage: string;
+  imageSource: File;
+  imagePreview: string = IMG_AVT_DEFAULT;
 
-	editForm: FormGroup = new FormGroup({
-		email: new FormControl(
-			'',
-			Validators.compose([
-				Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
-				Validators.required,
-			]),
-		),
-		password: new FormControl(
-			'',
-			Validators.compose([Validators.minLength(8), Validators.required]),
-		),
-		cPassword: new FormControl('', Validators.required),
-		orgname: new FormControl('', Validators.required),
-		phone: new FormControl(null, Validators.required),
-		fax: new FormControl(
-			null,
-			Validators.compose([Validators.required, Validators.minLength(10)]),
-		),
-		ceoName: new FormControl('', Validators.required),
-		address: new FormControl('', Validators.required),
-	});
+  editForm: FormGroup = new FormGroup({
+    email: new FormControl(
+      "",
+      Validators.compose([
+        Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$"),
+        Validators.required,
+      ])
+    ),
+    password: new FormControl(
+      "",
+      Validators.compose([Validators.minLength(8), Validators.required])
+    ),
+    cPassword: new FormControl("", Validators.required),
+    orgname: new FormControl("", Validators.required),
+    phone: new FormControl(null, Validators.required),
+    fax: new FormControl(
+      null,
+      Validators.compose([Validators.required, Validators.minLength(10)])
+    ),
+    ceoName: new FormControl("", Validators.required),
+    address: new FormControl("", Validators.required),
+  });
 
-	selectedFile: any;
+  selectedFile: any;
 
-	// Upload Task
-	task: AngularFireUploadTask;
+  // Upload Task
+  task: AngularFireUploadTask;
 
-	// Progress in percentage
-	percentage: Observable<number>;
+  // Progress in percentage
+  percentage: Observable<number>;
 
-	// Snapshot of uploading file
-	snapshot: Observable<any>;
+  // Snapshot of uploading file
+  snapshot: Observable<any>;
 
-	// Uploaded File URL
-	UploadedFileURL: Observable<string>;
+  // Uploaded File URL
+  UploadedFileURL: Observable<string>;
 
-	//Uploaded Image List
-	images: Observable<MyData[]>;
+  //Uploaded Image List
+  images: Observable<MyData[]>;
 
-	//File details
-	fileName: string;
-	fileSize: number;
+  //File details
+  fileName: string;
+  fileSize: number;
 
-	//Status check
-	isUploading: boolean;
-	isUploaded: boolean;
+  //Status check
+  isUploading: boolean;
+  isUploaded: boolean;
 
-	downloadURL: Observable<string>;
+  downloadURL: Observable<string>;
 
-	private imageCollection: AngularFirestoreCollection<MyData>;
-	constructor(
-		private router: Router,
-		private route: ActivatedRoute,
-		private afAuth: AngularFireAuth,
-		private fb: FormBuilder,
-		private storage: AngularFireStorage,
-		private dealerService: DealerService,
-		public loadingController: LoadingController,
-	) {
-		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-	}
+  private imageCollection: AngularFirestoreCollection<MyData>;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private afAuth: AngularFireAuth,
+    private fb: FormBuilder,
+    private storage: AngularFireStorage,
+    private dealerService: DealerService,
+    public loadingController: LoadingController,
+    translate: TranslateService
+  ) {
+    this.id = this.route.snapshot.paramMap.get("id"); //get id parameter
 
-	ngOnInit() {
-		this.getUser();
-	}
+    translate.addLangs(["en", "kr"]);
 
-	async getUser() {
-		const loading = await this.loadingController.create({
-			message: 'Please wait...',
-			showBackdrop: true,
-		});
-		await loading.present();
-		await this.afAuth.authState.subscribe((authState) => {
-			if (authState) {
-				this.userId = authState.uid;
-				this.getDealer(this.userId);
-			}
-		});
-		await loading.dismiss();
-	}
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang("kr");
 
-	getDealer(id: string) {
-		this.dealerService.getDealer(id).subscribe((val) => {
-			this.editForm.setValue({
-				email: val.data().email,
-				password: '',
-				cPassword: '',
-				orgname: val.data().orgname,
-				phone: val.data().phone,
-				fax: val.data().fax,
-				ceoName: val.data().ceoName,
-				address: val.data().address,
-			});
-		});
-	}
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use("kr");
+  }
 
-	handleFileInput(files: File[]) {
-		this.imageSource = files[0];
-		let reader = new FileReader();
-		reader.readAsDataURL(files[0]);
-		reader.onload = (e: any) => {
-			this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
-		};
-		console.log(this.imageSource.name);
-	}
+  ngOnInit() {
+    this.getUser();
+  }
 
-	uploadFile(user: string) {
-		// The File object
-		const file = this.imageSource;
+  async getUser() {
+    const loading = await this.loadingController.create({
+      message: "Please wait...",
+      showBackdrop: true,
+    });
+    await loading.present();
+    await this.afAuth.authState.subscribe((authState) => {
+      if (authState) {
+        this.userId = authState.uid;
+        this.getDealer(this.userId);
+      }
+    });
+    await loading.dismiss();
+  }
 
-		// Validation for Images Only
-		if (file.type.split('/')[0] !== 'image') {
-			console.error('unsupported file type :( ');
-			return;
-		}
+  getDealer(id: string) {
+    this.dealerService.getDealer(id).subscribe((val) => {
+      this.editForm.setValue({
+        email: val.data().email,
+        password: "",
+        cPassword: "",
+        orgname: val.data().orgname,
+        phone: val.data().phone,
+        fax: val.data().fax,
+        ceoName: val.data().ceoName,
+        address: val.data().address,
+      });
+    });
+  }
 
-		this.isUploading = true;
-		this.isUploaded = false;
+  handleFileInput(files: File[]) {
+    this.imageSource = files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+    reader.onload = (e: any) => {
+      this.imagePreview = e.target.result || IMG_AVT_DEFAULT;
+    };
+    console.log(this.imageSource.name);
+  }
 
-		this.fileName = file.name;
+  uploadFile(user: string) {
+    // The File object
+    const file = this.imageSource;
 
-		// The storage path
-		const path = `user-image/${new Date().getTime()}_${file.name}`;
+    // Validation for Images Only
+    if (file.type.split("/")[0] !== "image") {
+      console.error("unsupported file type :( ");
+      return;
+    }
 
-		// Totally optional metadata
-		const customMetadata = { app: 'SCRoads Image Upload Demo' };
+    this.isUploading = true;
+    this.isUploaded = false;
 
-		//File reference
-		const fileRef = this.storage.ref(path);
+    this.fileName = file.name;
 
-		// The main task
-		this.task = this.storage.upload(path, file, { customMetadata });
+    // The storage path
+    const path = `user-image/${new Date().getTime()}_${file.name}`;
 
-		this.UploadedFileURL = fileRef.getDownloadURL();
-		// this.UploadedFileURL.subscribe(
-		// 	(resp) => {
-		// 		this.dealerService.updateDealer(
-		// 			{
-		// 				name: file.name,
-		// 				filepath: resp,
-		// 				size: this.fileSize,
-		// 			},
-		// 			user,
-		// 		);
-		// 		this.isUploading = false;
-		// 		this.isUploaded = true;
-		// 	},
-		// 	(error) => {
-		// 		console.error(error);
-		// 	},
-		// );
+    // Totally optional metadata
+    const customMetadata = { app: "SCRoads Image Upload Demo" };
 
-		// Get file progress percentage
-		// this.percentage = this.task.percentageChanges();
-		// this.snapshot = this.task.snapshotChanges().pipe(
-		// 	finalize(() => {
-		// 		// Get uploaded file storage path
-		// 		this.UploadedFileURL = fileRef.getDownloadURL();
+    //File reference
+    const fileRef = this.storage.ref(path);
 
-		// 		this.UploadedFileURL.subscribe(
-		// 			(resp) => {
-		// 				this.dealerService.updateDealer(
-		// 					// {
-		// 					// 	name: file.name,
-		// 					// 	filepath: resp,
-		// 					// 	size: this.fileSize,
-		// 					// },
-		// 					resp,
-		// 					user,
-		// 				);
-		// 				this.isUploading = false;
-		// 				this.isUploaded = true;
-		// 			},
-		// 			(error) => {
-		// 				console.error(error);
-		// 			},
-		// 		);
-		// 	}),
-		// 	tap((snap) => {
-		// 		this.fileSize = snap.totalBytes;
-		// 	}),
-		// );
-	}
+    // The main task
+    this.task = this.storage.upload(path, file, { customMetadata });
+
+    this.UploadedFileURL = fileRef.getDownloadURL();
+    // this.UploadedFileURL.subscribe(
+    // 	(resp) => {
+    // 		this.dealerService.updateDealer(
+    // 			{
+    // 				name: file.name,
+    // 				filepath: resp,
+    // 				size: this.fileSize,
+    // 			},
+    // 			user,
+    // 		);
+    // 		this.isUploading = false;
+    // 		this.isUploaded = true;
+    // 	},
+    // 	(error) => {
+    // 		console.error(error);
+    // 	},
+    // );
+
+    // Get file progress percentage
+    // this.percentage = this.task.percentageChanges();
+    // this.snapshot = this.task.snapshotChanges().pipe(
+    // 	finalize(() => {
+    // 		// Get uploaded file storage path
+    // 		this.UploadedFileURL = fileRef.getDownloadURL();
+
+    // 		this.UploadedFileURL.subscribe(
+    // 			(resp) => {
+    // 				this.dealerService.updateDealer(
+    // 					// {
+    // 					// 	name: file.name,
+    // 					// 	filepath: resp,
+    // 					// 	size: this.fileSize,
+    // 					// },
+    // 					resp,
+    // 					user,
+    // 				);
+    // 				this.isUploading = false;
+    // 				this.isUploaded = true;
+    // 			},
+    // 			(error) => {
+    // 				console.error(error);
+    // 			},
+    // 		);
+    // 	}),
+    // 	tap((snap) => {
+    // 		this.fileSize = snap.totalBytes;
+    // 	}),
+    // );
+  }
 }

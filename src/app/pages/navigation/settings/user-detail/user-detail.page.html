@@ -3,7 +3,7 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaultHref="/home/deal"></ion-back-button>
 		</ion-buttons>
-		<ion-title>Account Information</ion-title>
+		<ion-title>{{'home_edit_account.account_infor_header' | translate}}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -33,7 +33,7 @@
 									></ion-input>
 								</div>
 								<h3 style="color: #080e1b; font-size: 1rem;">
-									(Tap to upload profile image)
+									({{'home_edit_account.upload_instruction' | translate}})
 								</h3>
 								<div class="mail">
 									<input
@@ -42,7 +42,7 @@
 										formControlName="email"
 										style="color: #080e1b;"
 									/>
-									<label>Email</label>
+									<label>{{'home_edit_account.email' | translate}}</label>
 								</div>
 								<div class="mail">
 									<input
@@ -51,7 +51,7 @@
 										formControlName="orgname"
 										style="color: #080e1b;"
 									/>
-									<label>Organization Name</label>
+									<label>{{'home_edit_account.org_name' | translate}}</label>
 								</div>
 								<div class="mail">
 									<input
@@ -60,7 +60,7 @@
 										formControlName="ceoName"
 										style="color: #080e1b;"
 									/>
-									<label>CEO Name</label>
+									<label>{{'home_edit_account.ceo_name' | translate}}</label>
 								</div>
 								<div class="mail">
 									<input
@@ -69,7 +69,7 @@
 										formControlName="phone"
 										style="color: #080e1b;"
 									/>
-									<label>Phone Number</label>
+									<label>{{'home_edit_account.phone_number' | translate}}</label>
 								</div>
 								<div class="mb-8"></div>
 								<div class="passwd">
@@ -79,7 +79,7 @@
 										formControlName="password"
 										style="color: #080e1b;"
 									/>
-									<label>Password</label>
+									<label>{{'home_edit_account.password' | translate}}</label>
 								</div>
 								<div class="passwd">
 									<input
@@ -88,7 +88,7 @@
 										formControlName="cPassword"
 										style="color: #080e1b;"
 									/>
-									<label>Confirm Password</label>
+									<label>{{'home_edit_account.confirm_password' | translate}}</label>
 								</div>
 							</form>
 							<ion-button
@@ -97,7 +97,7 @@
 								class="mr-3 ml-3"
 								[disabled]="!editForm.valid"
 							>
-								Update Information
+							{{'home_edit_account.update_infor' | translate}}
 							</ion-button>
 							<div class="mb-5"></div>
 						</div>

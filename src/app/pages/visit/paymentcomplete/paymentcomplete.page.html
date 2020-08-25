@@ -17,11 +17,11 @@
 		<ion-card-content>
 			<form>
 				<ion-item class="form-group">
-					<ion-label position="floating" style="font-size: 14pt;">Visit result</ion-label>
-					<ion-input type="text" placeholder="Purchase comfirm"></ion-input>
+					<ion-label position="floating" style="font-size: 14pt;">{{'home_visit_result_paymentcomplete.visit_result' | translate}}</ion-label>
+					<ion-input type="text" placeholder="{{'home_visit_result_paymentcomplete.purchase_confirm' | translate}}"></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
-					<ion-label position="floating" style="font-size: 14pt;">Bid amount</ion-label>
+					<ion-label position="floating" style="font-size: 14pt;">{{'home_visit_result_paymentcomplete.bid_amount' | translate}}</ion-label>
 					<ion-input
 						type="text"
 						disabled
@@ -30,13 +30,13 @@
 					></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
-					<ion-label position="floating" style="font-size: 14pt;">Final amount</ion-label>
-					<ion-input type="text" placeholder="Input your desire amount"></ion-input>
+					<ion-label position="floating" style="font-size: 14pt;">{{'home_visit_result_paymentcomplete.final_amount' | translate}}</ion-label>
+					<ion-input type="text" placeholder="{{'home_visit_result_paymentcomplete.input_desire_amount' | translate}}"></ion-input>
 				</ion-item>
 				<br/>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label>Upload your image here</ngx-dropzone-label>
+						<ngx-dropzone-label>{{'home_visit_result_paymentcomplete.upload_instruction' | translate}}</ngx-dropzone-label>
 						<ngx-dropzone-image-preview
 							ngProjectAs="ngx-dropzone-preview"
 							*ngFor="let f of files"
@@ -46,11 +46,11 @@
 					</ngx-dropzone>
 				</div>
 				<ion-item class="form-group">
-					<ion-label position="floating" style="font-size: 14pt;">Other</ion-label>
-					<ion-textarea rows="5" placeholder="Write notes here"></ion-textarea>
+					<ion-label position="floating" style="font-size: 14pt;">{{'home_visit_result_paymentcomplete.other' | translate}}</ion-label>
+					<ion-textarea rows="5" placeholder="{{'home_visit_result_paymentcomplete.write_notes_hate' | translate}}"></ion-textarea>
 				</ion-item>
 
-				<ion-button expand="block" color="tertiary" routerLink="certificationupload" (click)="completeRequest();">Confirm</ion-button>
+				<ion-button expand="block" color="tertiary" routerLink="certificationupload" (click)="completeRequest();">{{'home_visit_result_paymentcomplete.confirm' | translate}}</ion-button>
 			</form>
 		</ion-card-content>
 	</ion-card>

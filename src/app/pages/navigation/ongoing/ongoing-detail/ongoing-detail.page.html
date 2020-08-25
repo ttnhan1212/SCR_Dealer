@@ -13,21 +13,6 @@
 </ion-header>
 
 <ion-content>
-	<!--BreadCrumb-->
-	<ion-card>
-		<div class="container">
-			<div class="page-header">
-				<!-- <h4 class="page-title">Cars</h4> -->
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a>Home</a></li>
-					<li class="breadcrumb-item">
-						<a [routerLink]="['/','home','ongoing']">Ongoing</a>
-					</li>
-					<li class="breadcrumb-item active" aria-current="page">Details</li>
-				</ol>
-			</div>
-		</div>
-	</ion-card>
 	<!--/BreadCrumb-->
 	<ion-item>
 		<ion-grid class="container">
@@ -39,13 +24,13 @@
 							class="ribbon ribbon-top-right text-danger"
 							*ngIf="detail.dealerId"
 						>
-							<span class="bg-blue-light">Selected</span>
+							<span class="bg-blue-light">{{'home_ongoing_detail.status_selected' | translate}}</span>
 						</div>
 						<div
 							class="ribbon ribbon-top-right text-danger"
 							*ngIf="!detail.dealerId"
 						>
-							<span class="bg-blue-light">On-going</span>
+							<span class="bg-blue-light">{{'home_ongoing_detail.status_ongoing' | translate}}</span>
 						</div>
 						<div class="card-body">
 							<div class="item-det mb-4">
@@ -124,28 +109,28 @@
 						color="tertiary"
 						size="medium"
 					>
-						See Insurance History
+					{{'home_ongoing_detail.see_insurance_history' | translate}}
 					</ion-button>
 
 					<ion-item-group class="mb-5">
 						<ion-card>
 							<ion-card-header>
 								<i class="ti-location-pin text-muted mr-1"></i>
-								<strong>Location</strong>
+								<strong>{{'home_ongoing_detail.location' | translate}}</strong>
 							</ion-card-header>
 							<ion-card-content>{{detail.location}}</ion-card-content>
 						</ion-card>
 						<ion-card>
 							<ion-card-header
 								><i class="ti-location-pin text-muted mr-1"></i>
-								<strong>Mileages</strong></ion-card-header
+								<strong>{{'home_ongoing_detail.mileages' | translate}}</strong></ion-card-header
 							>
 							<ion-card-content>{{detail.miles}}</ion-card-content>
 						</ion-card>
 						<ion-card>
 							<ion-card-header>
 								<i class="ti-location-pin text-muted mr-1"></i>
-								<strong>Vehicle 특이 사항</strong>
+								<strong>{{'home_ongoing_detail.vehicle' | translate}} 특이 사항</strong>
 							</ion-card-header>
 							<ion-card-content>
 								출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
@@ -164,7 +149,7 @@
 										size="large"
 										(click)="cancel()"
 									>
-										Cancel
+									{{'home_ongoing_detail.cancel' | translate}}
 									</ion-button>
 								</ion-col>
 								<ion-col size="8">
@@ -174,7 +159,7 @@
 										size="large"
 										(click)="confirmSelect(participant[0].userId, participant[0].price)"
 									>
-										Purchase
+									{{'home_ongoing_detail.purchase' | translate}}
 									</ion-button>
 								</ion-col>
 							</ion-row>
@@ -186,7 +171,7 @@
 										size="large"
 										disabled
 									>
-										Pending Confirm
+									{{'home_ongoing_detail.pending_confirm' | translate}}
 										<ion-spinner class="ml-4" name="crescent"></ion-spinner>
 									</ion-button>
 								</ion-col>
