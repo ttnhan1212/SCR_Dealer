@@ -9,10 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PaymentcompletePage implements OnInit {
 	id: string;
-
 	now: string = new Date().toISOString();
 	selectDate: Date;
-
 	files: File[] = [];
 
 	constructor(public dealService: DealsService, public route: ActivatedRoute) {
@@ -20,12 +18,10 @@ export class PaymentcompletePage implements OnInit {
 	}
 
 	ngOnInit() {}
-
 	onSelect(event) {
 		console.log(event);
 		this.files.push(...event.addedFiles);
 	}
-
 	onRemove(event) {
 		console.log(event);
 		this.files.splice(this.files.indexOf(event), 1);

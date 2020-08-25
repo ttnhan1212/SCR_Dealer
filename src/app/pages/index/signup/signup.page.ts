@@ -38,6 +38,8 @@ import {
 } from '@capacitor/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
+import { TranslateService } from '@ngx-translate/core';
+
 const { Camera } = Plugins;
 
 // export interface MyData {

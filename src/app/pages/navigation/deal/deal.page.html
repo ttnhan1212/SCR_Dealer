@@ -1,249 +1,191 @@
 <ion-header>
-	<ion-toolbar>
-		<ion-title>
-			<app-logo></app-logo>
-		</ion-title>
-		<ion-button fill="clear" slot="end" [routerLink]="['/','home','infor']">
-			<ion-icon name="information-circle-outline"></ion-icon>
-		</ion-button>
-		<ion-button
-			fill="clear"
-			slot="end"
-			[routerLink]="['/','home','notifications']"
-		>
-			<ion-icon name="notifications-outline"></ion-icon>
-		</ion-button>
-	</ion-toolbar>
+  <ion-toolbar>
+    <ion-title>
+      <app-logo></app-logo>
+    </ion-title>
+    <ion-button fill="clear" slot="end" [routerLink]="['/','home','infor']">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-button>
+    <ion-button
+      fill="clear"
+      slot="end"
+      [routerLink]="['/','home','notifications']"
+    >
+      <ion-icon name="notifications-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-	<ion-card>
-		<ion-grid class="cover-image sptb-1 bg-background">
-			<div class="header-text1 mb-0">
-				<ion-grid class="container">
-					<ion-row class="row">
-						<ion-col class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
-							<div class="text-center text-white"></div>
-							<div class="search-background bg-transparent mt-5">
-								<div class="form row no-gutters">
-									<ion-col class="form-group mb-0 bg-white">
-										<ion-select
-											placeholder="Location Select"
-											interface="action-sheet"
-											class="deal-select"
-										>
-											<ion-select-option
-												*ngFor="let item of locations"
-												[value]="item.id"
-											>
-												{{item.city}}
-											</ion-select-option>
-										</ion-select>
-									</ion-col>
-								</div>
-								<div class="form row no-gutters">
-									<ion-col class="form-group mb-0 bg-white">
-										<ion-select
-											placeholder="Model Select"
-											interface="action-sheet"
-											class="deal-select"
-										>
-											<ion-select-option
-												*ngFor="let model of models"
-												[value]="model.id"
-											>
-												{{model.name}}
-											</ion-select-option>
-										</ion-select>
-									</ion-col>
-								</div>
-								<div class="form row no-gutters">
-									<ion-col class="form-group mb-0 bg-white">
-										<ion-select
-											placeholder="Order By"
-											interface="action-sheet"
-											class="deal-select"
-										>
-											<ion-select-option>
-												Name
-											</ion-select-option>
-											<ion-select-option>
-												Date
-											</ion-select-option>
-											<ion-select-option>
-												Location
-											</ion-select-option>
-										</ion-select>
-									</ion-col>
-								</div>
+  <ion-card>
+    <ion-grid class="cover-image sptb-1 bg-background">
+      <div class="header-text1 mb-0">
+        <ion-grid class="container">
+          <ion-row class="row">
+            <ion-col class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
+              <div class="text-center text-white"></div>
+              <div class="search-background bg-transparent mt-5">
+                <div class="form row no-gutters">
+                  <ion-col class="form-group mb-0 bg-white">
+                    <ion-select
+                      placeholder="{{'home_deal.location_select' | translate}}"
+                      interface="action-sheet"
+                      class="deal-select"
+                    >
+                      <ion-select-option
+                        *ngFor="let item of locations"
+                        [value]="item.id"
+                      >
+                        {{item.city}}
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-col>
+                </div>
+                <div class="form row no-gutters">
+                  <ion-col class="form-group mb-0 bg-white">
+                    <ion-select
+                      placeholder="{{'home_deal.model_select' | translate}}"
+                      interface="action-sheet"
+                      class="deal-select"
+                    >
+                      <ion-select-option
+                        *ngFor="let model of models"
+                        [value]="model.id"
+                      >
+                        {{model.name}}
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-col>
+                </div>
+                <div class="form row no-gutters">
+                  <ion-col class="form-group mb-0 bg-white">
+                    <ion-select
+                      placeholder="{{'home_deal.order_by' | translate}}"
+                      interface="action-sheet"
+                      class="deal-select"
+                    >
+                      <ion-select-option>
+                        {{'home_deal.name' | translate}}
+                      </ion-select-option>
+                      <ion-select-option>
+                        {{'home_deal.date' | translate}}
+                      </ion-select-option>
+                      <ion-select-option>
+                        {{'home_deal.location' | translate}}
+                      </ion-select-option>
+                    </ion-select>
+                  </ion-col>
+                </div>
 
-								<ion-col class="col-xl-2 col-lg-3 col-md-12 mb-0">
-									<a
-										[routerLink]="['details']"
-										class="btn btn-lg btn-block btn-primary br-tl-md-0 br-bl-md-0 right-0"
-									>
-										Search Here
-									</a>
-								</ion-col>
-							</div>
-						</ion-col>
-					</ion-row>
-				</ion-grid>
-			</div>
-		</ion-grid>
-	</ion-card>
+                <ion-col class="col-xl-2 col-lg-3 col-md-12 mb-0">
+                  <a
+                    [routerLink]="['details']"
+                    class="btn btn-lg btn-block btn-primary br-tl-md-0 br-bl-md-0 right-0"
+                  >
+				  {{'home_deal.search_here' | translate}}
+                  </a>
+                </ion-col>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </ion-grid>
+  </ion-card>
 
-	<ion-item>
-		<!--listing-->
-		<ion-grid class="container">
-			<ion-row class="row">
-				<ion-col class="col-xl-9 col-lg-9 col-md-12">
-					<!--Lists-->
-					<div class="mb-0" *ngFor="let item of deals;">
-						<div class="item2-gl" *ngIf="item.participants?.created === true">
-							<!-- <div class="mb-0">
-								<div class="">
-									<div class="bg-white p-5 item2-gl-nav d-flex">
-										<div class="d-sm-flex">
-											<label class="mr-2 mt-2 mb-sm-1">Sort By:</label>
-											<div class="selectgroup">
-												<label class="selectgroup-item mb-md-0">
-													<input
-														type="radio"
-														name="value"
-														value="Price"
-														class="selectgroup-input"
-														checked=""
-													/>
-													<span class="selectgroup-button"
-														>Price <i class="fa fa-sort ml-1"></i
-													></span>
-												</label>
-												<label class="selectgroup-item mb-md-0">
-													<input
-														type="radio"
-														name="value"
-														value="Popularity"
-														class="selectgroup-input"
-													/>
-													<span class="selectgroup-button">Popularity</span>
-												</label>
-												<label class="selectgroup-item mb-md-0">
-													<input
-														type="radio"
-														name="value"
-														value="Latest"
-														class="selectgroup-input"
-													/>
-													<span class="selectgroup-button">Latest</span>
-												</label>
-												<label class="selectgroup-item mb-0">
-													<input
-														type="radio"
-														name="value"
-														value="Rating"
-														class="selectgroup-input"
-													/>
-													<span class="selectgroup-button">Rating</span>
-												</label>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div> -->
-							<div class="ion-padding">
-								<div class="card overflow-hidden">
-									<div class="d-md-flex">
-										<div class="item-card9-img">
-											<div
-												id="carouselExampleSlidesOnly"
-												class="carousel car-slide item-card9-imgs"
-												data-ride="carousel"
-											>
-												<div class="carousel-inner">
-													<div class="carousel-item active">
-														<img
-															src="../../../assets/images/cars/pagani_huayra_speedcam-wallpaper-1920x1080.jpg"
-															alt="img"
-															class="cover-image"
-														/>
-													</div>
-												</div>
-											</div>
-											<!-- <div class="item-overly-trans">
-												<span><a class="bg-success">New</a></span>
-											</div> -->
-										</div>
-										<div class="card border-0 mb-0" [routerLink]="[item.id]">
-											<div class="card-body">
-												<div class="item-card9">
-													<div class="rating-stars">
-														<input
-															type="number"
-															readonly="readonly"
-															class="rating-value star"
-															name="rating-stars-value"
-															value="3"
-														/>
-													</div>
-													<!-- <a class="text-dark">
-														<h4 class="font-weight-semibold mt-1">
-															Tarragon
-														</h4>
-													</a> -->
-													<div class="item-card9-desc">
-														<a class="mr-4">
-															<span>
-																<i class="fa fa-map-marker text-muted mr-1"></i>
-																{{item.location}}
-															</span>
-														</a>
-														<a class="mr-4">
-															<span class="">
-																<i class="fa fa-calendar-o text-muted mr-1"></i>
-																5 days ago
-															</span>
-														</a>
-													</div>
-												</div>
-											</div>
-											<div class="card-footer pr-4 pl-4 pt-4 pb-4">
-												<div class="item-card9-footer d-sm-flex">
-													<div class="item-card9-cost">
-														<h4 class="text-dark font-weight-bold mr-1">
-															Model, Year
-														</h4>
-													</div>
-													<div class="ml-auto">
-														<a class="mr-2" title="Name">
-															<ion-icon
-																name="person-outline"
-																class="mr-1"
-															></ion-icon>
-															{{item.name}}
-														</a>
-														<a class="mr-2" title="Kilometers">
-															<i class="fa fa-road text-muted mr-1"></i>
-															{{item.miles}} Km
-														</a>
-														<!-- <a title="Fuel Type"
+  <ion-item>
+    <!--listing-->
+    <ion-grid class="container">
+      <ion-row class="row">
+        <ion-col class="col-xl-9 col-lg-9 col-md-12">
+          <!--Lists-->
+          <div class="mb-0" *ngFor="let item of deals;">
+            <div class="item2-gl" *ngIf="item.participants?.created === true">
+              <div class="ion-padding">
+                <div class="card overflow-hidden">
+                  <div class="d-md-flex">
+                    <div class="item-card9-img">
+                      <div
+                        id="carouselExampleSlidesOnly"
+                        class="carousel car-slide item-card9-imgs"
+                        data-ride="carousel"
+                      >
+                        <div class="carousel-inner">
+                          <div class="carousel-item active">
+                            <img
+                              src="../../../assets/images/cars/pagani_huayra_speedcam-wallpaper-1920x1080.jpg"
+                              alt="img"
+                              class="cover-image"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card border-0 mb-0" [routerLink]="[item.id]">
+                      <div class="card-body">
+                        <div class="item-card9">
+                          <div class="rating-stars">
+                            <input
+                              type="number"
+                              readonly="readonly"
+                              class="rating-value star"
+                              name="rating-stars-value"
+                              value="3"
+                            />
+                          </div>
+                          <div class="item-card9-desc">
+                            <a class="mr-4">
+                              <span>
+                                <i class="fa fa-map-marker text-muted mr-1"></i>
+                                {{item.location}}
+                              </span>
+                            </a>
+                            <a class="mr-4">
+                              <span class="">
+                                <i class="fa fa-calendar-o text-muted mr-1"></i>
+                                5 days ago
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer pr-4 pl-4 pt-4 pb-4">
+                        <div class="item-card9-footer d-sm-flex">
+                          <div class="item-card9-cost">
+                            <h4 class="text-dark font-weight-bold mr-1">
+                              Model, Year
+                            </h4>
+                          </div>
+                          <div class="ml-auto">
+                            <a class="mr-2" title="Name">
+                              <ion-icon
+                                name="person-outline"
+                                class="mr-1"
+                              ></ion-icon>
+                              {{item.name}}
+                            </a>
+                            <a class="mr-2" title="Kilometers">
+                              <i class="fa fa-road text-muted mr-1"></i>
+                              {{item.miles}} Km
+                            </a>
+                            <!-- <a title="Fuel Type"
 															><i class="fa fa-tachometer text-muted mr-1"></i>
 															Hybrid
 														</a> -->
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-					<!--/Lists-->
-				</ion-col>
-			</ion-row>
-		</ion-grid>
-		<!--/Listing-->
-	</ion-item>
+          <!--/Lists-->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!--/Listing-->
+  </ion-item>
 </ion-content>

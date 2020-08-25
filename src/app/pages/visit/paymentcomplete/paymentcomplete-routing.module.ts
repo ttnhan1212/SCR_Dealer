@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: PaymentcompletePage
+  },
+  {
+    path: 'certificationupload',
+    loadChildren: () => import('./certificationupload/certificationupload.module').then( m => m.CertificationuploadPageModule)
   }
 ];
 
