@@ -1,114 +1,122 @@
 {
+    "welcome": {
+        "welcome_line": "수출로에 오신것을 환영합니다",
+        "click_to_start": "시작하려면 여기를 클릭하십시오"
+    },
     "login": {
-        "welcome": "Hello! Welcome to SCRoads",
-        "email": "Email",
-        "password": "Password",
-        "proceed": "Proceed",
-        "ask_for_signup": "Want to be a dealer? Sign UP"
+        "login_as": "로그인",
+        "welcome": "수출로에 오신것을 환영합니다",
+        "email": "이메일",
+        "password": "비밀번호",
+        "proceed": "로그인",
+        "ask_for_signup": "수출로 딜러가 되고싶나요? 가입신청 하러 가기"
     },
     "signup": {
-        "sc_register": "SCRoads - Registration",
-        "register_as": "Register as",
-        "upload_instruction": "Tap to upload profile image",
-        "signup_email": "Email",
-        "signup_password": "Password",
-        "signup_confirm_password": "Confirm password",
-        "org_name": "Organization Name",
-        "ceo_name": "CEO Name",
-        "phone_number": "Phone Number",
-        "fax_numer": "Fax Number",
-        "business_address": "Business Address",
-        "privacy_policy": "Privacy Policy",
-        "terms_conditions": "Terms & Conditions",
-        "privacy_usage_agreement": "Privacy Usage Agreement",
-        "agree_all": "Agree All",
-        "request_register": "Request Register",
-        "ask_for_login": "Already have an account? Log In"
+        "sc_register": "회원가입",
+        "register_as": "반갑습니다",
+        "upload_instruction": "선택하여 사진 업로드",
+        "signup_email": "이메일",
+        "signup_password": "비밀번호",
+        "signup_confirm_password": "비밀번호 확인",
+        "org_name": "업체명",
+        "ceo_name": "대표 이름",
+        "phone_number": "전화번호",
+        "fax_numer": "팩스번호",
+        "business_address": "업체 주소",
+        "privacy_policy": "개인정보 수집",
+        "terms_conditions": "이용약관",
+        "privacy_usage_agreement": "개인정보 이용동의",
+        "agree_all": "전체 동의",
+        "request_register": "가입신청",
+        "ask_for_login": "이미 계정이 있으신가요? 로그인 하러가기"
     },
     "home_deal": {
-        "location_select": "Location Select",
-        "model_select": "Location Select",
-        "order_by": "Order By",
-        "search_here": "Search Here"
+        "location_select": "위치 선택",
+        "model_select": "차종선택",
+        "order_by": "정령",
+        "search_here": "검색",
+        "name":"이름",
+        "date":"데이트",
+        "location":"위치"
     },
     "home_deal_detail": {
         "deal_status_offer": "Offer",
         "deal_status_selected": "Selected",
-        "deal_status_ongoing": "Ongoing",
-        "see_insurance_history": "See Insurance History",
-        "mileages": "Mileages",
-        "location": "Location",
-        "vehicle": "Vehicle",
-        "input_bidding_price": "Input your bidding price"
+        "deal_status_ongoing": "진행중",
+        "see_insurance_history": "사고이력",
+        "mileages": "주행거리",
+        "location": "위치",
+        "vehicle": "차량",
+        "input_bidding_price": "입찰 금액"
     },
     "home_ongoing": {
-        "please_wait": "Please wait",
-        "proceed": "Proceed to next step",
-        "ended_trade": "Ended trade",
+        "please_wait": "기다려 주세요",
+        "proceed": "상태를 눌러 다음단계를 완료해 주세요",
+        "ended_trade": "거래가 종료되었습니다",
         "expire": "Expired",
         "pending-confirm": "Pending Confirm"
     },
     "home_info": {
         "information": "Informations",
-        "info_car_export": "What is car export?",
-        "info_term_condition": "Term & Conditions",
-        "infor": "Infor",
-        "paper_info": "Paper Infor"
+        "info_car_export": "수출차란?",
+        "info_term_condition": "이용안내",
+        "infor": "감가정보",
+        "paper_info": "서류안내"
     },
     "home_visit": {
-        "visit_seller_info": "Seller Info",
-        "visit_see_insurance_history": "See Insurance History",
-        "visit_mileages": "Mileages",
-        "visit_location": "Location",
-        "visit_vehicle": "Vehicle",
-        "confirm_date": "Confirm Date",
-        "enter_visit_result": "Enter Visit Result"
+        "visit_seller_info": "판매자 정보",
+        "visit_see_insurance_history": "사고 이력 보기",
+        "visit_mileages": "주행거리",
+        "visit_location": "거래위치",
+        "visit_vehicle": "차량",
+        "confirm_date": "방문 일자 확정",
+        "enter_visit_result": "방문 일자 입력"
     },
     "home_visit_result": {
-        "select_visit_result": "Select Visit Result",
-        "purchase_confirm": "Purchase Confirm",
-        "revisit": "Revisit",
-        "purchase_cacel": "Purchase Cacel",
-        "visit_vehicle": "Vehicle",
-        "confirm_date": "Confirm Date",
-        "enter_visit_result": "Enter Visit Result"
+        "select_visit_result": "방문결과 입력",
+        "purchase_confirm": "구매 확정",
+        "revisit": "재방문",
+        "purchase_cacel": "구매 취소",
+        "visit_vehicle": "차량",
+        "confirm_date": "방문 일자 확정",
+        "enter_visit_result": "방문 일자 입력"
     },
     "home_visit_result_paymentcancel": {
-        "visit_result": "Visit Result",
-        "cacel_reason": "Cancel Reason",
-        "upload_instruction": "Upload your image here",
-        "other": "Other",
-        "confirm": "Confirm"
+        "visit_result": "방문 결과",
+        "cacel_reason": "취소 사유",
+        "upload_instruction": "이미지 등록",
+        "other": "기타사항",
+        "confirm": "완료"
     },
     "home_visit_result_revisit": {
-        "visit_result": "Visit Result",
-        "revisit_reason": "Revisit Reason",
-        "upload_instruction": "Upload your image here",
-        "revisit_date": "Revisit Date",
-        "other": "Other",
-        "confirm": "Confirm"
+        "visit_result": "방문 결과",
+        "revisit_reason": "재방문 사유",
+        "upload_instruction": "이미지 등록",
+        "revisit_date": "재방문 일자",
+        "other": "기타 사항",
+        "confirm": "확인"
     },
     "home_visit_result_paymentcomplete": {
-        "visit_result": "Visit Result",
-        "bid_amount": "Bid Amount",
-        "final_amount": "Final Amount",
-        "upload_instruction": "Upload your image here",
-        "other": "Other",
-        "confirm": "Confirm",
-        "upload_cert_instruction": "Tap to choose certification image",
-        "purchase_amount": "Purchase Amount",
-        "purchase_date": "Purchase Date",
-        "upload_certification": "Upload Certification"
+        "visit_result": "방문 결과",
+        "bid_amount": "입찰 금액",
+        "final_amount": "최종 구매 금액",
+        "upload_instruction": "이미지 등록",
+        "other": "기타 사항",
+        "confirm": "완료",
+        "upload_cert_instruction": "말소증 업로드 하기",
+        "purchase_amount": "구매 금액",
+        "purchase_date": "구매 일자",
+        "upload_certification": "말소증 업로드 하기"
     },
     "home_settings": {
-        "edit_account_info": "Edit account info",
-        "notifications_setting": "Notifications Setting",
-        "term_conditions": "Term & Conditions",
-        "privacy_policy": "Privacy Policy",
-        "contact": "Contact",
+        "edit_account_info": "계정 정보 수정",
+        "notifications_setting": "알림 설정",
+        "term_conditions": "이용약관",
+        "privacy_policy": "개인정보 취급방침",
+        "contact": "수출로 연락처",
         "contact_us": "Contact Us",
-        "guide": "Guide",
+        "guide": "가이드",
         "FAQ": "FAQ",
-        "sign_out": "Sign Out"
+        "sign_out": "로그아웃"
     }
 }

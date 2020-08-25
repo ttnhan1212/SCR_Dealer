@@ -21,6 +21,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -36,6 +44,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 		MatRadioModule,
 		MatDialogModule,
 		ReactiveFormsModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: HttpLoaderFactory,
+				deps: [HttpClient],
+			}
+		}),
+		HttpClientModule
 	],
 	declarations: [
 		SignupPage,
