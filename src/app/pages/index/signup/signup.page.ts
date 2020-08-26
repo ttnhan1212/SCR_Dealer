@@ -132,6 +132,7 @@ export class SignupPage implements OnInit {
 		private actionSheetCtrl: ActionSheetController,
 		private plt: Platform,
 		private sanitizer: DomSanitizer,
+		private translate: TranslateService,
 	) {
 		this.checkBoxList = [
 			{
@@ -166,6 +167,14 @@ export class SignupPage implements OnInit {
 			ceoName: this.ceoname,
 			address: this.address,
 		});
+
+		translate.addLangs(['en', 'kr']);
+
+		// this language will be used as a fallback when a translation isn't found in the current language
+		translate.setDefaultLang('kr');
+
+		// the lang to use, if the lang isn't available, it will use the current loader to get them
+		translate.use('kr');
 	}
 
 	// PickImages() {

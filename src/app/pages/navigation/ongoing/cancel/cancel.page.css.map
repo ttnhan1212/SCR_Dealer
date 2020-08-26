@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAEE,aAFW,CACR,GAAG,CACF,QAAQ,AAAC,CACZ,UAAU,CAAE,gBAAgB,CAC5B",
+    "sources": [
+        "cancel.page.scss"
+    ],
+    "names": [],
+    "file": "cancel.page.css"
+}
