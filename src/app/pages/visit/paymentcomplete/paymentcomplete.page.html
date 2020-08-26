@@ -18,13 +18,18 @@
 			<form>
 				<ion-item class="form-group">
 					<ion-label position="floating" style="font-size: 14pt;"
-						>Visit result</ion-label
+						>{{'home_visit_result_paymentcomplete.visit_result' |
+						translate}}</ion-label
 					>
-					<ion-input type="text" placeholder="Purchase comfirm"></ion-input>
+					<ion-input
+						type="text"
+						placeholder="{{'home_visit_result_paymentcomplete.purchase_confirm' | translate}}"
+					></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
 					<ion-label position="floating" style="font-size: 14pt;"
-						>Bid amount</ion-label
+						>{{'home_visit_result_paymentcomplete.bid_amount' |
+						translate}}</ion-label
 					>
 					<ion-input
 						type="text"
@@ -35,17 +40,21 @@
 				</ion-item>
 				<ion-item class="form-group">
 					<ion-label position="floating" style="font-size: 14pt;"
-						>Final amount</ion-label
+						>{{'home_visit_result_paymentcomplete.final_amount' |
+						translate}}</ion-label
 					>
 					<ion-input
 						type="text"
-						placeholder="Input your desire amount"
+						placeholder="{{'home_visit_result_paymentcomplete.input_desire_amount' | translate}}"
 					></ion-input>
 				</ion-item>
 				<br />
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label>Upload your image here</ngx-dropzone-label>
+						<ngx-dropzone-label
+							>{{'home_visit_result_paymentcomplete.upload_instruction' |
+							translate}}</ngx-dropzone-label
+						>
 						<ngx-dropzone-image-preview
 							ngProjectAs="ngx-dropzone-preview"
 							*ngFor="let f of files"
@@ -56,9 +65,13 @@
 				</div>
 				<ion-item class="form-group">
 					<ion-label position="floating" style="font-size: 14pt;"
-						>Other</ion-label
+						>{{'home_visit_result_paymentcomplete.other' |
+						translate}}</ion-label
 					>
-					<ion-textarea rows="5" placeholder="Write notes here"></ion-textarea>
+					<ion-textarea
+						rows="5"
+						placeholder="{{'home_visit_result_paymentcomplete.write_notes_hate' | translate}}"
+					></ion-textarea>
 				</ion-item>
 
 				<ion-button
@@ -66,7 +79,8 @@
 					color="tertiary"
 					routerLink="certificationupload"
 					(click)="completeRequest();"
-					>Confirm</ion-button
+					>{{'home_visit_result_paymentcomplete.confirm' |
+					translate}}</ion-button
 				>
 			</form>
 		</ion-card-content>

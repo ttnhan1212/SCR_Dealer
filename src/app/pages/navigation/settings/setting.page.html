@@ -1,6 +1,6 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-title>Menu</ion-title>
+		<ion-title>메뉴</ion-title>
 	</ion-toolbar>
 </ion-header>
 
@@ -8,11 +8,11 @@
 	<ion-grid>
 		<ion-row>
 			<ion-col size="12">
-				<ion-label>Edit account infor</ion-label>
+				<ion-label>{{'home_settings.edit_account_info' | translate}}</ion-label>
 			</ion-col>
 			<ion-col size="12">
 				<ion-button expand="block" [routerLink]="[id]" color="tertiary"
-					>Edit account information</ion-button
+					>{{'home_settings.edit_account_info' | translate}}</ion-button
 				>
 			</ion-col>
 		</ion-row>
@@ -20,7 +20,7 @@
 		<ion-row>
 			<ion-col>
 				<ion-item lines="none">
-					<ion-label>Notifications Setting</ion-label>
+					<ion-label>{{'home_settings.notifications_setting' | translate}}</ion-label>
 					<ion-toggle color="tertiary"></ion-toggle>
 				</ion-item>
 			</ion-col>
@@ -29,7 +29,7 @@
 		<ion-row>
 			<ion-col>
 				<ion-item lines="none">
-					<ion-label>Version Information</ion-label>
+					<ion-label>{{'home_settings.version_info' | translate}}</ion-label>
 					<ion-badge slot="end" color="tertiary">v1.01</ion-badge>
 				</ion-item>
 			</ion-col>
@@ -37,13 +37,13 @@
 
 		<ion-row>
 			<ion-col>
-				<ion-label>Version Infor</ion-label>
+				<ion-label>{{'home_settings.version_info' | translate}}</ion-label>
 				<br />
 				<mat-accordion class="mt-2 mb-2">
 					<mat-expansion-panel>
 						<mat-expansion-panel-header>
 							<mat-panel-title>
-								Term & Conditions
+								{{'home_settings.term_conditions' | translate}}
 							</mat-panel-title>
 						</mat-expansion-panel-header>
 						<br />
@@ -64,7 +64,7 @@
 					<mat-expansion-panel>
 						<mat-expansion-panel-header>
 							<mat-panel-title>
-								Privacy Policy
+								{{'home_settings.privacy_policy' | translate}}
 							</mat-panel-title>
 						</mat-expansion-panel-header>
 						<br />
@@ -87,20 +87,20 @@
 
 		<ion-row>
 			<ion-col>
-				<ion-label>Contact</ion-label>
+				<ion-label>{{'home_settings.contact' | translate}}</ion-label>
 				<br />
 				<mat-accordion class="mt-2 mb-2">
 					<mat-expansion-panel>
 						<mat-expansion-panel-header>
 							<mat-panel-title>
-								Contact Us
+								{{'home_settings.contact_us' | translate}}
 							</mat-panel-title>
 						</mat-expansion-panel-header>
 						<ion-item>
-							Phone: 02-123-1234
+							{{'home_settings.phone' | translate}}: 02-123-1234
 						</ion-item>
 						<ion-item lines="none">
-							Email: soochulo@sochulo.com
+							{{'home_settings.email' | translate}}: soochulo@sochulo.com
 						</ion-item>
 					</mat-expansion-panel>
 				</mat-accordion>
@@ -109,7 +109,7 @@
 
 		<ion-row>
 			<ion-col>
-				<ion-label>Guide</ion-label>
+				<ion-label>{{'home_settings.guide' | translate}}</ion-label>
 				<br />
 				<mat-accordion class="mt-2 mb-2">
 					<mat-expansion-panel>
@@ -135,7 +135,7 @@
 			class="mt-5"
 			color="tertiary"
 		>
-			Sign Out
+		{{'home_settings.sign_out' | translate}}
 		</ion-button>
 	</ion-grid>
 </ion-content>

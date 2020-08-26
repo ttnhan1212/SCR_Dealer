@@ -10,6 +10,14 @@ import { OngoingDetailPageRoutingModule } from './ongoing-detail-routing.module'
 
 import { OngoingDetailPage } from './ongoing-detail.page';
 
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -18,6 +26,14 @@ import { OngoingDetailPage } from './ongoing-detail.page';
 		OngoingDetailPageRoutingModule,
 		ComponentsModule,
 		MatExpansionModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: HttpLoaderFactory,
+				deps: [HttpClient],
+			}
+		}),
+		HttpClientModule
 	],
 	declarations: [OngoingDetailPage],
 })

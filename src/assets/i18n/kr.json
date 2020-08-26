@@ -47,17 +47,30 @@
         "mileages": "주행거리",
         "location": "위치",
         "vehicle": "차량",
-        "input_bidding_price": "입찰 금액"
+        "input_bidding_price": "입찰 금액",
+        "ongoing_phase": "진행 단계"
     },
     "home_ongoing": {
         "please_wait": "기다려 주세요",
         "proceed": "상태를 눌러 다음단계를 완료해 주세요",
         "ended_trade": "거래가 종료되었습니다",
         "expire": "Expired",
-        "pending-confirm": "Pending Confirm"
+        "pending_confirm": "Pending Confirm"
+    },
+    "home_ongoing_detail": {
+        "status_offer": "Offer",
+        "status_selected": "Selected",
+        "status_ongoing": "진행중",
+        "see_insurance_history": "사고이력",
+        "mileages": "주행거리",
+        "location": "위치",
+        "vehicle": "차량",
+        "pending_confirm": "확인 보류 중",
+        "purchase": "매수",
+        "cancel": "취소"
     },
     "home_info": {
-        "information": "Informations",
+        "information": "정보",
         "info_car_export": "수출차란?",
         "info_term_condition": "이용안내",
         "infor": "감가정보",
@@ -101,22 +114,40 @@
         "bid_amount": "입찰 금액",
         "final_amount": "최종 구매 금액",
         "upload_instruction": "이미지 등록",
+        "input_desire_amount": "원하는 금액을 입력하세요",
         "other": "기타 사항",
         "confirm": "완료",
+        "purchase_confirm": "구매 확인",
+        "write_notes_hate":"여기에 메모 작성",
         "upload_cert_instruction": "말소증 업로드 하기",
         "purchase_amount": "구매 금액",
         "purchase_date": "구매 일자",
-        "upload_certification": "말소증 업로드 하기"
+        "upload_certification": "말소증 업로드 하기",
+        "payment_complete": " 완료"
     },
     "home_settings": {
         "edit_account_info": "계정 정보 수정",
         "notifications_setting": "알림 설정",
+        "version_info": "버전 정보",
         "term_conditions": "이용약관",
         "privacy_policy": "개인정보 취급방침",
         "contact": "수출로 연락처",
-        "contact_us": "Contact Us",
+        "contact_us": "문의하기",
+        "phone": "전화",
+        "email": "이메일",
         "guide": "가이드",
         "FAQ": "FAQ",
         "sign_out": "로그아웃"
+    },
+    "home_edit_account": {
+        "account_infor_header": "계정 정보",
+        "upload_instruction": "선택하여 사진 업로드",
+        "email": "이메일",
+        "org_name": "업체명",
+        "ceo_name": "대표 이름",
+        "phone_number": "전화번호",
+        "password": "비밀번호",
+        "confirm_password": "비밀번호 확인",
+        "update_infor": "업데이트 정보"
     }
 }

@@ -9,6 +9,14 @@ import { SettingPageRoutingModule } from './setting-routing.module';
 
 import { SettingPage } from './setting.page';
 
+import {HttpClientModule, HttpClient} from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -16,6 +24,14 @@ import { SettingPage } from './setting.page';
 		IonicModule,
 		SettingPageRoutingModule,
 		MatExpansionModule,
+		TranslateModule.forRoot({
+			loader: {
+				provide: TranslateLoader,
+				useFactory: HttpLoaderFactory,
+				deps: [HttpClient],
+			}
+		}),
+		HttpClientModule
 	],
 	declarations: [SettingPage],
 })
