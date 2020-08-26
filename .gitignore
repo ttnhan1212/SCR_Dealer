@@ -1,4 +1,4 @@
-node_modules
-android
-.gradle
-www
+/node_modules
+/android
+/.gradle
+/www
