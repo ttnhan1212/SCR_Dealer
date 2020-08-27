@@ -21,19 +21,19 @@
 		"org_name": "업체명",
 		"ceo_name": "대표 이름",
 		"phone_number": "전화번호",
-		"fax_number": "팩스번호",
+		"fax_numer": "팩스번호",
 		"business_address": "업체 주소",
 		"privacy_policy": "개인정보 수집",
 		"terms_conditions": "이용약관",
 		"privacy_usage_agreement": "개인정보 이용동의",
-		"agree_all": "선택하기",
+		"agree_all": "전체 선택하기",
 		"request_register": "가입신청",
 		"ask_for_login": "이미 계정이 있으신가요? 로그인 하러가기"
 	},
 	"home_deal": {
 		"location_select": "위치 선택",
 		"model_select": "차종선택",
-		"order_by": "필터",
+		"order_by": "정령",
 		"search_here": "검색",
 		"name": "이름",
 		"date": "데이트",
@@ -76,9 +76,6 @@
 		"infor": "감가정보",
 		"paper_info": "서류안내"
 	},
-	"home_notifications": {
-		"notifications": "알림"
-	},
 	"home_visit": {
 		"visit_seller_info": "판매자 정보",
 		"visit_see_insurance_history": "사고 이력 보기",
@@ -99,6 +96,7 @@
 	},
 	"home_visit_result_paymentcancel": {
 		"visit_result": "방문 결과",
+		"visit_result_place_holder": "구매 취소",
 		"cacel_reason": "취소 사유",
 		"upload_instruction": "이미지 등록",
 		"other": "기타사항",

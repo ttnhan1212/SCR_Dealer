@@ -1,32 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { TranslateService } from "@ngx-translate/core";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-	selector: 'app-revisit',
-	templateUrl: './revisit.page.html',
-	styleUrls: ['./revisit.page.scss'],
+  selector: "app-revisit",
+  templateUrl: "./revisit.page.html",
+  styleUrls: ["./revisit.page.scss"],
 })
 export class RevisitPage implements OnInit {
-	now: string = new Date().toISOString();
-	selectDate: Date;
+  now: string = new Date().toISOString();
+  selectDate: Date;
 
-	files: File[] = [];
+  files: File[] = [];
 
-	constructor() {}
+  constructor(translate: TranslateService) {
+    translate.addLangs(["en", "kr"]);
 
-	ngOnInit() {}
+    // this language will be used as a fallback when a translation isn't found in the current language
+    translate.setDefaultLang("kr");
 
-	onSelect(event) {
-		console.log(event);
-		this.files.push(...event.addedFiles);
-	}
+    // the lang to use, if the lang isn't available, it will use the current loader to get them
+    translate.use("kr");
+  }
 
-	onRemove(event) {
-		console.log(event);
-		this.files.splice(this.files.indexOf(event), 1);
-	}
+  ngOnInit() {}
 
-	localeDate(time: number) {
-		const myDate = new Date(time * 1000);
-		return myDate.toLocaleString();
-	}
+  onSelect(event) {
+    console.log(event);
+    this.files.push(...event.addedFiles);
+  }
+
+  onRemove(event) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  localeDate(time: number) {
+    const myDate = new Date(time * 1000);
+    return myDate.toLocaleString();
+  }
 }
