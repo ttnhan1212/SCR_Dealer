@@ -9,12 +9,23 @@
 	background-size: cover;
 }
 
+.login_title {
+	line-height: normal;
+}
+
 .container {
 	width: 100%;
 	padding-right: 0.75rem;
 	padding-left: 0.75rem;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.mat-form-field {
+	display: inline !important;
+	& input.mat-input-element {
+		line-height: normal !important;
+	}
 }
 
 .cover-image {
@@ -45,22 +56,16 @@
 	z-index: 10;
 }
 
-.single-page .wrapper.wrapper2 {
-	background: #fff;
-	width: 100%;
-	background: #fff;
-	transition: all 0.5s;
-	color: #fff;
-	overflow: hidden;
-	border-radius: 4px;
-	text-align: center;
-}
-
-.sptb {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-	width: 200%;
-}
+// .single-page .wrapper.wrapper2 {
+// 	background: #fff;
+// 	width: 100%;
+// 	background: #fff;
+// 	transition: all 0.5s;
+// 	color: #fff;
+// 	overflow: hidden;
+// 	border-radius: 4px;
+// 	text-align: center;
+// }
 
 .header-md::after {
 	width: 0 !important;

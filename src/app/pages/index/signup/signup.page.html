@@ -1,211 +1,167 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- Header/Banner section -->
-  <ion-item>
-    <div class="bannerimg cover-image bg-background3">
-      <div class="header-text">
-        <div class="container">
-          <div class="text-center text-white">
-            <h1 class="">{{'signup.sc_register' | translate}}</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ion-item>
-  <!-- End of Header/Banner section -->
+	<!-- Header/Banner section -->
+	<ion-item>
+		<div class="bannerimg cover-image bg-background3">
+			<div class="header-text">
+				<div class="container">
+					<div class="text-center text-white">
+						<h1 class="">{{'signup.sc_register' | translate}}</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-item>
+	<!-- End of Header/Banner section -->
 
-  <!-- Login content section -->
-  <ion-card class="m-3">
-    <div class="container customerpage">
-      <div class="row">
-        <div class="single-page">
-          <div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
-            <div class="wrapper wrapper2">
-              <form class="card-body p-4 pb-0" [formGroup]="signupForm">
-                <h3>{{'signup.register_as' | translate}}</h3>
-                <div class="avt-view">
-                  <img
-                    [src]="imagePreview"
-                    *ngIf="!photo"
-                    alt="upload-camera"
-                    class="img-fluid"
-                    (click)="selectImageSource()"
-                  />
-                  <img
-                    [src]="photo"
-                    *ngIf="photo"
-                    alt="upload-camera"
-                    class="img-fluid"
-                    (click)="selectImageSource()"
-                  />
-                  <input
-                    type="file"
-                    #pick
-                    style="display: none;"
-                    accept=".jpg, .jpeg, .png"
-                    (change)="handleFileInput($event)"
-                  />
-                  <!-- <input type="file" class="custom-file-input" (change)="onFileSelected($event)" accept=".png,.jpg"> -->
-                  <!-- <ion-input type="file" value="" accept=".jpg, .jpeg, .png" (change)="handleFileInput($event.target.files)"></ion-input> -->
-                  <!-- <ion-input type="file" value="" accept=".jpg, .jpeg, .png" (click)="PickFile()"></ion-input>
-									<div>
-										{{ returnpath }}
-									</div> -->
-                  <!-- <input
-										type="file"
-										#pick
-										style="display: none;"
-										accept=".jpg, .jpeg, .png"
-										(change)="PickImages()"
-									/> -->
-                  <!-- <ion-list *ngFor="let cordovaImage of cordovaImages">
-										<ion-item>
-											<img src="cordovaImage" />
-										</ion-item>
-									</ion-list> -->
-                </div>
-                <h3 style="color: #080e1b; font-size: 1rem;">
-                  ({{'signup.upload_instruction' | translate}})
-                </h3>
-                <div class="mb-6"></div>
-                <div class="mail">
-                  <input
-                    type="email"
-                    name="mail"
-                    [formControl]="email"
-                    style="color: #080e1b;"
-                  />
-                  <label>{{'signup.signup_email' | translate}}</label>
-                </div>
-                <div class="passwd">
-                  <input
-                    type="password"
-                    name="password"
-                    [formControl]="password"
-                    style="color: #080e1b;"
-                  />
-                  <label>{{'signup.signup_password' | translate}}</label>
-                </div>
-                <div class="passwd">
-                  <input
-                    type="password"
-                    name="cPassword"
-                    [formControl]="cPassword"
-                    style="color: #080e1b;"
-                  />
-                  <label
-                    >{{'signup.signup_confirm_password' | translate}}</label
-                  >
-                </div>
-                <div class="mail">
-                  <input
-                    type="text"
-                    name="orgname"
-                    [formControl]="orgname"
-                    style="color: #080e1b;"
-                  />
-                  <label>{{'signup.org_name' | translate}}</label>
-                </div>
-                <div class="mail">
-                  <input
-                    type="text"
-                    name="ceoname"
-                    [formControl]="ceoname"
-                    style="color: #080e1b;"
-                  />
-                  <label>{{'signup.ceo_name' | translate}}</label>
-                </div>
-                <div class="mail">
-                  <input
-                    type="number"
-                    name="phonenum"
-                    [formControl]="phonenum"
-                    style="color: #080e1b;"
-                  />
-                  <label>{{'signup.phone_number' | translate}}</label>
-                </div>
-                <div class="mail">
-                  <input
-                    type="number"
-                    name="faxnum"
-                    [formControl]="faxnum"
-                    style="color: #080e1b;"
-                  />
-                  <label>{{'signup.fax_numer' | translate}}</label>
-                </div>
-                <div class="mail">
-                  <input
-                    type="text"
-                    name="address"
-                    [formControl]="address"
-                    style="color: #080e1b;"
-                  />
-                  <label>{{'signup.business_address' | translate}}</label>
-                </div>
-              </form>
-              <ion-list class="ion-padding">
-                <ion-item *ngFor="let item of checkBoxList">
-                  <ion-label>{{item.value}}</ion-label>
-                  <ion-checkbox
-                    slot="start"
-                    #checkBoxList
-                    name="itemoption"
-                    (click)="modalNavigate(item.id)"
-                    [(ngModel)]="item.isChecked"
-                    [attr.data-id]="item.id"
-                    (ionChange)="checkEvent()"
-                  ></ion-checkbox>
-                </ion-item>
-                <ion-item>
-                  <ion-label
-                    ><strong
-                      >{{'signup.agree_all' | translate}}</strong
-                    ></ion-label
-                  >
-                  <ion-checkbox
-                    slot="start"
-                    name="selectallcheck"
-                    [(ngModel)]="masterCheck"
-                    [indeterminate]="isIndeterminate"
-                    (click)="checkMaster($event)"
-                  ></ion-checkbox>
-                </ion-item>
-              </ion-list>
+	<!-- Login content section -->
+	<ion-card class="m-3">
+		<ion-card-header class="text-center mt-3 mb-5 signup_title">
+			<ion-title class="fs-30">{{'signup.register_as' | translate}}</ion-title>
+		</ion-card-header>
+		<ion-card-content>
+			<form [formGroup]="signupForm">
+				<div class="avt-view">
+					<img
+						[src]="imagePreview"
+						*ngIf="!photo"
+						alt="upload-camera"
+						class="img-fluid"
+						(click)="selectImageSource()"
+					/>
+					<img
+						[src]="photo"
+						*ngIf="photo"
+						alt="upload-camera"
+						class="img-fluid"
+						(click)="selectImageSource()"
+					/>
+					<input
+						type="file"
+						#pick
+						style="display: none"
+						accept=".jpg, .jpeg, .png"
+						(change)="handleFileInput($event)"
+					/>
+					<!-- <input type="file" class="custom-file-input" (change)="onFileSelected($event)" accept=".png,.jpg"> -->
+					<!-- <ion-input type="file" value="" accept=".jpg, .jpeg, .png" (change)="handleFileInput($event.target.files)"></ion-input> -->
+					<!-- <ion-input type="file" value="" accept=".jpg, .jpeg, .png" (click)="PickFile()"></ion-input>
+          <div>
+            {{ returnpath }}
+          </div> -->
+					<!-- <input
+            type="file"
+            #pick
+            style="display: none;"
+            accept=".jpg, .jpeg, .png"
+            (change)="PickImages()"
+          /> -->
+					<!-- <ion-list *ngFor="let cordovaImage of cordovaImages">
+            <ion-item>
+              <img src="cordovaImage" />
+            </ion-item>
+          </ion-list> -->
+				</div>
+				<h3 class="text-center" style="color: #080e1b; font-size: 1rem">
+					({{'signup.upload_instruction' | translate}})
+				</h3>
+				<div class="mb-6"></div>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.signup_email' | translate}}</mat-label>
+					<input type="email" matInput [formControl]="email" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.signup_password' | translate}}</mat-label>
+					<input type="password" matInput [formControl]="password" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label
+						>{{'signup.signup_confirm_password' | translate}}</mat-label
+					>
+					<input type="password" matInput [formControl]="cPassword" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.org_name' | translate}}</mat-label>
+					<input type="text" matInput [formControl]="orgname" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.ceo_name' | translate}}</mat-label>
+					<input type="text" matInput [formControl]="ceoname" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.phone_number' | translate}}</mat-label>
+					<input type="number" matInput [formControl]="phonenum" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.fax_number' | translate}}</mat-label>
+					<input type="number" matInput [formControl]="faxnum" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.fax_number' | translate}}</mat-label>
+					<input type="number" matInput [formControl]="faxnum" />
+				</mat-form-field>
+				<mat-form-field appearance="outline">
+					<mat-label>{{'signup.business_address' | translate}}</mat-label>
+					<input type="text" matInput [formControl]="address" />
+				</mat-form-field>
+			</form>
+			<ion-list class="ion-padding">
+				<ion-item *ngFor="let item of checkBoxList">
+					<ion-label>{{item.value}}</ion-label>
+					<ion-checkbox
+						slot="start"
+						#checkBoxList
+						name="itemoption"
+						(click)="modalNavigate(item.id)"
+						[(ngModel)]="item.isChecked"
+						[attr.data-id]="item.id"
+						(ionChange)="checkEvent()"
+					></ion-checkbox>
+				</ion-item>
+				<ion-item>
+					<ion-label
+						><strong>{{'signup.agree_all' | translate}}</strong></ion-label
+					>
+					<ion-checkbox
+						slot="start"
+						name="selectallcheck"
+						[(ngModel)]="masterCheck"
+						[indeterminate]="isIndeterminate"
+						(click)="checkMaster($event)"
+					></ion-checkbox>
+				</ion-item>
+			</ion-list>
 
-              <ion-button
-                expand="block"
-                color="tertiary"
-                class="mr-3 ml-3"
-                (click)="signupDealer()"
-                [disabled]="!masterCheck || !signupForm.valid"
-              >
-                {{'signup.request_register' | translate}}
-                <ion-item *ngIf="percentage | async as pct">
-                  Progress: {{ pct | number }}%
-                  <ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
-                </ion-item>
-              </ion-button>
+			<ion-button
+				expand="block"
+				color="tertiary"
+				class="mb-3"
+				(click)="signupDealer()"
+				[disabled]="!masterCheck || !signupForm.valid"
+			>
+				{{'signup.request_register' | translate}}
+				<ion-item *ngIf="percentage | async as pct">
+					Progress: {{ pct | number }}%
+					<ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
+				</ion-item>
+			</ion-button>
 
-              <ion-button
-                fill="clear"
-                expand="block"
-                class="text-dark mb-6"
-                [routerLink]="['/','login']"
-              >
-			  {{'signup.ask_for_login' | translate}}
-              </ion-button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </ion-card>
-  <!-- End of Login content section -->
+			<ion-button
+				fill="clear"
+				expand="block"
+				class="text-dark mb-3"
+				[routerLink]="['/','login']"
+			>
+				{{'signup.ask_for_login' | translate}}
+			</ion-button>
+		</ion-card-content>
+	</ion-card>
+	<!-- End of Login content section -->
 </ion-content>

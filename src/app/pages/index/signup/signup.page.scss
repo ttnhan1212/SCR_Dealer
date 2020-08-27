@@ -17,6 +17,17 @@
 	margin-left: auto;
 }
 
+.signup_title {
+	line-height: normal;
+}
+
+.mat-form-field {
+	display: inline !important;
+	& input.mat-input-element {
+		line-height: normal !important;
+	}
+}
+
 .cover-image {
 	background-size: cover !important;
 	width: 100%;
@@ -24,7 +35,7 @@
 	background-image: url('../../../../assets/images/banners/banner2.jpg');
 }
 
-.avt-view{
+.avt-view {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -45,8 +56,6 @@
 		left: 0;
 	}
 }
-
-
 
 .bg-background3:before {
 	background: linear-gradient(
@@ -70,28 +79,23 @@
 	z-index: 10;
 }
 
-.single-page .wrapper.wrapper2 {
-	background: #fff;
-	width: 100%;
-	background: #fff;
-	transition: all 0.5s;
-	color: #fff;
-	overflow: hidden;
-	border-radius: 4px;
-	text-align: center;
-}
-
-.sptb {
-	padding-top: 3rem;
-	padding-bottom: 3rem;
-	width: 200%;
-}
+// .single-page .wrapper.wrapper2 {
+// 	background: #fff;
+// 	width: 100%;
+// 	background: #fff;
+// 	transition: all 0.5s;
+// 	color: #fff;
+// 	overflow: hidden;
+// 	border-radius: 4px;
+// 	text-align: center;
+// }
 
 .header-md::after {
 	width: 0 !important;
 }
 
-.item.sc-ion-label-md-h, .item .sc-ion-label-md-h {
+.item.sc-ion-label-md-h,
+.item .sc-ion-label-md-h {
 	font-family: 'Poppins';
 	font-size: 0.9rem;
 }
@@ -104,4 +108,3 @@ ion-item {
 	--inner-padding-end: 0px;
 	--padding-start: 0px;
 }
-
