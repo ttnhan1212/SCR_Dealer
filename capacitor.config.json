@@ -1,6 +1,6 @@
 {
 	"appId": "io.scroads.dealer",
-	"appName": "SCRoads Dealer",
+	"appName": "수출로 딜러용",
 	"bundledWebRuntime": false,
 	"npmClient": "npm",
 	"webDir": "www",

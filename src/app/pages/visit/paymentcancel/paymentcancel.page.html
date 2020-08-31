@@ -17,16 +17,28 @@
 		<ion-card-content>
 			<form>
 				<ion-item class="form-group">
-					<ion-label position="floating">{{'home_visit_result_paymentcancel.visit_result' | translate}}</ion-label>
-					<ion-input type="text" placeholder="{{'home_visit_result_paymentcancel.visit_result_place_holder' | translate}}"></ion-input>
+					<ion-label position="floating"
+						>{{'home_visit_result_paymentcancel.visit_result' |
+						translate}}</ion-label
+					>
+					<ion-input
+						type="text"
+						placeholder="{{'home_visit_result_paymentcancel.visit_result_place_holder' | translate}}"
+					></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
-					<ion-label position="floating">{{'home_visit_result_paymentcancel.cacel_reason' | translate}}</ion-label>
+					<ion-label position="floating"
+						>{{'home_visit_result_paymentcancel.cacel_reason' |
+						translate}}</ion-label
+					>
 					<ion-textarea rows="5"></ion-textarea>
 				</ion-item>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label>{{'home_visit_result_paymentcancel.upload_instruction' | translate}}</ngx-dropzone-label>
+						<ngx-dropzone-label
+							>{{'home_visit_result_paymentcancel.upload_instruction' |
+							translate}}</ngx-dropzone-label
+						>
 						<ngx-dropzone-image-preview
 							ngProjectAs="ngx-dropzone-preview"
 							*ngFor="let f of files"
@@ -36,10 +48,14 @@
 					</ngx-dropzone>
 				</div>
 				<ion-item class="form-group">
-					<ion-label position="floating">{{'home_visit_result_paymentcancel.other' | translate}}</ion-label>
+					<ion-label position="floating"
+						>{{'home_visit_result_paymentcancel.other' | translate}}</ion-label
+					>
 					<ion-textarea rows="5"></ion-textarea>
 				</ion-item>
-				<ion-button expand="block" color="tertiary">{{'home_visit_result_paymentcancel.confirm' | translate}}</ion-button>
+				<ion-button expand="block" color="tertiary"
+					>{{'home_visit_result_paymentcancel.confirm' | translate}}</ion-button
+				>
 			</form>
 		</ion-card-content>
 	</ion-card>

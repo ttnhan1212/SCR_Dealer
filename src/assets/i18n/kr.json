@@ -33,7 +33,7 @@
 	"home_deal": {
 		"location_select": "위치 선택",
 		"model_select": "차종선택",
-		"order_by": "정령",
+		"order_by": "필터",
 		"search_here": "검색",
 		"name": "이름",
 		"date": "데이트",
