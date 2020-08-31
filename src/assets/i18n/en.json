@@ -68,6 +68,9 @@
 		"confirm_date": "Confirm Date",
 		"enter_visit_result": "Enter Visit Result"
 	},
+	"home_notifications": {
+		"title": "Notifications"
+	},
 	"home_visit_result": {
 		"select_visit_result": "Select Visit Result",
 		"purchase_confirm": "Purchase Confirm",

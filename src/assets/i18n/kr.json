@@ -85,6 +85,9 @@
 		"confirm_date": "방문 일자 확정",
 		"enter_visit_result": "방문 일자 입력"
 	},
+	"home_notifications": {
+		"title": "알림"
+	},
 	"home_visit_result": {
 		"select_visit_result": "방문결과 입력",
 		"purchase_confirm": "구매 확정",
