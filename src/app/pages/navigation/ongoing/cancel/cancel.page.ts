@@ -23,7 +23,7 @@ export class CancelPage implements OnInit {
 		private notiService: NotiService,
 		private router: Router,
 		private route: ActivatedRoute,
-		private afAuth: AngularFireAuth,
+		private afAuth: AngularFireAuth
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 	}
@@ -58,6 +58,7 @@ export class CancelPage implements OnInit {
 				this.dealService.deleteParticipant(this.id, part.payload.doc.id);
 			});
 		});
+		await this.dealService.deleteDeal(this.id);
 		await this.dealService.updateDeal(this.id, {
 			participants: { created: false },
 		});

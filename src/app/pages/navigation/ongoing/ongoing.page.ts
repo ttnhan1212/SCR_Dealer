@@ -21,7 +21,7 @@ export class OngoingPage implements OnInit, OnDestroy {
 		private dealService: DealsService,
 		private afAuth: AngularFireAuth,
 		public loadingController: LoadingController,
-		translate: TranslateService,
+		translate: TranslateService
 	) {
 		this.logo = '../../../assets/images/logo/scroadslight.svg';
 

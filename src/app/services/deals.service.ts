@@ -66,12 +66,22 @@ export class DealsService {
 			.add(dealer);
 	}
 
-	addDealToDealer(deal: any) {
+	addDealToDealer(dealId: string, deal: any) {
 		return this.fireStore
 			.collection('Dealer')
 			.doc(this.loggedUser.uid)
 			.collection('Deals')
-			.add(deal);
+			.doc(dealId)
+			.set(deal);
+	}
+
+	deleteDeal(id: string) {
+		this.fireStore
+			.collection('Dealer')
+			.doc(this.loggedUser.uid)
+			.collection('Deals')
+			.doc(id)
+			.delete();
 	}
 
 	updateDeal(id: string, update: any) {
