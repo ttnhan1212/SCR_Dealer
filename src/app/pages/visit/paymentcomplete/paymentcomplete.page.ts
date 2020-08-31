@@ -1,3 +1,4 @@
+import { PaymentService } from './../../../services/payment.service';
 import { TranslateService } from '@ngx-translate/core';
 import { ActivatedRoute } from '@angular/router';
 import { DealsService } from './../../../services/deals.service';
@@ -16,17 +17,18 @@ export class PaymentcompletePage implements OnInit {
 	constructor(
 		public dealService: DealsService,
 		public route: ActivatedRoute,
-		translate: TranslateService,
+		private translate: TranslateService,
+		private payment: PaymentService,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 
-		translate.addLangs(['en', 'kr']);
+		this.translate.addLangs(['en', 'kr']);
 
 		// this language will be used as a fallback when a translation isn't found in the current language
-		translate.setDefaultLang('kr');
+		this.translate.setDefaultLang('kr');
 
 		// the lang to use, if the lang isn't available, it will use the current loader to get them
-		translate.use('kr');
+		this.translate.use('kr');
 	}
 	ngOnInit() {}
 	onSelect(event) {
@@ -37,8 +39,12 @@ export class PaymentcompletePage implements OnInit {
 		console.log(event);
 		this.files.splice(this.files.indexOf(event), 1);
 	}
-	completeRequest() {
-		this.dealService.updateDeal(this.id, { status: 'Complete' });
+	async completeRequest() {
+		let content = {
+			requestId: this.id,
+		};
+		await this.dealService.updateDeal(this.id, { status: 'Complete' });
+		await this.payment.createPayment(content);
 	}
 	localeDate(time: number) {
 		const myDate = new Date(time * 1000);

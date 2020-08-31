@@ -17,16 +17,24 @@
 		<ion-card-content>
 			<form>
 				<ion-item class="form-group">
-					<ion-label position="floating">{{'home_visit_result_revisit.visit_result' | translate}}</ion-label>
-					<ion-input type="text"></ion-input>
+					<ion-label position="floating"
+						>{{'home_visit_result_revisit.visit_result' | translate}}</ion-label
+					>
+					<ion-input type="text" readonly></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
-					<ion-label position="floating">{{'home_visit_result_revisit.revisit_reason' | translate}}</ion-label>
+					<ion-label position="floating"
+						>{{'home_visit_result_revisit.revisit_reason' |
+						translate}}</ion-label
+					>
 					<ion-textarea rows="5"></ion-textarea>
 				</ion-item>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label>{{'home_visit_result_revisit.upload_instruction' | translate}}</ngx-dropzone-label>
+						<ngx-dropzone-label
+							>{{'home_visit_result_revisit.upload_instruction' |
+							translate}}</ngx-dropzone-label
+						>
 						<ngx-dropzone-image-preview
 							ngProjectAs="ngx-dropzone-preview"
 							*ngFor="let f of files"
@@ -36,17 +44,23 @@
 					</ngx-dropzone>
 				</div>
 				<ion-item class="form-group">
-					<ion-label position="floating">{{'home_visit_result_revisit.revisit_date' | translate}}</ion-label>
+					<ion-label position="floating"
+						>{{'home_visit_result_revisit.revisit_date' | translate}}</ion-label
+					>
 					<ion-datetime
 						displayFormat="D MMM YYYY H:mm A"
 						[min]="now"
 					></ion-datetime>
 				</ion-item>
 				<ion-item class="form-group">
-					<ion-label position="floating">{{'home_visit_result_revisit.other' | translate}}</ion-label>
+					<ion-label position="floating"
+						>{{'home_visit_result_revisit.other' | translate}}</ion-label
+					>
 					<ion-textarea rows="5"></ion-textarea>
 				</ion-item>
-				<ion-button expand="block" color="tertiary">{{'home_visit_result_revisit.confirm' | translate}}</ion-button>
+				<ion-button expand="block" color="tertiary"
+					>{{'home_visit_result_revisit.confirm' | translate}}</ion-button
+				>
 			</form>
 		</ion-card-content>
 	</ion-card>
