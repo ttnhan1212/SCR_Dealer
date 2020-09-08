@@ -35,7 +35,7 @@
 	<ion-item
 		*ngFor="let item of ongoing, let i = index"
 		lines="none"
-		[routerLink]="ongoing[i].deal.participants.length === 2 ? ['/','home','visit',item.dealId] : [item.dealId]"
+		[routerLink]="ongoing[i].deal?.participants?.length === 2 ? ['/','home','visit',item.dealId] : [item.dealId]"
 	>
 		<ion-thumbnail slot="start">
 			<img
@@ -50,7 +50,7 @@
 					background: linear-gradient(to right, #2c3e50, #bdc3c7);
 				"
 				class="m-0 p-0"
-				[ngSwitch]="item.deal.status"
+				[ngSwitch]="item.deal?.status"
 			>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="1">
 					Quote in progress
@@ -61,11 +61,18 @@
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
 					Confirm the auction
 				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
+					<span *ngIf="id == item.selectedId">Confirm the auction</span>
+					<span *ngIf="id != item.selectedId">Other dealer selected</span>
+				</p>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="4">
-					Cancel the auction
+					<span *ngIf="id == item.selectedId">Cancel the auction</span>
+
+					<span *ngIf="id != item.selectedId">Other dealer selected</span>
 				</p>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
-					Please write visit result
+					<span *ngIf="id == item.selectedId">Please write visit result </span>
+					<span *ngIf="id != item.selectedId">Other dealer selected</span>
 				</p>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="6">
 					Cancel the purchase
@@ -89,7 +96,7 @@
 					>
 				</p>
 				<p>
-					{{item.deal.miles}}
+					{{item.deal?.miles}}
 					<span class="pull-right">${{item.price}}</span>
 				</p>
 			</div>

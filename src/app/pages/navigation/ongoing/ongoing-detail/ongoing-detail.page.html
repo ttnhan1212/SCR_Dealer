@@ -20,12 +20,6 @@
 				<ion-col class="col-xl-8 col-lg-8 col-md-12">
 					<!--Classified Description-->
 					<div class="card overflow-hidden">
-						<div class="ribbon ribbon-top-right text-danger" *ngIf="detail.dealerId">
-							<span class="bg-blue-light">{{'home_ongoing_detail.status_selected' | translate}}</span>
-						</div >
-						<div class="ribbon ribbon-top-right text-danger" *ngIf="!detail.dealerId">
-							<span class="bg-blue-light">{{'home_ongoing_detail.status_ongoing' | translate}}</span>
-						</div>
 						<div class="card-body">
 							<div class="item-det mb-4">
 								<a class="text-dark">
@@ -70,21 +64,39 @@
 									</div> -->
 								</div>
 							</div>
-							<ion-slides class="item-slides" pager="true" [options]="slideOpts">
+							<ion-slides
+								class="item-slides"
+								pager="true"
+								[options]="slideOpts"
+							>
 								<ion-slide>
-									<ion-img src="../../../assets/images/cars/2010-marussia-b2-2.jpg" alt="img"></ion-img>
+									<ion-img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									></ion-img>
 								</ion-slide>
 								<ion-slide>
-									<img src="../../../assets/images/cars/2010-marussia-b2-2.jpg" alt="img" />
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
 								</ion-slide>
 								<ion-slide>
-									<img src="../../../assets/images/cars/2010-marussia-b2-2.jpg" alt="img" />
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
 								</ion-slide>
 							</ion-slides>
 						</div>
 					</div>
 
-					<ion-button class="mt-2 mb-5" expand="block" color="tertiary" size="medium">
+					<ion-button
+						class="mt-2 mb-5"
+						expand="block"
+						color="tertiary"
+						size="medium"
+					>
 						{{'home_ongoing_detail.see_insurance_history' | translate}}
 					</ion-button>
 
@@ -97,14 +109,21 @@
 							<ion-card-content>{{detail.location}}</ion-card-content>
 						</ion-card>
 						<ion-card>
-							<ion-card-header><i class="ti-location-pin text-muted mr-1"></i>
-								<strong>{{'home_ongoing_detail.mileages' | translate}}</strong></ion-card-header>
+							<ion-card-header
+								><i class="ti-location-pin text-muted mr-1"></i>
+								<strong
+									>{{'home_ongoing_detail.mileages' | translate}}</strong
+								></ion-card-header
+							>
 							<ion-card-content>{{detail.miles}}</ion-card-content>
 						</ion-card>
 						<ion-card>
 							<ion-card-header>
 								<i class="ti-location-pin text-muted mr-1"></i>
-								<strong>{{'home_ongoing_detail.vehicle' | translate}} 특이 사항</strong>
+								<strong
+									>{{'home_ongoing_detail.vehicle' | translate}} 특이
+									사항</strong
+								>
 							</ion-card-header>
 							<ion-card-content>
 								출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
@@ -117,20 +136,34 @@
 						<ion-grid>
 							<ion-row *ngIf="userExist">
 								<ion-col size="4">
-									<ion-button expand="full" color="tertiary" size="large" (click)="cancel()">
+									<ion-button
+										expand="full"
+										color="tertiary"
+										size="large"
+										(click)="cancel()"
+									>
 										{{'home_ongoing_detail.cancel' | translate}}
 									</ion-button>
 								</ion-col>
 								<ion-col size="8">
-									<ion-button expand="full" color="tertiary" size="large"
-										(click)="confirmSelect(participant[0].userId, participant[0].price)">
+									<ion-button
+										expand="full"
+										color="tertiary"
+										size="large"
+										(click)="confirmSelect(participant[0].userId, participant[0].price)"
+									>
 										{{'home_ongoing_detail.purchase' | translate}}
 									</ion-button>
 								</ion-col>
 							</ion-row>
 							<ion-row *ngIf="!userExist">
 								<ion-col>
-									<ion-button expand="full" color="tertiary" size="large" disabled>
+									<ion-button
+										expand="full"
+										color="tertiary"
+										size="large"
+										disabled
+									>
 										{{'home_ongoing_detail.pending_confirm' | translate}}
 										<ion-spinner class="ml-4" name="crescent"></ion-spinner>
 									</ion-button>

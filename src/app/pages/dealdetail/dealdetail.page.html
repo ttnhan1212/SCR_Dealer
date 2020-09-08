@@ -1,17 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!--BreadCrumb-->
-  <!-- <ion-card>
+	<!--BreadCrumb-->
+	<!-- <ion-card>
 		<div class="container">
 			<div class="page-header">
 				<ol class="breadcrumb">
@@ -24,51 +24,48 @@
 			</div>
 		</div>
 	</ion-card> -->
-  <!--/BreadCrumb-->
-  <ion-item>
-    <ion-grid class="container">
-      <ion-row class="row">
-        <ion-col class="col-xl-8 col-lg-8 col-md-12">
-          <!--Classified Description-->
-          <div class="card overflow-hidden">
-            <div class="ribbon ribbon-top-right text-danger">
-              <span class="bg-danger">Offer</span>
-            </div>
-            <div class="card-body">
-              <div class="item-det mb-4">
-                <a class="text-dark">
-                  <h3>Car Model, Year, Plate Number</h3>
-                </a>
-                <div class="d-flex">
-                  <ul class="d-flex mb-0">
-                    <!-- <li class="mr-5">
+	<!--/BreadCrumb-->
+	<ion-item>
+		<ion-grid class="container">
+			<ion-row class="row">
+				<ion-col class="col-xl-8 col-lg-8 col-md-12">
+					<!--Classified Description-->
+					<div class="card overflow-hidden">
+						<div class="card-body">
+							<div class="item-det mb-4">
+								<a class="text-dark">
+									<h3>Car Model, Year, Plate Number</h3>
+								</a>
+								<div class="d-flex">
+									<ul class="d-flex mb-0">
+										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-car text-muted mr-1 fs-18"></i> Cars</a
 											>
 										</li> -->
-                    <!-- <li class="mr-5">
+										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-location-pin text-muted mr-1"></i
 												>{{detail.location}}</a
 											>
 										</li> -->
-                    <!-- <li class="mr-5">
+										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-calendar text-muted mr-1"></i
 												>{{detail.effectedTime}}</a
 											>
 										</li> -->
-                    <!-- <li class="mr-5">
+										<!-- <li class="mr-5">
 											<a class="icons"
 												><i class="ti-eye text-muted mr-1 fs-15"></i> 765</a
 											>
 										</li> -->
-                  </ul>
-                  <div class="rating-stars d-flex mr-5">
-                    <ion-icon name="person-outline" class="mr-1"></ion-icon>
-                    <ion-label>{{detail.name}}</ion-label>
-                  </div>
-                  <!-- <div class="rating-stars d-flex">
+									</ul>
+									<div class="rating-stars d-flex mr-5">
+										<ion-icon name="person-outline" class="mr-1"></ion-icon>
+										<ion-label>{{detail.name}}</ion-label>
+									</div>
+									<!-- <div class="rating-stars d-flex">
 										<div class="rating-stars-container mr-2">
 											<div class="rating-star sm">
 												<i class="fa fa-heart"></i>
@@ -76,107 +73,111 @@
 										</div>
 										135
 									</div> -->
-                </div>
-              </div>
-              <ion-slides
-                class="item-slides"
-                pager="true"
-                [options]="slideOpts"
-              >
-                <ion-slide>
-                  <ion-img
-                    src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
-                    alt="img"
-                  ></ion-img>
-                </ion-slide>
-                <ion-slide>
-                  <img
-                    src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
-                    alt="img"
-                  />
-                </ion-slide>
-                <ion-slide>
-                  <img
-                    src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
-                    alt="img"
-                  />
-                </ion-slide>
-              </ion-slides>
-            </div>
-          </div>
+								</div>
+							</div>
+							<ion-slides
+								class="item-slides"
+								pager="true"
+								[options]="slideOpts"
+							>
+								<ion-slide>
+									<ion-img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									></ion-img>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+							</ion-slides>
+						</div>
+					</div>
 
-          <ion-button
-            class="mt-2 mb-5"
-            expand="block"
-            color="tertiary"
-            size="medium"
-          >
-            {{'home_deal_detail.see_insurance_history' | translate}}
-          </ion-button>
+					<ion-button
+						class="mt-2 mb-5"
+						expand="block"
+						color="tertiary"
+						size="medium"
+					>
+						{{'home_deal_detail.see_insurance_history' | translate}}
+					</ion-button>
 
-          <ion-item-group class="mb-5">
-            <ion-card>
-              <ion-card-header>
-                <i class="ti-location-pin text-muted mr-1"></i>
-                <strong>{{'home_deal_detail.location' | translate}}</strong>
-              </ion-card-header>
-              <ion-card-content>{{detail.location}}</ion-card-content>
-            </ion-card>
-            <ion-card>
-              <ion-card-header
-                ><i class="ti-location-pin text-muted mr-1"></i>
-                <strong>{{'home_deal_detail.mileages' | translate}}</strong></ion-card-header
-              >
-              <ion-card-content>{{detail.miles}}</ion-card-content>
-            </ion-card>
-            <ion-card>
-              <ion-card-header>
-                <i class="ti-location-pin text-muted mr-1"></i>
-                <strong>{{'home_deal_detail.vehicle' | translate}} 특이 사항</strong>
-              </ion-card-header>
-              <ion-card-content>
-                출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
-                탔어요
-              </ion-card-content>
-            </ion-card>
-          </ion-item-group>
+					<ion-item-group class="mb-5">
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong>{{'home_deal_detail.location' | translate}}</strong>
+							</ion-card-header>
+							<ion-card-content>{{detail.location}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header
+								><i class="ti-location-pin text-muted mr-1"></i>
+								<strong
+									>{{'home_deal_detail.mileages' | translate}}</strong
+								></ion-card-header
+							>
+							<ion-card-content>{{detail.miles}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong
+									>{{'home_deal_detail.vehicle' | translate}} 특이 사항</strong
+								>
+							</ion-card-header>
+							<ion-card-content>
+								출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
+								탔어요
+							</ion-card-content>
+						</ion-card>
+					</ion-item-group>
 
-          <ion-card class="card-body">
-            <ion-card-content>
-              <div [hidden]="!participant">
-                <ion-button
-                  expand="full"
-                  color="tertiary"
-                  size="large"
-                  shape="round"
-                  [routerLink]="['/','home','ongoing', id]"
-                >
-				{{'home_deal_detail.ongoing_phase' | translate}}
-                </ion-button>
-              </div>
-              <div [hidden]="participant">
-                <div class="form-group">
-                  <input
-                    type="number"
-                    class="form-control text-center"
-                    placeholder="{{'home_deal_detail.input_bidding_price' | translate}}"
-                    [(ngModel)]="price"
-                  />
-                </div>
-                <ion-button
-                  expand="full"
-                  color="tertiary"
-                  size="large"
-                  shape="round"
-                  (click)="addDealerToDeal()"
-                >
-                  <ion-icon name="wallet"></ion-icon>
-                </ion-button>
-              </div>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
+					<ion-card class="card-body">
+						<ion-card-content>
+							<div [hidden]="!participant">
+								<ion-button
+									expand="full"
+									color="tertiary"
+									size="large"
+									shape="round"
+									[routerLink]="['/','home','ongoing', id]"
+								>
+									{{'home_deal_detail.ongoing_phase' | translate}}
+								</ion-button>
+							</div>
+							<div [hidden]="participant">
+								<div class="form-group">
+									<input
+										type="number"
+										class="form-control text-center"
+										placeholder="{{'home_deal_detail.input_bidding_price' | translate}}"
+										[(ngModel)]="price"
+									/>
+								</div>
+								<ion-button
+									expand="full"
+									color="tertiary"
+									size="large"
+									shape="round"
+									(click)="addDealerToDeal()"
+								>
+									<ion-icon name="wallet"></ion-icon>
+								</ion-button>
+							</div>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
 </ion-content>
