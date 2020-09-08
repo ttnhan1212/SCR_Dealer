@@ -16,12 +16,14 @@ export class OngoingPage implements OnInit, OnDestroy {
 
 	ongoing: any[];
 
+	selected: any;
+
 	confirm: any;
 	constructor(
 		private dealService: DealsService,
 		private afAuth: AngularFireAuth,
 		public loadingController: LoadingController,
-		translate: TranslateService
+		translate: TranslateService,
 	) {
 		this.logo = '../../../assets/images/logo/scroadslight.svg';
 
@@ -66,6 +68,13 @@ export class OngoingPage implements OnInit, OnDestroy {
 						val.deal = {
 							...(m.payload.data() as {}),
 						};
+					});
+					this.dealService.getSelectedParticipant(val.dealId).subscribe((v) => {
+						val.selected = v.map((b) => {
+							return {
+								...b.payload.doc.data(),
+							};
+						});
 					});
 				});
 				console.log(this.ongoing);

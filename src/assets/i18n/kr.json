@@ -21,7 +21,7 @@
 		"org_name": "업체명",
 		"ceo_name": "대표 이름",
 		"phone_number": "전화번호",
-		"fax_numer": "팩스번호",
+		"fax_number": "팩스번호",
 		"business_address": "업체 주소",
 		"privacy_policy": "개인정보 수집",
 		"terms_conditions": "이용약관",

@@ -35,7 +35,7 @@ export class DealdetailPage implements OnInit, OnDestroy {
 		private route: ActivatedRoute,
 		private notiService: NotiService,
 		private afAuth: AngularFireAuth,
-		translate: TranslateService
+		translate: TranslateService,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 
@@ -90,10 +90,10 @@ export class DealdetailPage implements OnInit, OnDestroy {
 			price: this.price,
 			bidTime: this.bidTime,
 		});
-		await this.dealsService.updateDeal(this.id, { status: 'Bidding' });
+		await this.dealsService.updateDeal(this.id, { status: 2 });
 		await this.notiService.createNoti({
 			requestId: this.id,
-			status: 'Bidding',
+			status: 2,
 			updateDate: Math.floor(new Date().getTime() / 1000.0),
 			user: this.userId.uid,
 		});

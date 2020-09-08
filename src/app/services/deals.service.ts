@@ -11,7 +11,7 @@ export class DealsService {
 
 	constructor(
 		private fireStore: AngularFirestore,
-		private afAuth: AngularFireAuth
+		private afAuth: AngularFireAuth,
 	) {
 		this.afAuth.authState.subscribe((user) => {
 			if (user) {
@@ -29,7 +29,7 @@ export class DealsService {
 			.collection('requests')
 			.doc(id)
 			.collection('participants', (ref) =>
-				ref.where('userId', '==', this.loggedUser.uid)
+				ref.where('userId', '==', this.loggedUser.uid),
 			)
 			.valueChanges();
 	}
@@ -41,7 +41,7 @@ export class DealsService {
 			.collection('participants', (ref) =>
 				ref
 					.where('userId', '==', this.loggedUser.uid)
-					.where('selected', '==', true)
+					.where('selected', '==', true),
 			)
 			.valueChanges();
 	}
@@ -111,5 +111,13 @@ export class DealsService {
 			.doc(id)
 			.collection('participants', (ref) => ref.where('selected', '==', false))
 			.snapshotChanges();
+	}
+
+	getSelectedParticipant(id: string) {
+		return this.fireStore
+			.collection('requests')
+			.doc(id)
+			.collection('participants', (ref) => ref.where('selected', '==', true))
+			.valueChanges();
 	}
 }

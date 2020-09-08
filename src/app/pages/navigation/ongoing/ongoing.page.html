@@ -42,7 +42,7 @@
 				src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
 			/>
 		</ion-thumbnail>
-		<ion-label style="margin-top: 25px;">
+		<ion-label style="margin-top: 25px">
 			<ion-header
 				style="
 					background: #bdc3c7;
@@ -50,14 +50,42 @@
 					background: linear-gradient(to right, #2c3e50, #bdc3c7);
 				"
 				class="m-0 p-0"
+				[ngSwitch]="item.deal.status"
 			>
-				<p class="fs-15 text-center text-dark">{{item.deal.status}}</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="1">
+					Quote in progress
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="2">
+					Waiting for seller to select
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
+					Confirm the auction
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="4">
+					Cancel the auction
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
+					Please write visit result
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="6">
+					Cancel the purchase
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="9">
+					Please upload the certification
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="10">
+					Please complete the payment
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchCase="11">
+					Trade complete
+				</p>
+				<p class="fs-15 text-center text-dark" *ngSwitchDefault="">N/A</p>
 			</ion-header>
 			<div class="first">
 				<p>
 					2009
 					<span class="pull-right"
-						>K-5<span style="font-size: 10px;">12가1234</span></span
+						>K-5<span style="font-size: 10px">12가1234</span></span
 					>
 				</p>
 				<p>
