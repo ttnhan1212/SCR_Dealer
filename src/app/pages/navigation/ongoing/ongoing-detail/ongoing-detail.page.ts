@@ -98,11 +98,11 @@ export class OngoingDetailPage implements OnInit {
 		// 		this.dealsService.deleteParticipant(this.id, part.payload.doc.id);
 		// 	});
 		// });
-		await this.dealsService.getUnselectParticipant(this.id).subscribe((m) => {
-			m.forEach((val) => {
-				this.dealsService.deleteParticipant(this.id, val.payload.doc.id);
-			});
-		});
+		// await this.dealsService.getUnselectParticipant(this.id).subscribe((m) => {
+		// 	m.forEach((val) => {
+		// 		this.dealsService.deleteParticipant(this.id, val.payload.doc.id);
+		// 	});
+		// });
 
 		this.router.navigate(['/', 'home', 'visit', this.id]);
 	}

@@ -15,7 +15,7 @@
 <ion-content>
 	<ion-card>
 		<ion-card-content>
-			<form>
+			<form [formGroup]="cancelForm">
 				<ion-item class="form-group">
 					<ion-label position="floating"
 						>{{'home_visit_result_paymentcancel.visit_result' |
@@ -32,7 +32,7 @@
 						>{{'home_visit_result_paymentcancel.cacel_reason' |
 						translate}}</ion-label
 					>
-					<ion-textarea rows="5"></ion-textarea>
+					<ion-textarea rows="5" [formControl]="reason"></ion-textarea>
 				</ion-item>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">
@@ -52,9 +52,9 @@
 					<ion-label position="floating"
 						>{{'home_visit_result_paymentcancel.other' | translate}}</ion-label
 					>
-					<ion-textarea rows="5"></ion-textarea>
+					<ion-textarea rows="5" [formControl]="other"></ion-textarea>
 				</ion-item>
-				<ion-button expand="block" color="tertiary"
+				<ion-button expand="block" color="tertiary" (click)="submitCancel()"
 					>{{'home_visit_result_paymentcancel.confirm' | translate}}</ion-button
 				>
 			</form>
