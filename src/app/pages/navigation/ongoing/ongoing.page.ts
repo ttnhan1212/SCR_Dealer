@@ -71,11 +71,6 @@ export class OngoingPage implements OnInit {
 				});
 				this.dealService.getSelectedParticipant(val.dealId).subscribe((v) => {
 					if (v) {
-						// val.selectedId = v.map((b) => {
-						// 	return {
-						// 		...b.payload.doc.data(),
-						// 	};
-						// });
 						v.map((b) => {
 							val.selectedId = b.payload.doc.data()['userId'];
 						});
@@ -85,7 +80,6 @@ export class OngoingPage implements OnInit {
 			console.log(this.id);
 
 			console.log(this.ongoing);
-			console.log(this.ongoing[3].selected[0].userId);
 		});
 	}
 

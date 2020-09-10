@@ -44,20 +44,22 @@ export class CancelPage implements OnInit {
 	async submitCancel() {
 		await this.dealService.updateDeal(this.id, {
 			cancelMessage: this.message,
-			status: 'Canceled',
+			status: 4,
 			updateDate: this.date,
 			user: this.userId,
 		});
 		await this.notiService.createNoti({
 			requestId: this.id,
-			status: 'Canceled',
+			status: 4,
 			updateDate: this.userId,
 		});
-		await this.dealService.getParticipant(this.id).subscribe((val) => {
-			val.forEach((part) => {
-				this.dealService.deleteParticipant(this.id, part.payload.doc.id);
+		await this.dealService
+			.getParticipantById(this.id, this.userId)
+			.subscribe((val) => {
+				val.forEach((part) => {
+					this.dealService.deleteParticipant(this.id, part.payload.doc.id);
+				});
 			});
-		});
 		await this.dealService.deleteDeal(this.id);
 		await this.dealService.updateDeal(this.id, {
 			participants: { created: false },

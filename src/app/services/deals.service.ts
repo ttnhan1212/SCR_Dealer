@@ -1,13 +1,14 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { User } from 'firebase';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class DealsService {
 	loggedUser: any;
+
+	now = Math.floor(new Date().getTime() / 1000.0);
 
 	constructor(
 		private fireStore: AngularFirestore,
@@ -21,7 +22,11 @@ export class DealsService {
 	}
 
 	getDeal() {
-		return this.fireStore.collection('requests').snapshotChanges();
+		return this.fireStore
+			.collection('requests', (ref) =>
+				ref.where('expiredTime', '>=', this.now).orderBy('expiredTime', 'desc')
+			)
+			.snapshotChanges();
 	}
 
 	getDealerInParticipant(id: string) {
@@ -93,6 +98,14 @@ export class DealsService {
 			.collection('requests')
 			.doc(id)
 			.collection('participants')
+			.snapshotChanges();
+	}
+
+	getParticipantById(id: string, userId: string) {
+		return this.fireStore
+			.collection('requests')
+			.doc(id)
+			.collection('participants', (ref) => ref.where('userId', '==', userId))
 			.snapshotChanges();
 	}
 

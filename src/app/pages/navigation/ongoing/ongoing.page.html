@@ -59,20 +59,29 @@
 					Waiting for seller to select
 				</p>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
-					Confirm the auction
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
-					<span *ngIf="id == item.selectedId">Confirm the auction</span>
-					<span *ngIf="id != item.selectedId">Other dealer selected</span>
+					<span *ngIf="item.selectedId && id === item.selectedId"
+						>Confirm the auction</span
+					>
+					<span *ngIf="item.selectedId && id !== item.selectedId"
+						>Other dealer selected</span
+					>
 				</p>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="4">
-					<span *ngIf="id == item.selectedId">Cancel the auction</span>
+					<span *ngIf="item.selectedId && id === item.selectedId"
+						>Cancel the auction</span
+					>
 
-					<span *ngIf="id != item.selectedId">Other dealer selected</span>
+					<span *ngIf="item.selectedId && id !== item.selectedId"
+						>Other dealer selected</span
+					>
 				</p>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
-					<span *ngIf="id == item.selectedId">Please write visit result </span>
-					<span *ngIf="id != item.selectedId">Other dealer selected</span>
+					<span *ngIf="item.selectedId && id === item.selectedId"
+						>Please write visit result
+					</span>
+					<span *ngIf="item.selectedId && id !== item.selectedId"
+						>Other dealer selected</span
+					>
 				</p>
 				<p class="fs-15 text-center text-dark" *ngSwitchCase="6">
 					Cancel the purchase

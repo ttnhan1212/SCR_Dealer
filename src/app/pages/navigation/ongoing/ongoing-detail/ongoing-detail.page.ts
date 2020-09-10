@@ -84,12 +84,12 @@ export class OngoingDetailPage implements OnInit {
 
 	async confirmSelect(user: string, price: number) {
 		await this.dealsService.updateDeal(this.id, {
-			status: 'Confirm',
+			status: 5,
 			participants: [user, price],
 		});
 		await this.notiService.createNoti({
 			requestId: this.id,
-			status: 'Confirm Purchase',
+			status: 5,
 			updateDate: Math.floor(new Date().getTime() / 1000.0),
 			user: this.userId,
 		});

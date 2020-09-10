@@ -18,7 +18,7 @@ export class PaymentcompletePage implements OnInit {
 		public dealService: DealsService,
 		public route: ActivatedRoute,
 		private translate: TranslateService,
-		private payment: PaymentService,
+		private payment: PaymentService
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 
@@ -43,7 +43,7 @@ export class PaymentcompletePage implements OnInit {
 		let content = {
 			requestId: this.id,
 		};
-		await this.dealService.updateDeal(this.id, { status: 'Complete' });
+		await this.dealService.updateDeal(this.id, { status: 8 });
 		await this.payment.createPayment(content);
 	}
 	localeDate(time: number) {
