@@ -1,3 +1,4 @@
+import { LoaderService } from './../../../services/loader.service';
 import { File } from '@ionic-native/file/ngx';
 import { DealerService } from './../../../services/dealer.service';
 import { AuthService } from './../../../services/auth.service';
@@ -76,18 +77,18 @@ export class SignupPage implements OnInit {
 		Validators.compose([
 			Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
 			Validators.required,
-		]),
+		])
 	);
 	password = new FormControl(
 		'',
-		Validators.compose([Validators.minLength(8), Validators.required]),
+		Validators.compose([Validators.minLength(8), Validators.required])
 	);
 	cPassword = new FormControl('', Validators.required);
 	orgname = new FormControl('', Validators.required);
 	phonenum = new FormControl(null, Validators.required);
 	faxnum = new FormControl(
 		null,
-		Validators.compose([Validators.required, Validators.minLength(10)]),
+		Validators.compose([Validators.required, Validators.minLength(10)])
 	);
 	ceoname = new FormControl('', Validators.required);
 	address = new FormControl('', Validators.required);
@@ -114,6 +115,8 @@ export class SignupPage implements OnInit {
 	isUploading: boolean;
 	isUploaded: boolean;
 
+	now = Math.floor(new Date().getTime() / 1000.0);
+
 	// private imageCollection: AngularFirestoreCollection<MyData>;
 
 	@ViewChild('pick', { static: false }) pick: ElementRef<HTMLInputElement>;
@@ -133,6 +136,7 @@ export class SignupPage implements OnInit {
 		private plt: Platform,
 		private sanitizer: DomSanitizer,
 		private translate: TranslateService,
+		private loader: LoaderService
 	) {
 		this.checkBoxList = [
 			{
@@ -166,6 +170,7 @@ export class SignupPage implements OnInit {
 			fax: this.faxnum,
 			ceoName: this.ceoname,
 			address: this.address,
+			requestTime: this.now,
 		});
 
 		this.translate.addLangs(['en', 'kr']);
@@ -174,7 +179,7 @@ export class SignupPage implements OnInit {
 		this.translate.setDefaultLang('kr');
 
 		// the lang to use, if the lang isn't available, it will use the current loader to get them
-		this.translate.use('kr');
+		this.translate.use('en');
 	}
 
 	// PickImages() {
@@ -277,7 +282,7 @@ export class SignupPage implements OnInit {
 		// );
 		// const imageName = 'Give me a name';
 		this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(
-			image && image.dataUrl,
+			image && image.dataUrl
 		);
 	}
 
@@ -351,11 +356,11 @@ export class SignupPage implements OnInit {
 
 	uploadFile(user: string) {
 		// The File object
-		const blobData = this.b64toBlob(
-			this.imageSource.base64String,
-			'image/jpeg',
-			512,
-		);
+		// const blobData = this.b64toBlob(
+		// 	this.imageSource.base64String,
+		// 	'image/jpeg',
+		// 	512
+		// );
 
 		// Validation for Images Only
 		// if (file.type.split('/')[0] !== 'image') {
@@ -378,95 +383,86 @@ export class SignupPage implements OnInit {
 		const fileRef = this.storage.ref(path);
 
 		// The main task
-		const task = this.storage.upload(path, blobData, { customMetadata });
+		// const task = this.storage.upload(path, blobData, { customMetadata });
 
 		// Get file progress percentage
-		this.percentage = task.percentageChanges();
+		// this.percentage = task.percentageChanges();
 
-		task
-			.snapshotChanges()
-			.pipe(
-				finalize(() => {
-					this.UploadedFileURL = fileRef.getDownloadURL();
-					this.UploadedFileURL.subscribe(
-						(url) => {
-							console.log(url);
-							if (url) {
-								this.dealerService.updateDealerImage(
-									{
-										name: 'Hudson',
-										filepath: url,
-									},
-									user,
-								);
+		// task
+		// 	.snapshotChanges()
+		// 	.pipe(
+		// 		finalize(() => {
+		// 			this.UploadedFileURL = fileRef.getDownloadURL();
+		// 			this.UploadedFileURL.subscribe(
+		// 				(url) => {
+		// 					console.log(url);
+		// 					if (url) {
+		// 						this.dealerService.updateDealerImage(
+		// 							{
+		// 								name: 'Hudson',
+		// 								filepath: url,
+		// 							},
+		// 							user
+		// 						);
 
-								this.isUploading = false;
-								this.isUploaded = true;
-							}
-						},
-						(error) => {
-							console.error(error);
-						},
-					);
-				}),
-			)
-			.subscribe((url) => {
-				if (url) {
-					console.log(url);
-				}
-			});
+		// 						this.isUploading = false;
+		// 						this.isUploaded = true;
+		// 					}
+		// 				},
+		// 				(error) => {
+		// 					console.error(error);
+		// 				}
+		// 			);
+		// 		})
+		// 	)
+		// 	.subscribe((url) => {
+		// 		if (url) {
+		// 			console.log(url);
+		// 		}
+		// 	});
 	}
 
 	async signupDealer() {
-		const { email, password, cPassword } = this.signupForm.value;
+		const { password, cPassword } = this.signupForm.value;
 		if (password !== cPassword) {
 			this.toast.showToast('Password not match, Please try again!');
 		} else {
-			const loading = await this.loadingController.create({
-				message: 'Please wait...',
-				showBackdrop: true,
-			});
 			try {
-				await loading.present();
-				await this.authService.signup(email, password);
-				await this.afAuth.onAuthStateChanged((user) => {
-					if (user) {
-						this.userId = user.uid;
-						this.dealerService.createDealer(this.signupForm.value, user.uid);
-					}
-				});
-				await this.uploadFile(this.userId);
-				await loading.dismiss();
-				// await this.router.navigate(['/', 'login']);
+				await this.loader.showLoader();
+				await this.authService.registerDealer(this.signupForm.value);
+
+				// await this.uploadFile(this.userId);
+				await this.loader.hideLoader();
+				await this.router.navigate(['/', 'login']);
 			} catch (error) {
 				if (!this.signupForm.valid) {
 					this.toast.showToast(this.signupForm.errors.message);
 				}
 				this.toast.showToast(error.message);
-				await loading.dismiss();
+				await this.loader.hideLoader();
 			}
 		}
-	}
 
-	// Helper function
-	// https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
-	b64toBlob(b64Data, contentType = '', sliceSize = 512) {
-		const byteCharacters = atob(b64Data);
-		const byteArrays = [];
-		for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-			const slice = byteCharacters.slice(offset, offset + sliceSize);
+		// Helper function
+		// https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
+		// b64toBlob(b64Data, contentType = '', sliceSize = 512) {
+		// 	const byteCharacters = atob(b64Data);
+		// 	const byteArrays = [];
+		// 	for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+		// 		const slice = byteCharacters.slice(offset, offset + sliceSize);
 
-			const byteNumbers = new Array(slice.length);
-			for (let i = 0; i < slice.length; i++) {
-				byteNumbers[i] = slice.charCodeAt(i);
-			}
+		// 		const byteNumbers = new Array(slice.length);
+		// 		for (let i = 0; i < slice.length; i++) {
+		// 			byteNumbers[i] = slice.charCodeAt(i);
+		// 		}
 
-			const byteArray = new Uint8Array(byteNumbers);
-			byteArrays.push(byteArray);
-		}
+		// 		const byteArray = new Uint8Array(byteNumbers);
+		// 		byteArrays.push(byteArray);
+		// 	}
 
-		const blob = new Blob(byteArrays, { type: contentType });
+		// 	const blob = new Blob(byteArrays, { type: contentType });
 
-		return blob;
+		// 	return blob;
+		// }
 	}
 }

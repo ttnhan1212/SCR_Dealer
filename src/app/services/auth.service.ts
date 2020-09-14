@@ -1,3 +1,4 @@
+import { AngularFirestore } from '@angular/fire/firestore';
 import { ToastService } from './toast.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -12,6 +13,7 @@ export class AuthService {
 		public afAuth: AngularFireAuth,
 		public router: Router,
 		private toast: ToastService,
+		private fireStore: AngularFirestore
 	) {}
 
 	async login(email: string, password: string) {
@@ -23,6 +25,11 @@ export class AuthService {
 		await this.afAuth.createUserWithEmailAndPassword(email, password);
 		await this.toast.showToast('Your account have been created, Please login!');
 		// this.router.navigate(['login']);
+	}
+
+	registerDealer(content: any) {
+		this.fireStore.collection('register_request').add(content);
+		this.toast.showToast('Your request have been submitted, Please wait!');
 	}
 
 	async logout() {
