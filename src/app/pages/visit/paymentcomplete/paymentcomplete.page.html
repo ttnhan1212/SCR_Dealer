@@ -15,7 +15,7 @@
 <ion-content>
 	<ion-card>
 		<ion-card-content>
-			<form>
+			<form [formGroup]="completeForm">
 				<ion-item class="form-group">
 					<ion-label position="floating" style="font-size: 14pt"
 						>{{'home_visit_result_paymentcomplete.visit_result' |
@@ -47,6 +47,7 @@
 					<ion-input
 						type="text"
 						placeholder="{{'home_visit_result_paymentcomplete.input_desire_amount' | translate}}"
+						[formControl]="finalAmount"
 					></ion-input>
 				</ion-item>
 				<br />
@@ -72,6 +73,7 @@
 					<ion-textarea
 						rows="5"
 						placeholder="{{'home_visit_result_paymentcomplete.write_notes_hate' | translate}}"
+						[formControl]="other"
 					></ion-textarea>
 				</ion-item>
 
@@ -79,7 +81,7 @@
 					expand="block"
 					color="tertiary"
 					routerLink="certificationupload"
-					(click)="completeRequest();"
+					(click)="completeRequest()"
 					>{{'home_visit_result_paymentcomplete.confirm' |
 					translate}}</ion-button
 				>

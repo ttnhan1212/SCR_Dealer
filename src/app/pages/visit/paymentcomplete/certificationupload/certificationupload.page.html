@@ -1,82 +1,95 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-    <ion-button slot="end" fill="clear" [routerLink]="['/','home','deal']">
-      <ion-icon name="log-out-outline"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+		<ion-button slot="end" fill="clear" [routerLink]="['/','home','deal']">
+			<ion-icon name="log-out-outline"></ion-icon>
+		</ion-button>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-content>
-      <form>
-        <div class="form-group">
-          <ngx-dropzone (change)="onSelect($event)">
-            <ngx-dropzone-label
-              >{{'home_visit_result_paymentcomplete.upload_cert_instruction' | translate}}</ngx-dropzone-label
-            >
-            <ngx-dropzone-image-preview
-              ngProjectAs="ngx-dropzone-preview"
-              *ngFor="let f of files"
-              [file]="f"
-            >
-            </ngx-dropzone-image-preview>
-          </ngx-dropzone>
-        </div>
-        <br />
-        <ion-item class="form-group" lines="none">
-          <h1>
-            <span style="padding-right: 15px;">2009</span
-            ><span style="padding-right: 15px;">K-5</span
-            ><span style="padding-right: 15px; font-size: 11pt;">12가1234</span>
-          </h1>
-        </ion-item>
-        <ion-list>
-          <ion-item lines="none">
-            <ion-label style="color: #808080;">{{'home_visit_result_paymentcomplete.purchase_amount' | translate}}</ion-label>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label style="font-size: 24px;">1,999,000</ion-label>
-          </ion-item>
-        </ion-list>
-        <ion-list>
-          <ion-item lines="none">
-            <ion-label style="color: #808080;">{{'home_visit_result_paymentcomplete.purchase_date' | translate}}</ion-label>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label style="font-size: 24px;">2020-05-01 11:30</ion-label>
-          </ion-item>
-        </ion-list>
-        <br />
-        <div id="uploadCertBtn" *ngIf="!isShow">
-          <ion-button
-            expand="full"
-            color="tertiary"
-            size="medium"
-            class="uploadbtn"
-            >{{'home_visit_result_paymentcomplete.upload_certification' | translate}}</ion-button
-          >
-        </div>
-        <div id="fileExist" *ngIf="isShow">
-          <div class="text-content" style="color: black;">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic typesetting,
-          </div>
-          <br />
-          <ion-button expand="full" color="tertiary" size="medium"
-            >{{'home_visit_result_paymentcomplete.payment_complete' | translate}}</ion-button
-          >
-        </div>
-      </form>
-    </ion-card-content>
-  </ion-card>
+	<ion-card>
+		<ion-card-content>
+			<form>
+				<div class="form-group">
+					<ngx-dropzone (change)="onSelect($event)">
+						<ngx-dropzone-label
+							>{{'home_visit_result_paymentcomplete.upload_cert_instruction' |
+							translate}}</ngx-dropzone-label
+						>
+						<ngx-dropzone-image-preview
+							ngProjectAs="ngx-dropzone-preview"
+							*ngFor="let f of files"
+							[file]="f"
+						>
+						</ngx-dropzone-image-preview>
+					</ngx-dropzone>
+				</div>
+				<br />
+				<ion-item class="form-group" lines="none">
+					<h1>
+						<span style="padding-right: 15px">2009</span
+						><span style="padding-right: 15px">K-5</span
+						><span style="padding-right: 15px; font-size: 11pt">12가1234</span>
+					</h1>
+				</ion-item>
+				<ion-list>
+					<ion-item lines="none">
+						<ion-label style="color: #808080"
+							>{{'home_visit_result_paymentcomplete.purchase_amount' |
+							translate}}</ion-label
+						>
+					</ion-item>
+					<ion-item lines="none">
+						<ion-label style="font-size: 24px">1,999,000</ion-label>
+					</ion-item>
+				</ion-list>
+				<ion-list>
+					<ion-item lines="none">
+						<ion-label style="color: #808080"
+							>{{'home_visit_result_paymentcomplete.purchase_date' |
+							translate}}</ion-label
+						>
+					</ion-item>
+					<ion-item lines="none">
+						<ion-label style="font-size: 24px">2020-05-01 11:30</ion-label>
+					</ion-item>
+				</ion-list>
+				<br />
+				<div id="uploadCertBtn" *ngIf="!isShow">
+					<ion-button
+						expand="full"
+						color="tertiary"
+						size="medium"
+						class="uploadbtn"
+						>{{'home_visit_result_paymentcomplete.upload_certification' |
+						translate}}</ion-button
+					>
+				</div>
+				<div id="fileExist" *ngIf="isShow">
+					<div class="text-content" style="color: black">
+						Lorem Ipsum is simply dummy text of the printing and typesetting
+						industry. Lorem Ipsum has been the industry's standard dummy text
+						ever since the 1500s, when an unknown printer took a galley of type
+						and scrambled it to make a type specimen book. It has survived not
+						only five centuries, but also the leap into electronic typesetting,
+					</div>
+					<br />
+					<ion-button
+						expand="full"
+						color="tertiary"
+						size="medium"
+						(click)="paymentComplete()"
+						>{{'home_visit_result_paymentcomplete.payment_complete' |
+						translate}}</ion-button
+					>
+				</div>
+			</form>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

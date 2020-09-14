@@ -59,7 +59,10 @@ export class PaymentcancelPage implements OnInit {
 	async submitCancel() {
 		this.loading.showLoader();
 		await this.result.createResult(this.cancelForm.value);
-		await this.dealService.updateDeal(this.id, { status: 6 });
+		await this.dealService.updateDeal(this.id, {
+			participants: { created: false },
+			status: 6,
+		});
 		this.loading.hideLoader();
 		await this.router.navigate(['/', 'home', 'deal']);
 	}

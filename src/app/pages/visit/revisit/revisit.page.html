@@ -15,19 +15,23 @@
 <ion-content>
 	<ion-card>
 		<ion-card-content>
-			<form>
+			<form [formGroup]="revisitForm">
 				<ion-item class="form-group">
 					<ion-label position="floating"
 						>{{'home_visit_result_revisit.visit_result' | translate}}</ion-label
 					>
-					<ion-input type="text" readonly></ion-input>
+					<ion-input
+						type="text"
+						readonly
+						value="{{'home_visit_result_revisit.visit_result' | translate}}"
+					></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
 					<ion-label position="floating"
 						>{{'home_visit_result_revisit.revisit_reason' |
 						translate}}</ion-label
 					>
-					<ion-textarea rows="5"></ion-textarea>
+					<ion-textarea rows="5" [formControl]="reason"></ion-textarea>
 				</ion-item>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">
@@ -50,13 +54,14 @@
 					<ion-datetime
 						displayFormat="D MMM YYYY H:mm A"
 						[min]="now"
+						[formControl]="date"
 					></ion-datetime>
 				</ion-item>
 				<ion-item class="form-group">
 					<ion-label position="floating"
 						>{{'home_visit_result_revisit.other' | translate}}</ion-label
 					>
-					<ion-textarea rows="5"></ion-textarea>
+					<ion-textarea rows="5" [formControl]="other"></ion-textarea>
 				</ion-item>
 				<ion-button expand="block" color="tertiary"
 					>{{'home_visit_result_revisit.confirm' | translate}}</ion-button
