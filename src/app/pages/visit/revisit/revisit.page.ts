@@ -20,7 +20,7 @@ export class RevisitPage implements OnInit {
 	files: File[] = [];
 
 	revisitForm: FormGroup;
-	reason = new FormControl('null');
+	reason = new FormControl('');
 	other = new FormControl('');
 	date = new FormControl('');
 
@@ -49,6 +49,7 @@ export class RevisitPage implements OnInit {
 			reason: this.reason,
 			other: this.other,
 			requestId: this.id,
+			date: this.date,
 		});
 	}
 
@@ -68,6 +69,9 @@ export class RevisitPage implements OnInit {
 		const { date } = this.revisitForm.value;
 		let time = new Date(date);
 		let unix = Math.floor(time.getTime() / 1000.0);
+		this.revisitForm.patchValue({
+			date: unix,
+		});
 		await this.dealService.updateDeal(this.id, { visitDate: unix });
 		await this.result.createResult(this.revisitForm.value);
 		await this.router.navigate(['/', 'home', 'ongoing']);

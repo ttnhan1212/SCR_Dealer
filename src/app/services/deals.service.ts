@@ -55,7 +55,9 @@ export class DealsService {
 		return this.fireStore
 			.collection('Dealer')
 			.doc(id)
-			.collection('Deals')
+			.collection('Deals', (ref) =>
+				ref.where('canceled', '==', false).orderBy('bidTime', 'asc')
+			)
 			.snapshotChanges();
 	}
 
@@ -80,17 +82,21 @@ export class DealsService {
 			.set(deal);
 	}
 
-	deleteDeal(id: string) {
+	updateDealInDealer(id: string, val: any) {
 		this.fireStore
 			.collection('Dealer')
 			.doc(this.loggedUser.uid)
 			.collection('Deals')
 			.doc(id)
-			.delete();
+			.update(val);
 	}
 
 	updateDeal(id: string, update: any) {
 		return this.fireStore.collection('requests').doc(id).update(update);
+	}
+
+	createCancelDeal(content: any) {
+		return this.fireStore.collection('Result').add(content);
 	}
 
 	getParticipant(id: string) {

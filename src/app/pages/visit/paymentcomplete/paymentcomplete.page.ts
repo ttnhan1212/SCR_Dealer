@@ -20,10 +20,11 @@ import {
 })
 export class PaymentcompletePage implements OnInit {
 	id: string;
+	userId: string;
+
 	now: string = new Date().toISOString();
 	selectDate: Date;
 	files: File[] = [];
-	userId: string;
 
 	completeForm: FormGroup;
 	finalAmount = new FormControl(null);
@@ -57,6 +58,7 @@ export class PaymentcompletePage implements OnInit {
 			final_amount: this.finalAmount,
 			other: this.other,
 			requestId: this.id,
+			dealerId: this.userId,
 		});
 	}
 	ngOnInit() {}
@@ -91,8 +93,12 @@ export class PaymentcompletePage implements OnInit {
 		};
 		await this.result.createResult(this.completeForm.value);
 		await this.dealService.updateDeal(this.id, { status: 9 });
+		await this.dealService.updateDealInDealer(this.id, {
+			final_price: finalAmount ? finalAmount : 0,
+			status: 'Waiting',
+		});
 		await this.payment.createPayment(content);
-		await this.router.navigate(['/', 'home', 'certificationupload', this.id]);
+		this.router.navigate(['certificationupload', this.id]);
 	}
 
 	localeDate(time: number) {

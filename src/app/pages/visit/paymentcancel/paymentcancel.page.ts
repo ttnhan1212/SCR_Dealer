@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 import { LoaderService } from './../../../services/loader.service';
 import { DealsService } from './../../../services/deals.service';
 import { ResultService } from './../../../services/result.service';
@@ -18,9 +19,13 @@ import {
 })
 export class PaymentcancelPage implements OnInit {
 	id: string;
+	userId: string;
+	authState: any = null;
 
 	now: string = new Date().toISOString();
 	selectDate: Date;
+
+	date = Math.floor(new Date().getTime() / 1000.0);
 
 	files: File[] = [];
 
@@ -35,7 +40,8 @@ export class PaymentcancelPage implements OnInit {
 		private fb: FormBuilder,
 		private result: ResultService,
 		private dealService: DealsService,
-		private loading: LoaderService
+		private loading: LoaderService,
+		private afAuth: AngularFireAuth
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 		translate.addLangs(['en', 'kr']);
@@ -47,10 +53,19 @@ export class PaymentcancelPage implements OnInit {
 		translate.use('kr');
 
 		this.cancelForm = this.fb.group({
-			result: 'Revisit',
+			result: 'Cancel',
 			reason: this.reason,
 			other: this.other,
+			cancelDate: this.date,
+			dealerId: this.userId,
 			requestId: this.id,
+		});
+
+		this.afAuth.authState.subscribe((authState) => {
+			this.authState = authState;
+			if (this.authState) {
+				this.userId = this.authState.uid;
+			}
 		});
 	}
 
@@ -60,9 +75,18 @@ export class PaymentcancelPage implements OnInit {
 		this.loading.showLoader();
 		await this.result.createResult(this.cancelForm.value);
 		await this.dealService.updateDeal(this.id, {
+			visitDate: null,
 			participants: { created: false },
 			status: 6,
 		});
+		await this.dealService
+			.getParticipantById(this.id, this.userId)
+			.subscribe((val) => {
+				val.forEach((part) => {
+					this.dealService.deleteParticipant(this.id, part.payload.doc.id);
+				});
+			});
+		await this.dealService.updateDealInDealer(this.id, { status: 'Cancel' });
 		this.loading.hideLoader();
 		await this.router.navigate(['/', 'home', 'deal']);
 	}

@@ -63,7 +63,7 @@
 					>
 					<ion-textarea rows="5" [formControl]="other"></ion-textarea>
 				</ion-item>
-				<ion-button expand="block" color="tertiary"
+				<ion-button expand="block" color="tertiary" (click)="revisitSubmit()"
 					>{{'home_visit_result_revisit.confirm' | translate}}</ion-button
 				>
 			</form>
