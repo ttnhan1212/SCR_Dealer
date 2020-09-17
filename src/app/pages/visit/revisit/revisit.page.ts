@@ -68,6 +68,8 @@ export class RevisitPage implements OnInit {
 	async revisitSubmit() {
 		const { date } = this.revisitForm.value;
 		let time = new Date(date);
+		time.setMinutes(0);
+		time.setSeconds(0);
 		let unix = Math.floor(time.getTime() / 1000.0);
 		this.revisitForm.patchValue({
 			date: unix,

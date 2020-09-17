@@ -14,7 +14,10 @@
 
 <ion-content>
 	<ion-card>
-		<ion-card-content>
+		<ion-card-content *ngIf="deal?.status >= 7 && deal?.status < 9">
+			<ion-header>Seller is making review</ion-header>
+		</ion-card-content>
+		<ion-card-content *ngIf="deal?.status === 9">
 			<form>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">

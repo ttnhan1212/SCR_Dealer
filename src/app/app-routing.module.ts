@@ -13,7 +13,7 @@ const routes: Routes = [
 		path: 'home',
 		loadChildren: () =>
 			import('./pages/navigation/navigation.module').then(
-				(m) => m.NavigationPageModule,
+				(m) => m.NavigationPageModule
 			),
 	},
 	{
@@ -21,7 +21,7 @@ const routes: Routes = [
 		component: DealdetailPage,
 		loadChildren: () =>
 			import('./pages/dealdetail/dealdetail.module').then(
-				(m) => m.DealdetailPageModule,
+				(m) => m.DealdetailPageModule
 			),
 	},
 	{
@@ -35,35 +35,42 @@ const routes: Routes = [
 		path: 'home/ongoing/cancel/:id',
 		loadChildren: () =>
 			import('./pages/navigation/ongoing/cancel/cancel.module').then(
-				(m) => m.CancelPageModule,
+				(m) => m.CancelPageModule
 			),
 	},
 	{
 		path: 'home/settings/:id',
 		loadChildren: () =>
 			import('./pages/navigation/settings/user-detail/user-detail.module').then(
-				(m) => m.UserDetailPageModule,
+				(m) => m.UserDetailPageModule
 			),
 	},
 	{
 		path: 'home/visit/result/revisit/:id',
 		loadChildren: () =>
 			import('./pages/visit/revisit/revisit.module').then(
-				(m) => m.RevisitPageModule,
+				(m) => m.RevisitPageModule
 			),
 	},
 	{
 		path: 'home/visit/result/paymentcomplete/:id',
 		loadChildren: () =>
 			import('./pages/visit/paymentcomplete/paymentcomplete.module').then(
-				(m) => m.PaymentcompletePageModule,
+				(m) => m.PaymentcompletePageModule
 			),
+	},
+	{
+		path: 'certificationupload/:id',
+		loadChildren: () =>
+			import(
+				'./pages/visit/paymentcomplete/certificationupload/certificationupload.module'
+			).then((m) => m.CertificationuploadPageModule),
 	},
 	{
 		path: 'home/visit/result/paymentcancel/:id',
 		loadChildren: () =>
 			import('./pages/visit/paymentcancel/paymentcancel.module').then(
-				(m) => m.PaymentcancelPageModule,
+				(m) => m.PaymentcancelPageModule
 			),
 	},
 	{
@@ -75,7 +82,7 @@ const routes: Routes = [
 		path: 'home/visit/result/:id',
 		loadChildren: () =>
 			import('./pages/visit/result/result.module').then(
-				(m) => m.ResultPageModule,
+				(m) => m.ResultPageModule
 			),
 	},
 	{

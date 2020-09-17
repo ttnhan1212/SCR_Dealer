@@ -1,3 +1,4 @@
+import { LoaderService } from './../../../../services/loader.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DealsService } from 'src/app/services/deals.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -10,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificationuploadPage implements OnInit {
 	id: string;
+	deal: any;
 
 	files: File[] = [];
 	isShow = false;
@@ -18,7 +20,8 @@ export class CertificationuploadPage implements OnInit {
 		translate: TranslateService,
 		private dealService: DealsService,
 		public route: ActivatedRoute,
-		public router: Router
+		public router: Router,
+		private loader: LoaderService
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 
@@ -31,7 +34,17 @@ export class CertificationuploadPage implements OnInit {
 		translate.use('kr');
 	}
 
-	ngOnInit() {}
+	ngOnInit() {
+		this.getDealDetail();
+	}
+
+	async getDealDetail() {
+		await this.loader.showLoader();
+		await this.dealService.getDealDetail(this.id).subscribe((val) => {
+			this.deal = val.payload.data();
+			this.loader.hideLoader();
+		});
+	}
 
 	onSelect(event) {
 		console.log(event);
@@ -42,6 +55,6 @@ export class CertificationuploadPage implements OnInit {
 	}
 
 	paymentComplete() {
-		this.dealService.updateDeal(this.id, { status: 11 });
+		this.dealService.updateDeal(this.id, { status: 10 });
 	}
 }

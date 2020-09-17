@@ -1,55 +1,55 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title class="smllogo">
-      <app-logo></app-logo>
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-fab vertical="top" horizontal="end" slot="fixed">
-    <ion-fab-button href="tel:{{detail.phone}}">
-      <ion-icon name="call-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
-  <!--BreadCrumb-->
-  <ion-card>
-    <ion-card-header>
-      <strong>{{'home_visit.visit_seller_info' | translate}}</strong>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row class="mb-3">
-          <ion-label>
-            <ion-icon name="person-outline" class="mr-1"></ion-icon>
-            {{detail.name}}
-          </ion-label>
-        </ion-row>
-        <ion-row>
-          <ion-label>
-            <ion-icon name="phone-portrait-outline" class="mr-1"></ion-icon>
-            {{detail.phone}}
-          </ion-label>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
-  </ion-card>
-  <!--/BreadCrumb-->
-  <ion-item>
-    <ion-grid class="container">
-      <ion-row class="row">
-        <ion-col class="col-xl-8 col-lg-8 col-md-12">
-          <!--Classified Description-->
-          <div class="card overflow-hidden">
-            <div class="card-body">
-              <div class="item-det">
-                <a class="text-dark">
-                  <h3>Car Model, Year, Plate Number</h3>
-                </a>
-                <!-- <div class="d-flex">
+	<ion-fab vertical="top" horizontal="end" slot="fixed">
+		<ion-fab-button href="tel:{{detail.phone}}">
+			<ion-icon name="call-outline"></ion-icon>
+		</ion-fab-button>
+	</ion-fab>
+	<!--BreadCrumb-->
+	<ion-card>
+		<ion-card-header>
+			<strong>{{'home_visit.visit_seller_info' | translate}}</strong>
+		</ion-card-header>
+		<ion-card-content>
+			<ion-grid>
+				<ion-row class="mb-3">
+					<ion-label>
+						<ion-icon name="person-outline" class="mr-1"></ion-icon>
+						{{detail.name}}
+					</ion-label>
+				</ion-row>
+				<ion-row>
+					<ion-label>
+						<ion-icon name="phone-portrait-outline" class="mr-1"></ion-icon>
+						{{detail.phone}}
+					</ion-label>
+				</ion-row>
+			</ion-grid>
+		</ion-card-content>
+	</ion-card>
+	<!--/BreadCrumb-->
+	<ion-item>
+		<ion-grid class="container">
+			<ion-row class="row">
+				<ion-col class="col-xl-8 col-lg-8 col-md-12">
+					<!--Classified Description-->
+					<div class="card overflow-hidden">
+						<div class="card-body">
+							<div class="item-det">
+								<a class="text-dark">
+									<h3>Car Model, Year, Plate Number</h3>
+								</a>
+								<!-- <div class="d-flex">
 									<ul class="d-flex mb-0">
 										<li class="mr-5">
 											<a class="icons"
@@ -87,109 +87,113 @@
 										135
 									</div>
 								</div> -->
-              </div>
-              <ion-slides
-                class="item-slides"
-                pager="true"
-                [options]="slideOpts"
-              >
-                <ion-slide>
-                  <ion-img
-                    src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
-                    alt="img"
-                  ></ion-img>
-                </ion-slide>
-                <ion-slide>
-                  <img
-                    src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
-                    alt="img"
-                  />
-                </ion-slide>
-                <ion-slide>
-                  <img
-                    src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
-                    alt="img"
-                  />
-                </ion-slide>
-              </ion-slides>
-            </div>
-          </div>
+							</div>
+							<ion-slides
+								class="item-slides"
+								pager="true"
+								[options]="slideOpts"
+							>
+								<ion-slide>
+									<ion-img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									></ion-img>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+								<ion-slide>
+									<img
+										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										alt="img"
+									/>
+								</ion-slide>
+							</ion-slides>
+						</div>
+					</div>
 
-          <ion-button
-            class="mt-2 mb-5"
-            expand="full"
-            color="tertiary"
-            size="medium"
-          >
-            {{'home_visit.visit_see_insurance_history' | translate}}
-          </ion-button>
+					<ion-button
+						class="mt-2 mb-5"
+						expand="full"
+						color="tertiary"
+						size="medium"
+					>
+						{{'home_visit.visit_see_insurance_history' | translate}}
+					</ion-button>
 
-          <ion-item-group class="mb-5">
-            <ion-card>
-              <ion-card-header>
-                <i class="ti-location-pin text-muted mr-1"></i>
-                <strong>{{'home_visit.visit_location' | translate}}</strong>
-              </ion-card-header>
-              <ion-card-content>{{detail.location}}</ion-card-content>
-            </ion-card>
-            <ion-card>
-              <ion-card-header
-                ><i class="ti-location-pin text-muted mr-1"></i>
-                <strong>{{'home_visit.visit_mileages' | translate}}</strong></ion-card-header
-              >
-              <ion-card-content>{{detail.miles}}</ion-card-content>
-            </ion-card>
-            <ion-card>
-              <ion-card-header>
-                <i class="ti-location-pin text-muted mr-1"></i>
-                <strong>{{'home_visit.visit_vehicle' | translate}} 특이 사항</strong>
-              </ion-card-header>
-              <ion-card-content>
-                출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
-                탔어요
-              </ion-card-content>
-            </ion-card>
-          </ion-item-group>
+					<ion-item-group class="mb-5">
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong>{{'home_visit.visit_location' | translate}}</strong>
+							</ion-card-header>
+							<ion-card-content>{{detail.location}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header
+								><i class="ti-location-pin text-muted mr-1"></i>
+								<strong
+									>{{'home_visit.visit_mileages' | translate}}</strong
+								></ion-card-header
+							>
+							<ion-card-content>{{detail.miles}}</ion-card-content>
+						</ion-card>
+						<ion-card>
+							<ion-card-header>
+								<i class="ti-location-pin text-muted mr-1"></i>
+								<strong
+									>{{'home_visit.visit_vehicle' | translate}} 특이 사항</strong
+								>
+							</ion-card-header>
+							<ion-card-content>
+								출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
+								탔어요
+							</ion-card-content>
+						</ion-card>
+					</ion-item-group>
 
-          <ion-card class="card-body">
-            <ion-card-content *ngIf="!detail.visitDate">
-              <div class="form-group">
-                <ion-item>
-                  <ion-label>
-                    {{'home_visit.confirm_date' | translate}}
-                  </ion-label>
-                  <ion-datetime
-                    displayFormat="D MMM YYYY H:mm A"
-                    [min]="now"
-                    [(ngModel)]="selectDate"
-                  ></ion-datetime>
-                </ion-item>
-              </div>
-              <ion-button
-                expand="full"
-                color="tertiary"
-                size="large"
-                (click)="addVisitDate()"
-              >
-			  {{'home_visit.confirm_date' | translate}}
-              </ion-button>
-            </ion-card-content>
-            <ion-card-content *ngIf="detail.visitDate">
-              <ion-title class="text-center mb-3">
-                {{localeDate(detail.visitDate) | date:"medium"}}
-              </ion-title>
-              <ion-button
-                expand="full"
-                color="tertiary"
-                size="large"
-                [routerLink]="['/','home','visit','result', this.id]"
-              >
-			  {{'home_visit.enter_visit_result' | translate}}
-              </ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-item>
+					<ion-card class="card-body">
+						<ion-card-content *ngIf="!detail.visitDate">
+							<div class="form-group">
+								<ion-item>
+									<ion-label>
+										{{'home_visit.confirm_date' | translate}}
+									</ion-label>
+									<ion-datetime
+										displayFormat="D MMM YYYY H A"
+										[min]="now"
+										[(ngModel)]="selectDate"
+									></ion-datetime>
+								</ion-item>
+							</div>
+							<ion-button
+								expand="full"
+								color="tertiary"
+								size="large"
+								(click)="addVisitDate()"
+							>
+								{{'home_visit.confirm_date' | translate}}
+							</ion-button>
+						</ion-card-content>
+						<ion-card-content *ngIf="detail.visitDate">
+							<ion-title class="text-center mb-3">
+								{{localeDate(detail.visitDate) | date:"medium"}}
+							</ion-title>
+							<ion-button
+								expand="full"
+								color="tertiary"
+								size="large"
+								[routerLink]="['/','home','visit','result', this.id]"
+							>
+								{{'home_visit.enter_visit_result' | translate}}
+							</ion-button>
+						</ion-card-content>
+					</ion-card>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</ion-item>
 </ion-content>

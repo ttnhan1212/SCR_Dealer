@@ -14,7 +14,7 @@
 
 <ion-content>
 	<ion-card>
-		<ion-card-content>
+		<ion-card-content *ngIf="deal">
 			<form [formGroup]="completeForm">
 				<ion-item class="form-group">
 					<ion-label position="floating" style="font-size: 14pt"
@@ -36,7 +36,7 @@
 						type="text"
 						disabled
 						readonly="true"
-						placeholder="1,999,000"
+						placeholder="{{deal.participants[1]}}"
 					></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
@@ -45,7 +45,7 @@
 						translate}}</ion-label
 					>
 					<ion-input
-						type="text"
+						type="number"
 						placeholder="{{'home_visit_result_paymentcomplete.input_desire_amount' | translate}}"
 						[formControl]="finalAmount"
 					></ion-input>

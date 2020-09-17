@@ -8,13 +8,6 @@ const routes: Routes = [
 		path: '',
 		component: PaymentcompletePage,
 	},
-	{
-		path: 'certificationupload/:id',
-		loadChildren: () =>
-			import('./certificationupload/certificationupload.module').then(
-				(m) => m.CertificationuploadPageModule
-			),
-	},
 ];
 
 @NgModule({

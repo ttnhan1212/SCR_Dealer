@@ -26,6 +26,8 @@ export class PaymentcompletePage implements OnInit {
 	selectDate: Date;
 	files: File[] = [];
 
+	deal: any;
+
 	completeForm: FormGroup;
 	finalAmount = new FormControl(null);
 	other = new FormControl('');
@@ -52,23 +54,32 @@ export class PaymentcompletePage implements OnInit {
 
 		// the lang to use, if the lang isn't available, it will use the current loader to get them
 		this.translate.use('kr');
-
-		this.completeForm = this.fb.group({
-			result: 'Purchase Confirm',
-			final_amount: this.finalAmount,
-			other: this.other,
-			requestId: this.id,
-			dealerId: this.userId,
-		});
 	}
-	ngOnInit() {}
+	ngOnInit() {
+		this.getUser();
+	}
 
 	async getUser() {
-		await this.loading.showLoader();
 		await this.afAuth.authState.subscribe((authState) => {
 			if (authState) {
 				this.userId = authState.uid;
+				this.getDealDetail();
+				this.completeForm = this.fb.group({
+					result: 'Purchase Confirm',
+					final_amount: this.finalAmount,
+					other: this.other,
+					requestId: this.id,
+					dealerId: this.userId,
+				});
 			}
+			console.log(this.completeForm.value);
+		});
+	}
+
+	async getDealDetail() {
+		await this.loading.showLoader();
+		await this.dealService.getDealDetail(this.id).subscribe((val) => {
+			this.deal = val.payload.data();
 		});
 		await this.loading.hideLoader();
 	}
@@ -83,6 +94,10 @@ export class PaymentcompletePage implements OnInit {
 		this.files.splice(this.files.indexOf(event), 1);
 	}
 
+	console() {
+		console.log(this.completeForm.value);
+	}
+
 	async completeRequest() {
 		const { finalAmount } = this.completeForm.value;
 		let content = {
@@ -94,11 +109,11 @@ export class PaymentcompletePage implements OnInit {
 		await this.result.createResult(this.completeForm.value);
 		await this.dealService.updateDeal(this.id, { status: 9 });
 		await this.dealService.updateDealInDealer(this.id, {
-			final_price: finalAmount ? finalAmount : 0,
+			final_price: content.final_amount,
 			status: 'Waiting',
 		});
 		await this.payment.createPayment(content);
-		this.router.navigate(['certificationupload', this.id]);
+		await this.router.navigate(['certificationupload', this.id]);
 	}
 
 	localeDate(time: number) {
