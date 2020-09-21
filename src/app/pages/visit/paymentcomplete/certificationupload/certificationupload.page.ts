@@ -43,6 +43,7 @@ export class CertificationuploadPage implements OnInit {
 		await this.dealService.getDealDetail(this.id).subscribe((val) => {
 			this.deal = val.payload.data();
 			this.loader.hideLoader();
+			console.log(this.deal);
 		});
 	}
 
@@ -55,6 +56,8 @@ export class CertificationuploadPage implements OnInit {
 	}
 
 	paymentComplete() {
+		let content = {};
+		this.dealService.createPayment(this.id, content);
 		this.dealService.updateDeal(this.id, { status: 10 });
 	}
 }

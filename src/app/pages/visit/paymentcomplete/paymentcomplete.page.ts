@@ -107,7 +107,10 @@ export class PaymentcompletePage implements OnInit {
 			purchase_date: this.purchase_date,
 		};
 		await this.result.createResult(this.completeForm.value);
-		await this.dealService.updateDeal(this.id, { status: 9 });
+		await this.dealService.updateDeal(this.id, {
+			finalPrice: content.final_amount,
+			status: 7,
+		});
 		await this.dealService.updateDealInDealer(this.id, {
 			final_price: content.final_amount,
 			status: 'Waiting',

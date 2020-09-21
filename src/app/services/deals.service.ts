@@ -56,7 +56,7 @@ export class DealsService {
 			.collection('Dealer')
 			.doc(id)
 			.collection('Deals', (ref) =>
-				ref.where('canceled', '==', false).orderBy('bidTime', 'asc')
+				ref.where('canceled', '==', false).orderBy('bidTime', 'desc')
 			)
 			.snapshotChanges();
 	}
@@ -97,6 +97,10 @@ export class DealsService {
 
 	createCancelDeal(content: any) {
 		return this.fireStore.collection('Result').add(content);
+	}
+
+	createPayment(id: string, content: any) {
+		this.fireStore.collection('Payment').doc(id).set(content)
 	}
 
 	getParticipant(id: string) {
