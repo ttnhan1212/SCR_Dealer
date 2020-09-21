@@ -59,5 +59,6 @@ export class CertificationuploadPage implements OnInit {
 		let content = {};
 		this.dealService.createPayment(this.id, content);
 		this.dealService.updateDeal(this.id, { status: 10 });
+		this.router.navigate(['/', 'home', 'deal']);
 	}
 }

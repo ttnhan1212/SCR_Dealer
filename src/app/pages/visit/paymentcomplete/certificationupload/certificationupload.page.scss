@@ -1,41 +1,53 @@
 .smllogo {
-  &__img {
-    height: 2.6rem;
-  }
+	&__img {
+		height: 2.6rem;
+	}
 }
 
 textarea {
-  height: 100px !important;
+	height: 100px !important;
 }
 
 .breadcrumb-item a {
-  color: #3f80ff;
+	color: #3f80ff;
 }
 
 .page-header {
-  margin-top: 0.7rem;
+	margin-top: 0.7rem;
 }
 
 .mylabel {
-  font-family: "Noto Sans KR";
-  font-size: 14px;
+	font-family: 'Noto Sans KR';
+	font-size: 14px;
 }
 
 .mytimepicker {
-  font-size: 14px;
+	font-size: 14px;
 }
 
 ion-item {
-  --inner-padding-end: 0px;
-  --padding-start: 0px;
+	--inner-padding-end: 0px;
+	--padding-start: 0px;
 }
 
 * {
-  font-family: "Noto Sans KR", sans-serif !important;
+	font-family: 'Noto Sans KR', sans-serif !important;
 }
 
 .text-content {
-  min-height: 150px;
-  text-align: center;
-  border: 1px solid #000080;
+	min-height: 150px;
+	text-align: center;
+	border: 1px solid #000080;
+}
+
+.container {
+	height: 100vh;
+	position: relative;
+}
+
+.vertical-center {
+	position: absolute;
+	top: 45%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
 }

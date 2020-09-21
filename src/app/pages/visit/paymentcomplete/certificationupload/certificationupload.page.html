@@ -1,8 +1,5 @@
 <ion-header>
 	<ion-toolbar>
-		<ion-buttons slot="start">
-			<ion-back-button></ion-back-button>
-		</ion-buttons>
 		<ion-title class="smllogo">
 			<app-logo></app-logo>
 		</ion-title>
@@ -12,12 +9,20 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content *ngIf="deal?.status >= 7 && deal?.status < 9" class="container">
+	<ion-card class="text-center vertical-center">
+		<img
+			src="../../../../../assets/images/cars/2020_nissan_gt_r_nismo_v5-wallpaper-1920x1080.jpg"
+			alt="../../../../../assets/images/admin-media/0-10.jpg"
+		/>
+		<ion-card-header> Seller is making review </ion-card-header>
+		<ion-card-content> Please wait.... </ion-card-content>
+	</ion-card>
+</ion-content>
+
+<ion-content *ngIf="deal?.status === 9">
 	<ion-card>
-		<ion-card-content *ngIf="deal?.status >= 7 && deal?.status < 9">
-			<ion-header>Seller is making review</ion-header>
-		</ion-card-content>
-		<ion-card-content *ngIf="deal?.status === 9">
+		<ion-card-content>
 			<form>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">

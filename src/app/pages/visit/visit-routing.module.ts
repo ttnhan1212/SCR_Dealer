@@ -8,6 +8,11 @@ const routes: Routes = [
 		path: '',
 		component: VisitPage,
 	},
+  // {
+  //   path: 'payment',
+  //   loadChildren: () => import('./payment/payment.module').then( m => m.PaymentPageModule)
+  // },
+
 	// {
 	// 	path: 'result',
 	// 	loadChildren: () =>

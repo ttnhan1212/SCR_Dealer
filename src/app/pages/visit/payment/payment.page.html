@@ -1,0 +1,32 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title class="smllogo">
+			<app-logo></app-logo>
+		</ion-title>
+		<ion-button slot="end" fill="clear" [routerLink]="['/','home','deal']">
+			<ion-icon name="log-out-outline"></ion-icon>
+		</ion-button>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="container" *ngIf="deal?.status === 10">
+	<ion-card class="text-center vertical-center">
+		<img
+			src="../../../../../assets/images/cars/2020_nissan_gt_r_nismo_v5-wallpaper-1920x1080.jpg"
+			alt="../../../../../assets/images/admin-media/0-10.jpg"
+		/>
+		<ion-card-header> Payment request have been made </ion-card-header>
+		<ion-card-content> SCRoad is checking for your payment </ion-card-content>
+	</ion-card>
+</ion-content>
+
+<ion-content class="container" *ngIf="deal?.status === 11">
+	<ion-card class="text-center vertical-center">
+		<img
+			src="../../../../../assets/images/cars/2020_nissan_gt_r_nismo_v5-wallpaper-1920x1080.jpg"
+			alt="../../../../../assets/images/admin-media/0-10.jpg"
+		/>
+		<ion-card-header> Payment had been complete </ion-card-header>
+		<ion-card-content> Thank you for choosing SCRoad </ion-card-content>
+	</ion-card>
+</ion-content>

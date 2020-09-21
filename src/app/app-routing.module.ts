@@ -86,6 +86,13 @@ const routes: Routes = [
 			),
 	},
 	{
+		path: 'home/payment/:id',
+		loadChildren: () =>
+			import('./pages/visit/payment/payment.module').then(
+				(m) => m.PaymentPageModule
+			),
+	},
+	{
 		path: '',
 		redirectTo: '',
 		pathMatch: 'full',

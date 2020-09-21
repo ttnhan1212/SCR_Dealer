@@ -95,14 +95,16 @@ export class PaymentcompletePage implements OnInit {
 	}
 
 	console() {
+		const { final_amount } = this.completeForm.value;
+		console.log(final_amount);
 		console.log(this.completeForm.value);
 	}
 
 	async completeRequest() {
-		const { finalAmount } = this.completeForm.value;
+		const { final_amount } = this.completeForm.value;
 		let content = {
 			request_id: this.id,
-			final_amount: finalAmount ? finalAmount : 0,
+			final_amount: final_amount ? final_amount : 0,
 			dealer_id: this.userId,
 			purchase_date: this.purchase_date,
 		};
