@@ -32,7 +32,8 @@ export class PaymentcompletePage implements OnInit {
 	finalAmount = new FormControl(null);
 	other = new FormControl('');
 
-	purchase_date = Math.floor(new Date().getTime() / 1000.0);
+	dateObj = new Date();
+	purchaseDate = null;
 
 	constructor(
 		public dealService: DealsService,
@@ -43,7 +44,7 @@ export class PaymentcompletePage implements OnInit {
 		private result: ResultService,
 		private fb: FormBuilder,
 		private loading: LoaderService,
-		private afAuth: AngularFireAuth
+		private afAuth: AngularFireAuth,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 
@@ -54,6 +55,10 @@ export class PaymentcompletePage implements OnInit {
 
 		// the lang to use, if the lang isn't available, it will use the current loader to get them
 		this.translate.use('kr');
+
+		this.dateObj.setMinutes(0);
+		this.dateObj.setSeconds(0);
+		this.purchaseDate = Math.floor(this.dateObj.getTime() / 1000.0);
 	}
 	ngOnInit() {
 		this.getUser();
@@ -104,17 +109,18 @@ export class PaymentcompletePage implements OnInit {
 		const { final_amount } = this.completeForm.value;
 		let content = {
 			request_id: this.id,
-			final_amount: final_amount ? final_amount : 0,
 			dealer_id: this.userId,
-			purchase_date: this.purchase_date,
+			purchase_date: this.purchaseDate,
+			status: 1,
+			amount: 50000,
 		};
 		await this.result.createResult(this.completeForm.value);
 		await this.dealService.updateDeal(this.id, {
-			finalPrice: content.final_amount,
+			finalPrice: final_amount ? final_amount : 0,
 			status: 7,
 		});
 		await this.dealService.updateDealInDealer(this.id, {
-			final_price: content.final_amount,
+			final_price: final_amount ? final_amount : 0,
 			status: 'Waiting',
 		});
 		await this.payment.createPayment(content);
