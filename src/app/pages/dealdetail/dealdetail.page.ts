@@ -64,6 +64,10 @@ export class DealdetailPage implements OnInit, OnDestroy {
 			this.detail = {
 				...val.payload.data(),
 			};
+
+			this.dealsService.getPlateNum(this.detail.vehiclesId).subscribe((m) => {
+				this.detail.plateNumber = m.payload.data()['platenumber'];
+			});
 		});
 	}
 

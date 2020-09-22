@@ -179,7 +179,7 @@ export class SignupPage implements OnInit {
 		this.translate.setDefaultLang('kr');
 
 		// the lang to use, if the lang isn't available, it will use the current loader to get them
-		this.translate.use('en');
+		this.translate.use('kr');
 	}
 
 	// PickImages() {

@@ -65,6 +65,10 @@ export class DealsService {
 		return this.fireStore.collection('requests').doc(id).snapshotChanges();
 	}
 
+	getPlateNum(id: string) {
+		return this.fireStore.collection('vehicles').doc(id).snapshotChanges();
+	}
+
 	dealerToDeal(id: string, dealer: any) {
 		return this.fireStore
 			.collection('requests')
@@ -100,7 +104,7 @@ export class DealsService {
 	}
 
 	createPayment(id: string, content: any) {
-		this.fireStore.collection('Payment').doc(id).set(content)
+		this.fireStore.collection('Payment').doc(id).set(content);
 	}
 
 	getParticipant(id: string) {

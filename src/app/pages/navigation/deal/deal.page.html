@@ -18,7 +18,7 @@
 
 <ion-content>
 	<ion-card>
-		<ion-grid class="cover-image sptb-1 bg-background">
+		<ion-grid class="cover-image bg-background">
 			<div class="header-text1 mb-0">
 				<ion-grid class="container">
 					<ion-row class="row">
@@ -112,7 +112,7 @@
 												<div class="carousel-inner">
 													<div class="carousel-item active">
 														<img
-															src="../../../assets/images/cars/pagani_huayra_speedcam-wallpaper-1920x1080.jpg"
+															src="../../../assets/images/photos/car_01.png"
 															alt="img"
 															class="cover-image"
 														/>
@@ -142,7 +142,7 @@
 														<a class="mr-4">
 															<span class="">
 																<i class="fa fa-calendar-o text-muted mr-1"></i>
-																5 days ago
+																{{localeDate(item.effectedTime) | dateAgo}}
 															</span>
 														</a>
 													</div>
@@ -165,7 +165,7 @@
 														</a>
 														<a class="mr-2" title="Kilometers">
 															<i class="fa fa-road text-muted mr-1"></i>
-															{{item.miles}} Km
+															{{item.miles | number}} Km
 														</a>
 														<!-- <a title="Fuel Type"
 															><i class="fa fa-tachometer text-muted mr-1"></i>

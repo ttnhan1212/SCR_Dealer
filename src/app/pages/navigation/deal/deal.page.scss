@@ -20,13 +20,6 @@
 	min-width: 22rem;
 }
 
-.cover-image {
-	background-size: cover !important;
-	width: 100%;
-	// position: relative;
-	background-image: url('../../../../assets/images/banners/banner1.jpg');
-}
-
 .bg-background .header-text1 {
 	position: relative;
 	z-index: 10;
@@ -91,10 +84,10 @@ select.form-control:not([size]):not([multiple]) {
 }
 
 .cover-image {
-	background-size: cover !important;
+	object-fit: cover !important;
 	width: 100%;
-	// position: relative;
-	background-image: url('../../../../assets/images/banners/banner2.jpg');
+	position: relative;
+	background-image: url('../../../../assets/images/photos/31887.jpg');
 }
 
 .form .btn {

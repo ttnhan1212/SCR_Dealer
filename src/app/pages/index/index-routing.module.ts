@@ -12,11 +12,6 @@ const routes: Routes = [
 		component: IndexPage,
 		children: [
 			{
-				path: '',
-				loadChildren: () =>
-					import('./welcome/welcome.module').then((m) => m.WelcomePageModule),
-			},
-			{
 				path: 'login',
 				loadChildren: () =>
 					import('./login/login.module').then((m) => m.LoginPageModule),
@@ -30,26 +25,26 @@ const routes: Routes = [
 				path: 'privatepolicy',
 				loadChildren: () =>
 					import('./modals/privatepolicy/privatepolicy.module').then(
-						(m) => m.PrivatepolicyPageModule,
+						(m) => m.PrivatepolicyPageModule
 					),
 			},
 			{
 				path: 'termcondition',
 				loadChildren: () =>
 					import('./modals/termcondition/termcondition.module').then(
-						(m) => m.TermconditionPageModule,
+						(m) => m.TermconditionPageModule
 					),
 			},
 			{
 				path: 'puagreement',
 				loadChildren: () =>
 					import('./modals/puagreement/puagreement.module').then(
-						(m) => m.PuagreementPageModule,
+						(m) => m.PuagreementPageModule
 					),
 			},
 			{
 				path: '',
-				redirectTo: '',
+				redirectTo: 'login',
 				pathMatch: 'full',
 			},
 		],

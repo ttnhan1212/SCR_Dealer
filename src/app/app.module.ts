@@ -1,3 +1,4 @@
+import { MainPipe } from './pipes/mainPipe.module';
 import { RouterExtService } from './services/routerext.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AuthService } from './services/auth.service';
@@ -48,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 		FormsModule,
 		ReactiveFormsModule,
 		HttpClientModule,
+		MainPipe,
 	],
 	providers: [
 		AuthService,

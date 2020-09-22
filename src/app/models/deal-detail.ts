@@ -10,4 +10,5 @@ export class DealDetail {
 	sellerId: string;
 	vehiclesId: string;
 	visitDate: number;
+	plateNumber: string;
 }

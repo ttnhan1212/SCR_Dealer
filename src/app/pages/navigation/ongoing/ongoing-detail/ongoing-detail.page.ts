@@ -67,6 +67,9 @@ export class OngoingDetailPage implements OnInit {
 			this.detail = {
 				...val.payload.data(),
 			};
+			this.dealsService.getPlateNum(this.detail.vehiclesId).subscribe((m) => {
+				this.detail.plateNum = m.payload.data()['platenumber'];
+			});
 		});
 	}
 

@@ -14,7 +14,7 @@
 
 <ion-content>
 	<!--/BreadCrumb-->
-	<ion-item>
+	<ion-item *ngIf="detail">
 		<ion-grid class="container">
 			<ion-row class="row">
 				<ion-col class="col-xl-8 col-lg-8 col-md-12">
@@ -23,7 +23,7 @@
 						<div class="card-body">
 							<div class="item-det mb-4">
 								<a class="text-dark">
-									<h3>Car Model, Year, Plate Number</h3>
+									<h3>Car Model, Year, {{detail.plateNum}}</h3>
 								</a>
 								<div class="d-flex">
 									<ul class="d-flex mb-0">
@@ -71,19 +71,19 @@
 							>
 								<ion-slide>
 									<ion-img
-										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										src="../../../assets/images/photos/car_01.png"
 										alt="img"
 									></ion-img>
 								</ion-slide>
 								<ion-slide>
 									<img
-										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										src="../../../assets/images/photos/car_02.png"
 										alt="img"
 									/>
 								</ion-slide>
 								<ion-slide>
 									<img
-										src="../../../assets/images/cars/2010-marussia-b2-2.jpg"
+										src="../../../assets/images/photos/car_01.png"
 										alt="img"
 									/>
 								</ion-slide>
@@ -115,7 +115,7 @@
 									>{{'home_ongoing_detail.mileages' | translate}}</strong
 								></ion-card-header
 							>
-							<ion-card-content>{{detail.miles}}</ion-card-content>
+							<ion-card-content>{{detail.miles | number}} Km</ion-card-content>
 						</ion-card>
 						<ion-card>
 							<ion-card-header>
@@ -125,10 +125,7 @@
 									사항</strong
 								>
 							</ion-card-header>
-							<ion-card-content>
-								출퇴근 용으로만 탔어요출퇴근 용으로만 탔어요. 출퇴근 용으로만
-								탔어요
-							</ion-card-content>
+							<ion-card-content> {{detail.other}} </ion-card-content>
 						</ion-card>
 					</ion-item-group>
 
