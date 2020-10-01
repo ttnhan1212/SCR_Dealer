@@ -61,7 +61,7 @@ export class SignupPage implements OnInit {
 	// image: string;
 	// newImage: string;
 
-	imageSource: CameraPhoto;
+	imageSource: any;
 	imagePreview: string = IMG_AVT_DEFAULT;
 	checkBoxList: any;
 	isIndeterminate: boolean;
@@ -77,18 +77,18 @@ export class SignupPage implements OnInit {
 		Validators.compose([
 			Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'),
 			Validators.required,
-		])
+		]),
 	);
 	password = new FormControl(
 		'',
-		Validators.compose([Validators.minLength(8), Validators.required])
+		Validators.compose([Validators.minLength(8), Validators.required]),
 	);
 	cPassword = new FormControl('', Validators.required);
 	orgname = new FormControl('', Validators.required);
 	phonenum = new FormControl(null, Validators.required);
 	faxnum = new FormControl(
 		null,
-		Validators.compose([Validators.required, Validators.minLength(10)])
+		Validators.compose([Validators.required, Validators.minLength(10)]),
 	);
 	ceoname = new FormControl('', Validators.required);
 	address = new FormControl('', Validators.required);
@@ -115,7 +115,8 @@ export class SignupPage implements OnInit {
 	isUploading: boolean;
 	isUploaded: boolean;
 
-	now = Math.floor(new Date().getTime() / 1000.0);
+	dateObj = new Date();
+	now = null;
 
 	// private imageCollection: AngularFirestoreCollection<MyData>;
 
@@ -136,7 +137,7 @@ export class SignupPage implements OnInit {
 		private plt: Platform,
 		private sanitizer: DomSanitizer,
 		private translate: TranslateService,
-		private loader: LoaderService
+		private loader: LoaderService,
 	) {
 		this.checkBoxList = [
 			{
@@ -160,6 +161,10 @@ export class SignupPage implements OnInit {
 		this.isUploaded = false;
 		//Set collection where our documents/ images info will save
 		// this.images = this.imageCollection.valueChanges();
+
+		this.dateObj.setMinutes(0);
+		this.dateObj.setSeconds(0);
+		this.now = Math.floor(this.dateObj.getTime() / 1000);
 
 		this.signupForm = this.fb.group({
 			email: this.email,
@@ -224,7 +229,6 @@ export class SignupPage implements OnInit {
 			reader.onload = (e: any) => {
 				this.photo = e.target.result || IMG_AVT_DEFAULT;
 			};
-			this.imageSource = event.target.files[0];
 		} catch (error) {
 			console.log(error.message);
 		}
@@ -274,7 +278,6 @@ export class SignupPage implements OnInit {
 			resultType: CameraResultType.DataUrl,
 			source,
 		});
-		this.imageSource = image;
 
 		// const blobData = this.b64toBlob(
 		// 	image.base64String,
@@ -282,8 +285,12 @@ export class SignupPage implements OnInit {
 		// );
 		// const imageName = 'Give me a name';
 		this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(
-			image && image.dataUrl
+			image && image.dataUrl,
 		);
+		// console.log(image);
+
+		this.imageSource = image.dataUrl;
+		// console.log(this.imageSource);
 	}
 
 	ngOnInit() {}
@@ -354,72 +361,57 @@ export class SignupPage implements OnInit {
 		}
 	}
 
-	uploadFile(user: string) {
-		// The File object
-		// const blobData = this.b64toBlob(
-		// 	this.imageSource.base64String,
-		// 	'image/jpeg',
-		// 	512
-		// );
-
-		// Validation for Images Only
-		// if (file.type.split('/')[0] !== 'image') {
-		// 	console.error('unsupported file type :( ');
-		// 	return;
-		// }
-
-		this.isUploading = true;
-		this.isUploaded = false;
-
-		// File name
-
+	// Upload image
+	async uploadFile(name: string, id: string) {
+		// Path name
+		const pathName = `${name}_${Math.floor(new Date().getTime() / 1000)}`;
 		// The storage path
-		//const i = `user-image/${new Date().getTime()}_${file.name}`;
-		const path = `user-image/${new Date().getTime()}`;
+		const path = `user-image/${pathName}`;
 		// Totally optional metadata
 		const customMetadata = { app: 'SCRoads Image Upload' };
 
 		// File reference
-		const fileRef = this.storage.ref(path);
+		const fileRef = this.storage
+			.ref(path)
+			.child(pathName)
+			.putString(this.imageSource, 'data_url', { contentType: 'image/jpeg' });
 
 		// The main task
-		// const task = this.storage.upload(path, blobData, { customMetadata });
+		const task = this.storage.upload(
+			path,
+			this.dataURItoBlob(this.imageSource),
+			{
+				customMetadata,
+			},
+		);
 
-		// Get file progress percentage
-		// this.percentage = task.percentageChanges();
-
-		// task
-		// 	.snapshotChanges()
-		// 	.pipe(
-		// 		finalize(() => {
-		// 			this.UploadedFileURL = fileRef.getDownloadURL();
-		// 			this.UploadedFileURL.subscribe(
-		// 				(url) => {
-		// 					console.log(url);
-		// 					if (url) {
-		// 						this.dealerService.updateDealerImage(
-		// 							{
-		// 								name: 'Hudson',
-		// 								filepath: url,
-		// 							},
-		// 							user
-		// 						);
-
-		// 						this.isUploading = false;
-		// 						this.isUploaded = true;
-		// 					}
-		// 				},
-		// 				(error) => {
-		// 					console.error(error);
-		// 				}
-		// 			);
-		// 		})
-		// 	)
-		// 	.subscribe((url) => {
-		// 		if (url) {
-		// 			console.log(url);
-		// 		}
-		// 	});
+		// Upload task
+		await task
+			.snapshotChanges()
+			.pipe(
+				finalize(() => {
+					this.UploadedFileURL = fileRef.getDownloadURL();
+					this.UploadedFileURL.subscribe(
+						(url) => {
+							console.log(url);
+							if (url) {
+								this.authService.updateRegisterDealer(id, {
+									name: pathName,
+									image: url,
+								});
+							}
+						},
+						(error) => {
+							console.error(error);
+						},
+					);
+				}),
+			)
+			.subscribe((url) => {
+				if (url) {
+					console.log(url);
+				}
+			});
 	}
 
 	async signupDealer() {
@@ -429,9 +421,15 @@ export class SignupPage implements OnInit {
 		} else {
 			try {
 				await this.loader.showLoader();
-				await this.authService.registerDealer(this.signupForm.value);
+				await this.authService
+					.registerDealer(this.signupForm.value)
+					.then((doc) => {
+						this.uploadFile(this.signupForm.value.ceoName, doc.id);
+					});
+				await this.toast.showToast(
+					'Your request have been submitted, Please wait!',
+				);
 
-				// await this.uploadFile(this.userId);
 				await this.loader.hideLoader();
 				await this.router.navigate(['/', 'login']);
 			} catch (error) {
@@ -442,27 +440,48 @@ export class SignupPage implements OnInit {
 				await this.loader.hideLoader();
 			}
 		}
+	}
 
-		// Helper function
-		// https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
-		// b64toBlob(b64Data, contentType = '', sliceSize = 512) {
-		// 	const byteCharacters = atob(b64Data);
-		// 	const byteArrays = [];
-		// 	for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-		// 		const slice = byteCharacters.slice(offset, offset + sliceSize);
+	// Helper function
+	// https://stackoverflow.com/questions/16245767/creating-a-blob-from-a-base64-string-in-javascript
+	// b64toBlob(b64Data, contentType = '', sliceSize = 512) {
+	// 	const byteCharacters = atob(b64Data);
+	// 	const byteArrays = [];
+	// 	for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+	// 		const slice = byteCharacters.slice(offset, offset + sliceSize);
 
-		// 		const byteNumbers = new Array(slice.length);
-		// 		for (let i = 0; i < slice.length; i++) {
-		// 			byteNumbers[i] = slice.charCodeAt(i);
-		// 		}
+	// 		const byteNumbers = new Array(slice.length);
+	// 		for (let i = 0; i < slice.length; i++) {
+	// 			byteNumbers[i] = slice.charCodeAt(i);
+	// 		}
 
-		// 		const byteArray = new Uint8Array(byteNumbers);
-		// 		byteArrays.push(byteArray);
-		// 	}
+	// 		const byteArray = new Uint8Array(byteNumbers);
+	// 		byteArrays.push(byteArray);
+	// 	}
 
-		// 	const blob = new Blob(byteArrays, { type: contentType });
+	// 	const blob = new Blob(byteArrays, { type: contentType });
 
-		// 	return blob;
-		// }
+	// 	return blob;
+	// }
+
+	// Helper function
+	// https://gist.github.com/davoclavo/4424731
+	dataURItoBlob(dataURI: any) {
+		// convert base64 to raw binary data held in a string
+		let byteString = atob(dataURI.split(',')[1]);
+
+		// separate out the mime component
+		let mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+		// write the bytes of the string to an ArrayBuffer
+		let arrayBuffer = new ArrayBuffer(byteString.length);
+		let _ia = new Uint8Array(arrayBuffer);
+		for (let i = 0; i < byteString.length; i++) {
+			_ia[i] = byteString.charCodeAt(i);
+		}
+
+		let dataView = new DataView(arrayBuffer);
+		let blob = new Blob([dataView], { type: mimeString });
+		return blob;
 	}
 }

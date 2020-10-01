@@ -13,7 +13,7 @@ export class AuthService {
 		public afAuth: AngularFireAuth,
 		public router: Router,
 		private toast: ToastService,
-		private fireStore: AngularFirestore
+		private fireStore: AngularFirestore,
 	) {}
 
 	async login(email: string, password: string) {
@@ -28,8 +28,15 @@ export class AuthService {
 	}
 
 	registerDealer(content: any) {
-		this.fireStore.collection('register_request').add(content);
-		this.toast.showToast('Your request have been submitted, Please wait!');
+		return this.fireStore.collection('register_request').add(content);
+	}
+
+	updateRegisterDealer(id: string, content: any) {
+		this.fireStore
+			.collection('register_request')
+			.doc(id)
+			.collection('image')
+			.add(content);
 	}
 
 	async logout() {
