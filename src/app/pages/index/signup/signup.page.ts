@@ -84,13 +84,13 @@ export class SignupPage implements OnInit {
 		Validators.compose([Validators.minLength(8), Validators.required]),
 	);
 	cPassword = new FormControl('', Validators.required);
-	orgname = new FormControl('', Validators.required);
-	phonenum = new FormControl(null, Validators.required);
-	faxnum = new FormControl(
+	orgName = new FormControl('', Validators.required);
+	phone = new FormControl(null, Validators.required);
+	fax = new FormControl(
 		null,
 		Validators.compose([Validators.required, Validators.minLength(10)]),
 	);
-	ceoname = new FormControl('', Validators.required);
+	ceoName = new FormControl('', Validators.required);
 	address = new FormControl('', Validators.required);
 
 	selectedFile: any;
@@ -170,10 +170,10 @@ export class SignupPage implements OnInit {
 			email: this.email,
 			password: this.password,
 			cPassword: this.cPassword,
-			orgname: this.orgname,
-			phone: this.phonenum,
-			fax: this.faxnum,
-			ceoName: this.ceoname,
+			orgName: this.orgName,
+			phone: this.phone,
+			fax: this.fax,
+			ceoName: this.ceoName,
 			address: this.address,
 			requestTime: this.now,
 		});
@@ -279,18 +279,11 @@ export class SignupPage implements OnInit {
 			source,
 		});
 
-		// const blobData = this.b64toBlob(
-		// 	image.base64String,
-		// 	`image/${image.format}`,
-		// );
-		// const imageName = 'Give me a name';
 		this.photo = this.sanitizer.bypassSecurityTrustResourceUrl(
 			image && image.dataUrl,
 		);
-		// console.log(image);
 
 		this.imageSource = image.dataUrl;
-		// console.log(this.imageSource);
 	}
 
 	ngOnInit() {}
@@ -366,19 +359,20 @@ export class SignupPage implements OnInit {
 		// Path name
 		const pathName = `${name}_${Math.floor(new Date().getTime() / 1000)}`;
 		// The storage path
-		const path = `user-image/${pathName}`;
+		const path = `user-image/`;
 		// Totally optional metadata
 		const customMetadata = { app: 'SCRoads Image Upload' };
 
 		// File reference
-		const fileRef = this.storage
-			.ref(path)
-			.child(pathName)
-			.putString(this.imageSource, 'data_url', { contentType: 'image/jpeg' });
+		const storageRef = this.storage.ref(`${path}${pathName}`);
+
+		storageRef.putString(this.imageSource, 'data_url', {
+			contentType: 'image/jpeg',
+		});
 
 		// The main task
 		const task = this.storage.upload(
-			path,
+			`${path}${pathName}`,
 			this.dataURItoBlob(this.imageSource),
 			{
 				customMetadata,
@@ -390,7 +384,7 @@ export class SignupPage implements OnInit {
 			.snapshotChanges()
 			.pipe(
 				finalize(() => {
-					this.UploadedFileURL = fileRef.getDownloadURL();
+					this.UploadedFileURL = storageRef.getDownloadURL();
 					this.UploadedFileURL.subscribe(
 						(url) => {
 							console.log(url);

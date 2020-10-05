@@ -34,6 +34,7 @@
 	</ion-item>
 	<ion-item
 		*ngFor="let item of ongoing, let i = index"
+		button
 		lines="none"
 		[disabled]="item.status === 'Cancel' ? true : false"
 		[routerLink]="ongoing[i].deal?.status === 5 ? ['/','home','visit',item.dealId] : (ongoing[i].deal?.status >= 7 && ongoing[i].deal?.status <= 9 ? ['/','certificationupload',item.dealId] : (ongoing[i].deal?.status >= 10 ? ['/','home','payment',item.dealId] :  [item.dealId]))"
