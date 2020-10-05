@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { NotiService } from './../../services/noti.service';
 import { DealDetail } from './../../models/deal-detail';
@@ -35,13 +36,14 @@ export class DealdetailPage implements OnInit, OnDestroy {
 		private route: ActivatedRoute,
 		private notiService: NotiService,
 		private afAuth: AngularFireAuth,
+		private loader: LoaderService,
 		translate: TranslateService
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 
-		this.afAuth.authState.subscribe((val) => {
+		this.afAuth.currentUser.then((val) => {
 			if (val) {
-				this.userId = val;
+				this.userId = val.uid;
 			}
 		});
 
@@ -59,16 +61,17 @@ export class DealdetailPage implements OnInit, OnDestroy {
 		this.getDealerInParticipant(this.id);
 	}
 
-	getDealDetail(id: string) {
-		this.dealSub = this.dealsService.getDealDetail(id).subscribe((val: any) => {
-			this.detail = {
-				...val.payload.data(),
-			};
+	async getDealDetail(id: string) {
+		await this.loader.showLoader();
 
-			this.dealsService.getPlateNum(this.detail.vehiclesId).subscribe((m) => {
-				this.detail.plateNumber = m.payload.data()['platenumber'];
+		this.dealSub = await this.dealsService
+			.getDealDetail(id)
+			.subscribe((val: any) => {
+				this.detail = {
+					...val.payload.data(),
+				};
+				this.loader.hideLoader();
 			});
-		});
 	}
 
 	getDealerInParticipant(id: string) {
@@ -84,7 +87,7 @@ export class DealdetailPage implements OnInit, OnDestroy {
 	async addDealerToDeal() {
 		this.dealer = {
 			price: this.price,
-			userId: this.userId.uid,
+			userId: this.userId,
 			bidTime: this.bidTime,
 			selected: false,
 		};
@@ -100,7 +103,7 @@ export class DealdetailPage implements OnInit, OnDestroy {
 			requestId: this.id,
 			status: 2,
 			updateDate: Math.floor(new Date().getTime() / 1000.0),
-			user: this.userId.uid,
+			user: this.userId,
 		});
 		this.router.navigate(['/', 'home', 'ongoing']);
 	}

@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../../components/components.module';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,12 +10,12 @@ import { SettingPageRoutingModule } from './setting-routing.module';
 
 import { SettingPage } from './setting.page';
 
-import {HttpClientModule, HttpClient} from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 export function HttpLoaderFactory(http: HttpClient) {
-    return new TranslateHttpLoader(http);
+	return new TranslateHttpLoader(http);
 }
 
 @NgModule({
@@ -29,9 +30,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 				provide: TranslateLoader,
 				useFactory: HttpLoaderFactory,
 				deps: [HttpClient],
-			}
+			},
 		}),
-		HttpClientModule
+		HttpClientModule,
+		ComponentsModule,
 	],
 	declarations: [SettingPage],
 })

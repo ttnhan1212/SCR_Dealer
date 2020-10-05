@@ -48,6 +48,10 @@ ion-content {
 	--background: #f1f5fd;
 }
 
+ion-title {
+	padding: 0 !important;
+}
+
 .mat-expansion-panel-header-title,
 .mat-expansion-panel-header-description {
 	justify-content: flex-end;
