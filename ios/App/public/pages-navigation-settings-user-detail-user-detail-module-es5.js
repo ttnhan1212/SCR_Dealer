@@ -1,0 +1,519 @@
+(function () {
+  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+  (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-navigation-settings-user-detail-user-detail-module"], {
+    /***/
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/navigation/settings/user-detail/user-detail.page.html":
+    /*!*******************************************************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/navigation/settings/user-detail/user-detail.page.html ***!
+      \*******************************************************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function node_modulesRawLoaderDistCjsJsSrcAppPagesNavigationSettingsUserDetailUserDetailPageHtml(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button defaultHref=\"/home/deal\"></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title\n\t\t\t>{{'home_edit_account.account_infor_header' | translate}}</ion-title\n\t\t>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<!-- Login content section -->\n\t<ion-card>\n\t\t<div class=\"container customerpage\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"single-page\">\n\t\t\t\t\t<div class=\"col-lg-5 col-xl-4 col-md-6 d-block mx-auto\">\n\t\t\t\t\t\t<div class=\"wrapper wrapper2\">\n\t\t\t\t\t\t\t<form class=\"card-body p-4 pb-0\" [formGroup]=\"editForm\">\n\t\t\t\t\t\t\t\t<div class=\"avt-view\">\n\t\t\t\t\t\t\t\t\t<img [src]=\"imagePreview\" alt=\"\" class=\"img-fluid\" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<h3 style=\"color: #080e1b; font-size: 1rem\">\n\t\t\t\t\t\t\t\t\t({{'home_edit_account.upload_instruction' | translate}})\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"email\"\n\t\t\t\t\t\t\t\t\t\tname=\"mail\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"email\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.email' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tname=\"orgname\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"orgname\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.org_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tname=\"ceoname\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"ceoName\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.ceo_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"number\"\n\t\t\t\t\t\t\t\t\t\tname=\"phonenum\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.phone_number' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mb-8\"></div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tname=\"password\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"password\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.password' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tname=\"cPassword\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"cPassword\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.confirm_password' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t<ion-button\n\t\t\t\t\t\t\t\texpand=\"block\"\n\t\t\t\t\t\t\t\tcolor=\"tertiary\"\n\t\t\t\t\t\t\t\tclass=\"mr-3 ml-3\"\n\t\t\t\t\t\t\t\t[disabled]=\"!editForm.valid\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{{'home_edit_account.update_infor' | translate}}\n\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t<div class=\"mb-5\"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ion-card>\n\t<!-- End of Login content section -->\n</ion-content>\n";
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/navigation/settings/user-detail/user-detail-routing.module.ts":
+    /*!*************************************************************************************!*\
+      !*** ./src/app/pages/navigation/settings/user-detail/user-detail-routing.module.ts ***!
+      \*************************************************************************************/
+
+    /*! exports provided: UserDetailPageRoutingModule */
+
+    /***/
+    function srcAppPagesNavigationSettingsUserDetailUserDetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "UserDetailPageRoutingModule", function () {
+        return UserDetailPageRoutingModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _user_detail_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./user-detail.page */
+      "./src/app/pages/navigation/settings/user-detail/user-detail.page.ts");
+
+      var routes = [{
+        path: '',
+        component: _user_detail_page__WEBPACK_IMPORTED_MODULE_3__["UserDetailPage"]
+      }];
+
+      var UserDetailPageRoutingModule = function UserDetailPageRoutingModule() {
+        _classCallCheck(this, UserDetailPageRoutingModule);
+      };
+
+      UserDetailPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+      })], UserDetailPageRoutingModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/navigation/settings/user-detail/user-detail.module.ts":
+    /*!*****************************************************************************!*\
+      !*** ./src/app/pages/navigation/settings/user-detail/user-detail.module.ts ***!
+      \*****************************************************************************/
+
+    /*! exports provided: HttpLoaderFactory, UserDetailPageModule */
+
+    /***/
+    function srcAppPagesNavigationSettingsUserDetailUserDetailModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "HttpLoaderFactory", function () {
+        return HttpLoaderFactory;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "UserDetailPageModule", function () {
+        return UserDetailPageModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _user_detail_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./user-detail-routing.module */
+      "./src/app/pages/navigation/settings/user-detail/user-detail-routing.module.ts");
+      /* harmony import */
+
+
+      var _user_detail_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ./user-detail.page */
+      "./src/app/pages/navigation/settings/user-detail/user-detail.page.ts");
+      /* harmony import */
+
+
+      var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @angular/common/http */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+      /* harmony import */
+
+
+      var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+      /*! @ngx-translate/http-loader */
+      "./node_modules/@ngx-translate/http-loader/__ivy_ngcc__/fesm2015/ngx-translate-http-loader.js");
+
+      function HttpLoaderFactory(http) {
+        return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__["TranslateHttpLoader"](http);
+      }
+
+      var UserDetailPageModule = function UserDetailPageModule() {
+        _classCallCheck(this, UserDetailPageModule);
+      };
+
+      UserDetailPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _user_detail_routing_module__WEBPACK_IMPORTED_MODULE_5__["UserDetailPageRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"].forRoot({
+          loader: {
+            provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateLoader"],
+            useFactory: HttpLoaderFactory,
+            deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"]]
+          }
+        }), _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"]],
+        declarations: [_user_detail_page__WEBPACK_IMPORTED_MODULE_6__["UserDetailPage"]]
+      })], UserDetailPageModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/navigation/settings/user-detail/user-detail.page.scss":
+    /*!*****************************************************************************!*\
+      !*** ./src/app/pages/navigation/settings/user-detail/user-detail.page.scss ***!
+      \*****************************************************************************/
+
+    /*! exports provided: default */
+
+    /***/
+    function srcAppPagesNavigationSettingsUserDetailUserDetailPageScss(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony default export */
+
+
+      __webpack_exports__["default"] = ".avt-view {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 6rem !important;\n  height: 6rem !important;\n  border: 1px solid #d8dde6;\n  overflow: hidden;\n  position: relative;\n  margin: auto;\n  border-radius: 16px;\n}\n.avt-view ion-input[type=file] {\n  position: absolute;\n  opacity: 0;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbmF2aWdhdGlvbi9zZXR0aW5ncy91c2VyLWRldGFpbC91c2VyLWRldGFpbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSx5QkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7QUFDRDtBQUNDO0VBQ0Msa0JBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxNQUFBO0VBQ0EsT0FBQTtBQUNGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvbmF2aWdhdGlvbi9zZXR0aW5ncy91c2VyLWRldGFpbC91c2VyLWRldGFpbC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXZ0LXZpZXcge1xuXHRkaXNwbGF5OiBmbGV4O1xuXHRqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0d2lkdGg6IDZyZW0gIWltcG9ydGFudDtcblx0aGVpZ2h0OiA2cmVtICFpbXBvcnRhbnQ7XG5cdGJvcmRlcjogMXB4IHNvbGlkICNkOGRkZTY7XG5cdG92ZXJmbG93OiBoaWRkZW47XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0bWFyZ2luOiBhdXRvO1xuXHRib3JkZXItcmFkaXVzOiAxNnB4O1xuXG5cdGlvbi1pbnB1dFt0eXBlPSdmaWxlJ10ge1xuXHRcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0XHRvcGFjaXR5OiAwO1xuXHRcdHdpZHRoOiAxMDAlO1xuXHRcdGhlaWdodDogMTAwJTtcblx0XHR0b3A6IDA7XG5cdFx0bGVmdDogMDtcblx0fVxufVxuIl19 */";
+      /***/
+    },
+
+    /***/
+    "./src/app/pages/navigation/settings/user-detail/user-detail.page.ts":
+    /*!***************************************************************************!*\
+      !*** ./src/app/pages/navigation/settings/user-detail/user-detail.page.ts ***!
+      \***************************************************************************/
+
+    /*! exports provided: UserDetailPage */
+
+    /***/
+    function srcAppPagesNavigationSettingsUserDetailUserDetailPageTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "UserDetailPage", function () {
+        return UserDetailPage;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _services_loader_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../../../services/loader.service */
+      "./src/app/services/loader.service.ts");
+      /* harmony import */
+
+
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @ngx-translate/core */
+      "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+      /* harmony import */
+
+
+      var _services_dealer_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./../../../../services/dealer.service */
+      "./src/app/services/dealer.service.ts");
+      /* harmony import */
+
+
+      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/fire/auth */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var _angular_fire_storage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! @angular/fire/storage */
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-storage.js");
+
+      var IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
+
+      var UserDetailPage = /*#__PURE__*/function () {
+        function UserDetailPage(router, route, afAuth, fb, storage, dealerService, loader, translate) {
+          _classCallCheck(this, UserDetailPage);
+
+          this.router = router;
+          this.route = route;
+          this.afAuth = afAuth;
+          this.fb = fb;
+          this.storage = storage;
+          this.dealerService = dealerService;
+          this.loader = loader;
+          this.imagePreview = IMG_AVT_DEFAULT;
+          this.editForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])),
+            password: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(8), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])),
+            cPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
+            orgname: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
+            fax: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(10)])),
+            ceoName: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
+            address: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required)
+          });
+          this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
+
+          translate.addLangs(['en', 'kr']); // this language will be used as a fallback when a translation isn't found in the current language
+
+          translate.setDefaultLang('kr'); // the lang to use, if the lang isn't available, it will use the current loader to get them
+
+          translate.use('kr');
+        }
+
+        _createClass(UserDetailPage, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            this.getUser();
+          }
+        }, {
+          key: "getUser",
+          value: function getUser() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this = this;
+
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return this.loader.showLoader();
+
+                    case 2:
+                      _context.next = 4;
+                      return this.afAuth.currentUser.then(function (user) {
+                        if (user) {
+                          _this.userId = user.uid;
+
+                          _this.getDealer(_this.userId);
+                        }
+                      });
+
+                    case 4:
+                      _context.next = 6;
+                      return this.loader.hideLoader();
+
+                    case 6:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "getDealer",
+          value: function getDealer(id) {
+            var _this2 = this;
+
+            this.dealerService.getDealer(id).subscribe(function (val) {
+              _this2.dealer = val.data();
+            });
+          }
+        }]);
+
+        return UserDetailPage;
+      }();
+
+      UserDetailPage.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]
+        }, {
+          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"]
+        }, {
+          type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"]
+        }, {
+          type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_8__["AngularFireStorage"]
+        }, {
+          type: _services_dealer_service__WEBPACK_IMPORTED_MODULE_3__["DealerService"]
+        }, {
+          type: _services_loader_service__WEBPACK_IMPORTED_MODULE_1__["LoaderService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+        }];
+      };
+
+      UserDetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_6__["Component"])({
+        selector: 'app-user-detail',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./user-detail.page.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/navigation/settings/user-detail/user-detail.page.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./user-detail.page.scss */
+        "./src/app/pages/navigation/settings/user-detail/user-detail.page.scss"))["default"]]
+      })], UserDetailPage);
+      /***/
+    },
+
+    /***/
+    "./src/app/services/loader.service.ts":
+    /*!********************************************!*\
+      !*** ./src/app/services/loader.service.ts ***!
+      \********************************************/
+
+    /*! exports provided: LoaderService */
+
+    /***/
+    function srcAppServicesLoaderServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "LoaderService", function () {
+        return LoaderService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+      var LoaderService = /*#__PURE__*/function () {
+        function LoaderService(loadingController) {
+          _classCallCheck(this, LoaderService);
+
+          this.loadingController = loadingController;
+        }
+
+        _createClass(LoaderService, [{
+          key: "showLoader",
+          value: function showLoader() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      _context2.next = 2;
+                      return this.loadingController.create({
+                        message: 'Please wait...',
+                        showBackdrop: true
+                      }).then(function (res) {
+                        res.present();
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context2.stop();
+                  }
+                }
+              }, _callee2, this);
+            }));
+          }
+        }, {
+          key: "hideLoader",
+          value: function hideLoader() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                while (1) {
+                  switch (_context3.prev = _context3.next) {
+                    case 0:
+                      _context3.next = 2;
+                      return this.loadingController.dismiss().then(function (res) {
+                        console.log('Loading dismissed!', res);
+                      })["catch"](function (err) {
+                        console.log('error', err);
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+          }
+        }]);
+
+        return LoaderService;
+      }();
+
+      LoaderService.ctorParameters = function () {
+        return [{
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
+        }];
+      };
+
+      LoaderService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+        providedIn: 'root'
+      })], LoaderService);
+      /***/
+    }
+  }]);
+})();
+//# sourceMappingURL=pages-navigation-settings-user-detail-user-detail-module-es5.js.map
