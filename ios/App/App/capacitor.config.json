@@ -1,0 +1,13 @@
+{
+	"appId": "io.scroads.dealer",
+	"appName": "수출로 딜러용",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "www",
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 0
+		}
+	},
+	"cordova": {}
+}
