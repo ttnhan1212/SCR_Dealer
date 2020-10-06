@@ -82,6 +82,8 @@ export class UserDetailPage implements OnInit {
 		await this.afAuth.currentUser.then((user) => {
 			if (user) {
 				this.userId = user.uid;
+				console.log(user.uid);
+
 				this.getDealer(this.userId);
 			}
 		});
@@ -91,6 +93,13 @@ export class UserDetailPage implements OnInit {
 	getDealer(id: string) {
 		this.dealerService.getDealer(id).subscribe((val) => {
 			this.dealer = val.data();
+			this.editForm.patchValue({
+				email: this.dealer.email,
+				orgName: this.dealer.orgName,
+				ceoName: this.dealer.ceoName,
+				phone: this.dealer.phone,
+				address: this.dealer.address,
+			});
 		});
 	}
 }

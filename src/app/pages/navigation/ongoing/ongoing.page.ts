@@ -1,4 +1,4 @@
-import { LoadingController } from '@ionic/angular';
+import { LoaderService } from './../../../services/loader.service';
 import { Subscription } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { DealsService } from 'src/app/services/deals.service';
@@ -23,8 +23,8 @@ export class OngoingPage implements OnInit {
 	constructor(
 		private dealService: DealsService,
 		private afAuth: AngularFireAuth,
-		public loadingController: LoadingController,
-		translate: TranslateService
+		public loader: LoaderService,
+		translate: TranslateService,
 	) {
 		this.logo = '../../../assets/images/logo/scroadslight.svg';
 
@@ -42,16 +42,12 @@ export class OngoingPage implements OnInit {
 	}
 
 	async currentUser() {
-		const loading = await this.loadingController.create({
-			message: 'Please wait...',
-			showBackdrop: true,
-		});
-		await this.afAuth.authState.subscribe((authState) => {
-			if (authState) {
-				loading.present();
-				this.id = authState.uid;
-				this.getOngoingDeal(authState.uid);
-				loading.dismiss();
+		await this.loader.showLoader();
+		await this.afAuth.currentUser.then((user) => {
+			if (user) {
+				this.id = user.uid;
+				this.getOngoingDeal(user.uid);
+				this.loader.hideLoader();
 			}
 		});
 	}

@@ -1,12 +1,12 @@
-<ion-header>
-	<ion-toolbar>
+<ion-header [translucent]="true">
+	<ion-toolbar style="padding: 8px !important">
 		<ion-title>
 			<app-logo></app-logo>
 		</ion-title>
 	</ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="ion-padding">
 	<ion-grid>
 		<ion-row>
 			<ion-col size="12">
@@ -14,14 +14,17 @@
 			</ion-col>
 			<ion-col size="12">
 				<ion-button expand="block" [routerLink]="[id]" color="tertiary">
-					{{'home_settings.edit_account_info' | translate}}</ion-button>
+					{{'home_settings.edit_account_info' | translate}}</ion-button
+				>
 			</ion-col>
 		</ion-row>
 
 		<ion-row>
 			<ion-col>
 				<ion-item lines="none">
-					<ion-label>{{'home_settings.notifications_setting' | translate}}</ion-label>
+					<ion-label
+						>{{'home_settings.notifications_setting' | translate}}</ion-label
+					>
 					<ion-toggle color="tertiary"></ion-toggle>
 				</ion-item>
 			</ion-col>
@@ -115,9 +118,7 @@
 				<mat-accordion class="mt-2 mb-2">
 					<mat-expansion-panel>
 						<mat-expansion-panel-header>
-							<mat-panel-title>
-								FAQ
-							</mat-panel-title>
+							<mat-panel-title> FAQ </mat-panel-title>
 						</mat-expansion-panel-header>
 						<br />
 						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem culpa
@@ -129,7 +130,13 @@
 			</ion-col>
 		</ion-row>
 
-		<ion-button shape="round" expand="block" (click)="logOut()" class="mt-5" color="tertiary">
+		<ion-button
+			shape="round"
+			expand="block"
+			(click)="logOut()"
+			class="mt-5"
+			color="tertiary"
+		>
 			{{'home_settings.sign_out' | translate}}
 		</ion-button>
 	</ion-grid>

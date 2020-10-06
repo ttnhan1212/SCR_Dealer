@@ -151,6 +151,7 @@
 		"ceo_name": "대표 이름",
 		"phone_number": "전화번호",
 		"password": "비밀번호",
+		"address": "업체 주소",
 		"confirm_password": "비밀번호 확인",
 		"update_infor": "업데이트 정보"
 	}

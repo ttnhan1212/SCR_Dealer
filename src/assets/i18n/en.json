@@ -117,5 +117,16 @@
 		"guide": "Guide",
 		"FAQ": "FAQ",
 		"sign_out": "Sign Out"
+	},
+	"home_edit_account": {
+		"account_infor_header": "계정 정보",
+		"email": "Email",
+		"org_name": "Organization Name",
+		"ceo_name": "CEO Name",
+		"phone_number": "Phone Number",
+		"password": "Password",
+		"address": "Address",
+		"confirm_password": "Confirm Password",
+		"update_infor": "Update"
 	}
 }
