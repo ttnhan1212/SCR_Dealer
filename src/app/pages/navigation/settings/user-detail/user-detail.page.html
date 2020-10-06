@@ -3,7 +3,9 @@
 		<ion-buttons slot="start">
 			<ion-back-button defaultHref="/home/deal"></ion-back-button>
 		</ion-buttons>
-		<ion-title>{{'home_edit_account.account_infor_header' | translate}}</ion-title>
+		<ion-title
+			>{{'home_edit_account.account_infor_header' | translate}}</ion-title
+		>
 	</ion-toolbar>
 </ion-header>
 
@@ -15,80 +17,66 @@
 				<div class="single-page">
 					<div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
 						<div class="wrapper wrapper2">
-							<form class="card-body p-4 pb-0" [formGroup]="editForm">
+							<form class="card-body p-4 pb-4" [formGroup]="editForm">
 								<div class="avt-view">
 									<img [src]="imagePreview" alt="" class="img-fluid" />
-									<!-- <input
-										type="file"
-										placeholder=""
-										accept=".jpg, .jpeg, .png"
-										(change)="handleFileInput($event.target.files)"
-									/> -->
-									<!-- <input type="file" class="custom-file-input" (change)="onFileSelected($event)" accept=".png,.jpg"> -->
-									<ion-input
-										type="file"
-										value=""
-										accept=".jpg, .jpeg, .png"
-										(change)="handleFileInput($event.target.files)"
-									></ion-input>
 								</div>
-								<h3 style="color: #080e1b; font-size: 1rem;">
-									({{'home_edit_account.upload_instruction' | translate}})
-								</h3>
 								<div class="mail">
 									<input
 										type="email"
-										name="mail"
 										formControlName="email"
-										style="color: #080e1b;"
+										[value]="dealer.email"
+										style="color: #080e1b"
 									/>
 									<label>{{'home_edit_account.email' | translate}}</label>
 								</div>
 								<div class="mail">
 									<input
 										type="text"
-										name="orgname"
-										formControlName="orgname"
-										style="color: #080e1b;"
+										formControlName="orgName"
+										[value]="dealer.orgName"
+										style="color: #080e1b"
 									/>
 									<label>{{'home_edit_account.org_name' | translate}}</label>
 								</div>
 								<div class="mail">
 									<input
 										type="text"
-										name="ceoname"
 										formControlName="ceoName"
-										style="color: #080e1b;"
+										[value]="dealer.ceoName"
+										style="color: #080e1b"
 									/>
 									<label>{{'home_edit_account.ceo_name' | translate}}</label>
 								</div>
 								<div class="mail">
 									<input
 										type="number"
-										name="phonenum"
 										formControlName="phone"
-										style="color: #080e1b;"
+										[value]="dealer.phone"
+										style="color: #080e1b"
 									/>
-									<label>{{'home_edit_account.phone_number' | translate}}</label>
+									<label
+										>{{'home_edit_account.phone_number' | translate}}</label
+									>
 								</div>
 								<div class="mb-8"></div>
 								<div class="passwd">
 									<input
 										type="password"
-										name="password"
 										formControlName="password"
-										style="color: #080e1b;"
+										style="color: #080e1b"
 									/>
 									<label>{{'home_edit_account.password' | translate}}</label>
 								</div>
 								<div class="passwd">
 									<input
 										type="password"
-										name="cPassword"
 										formControlName="cPassword"
-										style="color: #080e1b;"
+										style="color: #080e1b"
 									/>
-									<label>{{'home_edit_account.confirm_password' | translate}}</label>
+									<label
+										>{{'home_edit_account.confirm_password' | translate}}</label
+									>
 								</div>
 							</form>
 							<ion-button
@@ -97,7 +85,7 @@
 								class="mr-3 ml-3"
 								[disabled]="!editForm.valid"
 							>
-							{{'home_edit_account.update_infor' | translate}}
+								{{'home_edit_account.update_infor' | translate}}
 							</ion-button>
 							<div class="mb-5"></div>
 						</div>

@@ -196,7 +196,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title class=\"smllogo\">\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<ion-item *ngIf=\"detail\">\n\t\t<ion-grid class=\"container\">\n\t\t\t<ion-row class=\"row\">\n\t\t\t\t<ion-col class=\"col-xl-8 col-lg-8 col-md-12\">\n\t\t\t\t\t<!--Classified Description-->\n\t\t\t\t\t<div class=\"card overflow-hidden\">\n\t\t\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t\t\t<div class=\"item-det mb-4\">\n\t\t\t\t\t\t\t\t<a class=\"text-dark\">\n\t\t\t\t\t\t\t\t\t<h3>Car Model, Year, {{detail.plateNumber}}</h3>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t<ul class=\"d-flex mb-0\">\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-car text-muted mr-1 fs-18\"></i> Cars</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-location-pin text-muted mr-1\"></i\n\t\t\t\t\t\t\t\t\t\t\t\t>{{detail.location}}</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-calendar text-muted mr-1\"></i\n\t\t\t\t\t\t\t\t\t\t\t\t>{{detail.effectedTime}}</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-eye text-muted mr-1 fs-15\"></i> 765</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t<div class=\"rating-stars d-flex mr-5\">\n\t\t\t\t\t\t\t\t\t\t<ion-icon name=\"person-outline\" class=\"mr-1\"></ion-icon>\n\t\t\t\t\t\t\t\t\t\t<ion-label>{{detail.name}}</ion-label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<ion-slides\n\t\t\t\t\t\t\t\tclass=\"item-slides\"\n\t\t\t\t\t\t\t\tpager=\"true\"\n\t\t\t\t\t\t\t\t[options]=\"slideOpts\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<ion-slide>\n\t\t\t\t\t\t\t\t\t<ion-img\n\t\t\t\t\t\t\t\t\t\tsrc=\"../../../assets/images/photos/car_01.png\"\n\t\t\t\t\t\t\t\t\t\talt=\"img\"\n\t\t\t\t\t\t\t\t\t></ion-img>\n\t\t\t\t\t\t\t\t</ion-slide>\n\t\t\t\t\t\t\t\t<ion-slide>\n\t\t\t\t\t\t\t\t\t<img\n\t\t\t\t\t\t\t\t\t\tsrc=\"../../../assets/images/photos/car_02.png\"\n\t\t\t\t\t\t\t\t\t\talt=\"img\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t</ion-slide>\n\t\t\t\t\t\t\t\t<ion-slide>\n\t\t\t\t\t\t\t\t\t<img\n\t\t\t\t\t\t\t\t\t\tsrc=\"../../../assets/images/photos/car_01.png\"\n\t\t\t\t\t\t\t\t\t\talt=\"img\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t</ion-slide>\n\t\t\t\t\t\t\t</ion-slides>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<ion-button\n\t\t\t\t\t\tclass=\"mt-2 mb-5\"\n\t\t\t\t\t\texpand=\"block\"\n\t\t\t\t\t\tcolor=\"tertiary\"\n\t\t\t\t\t\tsize=\"medium\"\n\t\t\t\t\t>\n\t\t\t\t\t\t{{'home_deal_detail.see_insurance_history' | translate}}\n\t\t\t\t\t</ion-button>\n\n\t\t\t\t\t<ion-item-group class=\"mb-5\">\n\t\t\t\t\t\t<ion-card>\n\t\t\t\t\t\t\t<ion-card-header>\n\t\t\t\t\t\t\t\t<i class=\"ti-location-pin text-muted mr-1\"></i>\n\t\t\t\t\t\t\t\t<strong>{{'home_deal_detail.location' | translate}}</strong>\n\t\t\t\t\t\t\t</ion-card-header>\n\t\t\t\t\t\t\t<ion-card-content>{{detail.location}}</ion-card-content>\n\t\t\t\t\t\t</ion-card>\n\t\t\t\t\t\t<ion-card>\n\t\t\t\t\t\t\t<ion-card-header\n\t\t\t\t\t\t\t\t><i class=\"ti-location-pin text-muted mr-1\"></i>\n\t\t\t\t\t\t\t\t<strong\n\t\t\t\t\t\t\t\t\t>{{'home_deal_detail.mileages' | translate}}</strong\n\t\t\t\t\t\t\t\t></ion-card-header\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t<ion-card-content>{{detail.miles | number}} Km</ion-card-content>\n\t\t\t\t\t\t</ion-card>\n\t\t\t\t\t\t<ion-card>\n\t\t\t\t\t\t\t<ion-card-header>\n\t\t\t\t\t\t\t\t<i class=\"ti-location-pin text-muted mr-1\"></i>\n\t\t\t\t\t\t\t\t<strong\n\t\t\t\t\t\t\t\t\t>{{'home_deal_detail.vehicle' | translate}} 특이 사항</strong\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t</ion-card-header>\n\t\t\t\t\t\t\t<ion-card-content> {{detail.other}} </ion-card-content>\n\t\t\t\t\t\t</ion-card>\n\t\t\t\t\t</ion-item-group>\n\n\t\t\t\t\t<ion-card class=\"card-body\">\n\t\t\t\t\t\t<ion-card-content>\n\t\t\t\t\t\t\t<div [hidden]=\"!participant\">\n\t\t\t\t\t\t\t\t<ion-button\n\t\t\t\t\t\t\t\t\texpand=\"full\"\n\t\t\t\t\t\t\t\t\tcolor=\"tertiary\"\n\t\t\t\t\t\t\t\t\tsize=\"large\"\n\t\t\t\t\t\t\t\t\tshape=\"round\"\n\t\t\t\t\t\t\t\t\t[routerLink]=\"['/','home','ongoing', id]\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t{{'home_deal_detail.ongoing_phase' | translate}}\n\t\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div [hidden]=\"participant\">\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"number\"\n\t\t\t\t\t\t\t\t\t\tclass=\"form-control text-center\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"{{'home_deal_detail.input_bidding_price' | translate}}\"\n\t\t\t\t\t\t\t\t\t\t[(ngModel)]=\"price\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<ion-button\n\t\t\t\t\t\t\t\t\texpand=\"full\"\n\t\t\t\t\t\t\t\t\tcolor=\"tertiary\"\n\t\t\t\t\t\t\t\t\tsize=\"large\"\n\t\t\t\t\t\t\t\t\tshape=\"round\"\n\t\t\t\t\t\t\t\t\t(click)=\"addDealerToDeal()\"\n\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t<ion-icon name=\"wallet\"></ion-icon>\n\t\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ion-card-content>\n\t\t\t\t\t</ion-card>\n\t\t\t\t</ion-col>\n\t\t\t</ion-row>\n\t\t</ion-grid>\n\t</ion-item>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title class=\"smllogo\">\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<ion-item *ngIf=\"detail\">\n\t\t<ion-grid class=\"container\">\n\t\t\t<ion-row class=\"row\">\n\t\t\t\t<ion-col class=\"col-xl-8 col-lg-8 col-md-12\">\n\t\t\t\t\t<!--Classified Description-->\n\t\t\t\t\t<div class=\"card overflow-hidden\">\n\t\t\t\t\t\t<div class=\"card-body\">\n\t\t\t\t\t\t\t<div class=\"item-det mb-4\">\n\t\t\t\t\t\t\t\t<a class=\"text-dark\">\n\t\t\t\t\t\t\t\t\t<h3>Car Model, Year, {{detail.plateNum}}</h3>\n\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t<div class=\"d-flex\">\n\t\t\t\t\t\t\t\t\t<ul class=\"d-flex mb-0\">\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-car text-muted mr-1 fs-18\"></i> Cars</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-location-pin text-muted mr-1\"></i\n\t\t\t\t\t\t\t\t\t\t\t\t>{{detail.location}}</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-calendar text-muted mr-1\"></i\n\t\t\t\t\t\t\t\t\t\t\t\t>{{detail.effectedTime}}</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t\t<!-- <li class=\"mr-5\">\n\t\t\t\t\t\t\t\t\t\t\t<a class=\"icons\"\n\t\t\t\t\t\t\t\t\t\t\t\t><i class=\"ti-eye text-muted mr-1 fs-15\"></i> 765</a\n\t\t\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t</li> -->\n\t\t\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t\t\t<div class=\"rating-stars d-flex mr-5\">\n\t\t\t\t\t\t\t\t\t\t<ion-icon name=\"person-outline\" class=\"mr-1\"></ion-icon>\n\t\t\t\t\t\t\t\t\t\t<ion-label>{{detail.name}}</ion-label>\n\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<ion-slides class=\"item-slides\" pager=\"true\" [options]=\"slideOpts\">\n\t\t\t\t\t\t\t\t<ion-slide>\n\t\t\t\t\t\t\t\t\t<ion-img src=\"../../../assets/images/photos/car_01.png\" alt=\"img\"></ion-img>\n\t\t\t\t\t\t\t\t</ion-slide>\n\t\t\t\t\t\t\t\t<ion-slide>\n\t\t\t\t\t\t\t\t\t<img src=\"../../../assets/images/photos/car_02.png\" alt=\"img\" />\n\t\t\t\t\t\t\t\t</ion-slide>\n\t\t\t\t\t\t\t\t<ion-slide>\n\t\t\t\t\t\t\t\t\t<img src=\"../../../assets/images/photos/car_01.png\" alt=\"img\" />\n\t\t\t\t\t\t\t\t</ion-slide>\n\t\t\t\t\t\t\t</ion-slides>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<ion-button class=\"mt-2 mb-5\" expand=\"block\" color=\"tertiary\" size=\"medium\">\n\t\t\t\t\t\t{{'home_deal_detail.see_insurance_history' | translate}}\n\t\t\t\t\t</ion-button>\n\n\t\t\t\t\t<ion-item-group class=\"mb-5\">\n\t\t\t\t\t\t<ion-card>\n\t\t\t\t\t\t\t<ion-card-header>\n\t\t\t\t\t\t\t\t<i class=\"ti-location-pin text-muted mr-1\"></i>\n\t\t\t\t\t\t\t\t<strong>{{'home_deal_detail.location' | translate}}</strong>\n\t\t\t\t\t\t\t</ion-card-header>\n\t\t\t\t\t\t\t<ion-card-content>{{detail.location}}</ion-card-content>\n\t\t\t\t\t\t</ion-card>\n\t\t\t\t\t\t<ion-card>\n\t\t\t\t\t\t\t<ion-card-header><i class=\"ti-location-pin text-muted mr-1\"></i>\n\t\t\t\t\t\t\t\t<strong>{{'home_deal_detail.mileages' | translate}}</strong></ion-card-header>\n\t\t\t\t\t\t\t<ion-card-content>{{detail.miles | number}} Km</ion-card-content>\n\t\t\t\t\t\t</ion-card>\n\t\t\t\t\t\t<ion-card>\n\t\t\t\t\t\t\t<ion-card-header>\n\t\t\t\t\t\t\t\t<i class=\"ti-location-pin text-muted mr-1\"></i>\n\t\t\t\t\t\t\t\t<strong>{{'home_deal_detail.vehicle' | translate}} 특이 사항</strong>\n\t\t\t\t\t\t\t</ion-card-header>\n\t\t\t\t\t\t\t<ion-card-content> {{detail.other}} </ion-card-content>\n\t\t\t\t\t\t</ion-card>\n\t\t\t\t\t</ion-item-group>\n\n\t\t\t\t\t<ion-card class=\"card-body\">\n\t\t\t\t\t\t<ion-card-content>\n\t\t\t\t\t\t\t<div [hidden]=\"!participant\">\n\t\t\t\t\t\t\t\t<ion-button expand=\"full\" color=\"tertiary\" size=\"large\" shape=\"round\"\n\t\t\t\t\t\t\t\t\t[routerLink]=\"['/','home','ongoing', id]\">\n\t\t\t\t\t\t\t\t\t{{'home_deal_detail.ongoing_phase' | translate}}\n\t\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div [hidden]=\"participant\">\n\t\t\t\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t\t\t\t<input type=\"number\" class=\"form-control text-center\"\n\t\t\t\t\t\t\t\t\t\tplaceholder=\"{{'home_deal_detail.input_bidding_price' | translate}}\" [(ngModel)]=\"price\" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<ion-button expand=\"full\" color=\"tertiary\" size=\"large\" shape=\"round\" (click)=\"addDealerToDeal()\">\n\t\t\t\t\t\t\t\t\t<ion-icon name=\"wallet\"></ion-icon>\n\t\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</ion-card-content>\n\t\t\t\t\t</ion-card>\n\t\t\t\t</ion-col>\n\t\t\t</ion-row>\n\t\t</ion-grid>\n\t</ion-item>\n</ion-content>";
       /***/
     },
 
@@ -800,42 +800,48 @@
       /* harmony import */
 
 
-      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _services_loader_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../services/loader.service */
+      "./src/app/services/loader.service.ts");
+      /* harmony import */
+
+
+      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/fire/auth */
       "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
       /* harmony import */
 
 
-      var _services_noti_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _services_noti_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./../../services/noti.service */
       "./src/app/services/noti.service.ts");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/router */
       "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/core */
       "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/services/deals.service */
       "./src/app/services/deals.service.ts");
       /* harmony import */
 
 
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var DealdetailPage = /*#__PURE__*/function () {
-        function DealdetailPage(dealsService, router, route, notiService, afAuth, translate) {
+        function DealdetailPage(dealsService, router, route, notiService, afAuth, loader, translate) {
           var _this2 = this;
 
           _classCallCheck(this, DealdetailPage);
@@ -845,6 +851,7 @@
           this.route = route;
           this.notiService = notiService;
           this.afAuth = afAuth;
+          this.loader = loader;
           this.slideOpts = {
             initialSlide: 1,
             speed: 400
@@ -853,9 +860,9 @@
           this.detail = {};
           this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 
-          this.afAuth.authState.subscribe(function (val) {
+          this.afAuth.currentUser.then(function (val) {
             if (val) {
-              _this2.userId = val;
+              _this2.userId = val.uid;
             }
           });
           translate.addLangs(['en', 'kr']); // this language will be used as a fallback when a translation isn't found in the current language
@@ -874,15 +881,34 @@
         }, {
           key: "getDealDetail",
           value: function getDealDetail(id) {
-            var _this3 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this3 = this;
 
-            this.dealSub = this.dealsService.getDealDetail(id).subscribe(function (val) {
-              _this3.detail = Object.assign({}, val.payload.data());
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.next = 2;
+                      return this.loader.showLoader();
 
-              _this3.dealsService.getPlateNum(_this3.detail.vehiclesId).subscribe(function (m) {
-                _this3.detail.plateNumber = m.payload.data()['platenumber'];
-              });
-            });
+                    case 2:
+                      _context.next = 4;
+                      return this.dealsService.getDealDetail(id).subscribe(function (val) {
+                        _this3.detail = Object.assign({}, val.payload.data());
+
+                        _this3.loader.hideLoader();
+                      });
+
+                    case 4:
+                      this.dealSub = _context.sent;
+
+                    case 5:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
           }
         }, {
           key: "getDealerInParticipant",
@@ -900,22 +926,22 @@
         }, {
           key: "addDealerToDeal",
           value: function addDealerToDeal() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-              return regeneratorRuntime.wrap(function _callee$(_context) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
-                  switch (_context.prev = _context.next) {
+                  switch (_context2.prev = _context2.next) {
                     case 0:
                       this.dealer = {
                         price: this.price,
-                        userId: this.userId.uid,
+                        userId: this.userId,
                         bidTime: this.bidTime,
                         selected: false
                       };
-                      _context.next = 3;
+                      _context2.next = 3;
                       return this.dealsService.dealerToDeal(this.id, this.dealer);
 
                     case 3:
-                      _context.next = 5;
+                      _context2.next = 5;
                       return this.dealsService.addDealToDealer(this.id, {
                         dealId: this.id,
                         price: this.price,
@@ -924,18 +950,18 @@
                       });
 
                     case 5:
-                      _context.next = 7;
+                      _context2.next = 7;
                       return this.dealsService.updateDeal(this.id, {
                         status: 2
                       });
 
                     case 7:
-                      _context.next = 9;
+                      _context2.next = 9;
                       return this.notiService.createNoti({
                         requestId: this.id,
                         status: 2,
                         updateDate: Math.floor(new Date().getTime() / 1000.0),
-                        user: this.userId.uid
+                        user: this.userId
                       });
 
                     case 9:
@@ -943,10 +969,10 @@
 
                     case 10:
                     case "end":
-                      return _context.stop();
+                      return _context2.stop();
                   }
                 }
-              }, _callee, this);
+              }, _callee2, this);
             }));
           }
         }, {
@@ -963,21 +989,23 @@
 
       DealdetailPage.ctorParameters = function () {
         return [{
-          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_5__["DealsService"]
+          type: src_app_services_deals_service__WEBPACK_IMPORTED_MODULE_6__["DealsService"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
         }, {
-          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_2__["NotiService"]
+          type: _services_noti_service__WEBPACK_IMPORTED_MODULE_3__["NotiService"]
         }, {
-          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_1__["AngularFireAuth"]
+          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"]
         }, {
-          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_6__["TranslateService"]
+          type: _services_loader_service__WEBPACK_IMPORTED_MODULE_1__["LoaderService"]
+        }, {
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"]
         }];
       };
 
-      DealdetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_4__["Component"])({
+      DealdetailPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_5__["Component"])({
         selector: 'app-dealdetail',
         template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
         /*! raw-loader!./dealdetail.page.html */
@@ -1296,12 +1324,12 @@
         _createClass(AuthService, [{
           key: "login",
           value: function login(email, password) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
                 while (1) {
-                  switch (_context2.prev = _context2.next) {
+                  switch (_context3.prev = _context3.next) {
                     case 0:
-                      _context2.next = 2;
+                      _context3.next = 2;
                       return this.afAuth.signInWithEmailAndPassword(email, password);
 
                     case 2:
@@ -1309,33 +1337,33 @@
 
                     case 3:
                     case "end":
-                      return _context2.stop();
+                      return _context3.stop();
                   }
                 }
-              }, _callee2, this);
+              }, _callee3, this);
             }));
           }
         }, {
           key: "signup",
           value: function signup(email, password) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+              return regeneratorRuntime.wrap(function _callee4$(_context4) {
                 while (1) {
-                  switch (_context3.prev = _context3.next) {
+                  switch (_context4.prev = _context4.next) {
                     case 0:
-                      _context3.next = 2;
+                      _context4.next = 2;
                       return this.afAuth.createUserWithEmailAndPassword(email, password);
 
                     case 2:
-                      _context3.next = 4;
+                      _context4.next = 4;
                       return this.toast.showToast('Your account have been created, Please login!');
 
                     case 4:
                     case "end":
-                      return _context3.stop();
+                      return _context4.stop();
                   }
                 }
-              }, _callee3, this);
+              }, _callee4, this);
             }));
           }
         }, {
@@ -1351,12 +1379,12 @@
         }, {
           key: "logout",
           value: function logout() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
-              return regeneratorRuntime.wrap(function _callee4$(_context4) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee5() {
+              return regeneratorRuntime.wrap(function _callee5$(_context5) {
                 while (1) {
-                  switch (_context4.prev = _context4.next) {
+                  switch (_context5.prev = _context5.next) {
                     case 0:
-                      _context4.next = 2;
+                      _context5.next = 2;
                       return this.afAuth.signOut();
 
                     case 2:
@@ -1364,10 +1392,10 @@
 
                     case 3:
                     case "end":
-                      return _context4.stop();
+                      return _context5.stop();
                   }
                 }
-              }, _callee4, this);
+              }, _callee5, this);
             }));
           }
         }]);
@@ -1574,6 +1602,115 @@
       DealsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Injectable"])({
         providedIn: 'root'
       })], DealsService);
+      /***/
+    },
+
+    /***/
+    "./src/app/services/loader.service.ts":
+    /*!********************************************!*\
+      !*** ./src/app/services/loader.service.ts ***!
+      \********************************************/
+
+    /*! exports provided: LoaderService */
+
+    /***/
+    function srcAppServicesLoaderServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "LoaderService", function () {
+        return LoaderService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+
+      var LoaderService = /*#__PURE__*/function () {
+        function LoaderService(loadingController) {
+          _classCallCheck(this, LoaderService);
+
+          this.loadingController = loadingController;
+        }
+
+        _createClass(LoaderService, [{
+          key: "showLoader",
+          value: function showLoader() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
+              return regeneratorRuntime.wrap(function _callee6$(_context6) {
+                while (1) {
+                  switch (_context6.prev = _context6.next) {
+                    case 0:
+                      _context6.next = 2;
+                      return this.loadingController.create({
+                        message: 'Please wait...',
+                        showBackdrop: true
+                      }).then(function (res) {
+                        res.present();
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context6.stop();
+                  }
+                }
+              }, _callee6, this);
+            }));
+          }
+        }, {
+          key: "hideLoader",
+          value: function hideLoader() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee7() {
+              return regeneratorRuntime.wrap(function _callee7$(_context7) {
+                while (1) {
+                  switch (_context7.prev = _context7.next) {
+                    case 0:
+                      _context7.next = 2;
+                      return this.loadingController.dismiss().then(function (res) {
+                        console.log('Loading dismissed!', res);
+                      })["catch"](function (err) {
+                        console.log('error', err);
+                      });
+
+                    case 2:
+                    case "end":
+                      return _context7.stop();
+                  }
+                }
+              }, _callee7, this);
+            }));
+          }
+        }]);
+
+        return LoaderService;
+      }();
+
+      LoaderService.ctorParameters = function () {
+        return [{
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
+        }];
+      };
+
+      LoaderService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
+        providedIn: 'root'
+      })], LoaderService);
       /***/
     },
 

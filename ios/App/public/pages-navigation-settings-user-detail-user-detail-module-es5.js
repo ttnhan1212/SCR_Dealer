@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button defaultHref=\"/home/deal\"></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title\n\t\t\t>{{'home_edit_account.account_infor_header' | translate}}</ion-title\n\t\t>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<!-- Login content section -->\n\t<ion-card>\n\t\t<div class=\"container customerpage\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"single-page\">\n\t\t\t\t\t<div class=\"col-lg-5 col-xl-4 col-md-6 d-block mx-auto\">\n\t\t\t\t\t\t<div class=\"wrapper wrapper2\">\n\t\t\t\t\t\t\t<form class=\"card-body p-4 pb-0\" [formGroup]=\"editForm\">\n\t\t\t\t\t\t\t\t<div class=\"avt-view\">\n\t\t\t\t\t\t\t\t\t<img [src]=\"imagePreview\" alt=\"\" class=\"img-fluid\" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<h3 style=\"color: #080e1b; font-size: 1rem\">\n\t\t\t\t\t\t\t\t\t({{'home_edit_account.upload_instruction' | translate}})\n\t\t\t\t\t\t\t\t</h3>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"email\"\n\t\t\t\t\t\t\t\t\t\tname=\"mail\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"email\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.email' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tname=\"orgname\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"orgname\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.org_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tname=\"ceoname\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"ceoName\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.ceo_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"number\"\n\t\t\t\t\t\t\t\t\t\tname=\"phonenum\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.phone_number' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mb-8\"></div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tname=\"password\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"password\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.password' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tname=\"cPassword\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"cPassword\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.confirm_password' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t<ion-button\n\t\t\t\t\t\t\t\texpand=\"block\"\n\t\t\t\t\t\t\t\tcolor=\"tertiary\"\n\t\t\t\t\t\t\t\tclass=\"mr-3 ml-3\"\n\t\t\t\t\t\t\t\t[disabled]=\"!editForm.valid\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{{'home_edit_account.update_infor' | translate}}\n\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t<div class=\"mb-5\"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ion-card>\n\t<!-- End of Login content section -->\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button defaultHref=\"/home/deal\"></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title\n\t\t\t>{{'home_edit_account.account_infor_header' | translate}}</ion-title\n\t\t>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<!-- Login content section -->\n\t<ion-card>\n\t\t<div class=\"container customerpage\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"single-page\">\n\t\t\t\t\t<div class=\"col-lg-5 col-xl-4 col-md-6 d-block mx-auto\">\n\t\t\t\t\t\t<div class=\"wrapper wrapper2\">\n\t\t\t\t\t\t\t<form class=\"card-body p-4 pb-4\" [formGroup]=\"editForm\">\n\t\t\t\t\t\t\t\t<div class=\"avt-view\">\n\t\t\t\t\t\t\t\t\t<img [src]=\"imagePreview\" alt=\"\" class=\"img-fluid\" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"email\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"email\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.email\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.email' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"orgName\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.orgName\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.org_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"ceoName\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.ceoName\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.ceo_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"number\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.phone\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.phone_number' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mb-8\"></div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"password\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.password' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"cPassword\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.confirm_password' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t<ion-button\n\t\t\t\t\t\t\t\texpand=\"block\"\n\t\t\t\t\t\t\t\tcolor=\"tertiary\"\n\t\t\t\t\t\t\t\tclass=\"mr-3 ml-3\"\n\t\t\t\t\t\t\t\t[disabled]=\"!editForm.valid\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{{'home_edit_account.update_infor' | translate}}\n\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t<div class=\"mb-5\"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ion-card>\n\t<!-- End of Login content section -->\n</ion-content>\n";
       /***/
     },
 
@@ -305,7 +305,7 @@
             email: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$'), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])),
             password: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(8), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required])),
             cPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
-            orgname: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
+            orgName: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
             phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
             fax: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(10)])),
             ceoName: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]('', _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required),
@@ -403,115 +403,6 @@
         /*! ./user-detail.page.scss */
         "./src/app/pages/navigation/settings/user-detail/user-detail.page.scss"))["default"]]
       })], UserDetailPage);
-      /***/
-    },
-
-    /***/
-    "./src/app/services/loader.service.ts":
-    /*!********************************************!*\
-      !*** ./src/app/services/loader.service.ts ***!
-      \********************************************/
-
-    /*! exports provided: LoaderService */
-
-    /***/
-    function srcAppServicesLoaderServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "LoaderService", function () {
-        return LoaderService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @ionic/angular */
-      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-      var LoaderService = /*#__PURE__*/function () {
-        function LoaderService(loadingController) {
-          _classCallCheck(this, LoaderService);
-
-          this.loadingController = loadingController;
-        }
-
-        _createClass(LoaderService, [{
-          key: "showLoader",
-          value: function showLoader() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                while (1) {
-                  switch (_context2.prev = _context2.next) {
-                    case 0:
-                      _context2.next = 2;
-                      return this.loadingController.create({
-                        message: 'Please wait...',
-                        showBackdrop: true
-                      }).then(function (res) {
-                        res.present();
-                      });
-
-                    case 2:
-                    case "end":
-                      return _context2.stop();
-                  }
-                }
-              }, _callee2, this);
-            }));
-          }
-        }, {
-          key: "hideLoader",
-          value: function hideLoader() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-              return regeneratorRuntime.wrap(function _callee3$(_context3) {
-                while (1) {
-                  switch (_context3.prev = _context3.next) {
-                    case 0:
-                      _context3.next = 2;
-                      return this.loadingController.dismiss().then(function (res) {
-                        console.log('Loading dismissed!', res);
-                      })["catch"](function (err) {
-                        console.log('error', err);
-                      });
-
-                    case 2:
-                    case "end":
-                      return _context3.stop();
-                  }
-                }
-              }, _callee3, this);
-            }));
-          }
-        }]);
-
-        return LoaderService;
-      }();
-
-      LoaderService.ctorParameters = function () {
-        return [{
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
-        }];
-      };
-
-      LoaderService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
-        providedIn: 'root'
-      })], LoaderService);
       /***/
     }
   }]);

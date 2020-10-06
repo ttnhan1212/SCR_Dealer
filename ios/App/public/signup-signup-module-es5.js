@@ -29776,7 +29776,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-title class=\"smllogo\">\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<!-- Header/Banner section -->\n\t<ion-item>\n\t\t<div class=\"bannerimg cover-image bg-background3\">\n\t\t\t<div class=\"header-text\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"text-center text-white\">\n\t\t\t\t\t\t<h1 class=\"\">{{'signup.sc_register' | translate}}</h1>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ion-item>\n\t<!-- End of Header/Banner section -->\n\n\t<!-- Login content section -->\n\t<ion-card class=\"m-3\">\n\t\t<ion-card-header class=\"text-center mt-3 mb-5 signup_title\">\n\t\t\t<ion-title class=\"fs-30\">{{'signup.register_as' | translate}}</ion-title>\n\t\t</ion-card-header>\n\t\t<ion-card-content>\n\t\t\t<form [formGroup]=\"signupForm\">\n\t\t\t\t<div class=\"avt-view\">\n\t\t\t\t\t<img\n\t\t\t\t\t\t[src]=\"imagePreview\"\n\t\t\t\t\t\t*ngIf=\"!photo\"\n\t\t\t\t\t\talt=\"upload-camera\"\n\t\t\t\t\t\tclass=\"img-fluid\"\n\t\t\t\t\t\t(click)=\"selectImageSource()\"\n\t\t\t\t\t/>\n\t\t\t\t\t<img\n\t\t\t\t\t\t[src]=\"photo\"\n\t\t\t\t\t\t*ngIf=\"photo\"\n\t\t\t\t\t\talt=\"upload-camera\"\n\t\t\t\t\t\tclass=\"img-fluid\"\n\t\t\t\t\t\t(click)=\"selectImageSource()\"\n\t\t\t\t\t/>\n\t\t\t\t\t<input\n\t\t\t\t\t\ttype=\"file\"\n\t\t\t\t\t\t#pick\n\t\t\t\t\t\tstyle=\"display: none\"\n\t\t\t\t\t\taccept=\".jpg, .jpeg, .png\"\n\t\t\t\t\t\t(change)=\"handleFileInput($event)\"\n\t\t\t\t\t/>\n\t\t\t\t\t<!-- <input type=\"file\" class=\"custom-file-input\" (change)=\"onFileSelected($event)\" accept=\".png,.jpg\"> -->\n\t\t\t\t\t<!-- <ion-input type=\"file\" value=\"\" accept=\".jpg, .jpeg, .png\" (change)=\"handleFileInput($event.target.files)\"></ion-input> -->\n\t\t\t\t\t<!-- <ion-input type=\"file\" value=\"\" accept=\".jpg, .jpeg, .png\" (click)=\"PickFile()\"></ion-input>\n          <div>\n            {{ returnpath }}\n          </div> -->\n\t\t\t\t\t<!-- <input\n            type=\"file\"\n            #pick\n            style=\"display: none;\"\n            accept=\".jpg, .jpeg, .png\"\n            (change)=\"PickImages()\"\n          /> -->\n\t\t\t\t\t<!-- <ion-list *ngFor=\"let cordovaImage of cordovaImages\">\n            <ion-item>\n              <img src=\"cordovaImage\" />\n            </ion-item>\n          </ion-list> -->\n\t\t\t\t</div>\n\t\t\t\t<h3 class=\"text-center\" style=\"color: #080e1b; font-size: 1rem\">\n\t\t\t\t\t({{'signup.upload_instruction' | translate}})\n\t\t\t\t</h3>\n\t\t\t\t<div class=\"mb-6\"></div>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.signup_email' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"email\" matInput [formControl]=\"email\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.signup_password' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"password\" matInput [formControl]=\"password\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label\n\t\t\t\t\t\t>{{'signup.signup_confirm_password' | translate}}</mat-label\n\t\t\t\t\t>\n\t\t\t\t\t<input type=\"password\" matInput [formControl]=\"cPassword\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.org_name' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"text\" matInput [formControl]=\"orgName\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.ceo_name' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"text\" matInput [formControl]=\"ceoName\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.phone_number' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"number\" matInput [formControl]=\"phone\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.fax_number' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"number\" matInput [formControl]=\"fax\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.business_address' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"text\" matInput [formControl]=\"address\" />\n\t\t\t\t</mat-form-field>\n\t\t\t</form>\n\t\t\t<ion-list class=\"ion-padding\">\n\t\t\t\t<ion-item *ngFor=\"let item of checkBoxList\">\n\t\t\t\t\t<ion-label>{{item.value}}</ion-label>\n\t\t\t\t\t<ion-checkbox\n\t\t\t\t\t\tslot=\"start\"\n\t\t\t\t\t\t#checkBoxList\n\t\t\t\t\t\tname=\"itemoption\"\n\t\t\t\t\t\t(click)=\"modalNavigate(item.id)\"\n\t\t\t\t\t\t[(ngModel)]=\"item.isChecked\"\n\t\t\t\t\t\t[attr.data-id]=\"item.id\"\n\t\t\t\t\t\t(ionChange)=\"checkEvent()\"\n\t\t\t\t\t></ion-checkbox>\n\t\t\t\t</ion-item>\n\t\t\t\t<ion-item>\n\t\t\t\t\t<ion-label\n\t\t\t\t\t\t><strong>{{'signup.agree_all' | translate}}</strong></ion-label\n\t\t\t\t\t>\n\t\t\t\t\t<ion-checkbox\n\t\t\t\t\t\tslot=\"start\"\n\t\t\t\t\t\tname=\"selectallcheck\"\n\t\t\t\t\t\t[(ngModel)]=\"masterCheck\"\n\t\t\t\t\t\t[indeterminate]=\"isIndeterminate\"\n\t\t\t\t\t\t(click)=\"checkMaster($event)\"\n\t\t\t\t\t></ion-checkbox>\n\t\t\t\t</ion-item>\n\t\t\t</ion-list>\n\n\t\t\t<ion-button\n\t\t\t\texpand=\"block\"\n\t\t\t\tcolor=\"tertiary\"\n\t\t\t\tclass=\"mb-3\"\n\t\t\t\t(click)=\"signupDealer()\"\n\t\t\t\t[disabled]=\"!masterCheck || !signupForm.valid\"\n\t\t\t>\n\t\t\t\t{{'signup.request_register' | translate}}\n\t\t\t\t<ion-item *ngIf=\"percentage | async as pct\">\n\t\t\t\t\tProgress: {{ pct | number }}%\n\t\t\t\t\t<ion-progress-bar value=\"{{ pct / 100 }}\"></ion-progress-bar>\n\t\t\t\t</ion-item>\n\t\t\t</ion-button>\n\n\t\t\t<ion-button\n\t\t\t\tfill=\"clear\"\n\t\t\t\texpand=\"block\"\n\t\t\t\tclass=\"text-dark mb-3\"\n\t\t\t\t[routerLink]=\"['/','login']\"\n\t\t\t>\n\t\t\t\t{{'signup.ask_for_login' | translate}}\n\t\t\t</ion-button>\n\t\t</ion-card-content>\n\t</ion-card>\n\t<!-- End of Login content section -->\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n\t<ion-toolbar>\n\t\t<ion-title>\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<!-- Header/Banner section -->\n\t<ion-item>\n\t\t<div class=\"bannerimg cover-image bg-background3\">\n\t\t\t<div class=\"header-text\">\n\t\t\t\t<div class=\"container\">\n\t\t\t\t\t<div class=\"text-center text-white\">\n\t\t\t\t\t\t<h1 class=\"\">{{'signup.sc_register' | translate}}</h1>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ion-item>\n\t<!-- End of Header/Banner section -->\n\n\t<!-- Login content section -->\n\t<ion-card class=\"m-3\">\n\t\t<ion-card-header class=\"text-center mt-3 mb-5 signup_title\">\n\t\t\t<ion-title class=\"fs-30\">{{'signup.register_as' | translate}}</ion-title>\n\t\t</ion-card-header>\n\t\t<ion-card-content>\n\t\t\t<form [formGroup]=\"signupForm\">\n\t\t\t\t<div class=\"avt-view\">\n\t\t\t\t\t<img\n\t\t\t\t\t\t[src]=\"imagePreview\"\n\t\t\t\t\t\t*ngIf=\"!photo\"\n\t\t\t\t\t\talt=\"upload-camera\"\n\t\t\t\t\t\tclass=\"img-fluid\"\n\t\t\t\t\t\t(click)=\"selectImageSource()\"\n\t\t\t\t\t/>\n\t\t\t\t\t<img\n\t\t\t\t\t\t[src]=\"photo\"\n\t\t\t\t\t\t*ngIf=\"photo\"\n\t\t\t\t\t\talt=\"upload-camera\"\n\t\t\t\t\t\tclass=\"img-fluid\"\n\t\t\t\t\t\t(click)=\"selectImageSource()\"\n\t\t\t\t\t/>\n\t\t\t\t\t<input\n\t\t\t\t\t\ttype=\"file\"\n\t\t\t\t\t\t#pick\n\t\t\t\t\t\tstyle=\"display: none\"\n\t\t\t\t\t\taccept=\".jpg, .jpeg, .png\"\n\t\t\t\t\t\t(change)=\"handleFileInput($event)\"\n\t\t\t\t\t/>\n\t\t\t\t\t<!-- <input type=\"file\" class=\"custom-file-input\" (change)=\"onFileSelected($event)\" accept=\".png,.jpg\"> -->\n\t\t\t\t\t<!-- <ion-input type=\"file\" value=\"\" accept=\".jpg, .jpeg, .png\" (change)=\"handleFileInput($event.target.files)\"></ion-input> -->\n\t\t\t\t\t<!-- <ion-input type=\"file\" value=\"\" accept=\".jpg, .jpeg, .png\" (click)=\"PickFile()\"></ion-input>\n          <div>\n            {{ returnpath }}\n          </div> -->\n\t\t\t\t\t<!-- <input\n            type=\"file\"\n            #pick\n            style=\"display: none;\"\n            accept=\".jpg, .jpeg, .png\"\n            (change)=\"PickImages()\"\n          /> -->\n\t\t\t\t\t<!-- <ion-list *ngFor=\"let cordovaImage of cordovaImages\">\n            <ion-item>\n              <img src=\"cordovaImage\" />\n            </ion-item>\n          </ion-list> -->\n\t\t\t\t</div>\n\t\t\t\t<h3 class=\"text-center\" style=\"color: #080e1b; font-size: 1rem\">\n\t\t\t\t\t({{'signup.upload_instruction' | translate}})\n\t\t\t\t</h3>\n\t\t\t\t<div class=\"mb-6\"></div>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.signup_email' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"email\" matInput [formControl]=\"email\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.signup_password' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"password\" matInput [formControl]=\"password\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label\n\t\t\t\t\t\t>{{'signup.signup_confirm_password' | translate}}</mat-label\n\t\t\t\t\t>\n\t\t\t\t\t<input type=\"password\" matInput [formControl]=\"cPassword\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.org_name' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"text\" matInput [formControl]=\"orgName\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.ceo_name' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"text\" matInput [formControl]=\"ceoName\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.phone_number' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"number\" matInput [formControl]=\"phone\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.fax_number' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"number\" matInput [formControl]=\"fax\" />\n\t\t\t\t</mat-form-field>\n\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t<mat-label>{{'signup.business_address' | translate}}</mat-label>\n\t\t\t\t\t<input type=\"text\" matInput [formControl]=\"address\" />\n\t\t\t\t</mat-form-field>\n\t\t\t</form>\n\t\t\t<ion-list class=\"ion-padding\">\n\t\t\t\t<ion-item *ngFor=\"let item of checkBoxList\">\n\t\t\t\t\t<ion-label>{{item.value}}</ion-label>\n\t\t\t\t\t<ion-checkbox\n\t\t\t\t\t\tslot=\"start\"\n\t\t\t\t\t\t#checkBoxList\n\t\t\t\t\t\tname=\"itemoption\"\n\t\t\t\t\t\t(click)=\"modalNavigate(item.id)\"\n\t\t\t\t\t\t[(ngModel)]=\"item.isChecked\"\n\t\t\t\t\t\t[attr.data-id]=\"item.id\"\n\t\t\t\t\t\t(ionChange)=\"checkEvent()\"\n\t\t\t\t\t></ion-checkbox>\n\t\t\t\t</ion-item>\n\t\t\t\t<ion-item>\n\t\t\t\t\t<ion-label\n\t\t\t\t\t\t><strong>{{'signup.agree_all' | translate}}</strong></ion-label\n\t\t\t\t\t>\n\t\t\t\t\t<ion-checkbox\n\t\t\t\t\t\tslot=\"start\"\n\t\t\t\t\t\tname=\"selectallcheck\"\n\t\t\t\t\t\t[(ngModel)]=\"masterCheck\"\n\t\t\t\t\t\t[indeterminate]=\"isIndeterminate\"\n\t\t\t\t\t\t(click)=\"checkMaster($event)\"\n\t\t\t\t\t></ion-checkbox>\n\t\t\t\t</ion-item>\n\t\t\t</ion-list>\n\n\t\t\t<ion-button\n\t\t\t\texpand=\"block\"\n\t\t\t\tcolor=\"tertiary\"\n\t\t\t\tclass=\"mb-3\"\n\t\t\t\t(click)=\"signupDealer()\"\n\t\t\t\t[disabled]=\"!masterCheck || !signupForm.valid\"\n\t\t\t>\n\t\t\t\t{{'signup.request_register' | translate}}\n\t\t\t\t<ion-item *ngIf=\"percentage | async as pct\">\n\t\t\t\t\tProgress: {{ pct | number }}%\n\t\t\t\t\t<ion-progress-bar value=\"{{ pct / 100 }}\"></ion-progress-bar>\n\t\t\t\t</ion-item>\n\t\t\t</ion-button>\n\n\t\t\t<ion-button\n\t\t\t\tfill=\"clear\"\n\t\t\t\texpand=\"block\"\n\t\t\t\tclass=\"text-dark mb-3\"\n\t\t\t\t[routerLink]=\"['/','login']\"\n\t\t\t>\n\t\t\t\t{{'signup.ask_for_login' | translate}}\n\t\t\t</ion-button>\n\t\t</ion-card-content>\n\t</ion-card>\n\t<!-- End of Login content section -->\n</ion-content>\n";
       /***/
     },
 
@@ -29870,7 +29870,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".smllogo {\n  width: 7rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dvL2xvZ28uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxXQUFBO0FBQ0QiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2xvZ28vbG9nby5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zbWxsb2dvIHtcblx0d2lkdGg6IDdyZW07XG59XG4iXX0= */";
+      __webpack_exports__["default"] = ".smllogo {\n  height: 2.6rem;\n  width: 45%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dvL2xvZ28uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxjQUFBO0VBQ0EsVUFBQTtBQUNEIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9sb2dvL2xvZ28uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc21sbG9nbyB7XG5cdGhlaWdodDogMi42cmVtO1xuXHR3aWR0aDogNDUlO1xufVxuIl19 */";
       /***/
     },
 
@@ -30295,7 +30295,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".smllogo__img {\n  height: 2.6rem;\n}\n\n.bannerimg {\n  padding: 2rem 0 2rem 0;\n  background-size: cover;\n}\n\n.container {\n  width: 100%;\n  padding-right: 0.75rem;\n  padding-left: 0.75rem;\n  margin-right: auto;\n  margin-left: auto;\n}\n\n.signup_title {\n  line-height: normal;\n}\n\n.mat-form-field {\n  display: inline !important;\n}\n\n.mat-form-field input.mat-input-element {\n  line-height: normal !important;\n}\n\n.cover-image {\n  background-size: cover !important;\n  width: 100%;\n  background-image: url('banner2.jpg');\n}\n\n.avt-view {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 6rem !important;\n  height: 6rem !important;\n  border: 1px solid #d8dde6;\n  overflow: hidden;\n  position: relative;\n  margin: auto;\n  border-radius: 16px;\n}\n\n.avt-view ion-input[type=file] {\n  position: absolute;\n  opacity: 0;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n\n.bg-background3:before {\n  background: linear-gradient(to right, rgba(141, 11, 183, 0.8), rgba(33, 63, 148, 0.8));\n}\n\n.bg-background3:before {\n  background: linear-gradient(to right, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8));\n}\n\n.bg-background3 .header-text {\n  position: relative;\n  z-index: 10;\n}\n\n.header-md::after {\n  width: 0 !important;\n}\n\n.item.sc-ion-label-md-h,\n.item .sc-ion-label-md-h {\n  font-family: \"Poppins\";\n  font-size: 0.9rem;\n}\n\n.basic-container {\n  padding: 30px;\n}\n\nion-item {\n  --inner-padding-end: 0px;\n  --padding-start: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaW5kZXgvc2lnbnVwL3NpZ251cC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0M7RUFDQyxjQUFBO0FBQUY7O0FBSUE7RUFDQyxzQkFBQTtFQUNBLHNCQUFBO0FBREQ7O0FBSUE7RUFDQyxXQUFBO0VBQ0Esc0JBQUE7RUFDQSxxQkFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7QUFERDs7QUFJQTtFQUNDLG1CQUFBO0FBREQ7O0FBSUE7RUFDQywwQkFBQTtBQUREOztBQUVDO0VBQ0MsOEJBQUE7QUFBRjs7QUFJQTtFQUNDLGlDQUFBO0VBQ0EsV0FBQTtFQUVBLG9DQUFBO0FBRkQ7O0FBS0E7RUFDQyxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSx5QkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7QUFGRDs7QUFJQztFQUNDLGtCQUFBO0VBQ0EsVUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsTUFBQTtFQUNBLE9BQUE7QUFGRjs7QUFNQTtFQUNDLHNGQUFBO0FBSEQ7O0FBVUE7RUFDQyx1RkFBQTtBQVBEOztBQWVBO0VBQ0Msa0JBQUE7RUFDQSxXQUFBO0FBWkQ7O0FBMEJBO0VBQ0MsbUJBQUE7QUF2QkQ7O0FBMEJBOztFQUVDLHNCQUFBO0VBQ0EsaUJBQUE7QUF2QkQ7O0FBMEJBO0VBQ0MsYUFBQTtBQXZCRDs7QUEwQkE7RUFDQyx3QkFBQTtFQUNBLG9CQUFBO0FBdkJEIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaW5kZXgvc2lnbnVwL3NpZ251cC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc21sbG9nbyB7XG5cdCZfX2ltZyB7XG5cdFx0aGVpZ2h0OiAyLjZyZW07XG5cdH1cbn1cblxuLmJhbm5lcmltZyB7XG5cdHBhZGRpbmc6IDJyZW0gMCAycmVtIDA7XG5cdGJhY2tncm91bmQtc2l6ZTogY292ZXI7XG59XG5cbi5jb250YWluZXIge1xuXHR3aWR0aDogMTAwJTtcblx0cGFkZGluZy1yaWdodDogMC43NXJlbTtcblx0cGFkZGluZy1sZWZ0OiAwLjc1cmVtO1xuXHRtYXJnaW4tcmlnaHQ6IGF1dG87XG5cdG1hcmdpbi1sZWZ0OiBhdXRvO1xufVxuXG4uc2lnbnVwX3RpdGxlIHtcblx0bGluZS1oZWlnaHQ6IG5vcm1hbDtcbn1cblxuLm1hdC1mb3JtLWZpZWxkIHtcblx0ZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7XG5cdCYgaW5wdXQubWF0LWlucHV0LWVsZW1lbnQge1xuXHRcdGxpbmUtaGVpZ2h0OiBub3JtYWwgIWltcG9ydGFudDtcblx0fVxufVxuXG4uY292ZXItaW1hZ2Uge1xuXHRiYWNrZ3JvdW5kLXNpemU6IGNvdmVyICFpbXBvcnRhbnQ7XG5cdHdpZHRoOiAxMDAlO1xuXHQvLyBwb3NpdGlvbjogcmVsYXRpdmU7XG5cdGJhY2tncm91bmQtaW1hZ2U6IHVybCgnLi4vLi4vLi4vLi4vYXNzZXRzL2ltYWdlcy9iYW5uZXJzL2Jhbm5lcjIuanBnJyk7XG59XG5cbi5hdnQtdmlldyB7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdGp1c3RpZnktY29udGVudDogY2VudGVyO1xuXHRhbGlnbi1pdGVtczogY2VudGVyO1xuXHR3aWR0aDogNnJlbSAhaW1wb3J0YW50O1xuXHRoZWlnaHQ6IDZyZW0gIWltcG9ydGFudDtcblx0Ym9yZGVyOiAxcHggc29saWQgI2Q4ZGRlNjtcblx0b3ZlcmZsb3c6IGhpZGRlbjtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHRtYXJnaW46IGF1dG87XG5cdGJvcmRlci1yYWRpdXM6IDE2cHg7XG5cblx0aW9uLWlucHV0W3R5cGU9J2ZpbGUnXSB7XG5cdFx0cG9zaXRpb246IGFic29sdXRlO1xuXHRcdG9wYWNpdHk6IDA7XG5cdFx0d2lkdGg6IDEwMCU7XG5cdFx0aGVpZ2h0OiAxMDAlO1xuXHRcdHRvcDogMDtcblx0XHRsZWZ0OiAwO1xuXHR9XG59XG5cbi5iZy1iYWNrZ3JvdW5kMzpiZWZvcmUge1xuXHRiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXG5cdFx0dG8gcmlnaHQsXG5cdFx0cmdiYSgxNDEsIDExLCAxODMsIDAuOCksXG5cdFx0cmdiYSgzMywgNjMsIDE0OCwgMC44KVxuXHQpO1xufVxuXG4uYmctYmFja2dyb3VuZDM6YmVmb3JlIHtcblx0YmFja2dyb3VuZDogbGluZWFyLWdyYWRpZW50KFxuXHRcdHRvIHJpZ2h0LFxuXHRcdHJnYmEoMTA2LCAxNywgMjAzLCAwLjgpLFxuXHRcdHJnYmEoMzcsIDExNywgMjUyLCAwLjgpXG5cdCk7XG5cdC8vYmFja2dyb3VuZC1pbWFnZTogbGluZWFyLWdyYWRpZW50KDEzNWRlZywgIzY2N2VlYSAwJSwgIzc2NGJhMiAxMCUpO1xufVxuXG4uYmctYmFja2dyb3VuZDMgLmhlYWRlci10ZXh0IHtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHR6LWluZGV4OiAxMDtcbn1cblxuLy8gLnNpbmdsZS1wYWdlIC53cmFwcGVyLndyYXBwZXIyIHtcbi8vIFx0YmFja2dyb3VuZDogI2ZmZjtcbi8vIFx0d2lkdGg6IDEwMCU7XG4vLyBcdGJhY2tncm91bmQ6ICNmZmY7XG4vLyBcdHRyYW5zaXRpb246IGFsbCAwLjVzO1xuLy8gXHRjb2xvcjogI2ZmZjtcbi8vIFx0b3ZlcmZsb3c6IGhpZGRlbjtcbi8vIFx0Ym9yZGVyLXJhZGl1czogNHB4O1xuLy8gXHR0ZXh0LWFsaWduOiBjZW50ZXI7XG4vLyB9XG5cbi5oZWFkZXItbWQ6OmFmdGVyIHtcblx0d2lkdGg6IDAgIWltcG9ydGFudDtcbn1cblxuLml0ZW0uc2MtaW9uLWxhYmVsLW1kLWgsXG4uaXRlbSAuc2MtaW9uLWxhYmVsLW1kLWgge1xuXHRmb250LWZhbWlseTogJ1BvcHBpbnMnO1xuXHRmb250LXNpemU6IDAuOXJlbTtcbn1cblxuLmJhc2ljLWNvbnRhaW5lciB7XG5cdHBhZGRpbmc6IDMwcHg7XG59XG5cbmlvbi1pdGVtIHtcblx0LS1pbm5lci1wYWRkaW5nLWVuZDogMHB4O1xuXHQtLXBhZGRpbmctc3RhcnQ6IDBweDtcbn1cbiJdfQ== */";
+      __webpack_exports__["default"] = "ion-title {\n  padding: 0 !important;\n}\n\n.bannerimg {\n  padding: 2rem 0 2rem 0;\n  background-size: cover;\n}\n\n.container {\n  width: 100%;\n  padding-right: 0.75rem;\n  padding-left: 0.75rem;\n  margin-right: auto;\n  margin-left: auto;\n}\n\n.signup_title {\n  line-height: normal;\n}\n\n.mat-form-field {\n  display: inline !important;\n}\n\n.mat-form-field input.mat-input-element {\n  line-height: normal !important;\n}\n\n.cover-image {\n  background-size: cover !important;\n  width: 100%;\n  background-image: url('banner2.jpg');\n}\n\n.avt-view {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 6rem !important;\n  height: 6rem !important;\n  border: 1px solid #d8dde6;\n  overflow: hidden;\n  position: relative;\n  margin: auto;\n  border-radius: 16px;\n}\n\n.avt-view ion-input[type=file] {\n  position: absolute;\n  opacity: 0;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n\n.bg-background3:before {\n  background: linear-gradient(to right, rgba(141, 11, 183, 0.8), rgba(33, 63, 148, 0.8));\n}\n\n.bg-background3:before {\n  background: linear-gradient(to right, rgba(106, 17, 203, 0.8), rgba(37, 117, 252, 0.8));\n}\n\n.bg-background3 .header-text {\n  position: relative;\n  z-index: 10;\n}\n\n.header-md::after {\n  width: 0 !important;\n}\n\n.item.sc-ion-label-md-h,\n.item .sc-ion-label-md-h {\n  font-family: \"Poppins\";\n  font-size: 0.9rem;\n}\n\n.basic-container {\n  padding: 30px;\n}\n\nion-item {\n  --inner-padding-end: 0px;\n  --padding-start: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaW5kZXgvc2lnbnVwL3NpZ251cC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxxQkFBQTtBQUNEOztBQUVBO0VBQ0Msc0JBQUE7RUFDQSxzQkFBQTtBQUNEOztBQUVBO0VBQ0MsV0FBQTtFQUNBLHNCQUFBO0VBQ0EscUJBQUE7RUFDQSxrQkFBQTtFQUNBLGlCQUFBO0FBQ0Q7O0FBRUE7RUFDQyxtQkFBQTtBQUNEOztBQUVBO0VBQ0MsMEJBQUE7QUFDRDs7QUFBQztFQUNDLDhCQUFBO0FBRUY7O0FBRUE7RUFDQyxpQ0FBQTtFQUNBLFdBQUE7RUFFQSxvQ0FBQTtBQUFEOztBQUdBO0VBQ0MsYUFBQTtFQUNBLHVCQUFBO0VBQ0EsbUJBQUE7RUFDQSxzQkFBQTtFQUNBLHVCQUFBO0VBQ0EseUJBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FBQUQ7O0FBRUM7RUFDQyxrQkFBQTtFQUNBLFVBQUE7RUFDQSxXQUFBO0VBQ0EsWUFBQTtFQUNBLE1BQUE7RUFDQSxPQUFBO0FBQUY7O0FBSUE7RUFDQyxzRkFBQTtBQUREOztBQVFBO0VBQ0MsdUZBQUE7QUFMRDs7QUFhQTtFQUNDLGtCQUFBO0VBQ0EsV0FBQTtBQVZEOztBQXdCQTtFQUNDLG1CQUFBO0FBckJEOztBQXdCQTs7RUFFQyxzQkFBQTtFQUNBLGlCQUFBO0FBckJEOztBQXdCQTtFQUNDLGFBQUE7QUFyQkQ7O0FBd0JBO0VBQ0Msd0JBQUE7RUFDQSxvQkFBQTtBQXJCRCIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2luZGV4L3NpZ251cC9zaWdudXAucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiaW9uLXRpdGxlIHtcblx0cGFkZGluZzogMCAhaW1wb3J0YW50O1xufVxuXG4uYmFubmVyaW1nIHtcblx0cGFkZGluZzogMnJlbSAwIDJyZW0gMDtcblx0YmFja2dyb3VuZC1zaXplOiBjb3Zlcjtcbn1cblxuLmNvbnRhaW5lciB7XG5cdHdpZHRoOiAxMDAlO1xuXHRwYWRkaW5nLXJpZ2h0OiAwLjc1cmVtO1xuXHRwYWRkaW5nLWxlZnQ6IDAuNzVyZW07XG5cdG1hcmdpbi1yaWdodDogYXV0bztcblx0bWFyZ2luLWxlZnQ6IGF1dG87XG59XG5cbi5zaWdudXBfdGl0bGUge1xuXHRsaW5lLWhlaWdodDogbm9ybWFsO1xufVxuXG4ubWF0LWZvcm0tZmllbGQge1xuXHRkaXNwbGF5OiBpbmxpbmUgIWltcG9ydGFudDtcblx0JiBpbnB1dC5tYXQtaW5wdXQtZWxlbWVudCB7XG5cdFx0bGluZS1oZWlnaHQ6IG5vcm1hbCAhaW1wb3J0YW50O1xuXHR9XG59XG5cbi5jb3Zlci1pbWFnZSB7XG5cdGJhY2tncm91bmQtc2l6ZTogY292ZXIgIWltcG9ydGFudDtcblx0d2lkdGg6IDEwMCU7XG5cdC8vIHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0YmFja2dyb3VuZC1pbWFnZTogdXJsKCcuLi8uLi8uLi8uLi9hc3NldHMvaW1hZ2VzL2Jhbm5lcnMvYmFubmVyMi5qcGcnKTtcbn1cblxuLmF2dC12aWV3IHtcblx0ZGlzcGxheTogZmxleDtcblx0anVzdGlmeS1jb250ZW50OiBjZW50ZXI7XG5cdGFsaWduLWl0ZW1zOiBjZW50ZXI7XG5cdHdpZHRoOiA2cmVtICFpbXBvcnRhbnQ7XG5cdGhlaWdodDogNnJlbSAhaW1wb3J0YW50O1xuXHRib3JkZXI6IDFweCBzb2xpZCAjZDhkZGU2O1xuXHRvdmVyZmxvdzogaGlkZGVuO1xuXHRwb3NpdGlvbjogcmVsYXRpdmU7XG5cdG1hcmdpbjogYXV0bztcblx0Ym9yZGVyLXJhZGl1czogMTZweDtcblxuXHRpb24taW5wdXRbdHlwZT0nZmlsZSddIHtcblx0XHRwb3NpdGlvbjogYWJzb2x1dGU7XG5cdFx0b3BhY2l0eTogMDtcblx0XHR3aWR0aDogMTAwJTtcblx0XHRoZWlnaHQ6IDEwMCU7XG5cdFx0dG9wOiAwO1xuXHRcdGxlZnQ6IDA7XG5cdH1cbn1cblxuLmJnLWJhY2tncm91bmQzOmJlZm9yZSB7XG5cdGJhY2tncm91bmQ6IGxpbmVhci1ncmFkaWVudChcblx0XHR0byByaWdodCxcblx0XHRyZ2JhKDE0MSwgMTEsIDE4MywgMC44KSxcblx0XHRyZ2JhKDMzLCA2MywgMTQ4LCAwLjgpXG5cdCk7XG59XG5cbi5iZy1iYWNrZ3JvdW5kMzpiZWZvcmUge1xuXHRiYWNrZ3JvdW5kOiBsaW5lYXItZ3JhZGllbnQoXG5cdFx0dG8gcmlnaHQsXG5cdFx0cmdiYSgxMDYsIDE3LCAyMDMsIDAuOCksXG5cdFx0cmdiYSgzNywgMTE3LCAyNTIsIDAuOClcblx0KTtcblx0Ly9iYWNrZ3JvdW5kLWltYWdlOiBsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCAjNjY3ZWVhIDAlLCAjNzY0YmEyIDEwJSk7XG59XG5cbi5iZy1iYWNrZ3JvdW5kMyAuaGVhZGVyLXRleHQge1xuXHRwb3NpdGlvbjogcmVsYXRpdmU7XG5cdHotaW5kZXg6IDEwO1xufVxuXG4vLyAuc2luZ2xlLXBhZ2UgLndyYXBwZXIud3JhcHBlcjIge1xuLy8gXHRiYWNrZ3JvdW5kOiAjZmZmO1xuLy8gXHR3aWR0aDogMTAwJTtcbi8vIFx0YmFja2dyb3VuZDogI2ZmZjtcbi8vIFx0dHJhbnNpdGlvbjogYWxsIDAuNXM7XG4vLyBcdGNvbG9yOiAjZmZmO1xuLy8gXHRvdmVyZmxvdzogaGlkZGVuO1xuLy8gXHRib3JkZXItcmFkaXVzOiA0cHg7XG4vLyBcdHRleHQtYWxpZ246IGNlbnRlcjtcbi8vIH1cblxuLmhlYWRlci1tZDo6YWZ0ZXIge1xuXHR3aWR0aDogMCAhaW1wb3J0YW50O1xufVxuXG4uaXRlbS5zYy1pb24tbGFiZWwtbWQtaCxcbi5pdGVtIC5zYy1pb24tbGFiZWwtbWQtaCB7XG5cdGZvbnQtZmFtaWx5OiAnUG9wcGlucyc7XG5cdGZvbnQtc2l6ZTogMC45cmVtO1xufVxuXG4uYmFzaWMtY29udGFpbmVyIHtcblx0cGFkZGluZzogMzBweDtcbn1cblxuaW9uLWl0ZW0ge1xuXHQtLWlubmVyLXBhZGRpbmctZW5kOiAwcHg7XG5cdC0tcGFkZGluZy1zdGFydDogMHB4O1xufVxuIl19 */";
       /***/
     },
 
@@ -30411,29 +30411,23 @@
       /* harmony import */
 
 
-      var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
-      /*! @angular/fire/firestore */
-      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
-      /* harmony import */
-
-
-      var _capacitor_core__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+      var _capacitor_core__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
       /*! @capacitor/core */
       "./node_modules/@capacitor/core/dist/esm/index.js");
       /* harmony import */
 
 
-      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
+      var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
       /*! @angular/platform-browser */
       "./node_modules/@angular/platform-browser/__ivy_ngcc__/fesm2015/platform-browser.js");
       /* harmony import */
 
 
-      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+      var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
       /*! @ngx-translate/core */
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
-      var Camera = _capacitor_core__WEBPACK_IMPORTED_MODULE_16__["Plugins"].Camera; // export interface MyData {
+      var Camera = _capacitor_core__WEBPACK_IMPORTED_MODULE_15__["Plugins"].Camera; // export interface MyData {
       // 	name: string;
       // 	filepath: string;
       // 	size: number;
@@ -30442,8 +30436,7 @@
       var IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
 
       var SignupPage = /*#__PURE__*/function () {
-        function SignupPage(afAuth, router, loadingController, toast, modalController, authService, dealerService, fb, storage, afs, // private file: File,
-        actionSheetCtrl, plt, sanitizer, translate, loader) {
+        function SignupPage(afAuth, router, loadingController, toast, modalController, authService, dealerService, fb, storage, actionSheetCtrl, plt, sanitizer, translate, loader) {
           _classCallCheck(this, SignupPage);
 
           this.afAuth = afAuth;
@@ -30455,7 +30448,6 @@
           this.dealerService = dealerService;
           this.fb = fb;
           this.storage = storage;
-          this.afs = afs;
           this.actionSheetCtrl = actionSheetCtrl;
           this.plt = plt;
           this.sanitizer = sanitizer;
@@ -30573,13 +30565,13 @@
                         text: 'Take Photo',
                         icon: 'camera',
                         handler: function handler() {
-                          _this112.addImage(_capacitor_core__WEBPACK_IMPORTED_MODULE_16__["CameraSource"].Camera);
+                          _this112.addImage(_capacitor_core__WEBPACK_IMPORTED_MODULE_15__["CameraSource"].Camera);
                         }
                       }, {
                         text: 'Choose Image From Gallery',
                         icon: 'image',
                         handler: function handler() {
-                          _this112.addImage(_capacitor_core__WEBPACK_IMPORTED_MODULE_16__["CameraSource"].Photos);
+                          _this112.addImage(_capacitor_core__WEBPACK_IMPORTED_MODULE_15__["CameraSource"].Photos);
                         }
                       }]; // Only allow file selection inside a browser
 
@@ -30626,7 +30618,7 @@
                         quality: 100,
                         width: 400,
                         allowEditing: false,
-                        resultType: _capacitor_core__WEBPACK_IMPORTED_MODULE_16__["CameraResultType"].DataUrl,
+                        resultType: _capacitor_core__WEBPACK_IMPORTED_MODULE_15__["CameraResultType"].DataUrl,
                         source: source
                       });
 
@@ -30981,15 +30973,13 @@
         }, {
           type: _angular_fire_storage__WEBPACK_IMPORTED_MODULE_13__["AngularFireStorage"]
         }, {
-          type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_15__["AngularFirestore"]
-        }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["ActionSheetController"]
         }, {
           type: _ionic_angular__WEBPACK_IMPORTED_MODULE_7__["Platform"]
         }, {
-          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_17__["DomSanitizer"]
+          type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_16__["DomSanitizer"]
         }, {
-          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_18__["TranslateService"]
+          type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_17__["TranslateService"]
         }, {
           type: _services_loader_service__WEBPACK_IMPORTED_MODULE_1__["LoaderService"]
         }];
@@ -31012,115 +31002,6 @@
         /*! ./signup.page.scss */
         "./src/app/pages/index/signup/signup.page.scss"))["default"]]
       })], SignupPage);
-      /***/
-    },
-
-    /***/
-    "./src/app/services/loader.service.ts":
-    /*!********************************************!*\
-      !*** ./src/app/services/loader.service.ts ***!
-      \********************************************/
-
-    /*! exports provided: LoaderService */
-
-    /***/
-    function srcAppServicesLoaderServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "LoaderService", function () {
-        return LoaderService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @ionic/angular */
-      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-      var LoaderService = /*#__PURE__*/function () {
-        function LoaderService(loadingController) {
-          _classCallCheck(this, LoaderService);
-
-          this.loadingController = loadingController;
-        }
-
-        _createClass(LoaderService, [{
-          key: "showLoader",
-          value: function showLoader() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
-              return regeneratorRuntime.wrap(function _callee8$(_context8) {
-                while (1) {
-                  switch (_context8.prev = _context8.next) {
-                    case 0:
-                      _context8.next = 2;
-                      return this.loadingController.create({
-                        message: 'Please wait...',
-                        showBackdrop: true
-                      }).then(function (res) {
-                        res.present();
-                      });
-
-                    case 2:
-                    case "end":
-                      return _context8.stop();
-                  }
-                }
-              }, _callee8, this);
-            }));
-          }
-        }, {
-          key: "hideLoader",
-          value: function hideLoader() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee9() {
-              return regeneratorRuntime.wrap(function _callee9$(_context9) {
-                while (1) {
-                  switch (_context9.prev = _context9.next) {
-                    case 0:
-                      _context9.next = 2;
-                      return this.loadingController.dismiss().then(function (res) {
-                        console.log('Loading dismissed!', res);
-                      })["catch"](function (err) {
-                        console.log('error', err);
-                      });
-
-                    case 2:
-                    case "end":
-                      return _context9.stop();
-                  }
-                }
-              }, _callee9, this);
-            }));
-          }
-        }]);
-
-        return LoaderService;
-      }();
-
-      LoaderService.ctorParameters = function () {
-        return [{
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
-        }];
-      };
-
-      LoaderService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
-        providedIn: 'root'
-      })], LoaderService);
       /***/
     }
   }]);

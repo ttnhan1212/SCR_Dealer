@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n\t<ion-toolbar>\n\t\t<ion-title class=\"smllogo\">\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t\t<ion-button slot=\"end\" fill=\"clear\" [routerLink]=\"['/','home','deal']\">\n\t\t\t<ion-icon name=\"log-out-outline\"></ion-icon>\n\t\t</ion-button>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"container\" *ngIf=\"deal?.status === 10\">\n\t<ion-card class=\"text-center vertical-center\">\n\t\t<img\n\t\t\tsrc=\"../../../../../assets/images/cars/2020_nissan_gt_r_nismo_v5-wallpaper-1920x1080.jpg\"\n\t\t\talt=\"../../../../../assets/images/admin-media/0-10.jpg\"\n\t\t/>\n\t\t<ion-card-header> Payment request have been made </ion-card-header>\n\t\t<ion-card-content> SCRoad is checking for your payment </ion-card-content>\n\t</ion-card>\n</ion-content>\n\n<ion-content class=\"container\" *ngIf=\"deal?.status === 11\">\n\t<ion-card class=\"text-center vertical-center\">\n\t\t<img\n\t\t\tsrc=\"../../../../../assets/images/cars/2020_nissan_gt_r_nismo_v5-wallpaper-1920x1080.jpg\"\n\t\t\talt=\"../../../../../assets/images/admin-media/0-10.jpg\"\n\t\t/>\n\t\t<ion-card-header> Payment had been complete </ion-card-header>\n\t\t<ion-card-content> Thank you for choosing SCRoad </ion-card-content>\n\t</ion-card>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header [translucent]='true'>\n\t<ion-toolbar>\n\t\t<ion-title>\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t\t<ion-button slot=\"end\" fill=\"clear\" [routerLink]=\"['/','home','deal']\">\n\t\t\t<ion-icon name=\"log-out-outline\"></ion-icon>\n\t\t</ion-button>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"container\" *ngIf=\"deal?.status === 10\">\n\t<ion-card class=\"text-center vertical-center\">\n\t\t<img\n\t\t\tsrc=\"../../../../../assets/images/cars/2020_nissan_gt_r_nismo_v5-wallpaper-1920x1080.jpg\"\n\t\t\talt=\"../../../../../assets/images/admin-media/0-10.jpg\"\n\t\t/>\n\t\t<ion-card-header> Payment request have been made </ion-card-header>\n\t\t<ion-card-content> SCRoad is checking for your payment </ion-card-content>\n\t</ion-card>\n</ion-content>\n\n<ion-content class=\"container\" *ngIf=\"deal?.status === 11\">\n\t<ion-card class=\"text-center vertical-center\">\n\t\t<img\n\t\t\tsrc=\"../../../../../assets/images/cars/2020_nissan_gt_r_nismo_v5-wallpaper-1920x1080.jpg\"\n\t\t\talt=\"../../../../../assets/images/admin-media/0-10.jpg\"\n\t\t/>\n\t\t<ion-card-header> Payment had been complete </ion-card-header>\n\t\t<ion-card-content> Thank you for choosing SCRoad </ion-card-content>\n\t</ion-card>\n</ion-content>\n";
       /***/
     },
 
@@ -156,7 +156,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".smllogo {\n  width: 7rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dvL2xvZ28uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxXQUFBO0FBQ0QiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2xvZ28vbG9nby5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5zbWxsb2dvIHtcblx0d2lkdGg6IDdyZW07XG59XG4iXX0= */";
+      __webpack_exports__["default"] = ".smllogo {\n  height: 2.6rem;\n  width: 45%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dvL2xvZ28uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxjQUFBO0VBQ0EsVUFBQTtBQUNEIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9sb2dvL2xvZ28uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc21sbG9nbyB7XG5cdGhlaWdodDogMi42cmVtO1xuXHR3aWR0aDogNDUlO1xufVxuIl19 */";
       /***/
     },
 
@@ -474,7 +474,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".container {\n  height: 100vh;\n  position: relative;\n}\n\n.vertical-center {\n  position: absolute;\n  top: 45%;\n  transform: translateY(-50%);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdmlzaXQvcGF5bWVudC9wYXltZW50LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDLGFBQUE7RUFDQSxrQkFBQTtBQUNEOztBQUVBO0VBQ0Msa0JBQUE7RUFDQSxRQUFBO0VBRUEsMkJBQUE7QUFDRCIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3Zpc2l0L3BheW1lbnQvcGF5bWVudC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcblx0aGVpZ2h0OiAxMDB2aDtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG4udmVydGljYWwtY2VudGVyIHtcblx0cG9zaXRpb246IGFic29sdXRlO1xuXHR0b3A6IDQ1JTtcblx0LW1zLXRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNTAlKTtcblx0dHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xufVxuIl19 */";
+      __webpack_exports__["default"] = ".container {\n  height: 100vh;\n  position: relative;\n}\n\nion-title {\n  padding: 0 !important;\n}\n\n.vertical-center {\n  position: absolute;\n  top: 45%;\n  transform: translateY(-50%);\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvdmlzaXQvcGF5bWVudC9wYXltZW50LnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDLGFBQUE7RUFDQSxrQkFBQTtBQUNEOztBQUVBO0VBQ0MscUJBQUE7QUFDRDs7QUFFQTtFQUNDLGtCQUFBO0VBQ0EsUUFBQTtFQUVBLDJCQUFBO0FBQ0QiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy92aXNpdC9wYXltZW50L3BheW1lbnQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XG5cdGhlaWdodDogMTAwdmg7XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuaW9uLXRpdGxlIHtcblx0cGFkZGluZzogMCAhaW1wb3J0YW50O1xufVxuXG4udmVydGljYWwtY2VudGVyIHtcblx0cG9zaXRpb246IGFic29sdXRlO1xuXHR0b3A6IDQ1JTtcblx0LW1zLXRyYW5zZm9ybTogdHJhbnNsYXRlWSgtNTAlKTtcblx0dHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xufVxuIl19 */";
       /***/
     },
 
@@ -601,115 +601,6 @@
         /*! ./payment.page.scss */
         "./src/app/pages/visit/payment/payment.page.scss"))["default"]]
       })], PaymentPage);
-      /***/
-    },
-
-    /***/
-    "./src/app/services/loader.service.ts":
-    /*!********************************************!*\
-      !*** ./src/app/services/loader.service.ts ***!
-      \********************************************/
-
-    /*! exports provided: LoaderService */
-
-    /***/
-    function srcAppServicesLoaderServiceTs(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "LoaderService", function () {
-        return LoaderService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
-      /* harmony import */
-
-
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @ionic/angular */
-      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-      var LoaderService = /*#__PURE__*/function () {
-        function LoaderService(loadingController) {
-          _classCallCheck(this, LoaderService);
-
-          this.loadingController = loadingController;
-        }
-
-        _createClass(LoaderService, [{
-          key: "showLoader",
-          value: function showLoader() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                while (1) {
-                  switch (_context2.prev = _context2.next) {
-                    case 0:
-                      _context2.next = 2;
-                      return this.loadingController.create({
-                        message: 'Please wait...',
-                        showBackdrop: true
-                      }).then(function (res) {
-                        res.present();
-                      });
-
-                    case 2:
-                    case "end":
-                      return _context2.stop();
-                  }
-                }
-              }, _callee2, this);
-            }));
-          }
-        }, {
-          key: "hideLoader",
-          value: function hideLoader() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-              return regeneratorRuntime.wrap(function _callee3$(_context3) {
-                while (1) {
-                  switch (_context3.prev = _context3.next) {
-                    case 0:
-                      _context3.next = 2;
-                      return this.loadingController.dismiss().then(function (res) {
-                        console.log('Loading dismissed!', res);
-                      })["catch"](function (err) {
-                        console.log('error', err);
-                      });
-
-                    case 2:
-                    case "end":
-                      return _context3.stop();
-                  }
-                }
-              }, _callee3, this);
-            }));
-          }
-        }]);
-
-        return LoaderService;
-      }();
-
-      LoaderService.ctorParameters = function () {
-        return [{
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
-        }];
-      };
-
-      LoaderService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["Injectable"])({
-        providedIn: 'root'
-      })], LoaderService);
       /***/
     }
   }]);

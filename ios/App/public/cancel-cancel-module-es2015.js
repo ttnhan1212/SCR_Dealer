@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title>Cancel</ion-title>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<ion-item class=\"mt-10\">\n\t\t<ion-label position=\"floating\">Cancel Reason</ion-label>\n\t\t<ion-textarea [(ngModel)]=\"message\" class=\"cancel-input\"></ion-textarea>\n\t</ion-item>\n\t<ion-button\n\t\tclass=\"mt-5\"\n\t\texpand=\"block\"\n\t\tcolor=\"primary\"\n\t\t(click)=\"submitCancel()\"\n\t>\n\t\tSubmit\n\t</ion-button>\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header [translucent]='true'>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title>Cancel</ion-title>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\">\n\t<ion-item class=\"mt-10\">\n\t\t<ion-label position=\"floating\">Cancel Reason</ion-label>\n\t\t<ion-textarea [(ngModel)]=\"message\" class=\"cancel-input\"></ion-textarea>\n\t</ion-item>\n\t<ion-button\n\t\tclass=\"mt-5\"\n\t\texpand=\"block\"\n\t\tcolor=\"primary\"\n\t\t(click)=\"submitCancel()\"\n\t>\n\t\tSubmit\n\t</ion-button>\n</ion-content>\n");
 
 /***/ }),
 
