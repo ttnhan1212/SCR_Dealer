@@ -244,7 +244,6 @@
           this.router = router;
           this.route = route;
           this.afAuth = afAuth;
-          this.authState = null;
           this.date = Math.floor(new Date().getTime() / 1000.0);
           this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
         }
@@ -265,11 +264,9 @@
                   switch (_context.prev = _context.next) {
                     case 0:
                       _context.next = 2;
-                      return this.afAuth.authState.subscribe(function (authState) {
-                        _this.authState = authState;
-
-                        if (_this.authState) {
-                          _this.userId = _this.authState.uid;
+                      return this.afAuth.currentUser.then(function (user) {
+                        if (user) {
+                          _this.userId = user.uid;
                         }
                       });
 

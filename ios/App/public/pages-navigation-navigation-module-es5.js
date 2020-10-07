@@ -110,7 +110,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | settings-setting-module */
-            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~632b491e"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("settings-setting-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("settings-setting-module")]).then(__webpack_require__.bind(null,
             /*! ./settings/setting.module */
             "./src/app/pages/navigation/settings/setting.module.ts")).then(function (m) {
               return m.SettingPageModule;
@@ -121,7 +121,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | infor-infor-module */
-            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~632b491e"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("infor-infor-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("infor-infor-module")]).then(__webpack_require__.bind(null,
             /*! ./infor/infor.module */
             "./src/app/pages/navigation/infor/infor.module.ts")).then(function (m) {
               return m.InforPageModule;

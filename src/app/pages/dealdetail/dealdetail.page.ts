@@ -37,15 +37,9 @@ export class DealdetailPage implements OnInit, OnDestroy {
 		private notiService: NotiService,
 		private afAuth: AngularFireAuth,
 		private loader: LoaderService,
-		translate: TranslateService
+		translate: TranslateService,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-
-		this.afAuth.currentUser.then((val) => {
-			if (val) {
-				this.userId = val.uid;
-			}
-		});
 
 		translate.addLangs(['en', 'kr']);
 
@@ -57,8 +51,17 @@ export class DealdetailPage implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
+		this.getUser();
 		this.getDealDetail(this.id);
 		this.getDealerInParticipant(this.id);
+	}
+
+	async getUser() {
+		await this.afAuth.currentUser.then((val) => {
+			if (val) {
+				this.userId = val.uid;
+			}
+		});
 	}
 
 	async getDealDetail(id: string) {
@@ -92,7 +95,7 @@ export class DealdetailPage implements OnInit, OnDestroy {
 			selected: false,
 		};
 		await this.dealsService.dealerToDeal(this.id, this.dealer);
-		await this.dealsService.addDealToDealer(this.id, {
+		await this.dealsService.addDealToDealer(this.userId, this.id, {
 			dealId: this.id,
 			price: this.price,
 			bidTime: this.bidTime,

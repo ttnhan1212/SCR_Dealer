@@ -62,7 +62,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header [translucent]='true'>\n\t<ion-toolbar>\n\t\t<ion-title>\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t\t<ion-button fill=\"clear\" slot=\"end\" [routerLink]=\"['/','home','infor']\">\n\t\t\t<ion-icon name=\"information-circle-outline\"></ion-icon>\n\t\t</ion-button>\n\t\t<ion-button\n\t\t\tfill=\"clear\"\n\t\t\tslot=\"end\"\n\t\t\t[routerLink]=\"['/','home','notifications']\"\n\t\t>\n\t\t\t<ion-icon name=\"notifications-outline\"></ion-icon>\n\t\t</ion-button>\n\t</ion-toolbar>\n</ion-header>\n<ion-content>\n\t<ion-item lines=\"none\" class=\"mt-4\">\n\t\t<ul class=\"fa-ul\">\n\t\t\t<li>\n\t\t\t\t<i class=\"fa-li fa fa-circle wait-status\"></i\n\t\t\t\t>{{'home_ongoing.please_wait' | translate}}\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t<i class=\"fa-li fa fa-circle proceed-status\"></i\n\t\t\t\t>{{'home_ongoing.proceed' | translate}}\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t<i class=\"fa-li fa fa-circle ended-status\"></i\n\t\t\t\t>{{'home_ongoing.ended_trade' | translate}}\n\t\t\t</li>\n\t\t</ul>\n\t</ion-item>\n\t<ion-list style=\"margin-top: 25px\">\n\t\t<ion-item\n\t\t*ngFor=\"let item of ongoing, let i = index\"\n\t\tlines=\"none\"\n\t\t[disabled]=\"item.status === 'Cancel' ? true : false\"\n\t\t[routerLink]=\"ongoing[i].deal?.status === 5 ? ['/','home','visit',item.dealId] : (ongoing[i].deal?.status >= 7 && ongoing[i].deal?.status <= 9 ? ['/','certificationupload',item.dealId] : (ongoing[i].deal?.status >= 10 ? ['/','home','payment',item.dealId] :  [item.dealId]))\"\n\t>\n\t\t<ion-thumbnail slot=\"start\">\n\t\t\t<img src=\"../../../../assets/images/photos/car_02.png\" />\n\t\t</ion-thumbnail>\n\t\t<ion-label  [ngSwitch]=\"item.deal?.status\">\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #ffc107;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"1\">\n\t\t\t\t\tQuote in progress\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #ffc107;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"2\">\n\t\t\t\t\tWaiting for seller to select\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #28a745;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"3\">\n\t\t\t\t\t<span *ngIf=\"item.selectedId && id === item.selectedId\"\n\t\t\t\t\t\t>Confirm the auction</span\n\t\t\t\t\t>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #6c757d;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"3\">\n\t\t\t\t\t<span *ngIf=\"item.selectedId && id !== item.selectedId\"\n\t\t\t\t\t\t>Other dealer selected</span\n\t\t\t\t\t>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #6c757d;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"4\">\n\t\t\t\t\t<span *ngIf=\"item.selectedId && id === item.selectedId\"\n\t\t\t\t\t\t>Cancel the auction</span\n\t\t\t\t\t>\n\n\t\t\t\t\t<span *ngIf=\"item.selectedId && id !== item.selectedId\"\n\t\t\t\t\t\t>Other dealer selected</span\n\t\t\t\t\t>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #28a745;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"5\">\n\t\t\t\t\t<span *ngIf=\"item.selectedId && id === item.selectedId\"\n\t\t\t\t\t\t>Please write visit result\n\t\t\t\t\t</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #6c757d;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"5\">\n\t\t\t\t\t<span *ngIf=\"item.selectedId && id !== item.selectedId\"\n\t\t\t\t\t\t>Other dealer selected</span\n\t\t\t\t\t>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #6c757d;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"6\">\n\t\t\t\t\tCancel the purchase\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #ffc107;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"7\">\n\t\t\t\t\tWaiting for Seller Review\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #ffc107;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"8\">\n\t\t\t\t\tWaiting for Seller Review\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #28a745;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"9\">\n\t\t\t\t\tPlease upload the certification\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #ffc107;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"10\">\n\t\t\t\t\tPlease complete the payment\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #6c757d;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"11\">\n\t\t\t\t\tTrade complete\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t\t<div\n\t\t\t\tstyle=\"\n\t\t\t\t\tbackground: #bdc3c7;\n\t\t\t\t\tborder-radius: 5px;\n\t\t\t\t\"\n\t\t\t\tclass=\"m-0 p-0\"\n\t\t\t>\n\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchDefault=\"\">N/A</p>\n\t\t\t</div>\n\t\t\t<div class=\"first\">\n\t\t\t\t<p>\n\t\t\t\t\t2009\n\t\t\t\t\t<span class=\"pull-right\"\n\t\t\t\t\t\t>K-5<span style=\"font-size: 10px\">12가1234</span></span\n\t\t\t\t\t>\n\t\t\t\t</p>\n\t\t\t\t<p>\n\t\t\t\t\t{{item.deal?.miles | number}} Km\n\t\t\t\t\t<span class=\"pull-right\">￦{{item.price | number}}</span>\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</ion-label>\n\t</ion-item>\n</ion-list>\n\t\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header [translucent]=\"true\">\n\t<ion-toolbar>\n\t\t<ion-title>\n\t\t\t<app-logo></app-logo>\n\t\t</ion-title>\n\t\t<ion-button fill=\"clear\" slot=\"end\" [routerLink]=\"['/','home','infor']\">\n\t\t\t<ion-icon name=\"information-circle-outline\"></ion-icon>\n\t\t</ion-button>\n\t\t<ion-button\n\t\t\tfill=\"clear\"\n\t\t\tslot=\"end\"\n\t\t\t[routerLink]=\"['/','home','notifications']\"\n\t\t>\n\t\t\t<ion-icon name=\"notifications-outline\"></ion-icon>\n\t\t</ion-button>\n\t</ion-toolbar>\n</ion-header>\n<ion-content>\n\t<ion-item lines=\"none\" class=\"mt-4\">\n\t\t<ul class=\"fa-ul\">\n\t\t\t<li>\n\t\t\t\t<i class=\"fa-li fa fa-circle wait-status\"></i\n\t\t\t\t>{{'home_ongoing.please_wait' | translate}}\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t<i class=\"fa-li fa fa-circle proceed-status\"></i\n\t\t\t\t>{{'home_ongoing.proceed' | translate}}\n\t\t\t</li>\n\t\t\t<li>\n\t\t\t\t<i class=\"fa-li fa fa-circle ended-status\"></i\n\t\t\t\t>{{'home_ongoing.ended_trade' | translate}}\n\t\t\t</li>\n\t\t</ul>\n\t</ion-item>\n\t<ion-list style=\"margin-top: 25px\">\n\t\t<ion-item\n\t\t\t*ngFor=\"let item of ongoing, let i = index\"\n\t\t\tlines=\"none\"\n\t\t\t[disabled]=\"item.status === 'Cancel' ? true : false\"\n\t\t\t[routerLink]=\"ongoing[i].deal?.status === 5 ? ['/','home','visit',item.dealId] : (ongoing[i].deal?.status >= 7 && ongoing[i].deal?.status <= 9 ? ['/','certificationupload',item.dealId] : (ongoing[i].deal?.status >= 10 ? ['/','home','payment',item.dealId] :  [item.dealId]))\"\n\t\t>\n\t\t\t<ion-thumbnail slot=\"start\">\n\t\t\t\t<img src=\"../../../../assets/images/photos/car_02.png\" />\n\t\t\t</ion-thumbnail>\n\t\t\t<ion-label [ngSwitch]=\"item.deal?.status\">\n\t\t\t\t<div style=\"background: #ffc107; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"1\">\n\t\t\t\t\t\tQuote in progress\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #ffc107; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"2\">\n\t\t\t\t\t\tWaiting for seller to select\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #28a745; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"3\">\n\t\t\t\t\t\t<span *ngIf=\"item.selectedId && id === item.selectedId\"\n\t\t\t\t\t\t\t>Confirm the auction</span\n\t\t\t\t\t\t>\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #6c757d; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"3\">\n\t\t\t\t\t\t<span *ngIf=\"item.selectedId && id !== item.selectedId\"\n\t\t\t\t\t\t\t>Other dealer selected</span\n\t\t\t\t\t\t>\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #6c757d; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"4\">\n\t\t\t\t\t\t<span *ngIf=\"item.selectedId && id === item.selectedId\"\n\t\t\t\t\t\t\t>Cancel the auction</span\n\t\t\t\t\t\t>\n\n\t\t\t\t\t\t<span *ngIf=\"item.selectedId && id !== item.selectedId\"\n\t\t\t\t\t\t\t>Other dealer selected</span\n\t\t\t\t\t\t>\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #28a745; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"5\">\n\t\t\t\t\t\t<span *ngIf=\"item.selectedId && id === item.selectedId\"\n\t\t\t\t\t\t\t>Please write visit result\n\t\t\t\t\t\t</span>\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #6c757d; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"5\">\n\t\t\t\t\t\t<span *ngIf=\"item.selectedId && id !== item.selectedId\"\n\t\t\t\t\t\t\t>Other dealer selected</span\n\t\t\t\t\t\t>\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #6c757d; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"6\">\n\t\t\t\t\t\tCancel the purchase\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #ffc107; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"7\">\n\t\t\t\t\t\tWaiting for Seller Review\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #ffc107; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"8\">\n\t\t\t\t\t\tWaiting for Seller Review\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #28a745; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"9\">\n\t\t\t\t\t\tPlease upload the certification\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #ffc107; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"10\">\n\t\t\t\t\t\tPlease complete the payment\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #6c757d; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchCase=\"11\">\n\t\t\t\t\t\tTrade complete\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t\t<div style=\"background: #bdc3c7; border-radius: 5px\" class=\"m-0 p-0\">\n\t\t\t\t\t<p class=\"fs-15 text-center text-dark\" *ngSwitchDefault=\"\">N/A</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"first\">\n\t\t\t\t\t<p>\n\t\t\t\t\t\t2009\n\t\t\t\t\t\t<span class=\"pull-right\"\n\t\t\t\t\t\t\t>K-5<span style=\"font-size: 10px\">12가1234</span></span\n\t\t\t\t\t\t>\n\t\t\t\t\t</p>\n\t\t\t\t\t<p>\n\t\t\t\t\t\t{{item.deal?.miles | number}} Km\n\t\t\t\t\t\t<span class=\"pull-right\">￦{{item.price | number}}</span>\n\t\t\t\t\t</p>\n\t\t\t\t</div>\n\t\t\t</ion-label>\n\t\t</ion-item>\n\t</ion-list>\n</ion-content>\n";
       /***/
     },
 
@@ -551,9 +551,9 @@
       /* harmony import */
 
 
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @ionic/angular */
-      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      var _services_loader_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./../../../services/loader.service */
+      "./src/app/services/loader.service.ts");
       /* harmony import */
 
 
@@ -580,12 +580,12 @@
       "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
 
       var OngoingPage = /*#__PURE__*/function () {
-        function OngoingPage(dealService, afAuth, loadingController, translate) {
+        function OngoingPage(dealService, afAuth, loader, translate) {
           _classCallCheck(this, OngoingPage);
 
           this.dealService = dealService;
           this.afAuth = afAuth;
-          this.loadingController = loadingController;
+          this.loader = loader;
           this.logo = '../../../assets/images/logo/scroadslight.svg';
           translate.addLangs(['en', 'kr']); // this language will be used as a fallback when a translation isn't found in the current language
 
@@ -605,32 +605,26 @@
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
               var _this = this;
 
-              var loading;
               return regeneratorRuntime.wrap(function _callee$(_context) {
                 while (1) {
                   switch (_context.prev = _context.next) {
                     case 0:
                       _context.next = 2;
-                      return this.loadingController.create({
-                        message: 'Please wait...',
-                        showBackdrop: true
-                      });
+                      return this.loader.showLoader();
 
                     case 2:
-                      loading = _context.sent;
-                      _context.next = 5;
-                      return this.afAuth.authState.subscribe(function (authState) {
-                        if (authState) {
-                          loading.present();
-                          _this.id = authState.uid;
+                      _context.next = 4;
+                      return this.afAuth.currentUser.then(function (user) {
+                        if (user) {
+                          _this.id = user.uid;
 
-                          _this.getOngoingDeal(authState.uid);
+                          _this.getOngoingDeal(user.uid);
 
-                          loading.dismiss();
+                          _this.loader.hideLoader();
                         }
                       });
 
-                    case 5:
+                    case 4:
                     case "end":
                       return _context.stop();
                   }
@@ -691,7 +685,7 @@
         }, {
           type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"]
         }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_1__["LoadingController"]
+          type: _services_loader_service__WEBPACK_IMPORTED_MODULE_1__["LoaderService"]
         }, {
           type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_5__["TranslateService"]
         }];

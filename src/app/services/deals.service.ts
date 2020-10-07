@@ -12,11 +12,11 @@ export class DealsService {
 
 	constructor(
 		private fireStore: AngularFirestore,
-		private afAuth: AngularFireAuth
+		private afAuth: AngularFireAuth,
 	) {
 		this.afAuth.authState.subscribe((user) => {
 			if (user) {
-				this.loggedUser = user;
+				this.loggedUser = user.uid;
 			}
 		});
 	}
@@ -24,7 +24,7 @@ export class DealsService {
 	getDeal() {
 		return this.fireStore
 			.collection('requests', (ref) =>
-				ref.where('expiredTime', '>=', this.now).orderBy('expiredTime', 'desc')
+				ref.where('expiredTime', '>=', this.now).orderBy('expiredTime', 'desc'),
 			)
 			.snapshotChanges();
 	}
@@ -34,7 +34,7 @@ export class DealsService {
 			.collection('requests')
 			.doc(id)
 			.collection('participants', (ref) =>
-				ref.where('userId', '==', this.loggedUser.uid)
+				ref.where('userId', '==', this.loggedUser),
 			)
 			.valueChanges();
 	}
@@ -45,8 +45,8 @@ export class DealsService {
 			.doc(id)
 			.collection('participants', (ref) =>
 				ref
-					.where('userId', '==', this.loggedUser.uid)
-					.where('selected', '==', true)
+					.where('userId', '==', this.loggedUser)
+					.where('selected', '==', true),
 			)
 			.valueChanges();
 	}
@@ -56,7 +56,7 @@ export class DealsService {
 			.collection('Dealer')
 			.doc(id)
 			.collection('Deals', (ref) =>
-				ref.where('canceled', '==', false).orderBy('bidTime', 'desc')
+				ref.where('canceled', '==', false).orderBy('bidTime', 'desc'),
 			)
 			.snapshotChanges();
 	}
@@ -77,10 +77,10 @@ export class DealsService {
 			.add(dealer);
 	}
 
-	addDealToDealer(dealId: string, deal: any) {
+	addDealToDealer(dealerId: string, dealId: string, deal: any) {
 		return this.fireStore
 			.collection('Dealer')
-			.doc(this.loggedUser.uid)
+			.doc(dealerId)
 			.collection('Deals')
 			.doc(dealId)
 			.set(deal);
@@ -89,7 +89,7 @@ export class DealsService {
 	updateDealInDealer(id: string, val: any) {
 		this.fireStore
 			.collection('Dealer')
-			.doc(this.loggedUser.uid)
+			.doc(this.loggedUser)
 			.collection('Deals')
 			.doc(id)
 			.update(val);

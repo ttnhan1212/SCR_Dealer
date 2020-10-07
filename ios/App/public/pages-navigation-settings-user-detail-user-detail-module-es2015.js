@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n\t<ion-toolbar>\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button defaultHref=\"/home/deal\"></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title\n\t\t\t>{{'home_edit_account.account_infor_header' | translate}}</ion-title\n\t\t>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content>\n\t<!-- Login content section -->\n\t<ion-card>\n\t\t<div class=\"container customerpage\">\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"single-page\">\n\t\t\t\t\t<div class=\"col-lg-5 col-xl-4 col-md-6 d-block mx-auto\">\n\t\t\t\t\t\t<div class=\"wrapper wrapper2\">\n\t\t\t\t\t\t\t<form class=\"card-body p-4 pb-4\" [formGroup]=\"editForm\">\n\t\t\t\t\t\t\t\t<div class=\"avt-view\">\n\t\t\t\t\t\t\t\t\t<img [src]=\"imagePreview\" alt=\"\" class=\"img-fluid\" />\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"email\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"email\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.email\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.email' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"orgName\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.orgName\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.org_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"ceoName\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.ceoName\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.ceo_name' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mail\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"number\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"phone\"\n\t\t\t\t\t\t\t\t\t\t[value]=\"dealer.phone\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.phone_number' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"mb-8\"></div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"password\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label>{{'home_edit_account.password' | translate}}</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"passwd\">\n\t\t\t\t\t\t\t\t\t<input\n\t\t\t\t\t\t\t\t\t\ttype=\"password\"\n\t\t\t\t\t\t\t\t\t\tformControlName=\"cPassword\"\n\t\t\t\t\t\t\t\t\t\tstyle=\"color: #080e1b\"\n\t\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t\t<label\n\t\t\t\t\t\t\t\t\t\t>{{'home_edit_account.confirm_password' | translate}}</label\n\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t\t<ion-button\n\t\t\t\t\t\t\t\texpand=\"block\"\n\t\t\t\t\t\t\t\tcolor=\"tertiary\"\n\t\t\t\t\t\t\t\tclass=\"mr-3 ml-3\"\n\t\t\t\t\t\t\t\t[disabled]=\"!editForm.valid\"\n\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t{{'home_edit_account.update_infor' | translate}}\n\t\t\t\t\t\t\t</ion-button>\n\t\t\t\t\t\t\t<div class=\"mb-5\"></div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</ion-card>\n\t<!-- End of Login content section -->\n</ion-content>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\n\t<ion-toolbar style=\"padding: 8px !important\">\n\t\t<ion-buttons slot=\"start\">\n\t\t\t<ion-back-button defaultHref=\"/home/deal\"></ion-back-button>\n\t\t</ion-buttons>\n\t\t<ion-title\n\t\t\t>{{'home_edit_account.account_infor_header' | translate}}</ion-title\n\t\t>\n\t</ion-toolbar>\n</ion-header>\n\n<ion-content class=\"m-0 p-0\">\n\t<!-- Login content section -->\n\t<ion-card *ngIf=\"dealer\">\n\t\t<ion-card-content>\n\t\t\t<form [formGroup]=\"editForm\">\n\t\t\t\t<ion-list>\n\t\t\t\t\t<div class=\"avt-view\">\n\t\t\t\t\t\t<img [src]=\"imagePreview\" alt=\"\" class=\"img-fluid\" />\n\t\t\t\t\t</div>\n\t\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t\t<mat-label>{{'home_edit_account.email' | translate}}</mat-label>\n\t\t\t\t\t\t<input type=\"email\" matInput formControlName=\"email\" />\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t\t<mat-label>{{'home_edit_account.org_name' | translate}}</mat-label>\n\t\t\t\t\t\t<input type=\"text\" matInput formControlName=\"orgName\" />\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t\t<mat-label>{{'home_edit_account.ceo_name' | translate}}</mat-label>\n\t\t\t\t\t\t<input type=\"text\" matInput formControlName=\"ceoName\" />\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t\t<mat-label\n\t\t\t\t\t\t\t>{{'home_edit_account.phone_number' | translate}}</mat-label\n\t\t\t\t\t\t>\n\t\t\t\t\t\t<input type=\"number\" matInput formControlName=\"phone\" />\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t\t<mat-label>{{'home_edit_account.address' | translate}}</mat-label>\n\t\t\t\t\t\t<input type=\"text\" matInput formControlName=\"address\" />\n\t\t\t\t\t</mat-form-field>\n\n\t\t\t\t\t<div class=\"mb-8\"></div>\n\t\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t\t<mat-label>{{'home_edit_account.password' | translate}}</mat-label>\n\t\t\t\t\t\t<input type=\"password\" matInput formControlName=\"password\" />\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t\t<mat-form-field appearance=\"outline\">\n\t\t\t\t\t\t<mat-label>{{'home_edit_account.password' | translate}}</mat-label>\n\t\t\t\t\t\t<input type=\"password\" matInput formControlName=\"cPassword\" />\n\t\t\t\t\t</mat-form-field>\n\t\t\t\t</ion-list>\n\t\t\t</form>\n\t\t</ion-card-content>\n\t</ion-card>\n\t<!-- End of Login content section -->\n</ion-content>\n\n<ion-footer class=\"ion-padding\">\n\t<ion-button expand=\"block\" color=\"tertiary\" [disabled]=\"!editForm.valid\">\n\t\t{{'home_edit_account.update_infor' | translate}}\n\t</ion-button>\n</ion-footer>\n");
 
 /***/ }),
 
@@ -62,15 +62,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpLoaderFactory", function() { return HttpLoaderFactory; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserDetailPageModule", function() { return UserDetailPageModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _user_detail_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./user-detail-routing.module */ "./src/app/pages/navigation/settings/user-detail/user-detail-routing.module.ts");
-/* harmony import */ var _user_detail_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-detail.page */ "./src/app/pages/navigation/settings/user-detail/user-detail.page.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
-/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
-/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/__ivy_ngcc__/fesm2015/ngx-translate-http-loader.js");
+/* harmony import */ var _angular_material_input__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/material/input */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/input.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _user_detail_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-detail-routing.module */ "./src/app/pages/navigation/settings/user-detail/user-detail-routing.module.ts");
+/* harmony import */ var _user_detail_page__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-detail.page */ "./src/app/pages/navigation/settings/user-detail/user-detail.page.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/http.js");
+/* harmony import */ var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ngx-translate/core */ "./node_modules/@ngx-translate/core/__ivy_ngcc__/fesm2015/ngx-translate-core.js");
+/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/__ivy_ngcc__/fesm2015/ngx-translate-http-loader.js");
+/* harmony import */ var _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/material/form-field */ "./node_modules/@angular/material/__ivy_ngcc__/fesm2015/form-field.js");
+
+
 
 
 
@@ -82,28 +86,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function HttpLoaderFactory(http) {
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_9__["TranslateHttpLoader"](http);
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_10__["TranslateHttpLoader"](http);
 }
 let UserDetailPageModule = class UserDetailPageModule {
 };
 UserDetailPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
-            _user_detail_routing_module__WEBPACK_IMPORTED_MODULE_5__["UserDetailPageRoutingModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
-            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateModule"].forRoot({
+            _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_5__["IonicModule"],
+            _user_detail_routing_module__WEBPACK_IMPORTED_MODULE_6__["UserDetailPageRoutingModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"],
+            _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateModule"].forRoot({
                 loader: {
-                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateLoader"],
+                    provide: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateLoader"],
                     useFactory: HttpLoaderFactory,
-                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClient"]],
-                }
+                    deps: [_angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClient"]],
+                },
             }),
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"]
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"],
+            _angular_material_form_field__WEBPACK_IMPORTED_MODULE_11__["MatFormFieldModule"],
+            _angular_material_input__WEBPACK_IMPORTED_MODULE_1__["MatInputModule"],
         ],
-        declarations: [_user_detail_page__WEBPACK_IMPORTED_MODULE_6__["UserDetailPage"]],
+        declarations: [_user_detail_page__WEBPACK_IMPORTED_MODULE_7__["UserDetailPage"]],
     })
 ], UserDetailPageModule);
 
@@ -120,7 +126,7 @@ UserDetailPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".avt-view {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 6rem !important;\n  height: 6rem !important;\n  border: 1px solid #d8dde6;\n  overflow: hidden;\n  position: relative;\n  margin: auto;\n  border-radius: 16px;\n}\n.avt-view ion-input[type=file] {\n  position: absolute;\n  opacity: 0;\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbmF2aWdhdGlvbi9zZXR0aW5ncy91c2VyLWRldGFpbC91c2VyLWRldGFpbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSx5QkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7QUFDRDtBQUNDO0VBQ0Msa0JBQUE7RUFDQSxVQUFBO0VBQ0EsV0FBQTtFQUNBLFlBQUE7RUFDQSxNQUFBO0VBQ0EsT0FBQTtBQUNGIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvbmF2aWdhdGlvbi9zZXR0aW5ncy91c2VyLWRldGFpbC91c2VyLWRldGFpbC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYXZ0LXZpZXcge1xuXHRkaXNwbGF5OiBmbGV4O1xuXHRqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcblx0YWxpZ24taXRlbXM6IGNlbnRlcjtcblx0d2lkdGg6IDZyZW0gIWltcG9ydGFudDtcblx0aGVpZ2h0OiA2cmVtICFpbXBvcnRhbnQ7XG5cdGJvcmRlcjogMXB4IHNvbGlkICNkOGRkZTY7XG5cdG92ZXJmbG93OiBoaWRkZW47XG5cdHBvc2l0aW9uOiByZWxhdGl2ZTtcblx0bWFyZ2luOiBhdXRvO1xuXHRib3JkZXItcmFkaXVzOiAxNnB4O1xuXG5cdGlvbi1pbnB1dFt0eXBlPSdmaWxlJ10ge1xuXHRcdHBvc2l0aW9uOiBhYnNvbHV0ZTtcblx0XHRvcGFjaXR5OiAwO1xuXHRcdHdpZHRoOiAxMDAlO1xuXHRcdGhlaWdodDogMTAwJTtcblx0XHR0b3A6IDA7XG5cdFx0bGVmdDogMDtcblx0fVxufVxuIl19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".avt-view {\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  width: 6rem !important;\n  height: 6rem !important;\n  border: 1px solid #d8dde6;\n  overflow: hidden;\n  position: relative;\n  margin: auto;\n  border-radius: 16px;\n  margin-bottom: 2rem;\n}\n\n.mat-form-field {\n  display: inline !important;\n}\n\n.mat-form-field input.mat-input-element {\n  line-height: normal !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbmF2aWdhdGlvbi9zZXR0aW5ncy91c2VyLWRldGFpbC91c2VyLWRldGFpbC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQyxhQUFBO0VBQ0EsdUJBQUE7RUFDQSxtQkFBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSx5QkFBQTtFQUNBLGdCQUFBO0VBQ0Esa0JBQUE7RUFDQSxZQUFBO0VBQ0EsbUJBQUE7RUFFQSxtQkFBQTtBQUFEOztBQUdBO0VBQ0MsMEJBQUE7QUFBRDs7QUFFQztFQUNDLDhCQUFBO0FBQUYiLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9uYXZpZ2F0aW9uL3NldHRpbmdzL3VzZXItZGV0YWlsL3VzZXItZGV0YWlsLnBhZ2Uuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5hdnQtdmlldyB7XG5cdGRpc3BsYXk6IGZsZXg7XG5cdGp1c3RpZnktY29udGVudDogY2VudGVyO1xuXHRhbGlnbi1pdGVtczogY2VudGVyO1xuXHR3aWR0aDogNnJlbSAhaW1wb3J0YW50O1xuXHRoZWlnaHQ6IDZyZW0gIWltcG9ydGFudDtcblx0Ym9yZGVyOiAxcHggc29saWQgI2Q4ZGRlNjtcblx0b3ZlcmZsb3c6IGhpZGRlbjtcblx0cG9zaXRpb246IHJlbGF0aXZlO1xuXHRtYXJnaW46IGF1dG87XG5cdGJvcmRlci1yYWRpdXM6IDE2cHg7XG5cblx0bWFyZ2luLWJvdHRvbTogMnJlbTtcbn1cblxuLm1hdC1mb3JtLWZpZWxkIHtcblx0ZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7XG5cblx0JiBpbnB1dC5tYXQtaW5wdXQtZWxlbWVudCB7XG5cdFx0bGluZS1oZWlnaHQ6IG5vcm1hbCAhaW1wb3J0YW50O1xuXHR9XG59Il19 */");
 
 /***/ }),
 
@@ -192,6 +198,7 @@ let UserDetailPage = class UserDetailPage {
             yield this.afAuth.currentUser.then((user) => {
                 if (user) {
                     this.userId = user.uid;
+                    console.log(user.uid);
                     this.getDealer(this.userId);
                 }
             });
@@ -201,6 +208,13 @@ let UserDetailPage = class UserDetailPage {
     getDealer(id) {
         this.dealerService.getDealer(id).subscribe((val) => {
             this.dealer = val.data();
+            this.editForm.patchValue({
+                email: this.dealer.email,
+                orgName: this.dealer.orgName,
+                ceoName: this.dealer.ceoName,
+                phone: this.dealer.phone,
+                address: this.dealer.address,
+            });
         });
     }
 };

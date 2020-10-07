@@ -14,7 +14,6 @@ export class CancelPage implements OnInit {
 	message: string;
 
 	userId: string;
-	authState: any = null;
 
 	date = Math.floor(new Date().getTime() / 1000.0);
 
@@ -23,7 +22,7 @@ export class CancelPage implements OnInit {
 		private notiService: NotiService,
 		private router: Router,
 		private route: ActivatedRoute,
-		private afAuth: AngularFireAuth
+		private afAuth: AngularFireAuth,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 	}
@@ -33,10 +32,9 @@ export class CancelPage implements OnInit {
 	}
 
 	async getUser() {
-		await this.afAuth.authState.subscribe((authState) => {
-			this.authState = authState;
-			if (this.authState) {
-				this.userId = this.authState.uid;
+		await this.afAuth.currentUser.then((user) => {
+			if (user) {
+				this.userId = user.uid;
 			}
 		});
 	}

@@ -383,11 +383,11 @@ const routes = [
     {
         path: 'home/deal/:id',
         component: _pages_dealdetail_dealdetail_page__WEBPACK_IMPORTED_MODULE_1__["DealdetailPage"],
-        loadChildren: () => Promise.all(/*! import() | pages-dealdetail-dealdetail-module */[__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~632b491e"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("pages-dealdetail-dealdetail-module")]).then(__webpack_require__.bind(null, /*! ./pages/dealdetail/dealdetail.module */ "./src/app/pages/dealdetail/dealdetail.module.ts")).then((m) => m.DealdetailPageModule),
+        loadChildren: () => Promise.all(/*! import() | pages-dealdetail-dealdetail-module */[__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("pages-dealdetail-dealdetail-module")]).then(__webpack_require__.bind(null, /*! ./pages/dealdetail/dealdetail.module */ "./src/app/pages/dealdetail/dealdetail.module.ts")).then((m) => m.DealdetailPageModule),
     },
     {
         path: 'home/ongoing/:id',
-        loadChildren: () => Promise.all(/*! import() | pages-navigation-ongoing-ongoing-detail-ongoing-detail-module */[__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~632b491e"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("pages-navigation-ongoing-ongoing-detail-ongoing-detail-module")]).then(__webpack_require__.bind(null, /*! ./pages/navigation/ongoing/ongoing-detail/ongoing-detail.module */ "./src/app/pages/navigation/ongoing/ongoing-detail/ongoing-detail.module.ts")).then((m) => m.OngoingDetailPageModule),
+        loadChildren: () => Promise.all(/*! import() | pages-navigation-ongoing-ongoing-detail-ongoing-detail-module */[__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("pages-navigation-ongoing-ongoing-detail-ongoing-detail-module")]).then(__webpack_require__.bind(null, /*! ./pages/navigation/ongoing/ongoing-detail/ongoing-detail.module */ "./src/app/pages/navigation/ongoing/ongoing-detail/ongoing-detail.module.ts")).then((m) => m.OngoingDetailPageModule),
     },
     {
         path: 'home/ongoing/cancel/:id',
@@ -395,7 +395,7 @@ const routes = [
     },
     {
         path: 'home/settings/:id',
-        loadChildren: () => Promise.all(/*! import() | pages-navigation-settings-user-detail-user-detail-module */[__webpack_require__.e("common"), __webpack_require__.e("pages-navigation-settings-user-detail-user-detail-module")]).then(__webpack_require__.bind(null, /*! ./pages/navigation/settings/user-detail/user-detail.module */ "./src/app/pages/navigation/settings/user-detail/user-detail.module.ts")).then((m) => m.UserDetailPageModule),
+        loadChildren: () => Promise.all(/*! import() | pages-navigation-settings-user-detail-user-detail-module */[__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~login-login-module~pages-navigation-settings-user-detail-user-detail-module~pages-visit-paym~a04f54a6"), __webpack_require__.e("common"), __webpack_require__.e("pages-navigation-settings-user-detail-user-detail-module")]).then(__webpack_require__.bind(null, /*! ./pages/navigation/settings/user-detail/user-detail.module */ "./src/app/pages/navigation/settings/user-detail/user-detail.module.ts")).then((m) => m.UserDetailPageModule),
     },
     {
         path: 'home/visit/result/revisit/:id',
@@ -403,7 +403,7 @@ const routes = [
     },
     {
         path: 'home/visit/result/paymentcomplete/:id',
-        loadChildren: () => Promise.all(/*! import() | pages-visit-paymentcomplete-paymentcomplete-module */[__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~632b491e"), __webpack_require__.e("default~pages-visit-paymentcancel-paymentcancel-module~pages-visit-paymentcomplete-certificationuplo~d850730b"), __webpack_require__.e("default~login-login-module~pages-visit-paymentcomplete-paymentcomplete-module~signup-signup-module"), __webpack_require__.e("common"), __webpack_require__.e("pages-visit-paymentcomplete-paymentcomplete-module")]).then(__webpack_require__.bind(null, /*! ./pages/visit/paymentcomplete/paymentcomplete.module */ "./src/app/pages/visit/paymentcomplete/paymentcomplete.module.ts")).then((m) => m.PaymentcompletePageModule),
+        loadChildren: () => Promise.all(/*! import() | pages-visit-paymentcomplete-paymentcomplete-module */[__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~login-login-module~pages-navigation-settings-user-detail-user-detail-module~pages-visit-paym~a04f54a6"), __webpack_require__.e("default~pages-visit-paymentcancel-paymentcancel-module~pages-visit-paymentcomplete-certificationuplo~d850730b"), __webpack_require__.e("common"), __webpack_require__.e("pages-visit-paymentcomplete-paymentcomplete-module")]).then(__webpack_require__.bind(null, /*! ./pages/visit/paymentcomplete/paymentcomplete.module */ "./src/app/pages/visit/paymentcomplete/paymentcomplete.module.ts")).then((m) => m.PaymentcompletePageModule),
     },
     {
         path: 'certificationupload/:id',
@@ -673,11 +673,6 @@ let DealdetailPage = class DealdetailPage {
         this.bidTime = Math.floor(new Date().getTime() / 1000.0);
         this.detail = {};
         this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
-        this.afAuth.currentUser.then((val) => {
-            if (val) {
-                this.userId = val.uid;
-            }
-        });
         translate.addLangs(['en', 'kr']);
         // this language will be used as a fallback when a translation isn't found in the current language
         translate.setDefaultLang('kr');
@@ -685,8 +680,18 @@ let DealdetailPage = class DealdetailPage {
         translate.use('kr');
     }
     ngOnInit() {
-        this.getDealDetail(this.id);
-        this.getDealerInParticipant(this.id);
+        this.getUser();
+    }
+    getUser() {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield this.afAuth.currentUser.then((val) => {
+                if (val) {
+                    this.userId = val.uid;
+                    this.getDealDetail(this.id);
+                    this.getDealerInParticipant(this.id);
+                }
+            });
+        });
     }
     getDealDetail(id) {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {

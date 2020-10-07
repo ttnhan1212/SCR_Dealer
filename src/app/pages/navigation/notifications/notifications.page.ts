@@ -38,9 +38,9 @@ export class NotificationsPage implements OnInit, OnDestroy {
 	}
 
 	async getUser() {
-		await this.afAuth.authState.subscribe((authState) => {
-			if (authState) {
-				this.sellerId = authState.uid;
+		await this.afAuth.currentUser.then((user) => {
+			if (user) {
+				this.sellerId = user.uid;
 			}
 			this.getNoti(this.sellerId);
 		});
@@ -59,11 +59,6 @@ export class NotificationsPage implements OnInit, OnDestroy {
 				});
 			});
 		});
-	}
-
-	localeDate(time) {
-		let myDate = new Date(time * 1000);
-		return myDate.toLocaleString();
 	}
 
 	ngOnDestroy() {

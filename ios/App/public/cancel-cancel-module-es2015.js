@@ -129,7 +129,6 @@ let CancelPage = class CancelPage {
         this.router = router;
         this.route = route;
         this.afAuth = afAuth;
-        this.authState = null;
         this.date = Math.floor(new Date().getTime() / 1000.0);
         this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
     }
@@ -138,10 +137,9 @@ let CancelPage = class CancelPage {
     }
     getUser() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
-            yield this.afAuth.authState.subscribe((authState) => {
-                this.authState = authState;
-                if (this.authState) {
-                    this.userId = this.authState.uid;
+            yield this.afAuth.currentUser.then((user) => {
+                if (user) {
+                    this.userId = user.uid;
                 }
             });
         });

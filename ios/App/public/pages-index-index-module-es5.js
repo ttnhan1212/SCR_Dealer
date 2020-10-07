@@ -88,7 +88,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | login-login-module */
-            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~632b491e"), __webpack_require__.e("default~login-login-module~pages-visit-paymentcomplete-paymentcomplete-module~signup-signup-module"), __webpack_require__.e("login-login-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~login-login-module~pages-navigation-settings-user-detail-user-detail-module~pages-visit-paym~a04f54a6"), __webpack_require__.e("login-login-module")]).then(__webpack_require__.bind(null,
             /*! ./login/login.module */
             "./src/app/pages/index/login/login.module.ts")).then(function (m) {
               return m.LoginPageModule;
@@ -99,7 +99,7 @@
           loadChildren: function loadChildren() {
             return Promise.all(
             /*! import() | signup-signup-module */
-            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~632b491e"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("default~login-login-module~pages-visit-paymentcomplete-paymentcomplete-module~signup-signup-module"), __webpack_require__.e("common"), __webpack_require__.e("signup-signup-module")]).then(__webpack_require__.bind(null,
+            [__webpack_require__.e("default~infor-infor-module~login-login-module~pages-dealdetail-dealdetail-module~pages-navigation-on~4f8d46a7"), __webpack_require__.e("default~infor-infor-module~pages-dealdetail-dealdetail-module~pages-navigation-ongoing-ongoing-detai~a398aa76"), __webpack_require__.e("default~login-login-module~pages-navigation-settings-user-detail-user-detail-module~pages-visit-paym~a04f54a6"), __webpack_require__.e("common"), __webpack_require__.e("signup-signup-module")]).then(__webpack_require__.bind(null,
             /*! ./signup/signup.module */
             "./src/app/pages/index/signup/signup.module.ts")).then(function (m) {
               return m.SignupPageModule;

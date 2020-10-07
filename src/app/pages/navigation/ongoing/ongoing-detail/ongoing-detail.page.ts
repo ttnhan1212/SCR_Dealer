@@ -36,7 +36,7 @@ export class OngoingDetailPage implements OnInit {
 		private route: ActivatedRoute,
 		private notiService: NotiService,
 		private afAuth: AngularFireAuth,
-		translate: TranslateService
+		translate: TranslateService,
 	) {
 		this.id = this.route.snapshot.paramMap.get('id'); //get id parameter
 		translate.addLangs(['en', 'kr']);
@@ -53,9 +53,9 @@ export class OngoingDetailPage implements OnInit {
 	}
 
 	async getUser() {
-		await this.afAuth.authState.subscribe((authState) => {
-			if (authState) {
-				this.userId = authState.uid;
+		await this.afAuth.currentUser.then((user) => {
+			if (user) {
+				this.userId = user.uid;
 				this.getDealDetail(this.id);
 				this.getSelectDealer(this.id);
 			}
