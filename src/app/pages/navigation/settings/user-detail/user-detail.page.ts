@@ -12,15 +12,6 @@ import {
 	FormBuilder,
 } from '@angular/forms';
 import { AngularFireStorage } from '@angular/fire/storage';
-<<<<<<< HEAD
-
-export interface MyData {
-	name: string;
-	filepath: string;
-	size: number;
-}
-=======
->>>>>>> ttnnhan
 
 const IMG_AVT_DEFAULT = '/assets/images/brand/add-photo.png';
 
@@ -49,11 +40,7 @@ export class UserDetailPage implements OnInit {
 			Validators.compose([Validators.minLength(8), Validators.required]),
 		),
 		cPassword: new FormControl('', Validators.required),
-<<<<<<< HEAD
-		orgname: new FormControl('', Validators.required),
-=======
 		orgName: new FormControl('', Validators.required),
->>>>>>> ttnnhan
 		phone: new FormControl(null, Validators.required),
 		fax: new FormControl(
 			null,
