@@ -89,13 +89,7 @@ export class DealPage implements OnInit, OnDestroy {
 			});
 			loading.dismiss();
 			console.log(this.deals);
-			console.log(this.now);
 		});
-	}
-
-	localeDate(time: number) {
-		const date = new Date(time * 1000);
-		return date.toLocaleString();
 	}
 
 	ngOnDestroy() {

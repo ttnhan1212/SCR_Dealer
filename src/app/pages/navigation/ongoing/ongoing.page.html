@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]="true">
 	<ion-toolbar>
 		<ion-title>
 			<app-logo></app-logo>
@@ -15,8 +15,8 @@
 		</ion-button>
 	</ion-toolbar>
 </ion-header>
-<ion-content class="ion-padding">
-	<ion-item lines="none">
+<ion-content>
+	<ion-item lines="none" class="mt-4">
 		<ul class="fa-ul">
 			<li>
 				<i class="fa-li fa fa-circle wait-status"></i
@@ -32,90 +32,112 @@
 			</li>
 		</ul>
 	</ion-item>
-	<ion-item
-		*ngFor="let item of ongoing, let i = index"
-		button
-		lines="none"
-		[disabled]="item.status === 'Cancel' ? true : false"
-		[routerLink]="ongoing[i].deal?.status === 5 ? ['/','home','visit',item.dealId] : (ongoing[i].deal?.status >= 7 && ongoing[i].deal?.status <= 9 ? ['/','certificationupload',item.dealId] : (ongoing[i].deal?.status >= 10 ? ['/','home','payment',item.dealId] :  [item.dealId]))"
-	>
-		<ion-thumbnail slot="start">
-			<img src="../../../../assets/images/photos/car_02.png" />
-		</ion-thumbnail>
-		<ion-label style="margin-top: 25px">
-			<div
-				style="
-					background: #bdc3c7;
-					background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
-					background: linear-gradient(to right, #2c3e50, #bdc3c7);
-					border-radius: 5px;
-				"
-				class="m-0 p-0"
-				[ngSwitch]="item.deal?.status"
-			>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="1">
-					Quote in progress
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="2">
-					Waiting for seller to select
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
-					<span *ngIf="item.selectedId && id === item.selectedId"
-						>Confirm the auction</span
-					>
-					<span *ngIf="item.selectedId && id !== item.selectedId"
-						>Other dealer selected</span
-					>
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="4">
-					<span *ngIf="item.selectedId && id === item.selectedId"
-						>Cancel the auction</span
-					>
+	<ion-list style="margin-top: 25px">
+		<ion-item
+			*ngFor="let item of ongoing, let i = index"
+			lines="none"
+			[disabled]="item.status === 'Cancel' ? true : false"
+			[routerLink]="ongoing[i].deal?.status === 5 ? ['/','home','visit',item.dealId] : (ongoing[i].deal?.status >= 7 && ongoing[i].deal?.status <= 9 ? ['/','certificationupload',item.dealId] : (ongoing[i].deal?.status >= 10 ? ['/','home','payment',item.dealId] :  [item.dealId]))"
+		>
+			<ion-thumbnail slot="start">
+				<img src="../../../../assets/images/photos/car_02.png" />
+			</ion-thumbnail>
+			<ion-label [ngSwitch]="item.deal?.status">
+				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="1">
+						Quote in progress
+					</p>
+				</div>
+				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="2">
+						Waiting for seller to select
+					</p>
+				</div>
+				<div style="background: #28a745; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
+						<span *ngIf="item.selectedId && id === item.selectedId"
+							>Confirm the auction</span
+						>
+					</p>
+				</div>
+				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
+						<span *ngIf="item.selectedId && id !== item.selectedId"
+							>Other dealer selected</span
+						>
+					</p>
+				</div>
+				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="4">
+						<span *ngIf="item.selectedId && id === item.selectedId"
+							>Cancel the auction</span
+						>
 
-					<span *ngIf="item.selectedId && id !== item.selectedId"
-						>Other dealer selected</span
-					>
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
-					<span *ngIf="item.selectedId && id === item.selectedId"
-						>Please write visit result
-					</span>
-					<span *ngIf="item.selectedId && id !== item.selectedId"
-						>Other dealer selected</span
-					>
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="6">
-					Cancel the purchase
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="7">
-					Waiting for Seller Review
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="8">
-					Waiting for Seller Review
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="9">
-					Please upload the certification
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="10">
-					Please complete the payment
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchCase="11">
-					Trade complete
-				</p>
-				<p class="fs-15 text-center text-dark" *ngSwitchDefault="">N/A</p>
-			</div>
-			<div class="first">
-				<p>
-					2009
-					<span class="pull-right"
-						>K-5<span style="font-size: 10px">12가1234</span></span
-					>
-				</p>
-				<p>
-					{{item.deal?.miles | number}} Km
-					<span class="pull-right">￦{{item.price | number}}</span>
-				</p>
-			</div>
-		</ion-label>
-	</ion-item>
+						<span *ngIf="item.selectedId && id !== item.selectedId"
+							>Other dealer selected</span
+						>
+					</p>
+				</div>
+				<div style="background: #28a745; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
+						<span *ngIf="item.selectedId && id === item.selectedId"
+							>Please write visit result
+						</span>
+					</p>
+				</div>
+				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
+						<span *ngIf="item.selectedId && id !== item.selectedId"
+							>Other dealer selected</span
+						>
+					</p>
+				</div>
+				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="6">
+						Cancel the purchase
+					</p>
+				</div>
+				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="7">
+						Waiting for Seller Review
+					</p>
+				</div>
+				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="8">
+						Waiting for Seller Review
+					</p>
+				</div>
+				<div style="background: #28a745; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="9">
+						Please upload the certification
+					</p>
+				</div>
+				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="10">
+						Please complete the payment
+					</p>
+				</div>
+				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchCase="11">
+						Trade complete
+					</p>
+				</div>
+				<div style="background: #bdc3c7; border-radius: 5px" class="m-0 p-0">
+					<p class="fs-15 text-center text-dark" *ngSwitchDefault="">N/A</p>
+				</div>
+				<div class="first">
+					<p>
+						2009
+						<span class="pull-right"
+							>K-5<span style="font-size: 10px">12가1234</span></span
+						>
+					</p>
+					<p>
+						{{item.deal?.miles | number}} Km
+						<span class="pull-right">￦{{item.price | number}}</span>
+					</p>
+				</div>
+			</ion-label>
+		</ion-item>
+	</ion-list>
 </ion-content>

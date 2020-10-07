@@ -3,7 +3,7 @@
 		<ion-buttons slot="start">
 			<ion-back-button></ion-back-button>
 		</ion-buttons>
-		<ion-title class="smllogo">
+		<ion-title>
 			<app-logo></app-logo>
 		</ion-title>
 		<ion-button slot="end" fill="clear" [routerLink]="['/','home','deal']">
@@ -17,55 +17,32 @@
 		<ion-card-content>
 			<form [formGroup]="revisitForm">
 				<ion-item class="form-group">
-					<ion-label position="floating"
-						>{{'home_visit_result_revisit.visit_result' | translate}}</ion-label
-					>
-					<ion-input
-						type="text"
-						readonly
-						value="{{'home_visit_result_revisit.visit_result' | translate}}"
-					></ion-input>
+					<ion-label position="floating">{{'home_visit_result_revisit.visit_result' | translate}}</ion-label>
+					<ion-input type="text" readonly value="{{'home_visit_result_revisit.visit_result' | translate}}"></ion-input>
 				</ion-item>
 				<ion-item class="form-group">
-					<ion-label position="floating"
-						>{{'home_visit_result_revisit.revisit_reason' |
-						translate}}</ion-label
-					>
+					<ion-label position="floating">{{'home_visit_result_revisit.revisit_reason' |
+						translate}}</ion-label>
 					<ion-textarea rows="5" [formControl]="reason"></ion-textarea>
 				</ion-item>
 				<div class="form-group">
 					<ngx-dropzone (change)="onSelect($event)">
-						<ngx-dropzone-label
-							>{{'home_visit_result_revisit.upload_instruction' |
-							translate}}</ngx-dropzone-label
-						>
-						<ngx-dropzone-image-preview
-							ngProjectAs="ngx-dropzone-preview"
-							*ngFor="let f of files"
-							[file]="f"
-						>
+						<ngx-dropzone-label>{{'home_visit_result_revisit.upload_instruction' |
+							translate}}</ngx-dropzone-label>
+						<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
 						</ngx-dropzone-image-preview>
 					</ngx-dropzone>
 				</div>
 				<ion-item class="form-group">
-					<ion-label position="floating"
-						>{{'home_visit_result_revisit.revisit_date' | translate}}</ion-label
-					>
-					<ion-datetime
-						displayFormat="D MMM YYYY H A"
-						[min]="now"
-						[formControl]="date"
-					></ion-datetime>
+					<ion-label position="floating">{{'home_visit_result_revisit.revisit_date' | translate}}</ion-label>
+					<ion-datetime displayFormat="D MMM YYYY H A" [min]="now" [formControl]="date"></ion-datetime>
 				</ion-item>
 				<ion-item class="form-group">
-					<ion-label position="floating"
-						>{{'home_visit_result_revisit.other' | translate}}</ion-label
-					>
+					<ion-label position="floating">{{'home_visit_result_revisit.other' | translate}}</ion-label>
 					<ion-textarea rows="5" [formControl]="other"></ion-textarea>
 				</ion-item>
-				<ion-button expand="block" color="tertiary" (click)="revisitSubmit()"
-					>{{'home_visit_result_revisit.confirm' | translate}}</ion-button
-				>
+				<ion-button expand="block" color="tertiary" (click)="revisitSubmit()">
+					{{'home_visit_result_revisit.confirm' | translate}}</ion-button>
 			</form>
 		</ion-card-content>
 	</ion-card>

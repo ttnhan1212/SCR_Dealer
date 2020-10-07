@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-toolbar>
+	<ion-toolbar style="padding: 8px !important">
 		<ion-buttons slot="start">
 			<ion-back-button defaultHref="/home/deal"></ion-back-button>
 		</ion-buttons>
@@ -9,95 +9,56 @@
 	</ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="m-0 p-0">
 	<!-- Login content section -->
-	<ion-card>
-		<div class="container customerpage">
-			<div class="row">
-				<div class="single-page">
-					<div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
-						<div class="wrapper wrapper2">
-							<form class="card-body p-4 pb-0" [formGroup]="editForm">
-								<div class="avt-view">
-									<img [src]="imagePreview" alt="" class="img-fluid" />
-								</div>
-								<h3 style="color: #080e1b; font-size: 1rem">
-									({{'home_edit_account.upload_instruction' | translate}})
-								</h3>
-								<div class="mail">
-									<input
-										type="email"
-										name="mail"
-										formControlName="email"
-										style="color: #080e1b"
-									/>
-									<label>{{'home_edit_account.email' | translate}}</label>
-								</div>
-								<div class="mail">
-									<input
-										type="text"
-										name="orgname"
-										formControlName="orgname"
-										style="color: #080e1b"
-									/>
-									<label>{{'home_edit_account.org_name' | translate}}</label>
-								</div>
-								<div class="mail">
-									<input
-										type="text"
-										name="ceoname"
-										formControlName="ceoName"
-										style="color: #080e1b"
-									/>
-									<label>{{'home_edit_account.ceo_name' | translate}}</label>
-								</div>
-								<div class="mail">
-									<input
-										type="number"
-										name="phonenum"
-										formControlName="phone"
-										style="color: #080e1b"
-									/>
-									<label
-										>{{'home_edit_account.phone_number' | translate}}</label
-									>
-								</div>
-								<div class="mb-8"></div>
-								<div class="passwd">
-									<input
-										type="password"
-										name="password"
-										formControlName="password"
-										style="color: #080e1b"
-									/>
-									<label>{{'home_edit_account.password' | translate}}</label>
-								</div>
-								<div class="passwd">
-									<input
-										type="password"
-										name="cPassword"
-										formControlName="cPassword"
-										style="color: #080e1b"
-									/>
-									<label
-										>{{'home_edit_account.confirm_password' | translate}}</label
-									>
-								</div>
-							</form>
-							<ion-button
-								expand="block"
-								color="tertiary"
-								class="mr-3 ml-3"
-								[disabled]="!editForm.valid"
-							>
-								{{'home_edit_account.update_infor' | translate}}
-							</ion-button>
-							<div class="mb-5"></div>
-						</div>
+	<ion-card *ngIf="dealer">
+		<ion-card-content>
+			<form [formGroup]="editForm">
+				<ion-list>
+					<div class="avt-view">
+						<img [src]="imagePreview" alt="" class="img-fluid" />
 					</div>
-				</div>
-			</div>
-		</div>
+					<mat-form-field appearance="outline">
+						<mat-label>{{'home_edit_account.email' | translate}}</mat-label>
+						<input type="email" matInput formControlName="email" />
+					</mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label>{{'home_edit_account.org_name' | translate}}</mat-label>
+						<input type="text" matInput formControlName="orgName" />
+					</mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label>{{'home_edit_account.ceo_name' | translate}}</mat-label>
+						<input type="text" matInput formControlName="ceoName" />
+					</mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label
+							>{{'home_edit_account.phone_number' | translate}}</mat-label
+						>
+						<input type="number" matInput formControlName="phone" />
+					</mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label>{{'home_edit_account.address' | translate}}</mat-label>
+						<input type="text" matInput formControlName="address" />
+					</mat-form-field>
+
+					<div class="mb-8"></div>
+					<mat-form-field appearance="outline">
+						<mat-label>{{'home_edit_account.password' | translate}}</mat-label>
+						<input type="password" matInput formControlName="password" />
+					</mat-form-field>
+					<mat-form-field appearance="outline">
+						<mat-label>{{'home_edit_account.password' | translate}}</mat-label>
+						<input type="password" matInput formControlName="cPassword" />
+					</mat-form-field>
+				</ion-list>
+			</form>
+		</ion-card-content>
 	</ion-card>
 	<!-- End of Login content section -->
 </ion-content>
+
+<ion-footer class="ion-padding">
+	<ion-button expand="block" color="tertiary" [disabled]="!editForm.valid">
+		{{'home_edit_account.update_infor' | translate}}
+	</ion-button>
+</ion-footer>

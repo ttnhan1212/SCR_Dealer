@@ -1,7 +1,5 @@
-.smllogo {
-	&__img {
-		height: 2.6rem;
-	}
+ion-title {
+	padding: 0 !important;
 }
 
 .bannerimg {
@@ -23,6 +21,7 @@
 
 .mat-form-field {
 	display: inline !important;
+
 	& input.mat-input-element {
 		line-height: normal !important;
 	}
@@ -58,19 +57,15 @@
 }
 
 .bg-background3:before {
-	background: linear-gradient(
-		to right,
-		rgba(141, 11, 183, 0.8),
-		rgba(33, 63, 148, 0.8)
-	);
+	background: linear-gradient(to right,
+			rgba(141, 11, 183, 0.8),
+			rgba(33, 63, 148, 0.8));
 }
 
 .bg-background3:before {
-	background: linear-gradient(
-		to right,
-		rgba(106, 17, 203, 0.8),
-		rgba(37, 117, 252, 0.8)
-	);
+	background: linear-gradient(to right,
+			rgba(106, 17, 203, 0.8),
+			rgba(37, 117, 252, 0.8));
 	//background-image: linear-gradient(135deg, #667eea 0%, #764ba2 10%);
 }
 

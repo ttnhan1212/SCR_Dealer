@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]='true'>
 	<ion-toolbar>
 		<ion-title>
 			<app-logo></app-logo>
@@ -6,11 +6,7 @@
 		<ion-button fill="clear" slot="end" [routerLink]="['/','home','infor']">
 			<ion-icon name="information-circle-outline"></ion-icon>
 		</ion-button>
-		<ion-button
-			fill="clear"
-			slot="end"
-			[routerLink]="['/','home','notifications']"
-		>
+		<ion-button fill="clear" slot="end" [routerLink]="['/','home','notifications']">
 			<ion-icon name="notifications-outline"></ion-icon>
 		</ion-button>
 	</ion-toolbar>
@@ -27,15 +23,9 @@
 							<div class="search-background bg-transparent mt-5">
 								<div class="form row no-gutters">
 									<ion-col class="form-group mb-0 bg-white">
-										<ion-select
-											placeholder="{{'home_deal.location_select' | translate}}"
-											interface="action-sheet"
-											class="deal-select"
-										>
-											<ion-select-option
-												*ngFor="let item of locations"
-												[value]="item.id"
-											>
+										<ion-select placeholder="{{'home_deal.location_select' | translate}}" interface="action-sheet"
+											class="deal-select">
+											<ion-select-option *ngFor="let item of locations" [value]="item.id">
 												{{item.city}}
 											</ion-select-option>
 										</ion-select>
@@ -43,15 +33,9 @@
 								</div>
 								<div class="form row no-gutters">
 									<ion-col class="form-group mb-0 bg-white">
-										<ion-select
-											placeholder="{{'home_deal.model_select' | translate}}"
-											interface="action-sheet"
-											class="deal-select"
-										>
-											<ion-select-option
-												*ngFor="let model of models"
-												[value]="model.id"
-											>
+										<ion-select placeholder="{{'home_deal.model_select' | translate}}" interface="action-sheet"
+											class="deal-select">
+											<ion-select-option *ngFor="let model of models" [value]="model.id">
 												{{model.name}}
 											</ion-select-option>
 										</ion-select>
@@ -59,11 +43,8 @@
 								</div>
 								<div class="form row no-gutters">
 									<ion-col class="form-group mb-0 bg-white">
-										<ion-select
-											placeholder="{{'home_deal.order_by' | translate}}"
-											interface="action-sheet"
-											class="deal-select"
-										>
+										<ion-select placeholder="{{'home_deal.order_by' | translate}}" interface="action-sheet"
+											class="deal-select">
 											<ion-select-option>
 												{{'home_deal.name' | translate}}
 											</ion-select-option>
@@ -78,9 +59,7 @@
 								</div>
 
 								<ion-col class="col-xl-2 col-lg-3 col-md-12 mb-0">
-									<a
-										class="btn btn-lg btn-block btn-primary br-tl-md-0 br-bl-md-0 right-0 text-white"
-									>
+									<a class="btn btn-lg btn-block btn-primary br-tl-md-0 br-bl-md-0 right-0 text-white">
 										{{'home_deal.search_here' | translate}}
 									</a>
 								</ion-col>
@@ -101,36 +80,17 @@
 					<div class="mb-0" *ngFor="let item of deals;">
 						<div class="item2-gl" *ngIf="item.participants?.created === true">
 							<div class="ion-padding">
-								<div class="card overflow-hidden">
+								<div class="card overflow-hidden" [routerLink]="[item.id]">
 									<div class="d-md-flex">
 										<div class="item-card9-img">
-											<div
-												id="carouselExampleSlidesOnly"
-												class="carousel car-slide item-card9-imgs"
-												data-ride="carousel"
-											>
-												<div class="carousel-inner">
-													<div class="carousel-item active">
-														<img
-															src="../../../assets/images/photos/car_01.png"
-															alt="img"
-															class="cover-image"
-														/>
-													</div>
-												</div>
-											</div>
+											<img src="../../../assets/images/photos/car_01.png" alt="img" class="cover-image" />
 										</div>
-										<div class="card border-0 mb-0" [routerLink]="[item.id]">
+										<div class="card border-0 mb-0">
 											<div class="card-body">
 												<div class="item-card9">
 													<div class="rating-stars">
-														<input
-															type="number"
-															readonly="readonly"
-															class="rating-value star"
-															name="rating-stars-value"
-															value="3"
-														/>
+														<input type="number" readonly="readonly" class="rating-value star" name="rating-stars-value"
+															value="3" />
 													</div>
 													<div class="item-card9-desc">
 														<a class="mr-4">
@@ -142,7 +102,7 @@
 														<a class="mr-4">
 															<span class="">
 																<i class="fa fa-calendar-o text-muted mr-1"></i>
-																{{localeDate(item.effectedTime) | dateAgo}}
+																{{item.effectedTime * 1000 | dateAgo}}
 															</span>
 														</a>
 													</div>
@@ -157,10 +117,7 @@
 													</div>
 													<div class="ml-auto">
 														<a class="mr-2" title="Name">
-															<ion-icon
-																name="person-outline"
-																class="mr-1"
-															></ion-icon>
+															<ion-icon name="person-outline" class="mr-1"></ion-icon>
 															{{item.name}}
 														</a>
 														<a class="mr-2" title="Kilometers">

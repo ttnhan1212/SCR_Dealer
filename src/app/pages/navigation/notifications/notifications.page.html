@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header [translucent]="true">
 	<ion-toolbar>
 		<ion-title>{{'home_notifications.title' | translate}}</ion-title>
 		<ion-buttons slot="start">
@@ -8,61 +8,103 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-	<ion-list>
+	<div style="display: flex; justify-content: center">
+		<ion-spinner *ngIf="!noti"></ion-spinner>
+	</div>
+	<ion-list *ngIf="noti">
 		<ion-item
 			*ngFor="let item of noti"
 			lines="none"
 			[routerLink]="['/','home','ongoing', item.requestId]"
 			class="item-card"
 		>
-			<ion-thumbnail slot="start">
+			<ion-thumbnail slot="start" class="m-0">
 				<img src="../../../../assets/images/photos/car_02.png" />
 			</ion-thumbnail>
-			<ion-grid class="p-0 m-0">
-				<ion-row>
-					<ion-col size="8">
+			<ion-grid class="p-0 m-0 mt-1">
+				<ion-row class="m-0 p-0">
+					<ion-col size="8" [ngSwitch]="item.deal?.status">
 						<div
-							style="
-								background: #bdc3c7;
-								background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
-								background: linear-gradient(to right, #2c3e50, #bdc3c7);
-								border-radius: 5px;
-							"
+							style="background: #bdc3c7; border-radius: 5px"
 							class="m-0 p-0"
-							[ngSwitch]="item.deal?.status"
+							*ngSwitchCase="1"
 						>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="1">
-								Quote in progress
-							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="2">
+							<p class="fs-15 text-center text-dark">Quote in progress</p>
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="2"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">
 								Waiting for seller to select
 							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
-								Confirm the auction
-							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="4">
-								Cancel the auction
-							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="3"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">Confirm the auction</p>
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="4"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">Cancel the auction</p>
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="5"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">
 								Please write visit result
 							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="6">
-								Cancel the purchase
-							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="9">
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="6"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">Cancel the purchase</p>
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="9"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">
 								Please upload the certification
 							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="10">
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="10"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">
 								Please complete the payment
 							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchCase="11">
-								Trade complete
-							</p>
-							<p class="fs-15 text-center text-dark" *ngSwitchDefault="">N/A</p>
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchCase="11"
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">Trade complete</p>
+						</div>
+						<div
+							style="background: #bdc3c7; border-radius: 5px"
+							*ngSwitchDefault=""
+							class="m-0 p-0"
+						>
+							<p class="fs-15 text-center text-dark">N/A</p>
 						</div>
 					</ion-col>
-					<ion-col size="4" class="mt-1 fs-11">
-						{{localeDate(item.updateDate) | dateAgo}}
+					<ion-col size="4" class="mt-1 fs-10">
+						{{item.updateDate * 1000 | dateAgo}}
 					</ion-col>
 				</ion-row>
 
@@ -78,12 +120,6 @@
 						</span>
 					</p>
 				</div>
-
-				<!-- <ion-row>
-					<ion-col>
-						<ion-label>{{item.id}}</ion-label>
-					</ion-col>
-				</ion-row> -->
 			</ion-grid>
 		</ion-item>
 	</ion-list>

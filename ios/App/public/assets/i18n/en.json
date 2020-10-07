@@ -1,0 +1,121 @@
+{
+	"welcome": {
+		"welcome_line": "Welcome to SCRoads",
+		"click_to_start": "Click to start"
+	},
+	"login": {
+		"welcome": "Hello! Welcome to SCRoads",
+		"email": "Email",
+		"password": "Password",
+		"proceed": "Proceed",
+		"ask_for_signup": "Want to be a dealer? Sign UP"
+	},
+	"signup": {
+		"sc_register": "SCRoads - Registration",
+		"register_as": "Register as",
+		"upload_instruction": "Tap to upload profile image",
+		"signup_email": "Email",
+		"signup_password": "Password",
+		"signup_confirm_password": "Confirm password",
+		"org_name": "Organization Name",
+		"ceo_name": "CEO Name",
+		"phone_number": "Phone Number",
+		"fax_number": "Fax Number",
+		"business_address": "Business Address",
+		"privacy_policy": "Privacy Policy",
+		"terms_conditions": "Terms & Conditions",
+		"privacy_usage_agreement": "Privacy Usage Agreement",
+		"agree_all": "Agree All",
+		"request_register": "Request Register",
+		"ask_for_login": "Already have an account? Log In"
+	},
+	"home_deal": {
+		"location_select": "Location Select",
+		"model_select": "Location Select",
+		"order_by": "Order By",
+		"search_here": "Search Here"
+	},
+	"home_deal_detail": {
+		"deal_status_offer": "Offer",
+		"deal_status_selected": "Selected",
+		"deal_status_ongoing": "Ongoing",
+		"see_insurance_history": "See Insurance History",
+		"mileages": "Mileages",
+		"location": "Location",
+		"vehicle": "Vehicle",
+		"input_bidding_price": "Input your bidding price"
+	},
+	"home_ongoing": {
+		"please_wait": "Please wait",
+		"proceed": "Proceed to next step",
+		"ended_trade": "Ended trade",
+		"expire": "Expired",
+		"pending-confirm": "Pending Confirm"
+	},
+	"home_info": {
+		"information": "Informations",
+		"info_car_export": "What is car export?",
+		"info_term_condition": "Term & Conditions",
+		"infor": "Infor",
+		"paper_info": "Paper Infor"
+	},
+	"home_visit": {
+		"visit_seller_info": "Seller Info",
+		"visit_see_insurance_history": "See Insurance History",
+		"visit_mileages": "Mileages",
+		"visit_location": "Location",
+		"visit_vehicle": "Vehicle",
+		"confirm_date": "Confirm Date",
+		"enter_visit_result": "Enter Visit Result"
+	},
+	"home_notifications": {
+		"title": "Notifications"
+	},
+	"home_visit_result": {
+		"select_visit_result": "Select Visit Result",
+		"purchase_confirm": "Purchase Confirm",
+		"revisit": "Revisit",
+		"purchase_cacel": "Purchase Cacel",
+		"visit_vehicle": "Vehicle",
+		"confirm_date": "Confirm Date",
+		"enter_visit_result": "Enter Visit Result"
+	},
+	"home_visit_result_paymentcancel": {
+		"visit_result": "Visit Result",
+		"cacel_reason": "Cancel Reason",
+		"upload_instruction": "Upload your image here",
+		"other": "Other",
+		"confirm": "Confirm"
+	},
+	"home_visit_result_revisit": {
+		"visit_result": "Visit Result",
+		"revisit_reason": "Revisit Reason",
+		"upload_instruction": "Upload your image here",
+		"revisit_date": "Revisit Date",
+		"other": "Other",
+		"confirm": "Confirm"
+	},
+	"home_visit_result_paymentcomplete": {
+		"visit_result": "Visit Result",
+		"bid_amount": "Bid Amount",
+		"final_amount": "Final Amount",
+		"upload_instruction": "Upload your image here",
+		"other": "Other",
+		"confirm": "Confirm",
+		"upload_cert_instruction": "Tap to choose certification image",
+		"purchase_amount": "Purchase Amount",
+		"purchase_date": "Purchase Date",
+		"upload_certification": "Upload Certification"
+	},
+	"home_settings": {
+		"edit_account_info": "Edit account info",
+		"notifications_setting": "Notifications Setting",
+		"term_conditions": "Term & Conditions",
+		"privacy_policy": "Privacy Policy",
+		"contact": "Contact",
+		"contact_us": "Contact Us",
+		"guide": "Guide",
+		"FAQ": "FAQ",
+		"sign_out": "Sign Out"
+	}
+}

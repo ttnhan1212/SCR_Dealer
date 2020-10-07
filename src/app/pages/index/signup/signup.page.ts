@@ -132,7 +132,6 @@ export class SignupPage implements OnInit {
 		private dealerService: DealerService,
 		private fb: FormBuilder,
 		private storage: AngularFireStorage,
-		private afs: AngularFirestore, // private file: File,
 		private actionSheetCtrl: ActionSheetController,
 		private plt: Platform,
 		private sanitizer: DomSanitizer,

@@ -8,10 +8,12 @@
 
 .card-body {
 	padding: 0 !important;
-	& > .item-det {
+
+	&>.item-det {
 		padding: 1.5rem;
 	}
-	& > .item-slides {
+
+	&>.item-slides {
 		margin-top: -1rem;
 		border-radius: 0.3rem;
 	}
@@ -24,6 +26,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
 		&:before {
 			left: 100%;
 			width: unset;
@@ -37,10 +40,8 @@
 ion-item {
 	--inner-padding-end: 0.4rem;
 	--padding-start: 0.4rem;
-	--background: var(
-		--ion-item-background,
-		var(--ion-background-color, #f1f5fd)
-	);
+	--background: var(--ion-item-background,
+			var(--ion-background-color, #f1f5fd));
 }
 
 ion-content {
