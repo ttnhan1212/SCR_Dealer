@@ -681,14 +681,14 @@ let DealdetailPage = class DealdetailPage {
     }
     ngOnInit() {
         this.getUser();
+        this.getDealDetail(this.id);
+        this.getDealerInParticipant(this.id);
     }
     getUser() {
         return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
             yield this.afAuth.currentUser.then((val) => {
                 if (val) {
                     this.userId = val.uid;
-                    this.getDealDetail(this.id);
-                    this.getDealerInParticipant(this.id);
                 }
             });
         });
@@ -723,7 +723,7 @@ let DealdetailPage = class DealdetailPage {
                 selected: false,
             };
             yield this.dealsService.dealerToDeal(this.id, this.dealer);
-            yield this.dealsService.addDealToDealer(this.id, {
+            yield this.dealsService.addDealToDealer(this.userId, this.id, {
                 dealId: this.id,
                 price: this.price,
                 bidTime: this.bidTime,
@@ -1008,7 +1008,7 @@ let DealsService = class DealsService {
         this.now = Math.floor(new Date().getTime() / 1000.0);
         this.afAuth.authState.subscribe((user) => {
             if (user) {
-                this.loggedUser = user;
+                this.loggedUser = user.uid;
             }
         });
     }
@@ -1021,7 +1021,7 @@ let DealsService = class DealsService {
         return this.fireStore
             .collection('requests')
             .doc(id)
-            .collection('participants', (ref) => ref.where('userId', '==', this.loggedUser.uid))
+            .collection('participants', (ref) => ref.where('userId', '==', this.loggedUser))
             .valueChanges();
     }
     getSelectedDealer(id) {
@@ -1029,7 +1029,7 @@ let DealsService = class DealsService {
             .collection('requests')
             .doc(id)
             .collection('participants', (ref) => ref
-            .where('userId', '==', this.loggedUser.uid)
+            .where('userId', '==', this.loggedUser)
             .where('selected', '==', true))
             .valueChanges();
     }
@@ -1053,10 +1053,10 @@ let DealsService = class DealsService {
             .collection('participants')
             .add(dealer);
     }
-    addDealToDealer(dealId, deal) {
+    addDealToDealer(dealerId, dealId, deal) {
         return this.fireStore
             .collection('Dealer')
-            .doc(this.loggedUser.uid)
+            .doc(dealerId)
             .collection('Deals')
             .doc(dealId)
             .set(deal);
@@ -1064,7 +1064,7 @@ let DealsService = class DealsService {
     updateDealInDealer(id, val) {
         this.fireStore
             .collection('Dealer')
-            .doc(this.loggedUser.uid)
+            .doc(this.loggedUser)
             .collection('Deals')
             .doc(id)
             .update(val);

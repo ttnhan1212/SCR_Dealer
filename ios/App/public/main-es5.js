@@ -869,6 +869,8 @@
           key: "ngOnInit",
           value: function ngOnInit() {
             this.getUser();
+            this.getDealDetail(this.id);
+            this.getDealerInParticipant(this.id);
           }
         }, {
           key: "getUser",
@@ -884,10 +886,6 @@
                       return this.afAuth.currentUser.then(function (val) {
                         if (val) {
                           _this2.userId = val.uid;
-
-                          _this2.getDealDetail(_this2.id);
-
-                          _this2.getDealerInParticipant(_this2.id);
                         }
                       });
 
@@ -963,7 +961,7 @@
 
                     case 3:
                       _context3.next = 5;
-                      return this.dealsService.addDealToDealer(this.id, {
+                      return this.dealsService.addDealToDealer(this.userId, this.id, {
                         dealId: this.id,
                         price: this.price,
                         bidTime: this.bidTime,
@@ -1497,7 +1495,7 @@
           this.now = Math.floor(new Date().getTime() / 1000.0);
           this.afAuth.authState.subscribe(function (user) {
             if (user) {
-              _this6.loggedUser = user;
+              _this6.loggedUser = user.uid;
             }
           });
         }
@@ -1517,7 +1515,7 @@
             var _this8 = this;
 
             return this.fireStore.collection('requests').doc(id).collection('participants', function (ref) {
-              return ref.where('userId', '==', _this8.loggedUser.uid);
+              return ref.where('userId', '==', _this8.loggedUser);
             }).valueChanges();
           }
         }, {
@@ -1526,7 +1524,7 @@
             var _this9 = this;
 
             return this.fireStore.collection('requests').doc(id).collection('participants', function (ref) {
-              return ref.where('userId', '==', _this9.loggedUser.uid).where('selected', '==', true);
+              return ref.where('userId', '==', _this9.loggedUser).where('selected', '==', true);
             }).valueChanges();
           }
         }, {
@@ -1553,13 +1551,13 @@
           }
         }, {
           key: "addDealToDealer",
-          value: function addDealToDealer(dealId, deal) {
-            return this.fireStore.collection('Dealer').doc(this.loggedUser.uid).collection('Deals').doc(dealId).set(deal);
+          value: function addDealToDealer(dealerId, dealId, deal) {
+            return this.fireStore.collection('Dealer').doc(dealerId).collection('Deals').doc(dealId).set(deal);
           }
         }, {
           key: "updateDealInDealer",
           value: function updateDealInDealer(id, val) {
-            this.fireStore.collection('Dealer').doc(this.loggedUser.uid).collection('Deals').doc(id).update(val);
+            this.fireStore.collection('Dealer').doc(this.loggedUser).collection('Deals').doc(id).update(val);
           }
         }, {
           key: "updateDeal",
