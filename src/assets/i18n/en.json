@@ -128,5 +128,18 @@
 		"address": "Address",
 		"confirm_password": "Confirm Password",
 		"update_infor": "Update"
+	},
+	"ongoing_status": {
+		"in_progress": "Quote in progress",
+		"waiting_select": "Waiting for seller to select",
+		"confirm": "Confirm the auction",
+		"other_selected": "Other dealer selected",
+		"cancel_auction": "Cancel the auction",
+		"write_visit_result": "Please write visit result",
+		"cancel_purchase": "Cancel the purchase",
+		"waiting_review": "Waiting for Seller Review",
+		"upload_certification": "Please upload the certification",
+		"complete_payment": "Please complete the payment",
+		"trade_complete": "Trade complete"
 	}
 }

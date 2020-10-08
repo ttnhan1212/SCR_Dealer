@@ -6,11 +6,7 @@
 		<ion-button fill="clear" slot="end" [routerLink]="['/','home','infor']">
 			<ion-icon name="information-circle-outline"></ion-icon>
 		</ion-button>
-		<ion-button
-			fill="clear"
-			slot="end"
-			[routerLink]="['/','home','notifications']"
-		>
+		<ion-button fill="clear" slot="end" [routerLink]="['/','home','notifications']">
 			<ion-icon name="notifications-outline"></ion-icon>
 		</ion-button>
 	</ion-toolbar>
@@ -19,111 +15,102 @@
 	<ion-item lines="none" class="mt-4">
 		<ul class="fa-ul">
 			<li>
-				<i class="fa-li fa fa-circle wait-status"></i
-				>{{'home_ongoing.please_wait' | translate}}
+				<i class="fa-li fa fa-circle wait-status"></i>{{'home_ongoing.please_wait' | translate}}
 			</li>
 			<li>
-				<i class="fa-li fa fa-circle proceed-status"></i
-				>{{'home_ongoing.proceed' | translate}}
+				<i class="fa-li fa fa-circle proceed-status"></i>{{'home_ongoing.proceed' | translate}}
 			</li>
 			<li>
-				<i class="fa-li fa fa-circle ended-status"></i
-				>{{'home_ongoing.ended_trade' | translate}}
+				<i class="fa-li fa fa-circle ended-status"></i>{{'home_ongoing.ended_trade' | translate}}
 			</li>
 		</ul>
 	</ion-item>
 	<ion-list style="margin-top: 25px">
-		<ion-item
-			*ngFor="let item of ongoing, let i = index"
-			lines="none"
+		<ion-item *ngFor="let item of ongoing, let i = index" lines="none"
 			[disabled]="item.status === 'Cancel' ? true : false"
 			[routerLink]="ongoing[i].deal?.status === 5 ? ['/','home','visit',item.dealId] : (ongoing[i].deal?.status >= 7 && ongoing[i].deal?.status <= 9 ? ['/','certificationupload',item.dealId] : (ongoing[i].deal?.status >= 10 ? ['/','home','payment',item.dealId] :  [item.dealId]))"
-			style="margin-bottom: 1.5rem"
-		>
+			style="margin-bottom: 1.5rem">
 			<ion-thumbnail slot="start">
-				<img
-					style="border-radius: 6px"
-					src="../../../../assets/images/photos/car_02.png"
-				/>
+				<img style="border-radius: 6px" src="../../../../assets/images/photos/car_02.png" />
 			</ion-thumbnail>
 			<ion-label [ngSwitch]="item.deal?.status">
 				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="1">
-						Quote in progress
+						{{'ongoing_status.in_progress' | translate}}
 					</p>
 				</div>
 				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="2">
-						Waiting for seller to select
+						{{'ongoing_status.waiting_select' | translate}}
 					</p>
 				</div>
 				<div style="background: #28a745; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
-						<span *ngIf="item.selectedId && id === item.selectedId"
-							>Confirm the auction</span
-						>
+						<span *ngIf="item.selectedId && id === item.selectedId">
+							{{'ongoing_status.confirm' | translate}}
+						</span>
 					</p>
 				</div>
 				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="3">
-						<span *ngIf="item.selectedId && id !== item.selectedId"
-							>Other dealer selected</span
-						>
+						<span *ngIf="item.selectedId && id !== item.selectedId">
+							{{'ongoing_status.other_selected' | translate}}
+						</span>
 					</p>
 				</div>
 				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="4">
-						<span *ngIf="item.selectedId && id === item.selectedId"
-							>Cancel the auction</span
-						>
+						<span *ngIf="item.selectedId && id === item.selectedId">
+							{{'ongoing_status.cancel_auction' | translate}}
+						</span>
 
-						<span *ngIf="item.selectedId && id !== item.selectedId"
-							>Other dealer selected</span
-						>
+						<span *ngIf="item.selectedId && id !== item.selectedId">
+							{{'ongoing_status.other_selected' | translate}}
+						</span>
 					</p>
 				</div>
 				<div style="background: #28a745; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
-						<span *ngIf="item.selectedId && id === item.selectedId"
-							>Please write visit result
+						<span *ngIf="item.selectedId && id === item.selectedId">
+							{{'ongoing_status.write_visit_result' | translate}}
 						</span>
 					</p>
 				</div>
 				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="5">
-						<span *ngIf="item.selectedId && id !== item.selectedId"
-							>Other dealer selected</span
-						>
+						<span *ngIf="item.selectedId && id !== item.selectedId">
+							{{'ongoing_status.other_selected' | translate}}
+						</span>
 					</p>
 				</div>
 				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="6">
-						Cancel the purchase
+						{{'ongoing_status.cancel_purchase' | translate}}
 					</p>
 				</div>
 				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="7">
-						Waiting for Seller Review
+						{{'ongoing_status.waiting_review' | translate}}
 					</p>
 				</div>
 				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="8">
-						Waiting for Seller Review
+						{{'ongoing_status.waiting_review' | translate}}
 					</p>
 				</div>
 				<div style="background: #28a745; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="9">
-						Please upload the certification
+						{{'ongoing_status.upload_certification' | translate}}
 					</p>
 				</div>
 				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="10">
-						Please complete the payment
+						{{'ongoing_status.complete_payment' | translate}}
 					</p>
 				</div>
 				<div style="background: #6c757d; border-radius: 5px" class="m-0 p-0">
 					<p class="fs-15 text-center text-dark" *ngSwitchCase="11">
-						Trade complete
+						{{'ongoing_status.trade_complete' | translate}}
 					</p>
 				</div>
 				<div style="background: #bdc3c7; border-radius: 5px" class="m-0 p-0">
@@ -132,9 +119,7 @@
 				<div class="first">
 					<p>
 						2009
-						<span class="pull-right"
-							>K-5<span style="font-size: 10px">12가1234</span></span
-						>
+						<span class="pull-right">K-5<span style="font-size: 10px">12가1234</span></span>
 					</p>
 					<p>
 						{{item.deal?.miles | number}} Km
