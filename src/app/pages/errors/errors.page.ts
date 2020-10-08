@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./errors.page.scss'],
 })
 export class ErrorsPage implements OnInit {
-	constructor(private router: Router) {}
+	constructor(private router: Router, private translate: TranslateService) {}
 
 	ngOnInit() {}
 

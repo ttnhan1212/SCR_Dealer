@@ -3,21 +3,16 @@
 		<ion-buttons slot="start">
 			<ion-back-button></ion-back-button>
 		</ion-buttons>
-		<ion-title>Cancel</ion-title>
+		<ion-title>{{ "cancel_page.cancel" | translate }}</ion-title>
 	</ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
 	<ion-item class="mt-10">
-		<ion-label position="floating">Cancel Reason</ion-label>
+		<ion-label position="floating">{{ "cancel_page.cancel_reason" | translate }}</ion-label>
 		<ion-textarea [(ngModel)]="message" class="cancel-input"></ion-textarea>
 	</ion-item>
-	<ion-button
-		class="mt-5"
-		expand="block"
-		color="primary"
-		(click)="submitCancel()"
-	>
-		Submit
+	<ion-button class="mt-5" expand="block" color="primary" (click)="submitCancel()">
+		{{ "cancel_page.submit" | translate }}
 	</ion-button>
 </ion-content>

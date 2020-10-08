@@ -12,94 +12,60 @@
 		<ion-spinner *ngIf="!noti"></ion-spinner>
 	</div>
 	<ion-list *ngIf="noti">
-		<ion-item
-			*ngFor="let item of noti"
-			lines="none"
-			[routerLink]="['/','home','ongoing', item.requestId]"
-			class="item-card"
-		>
+		<ion-item *ngFor="let item of noti" lines="none" [routerLink]="['/','home','ongoing', item.requestId]"
+			class="item-card">
 			<ion-thumbnail slot="start" class="m-0">
 				<img src="../../../../assets/images/photos/car_02.png" />
 			</ion-thumbnail>
 			<ion-grid class="p-0 m-0 mt-1">
 				<ion-row class="m-0 p-0">
 					<ion-col size="8" [ngSwitch]="item.deal?.status">
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							class="m-0 p-0"
-							*ngSwitchCase="1"
-						>
-							<p class="fs-15 text-center text-dark">Quote in progress</p>
-						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="2"
-							class="m-0 p-0"
-						>
+						<div style="background: #bdc3c7; border-radius: 5px" class="m-0 p-0" *ngSwitchCase="1">
 							<p class="fs-15 text-center text-dark">
-								Waiting for seller to select
+								{{'ongoing_status.in_progress' | translate}}
 							</p>
 						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="3"
-							class="m-0 p-0"
-						>
-							<p class="fs-15 text-center text-dark">Confirm the auction</p>
-						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="4"
-							class="m-0 p-0"
-						>
-							<p class="fs-15 text-center text-dark">Cancel the auction</p>
-						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="5"
-							class="m-0 p-0"
-						>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="2" class="m-0 p-0">
 							<p class="fs-15 text-center text-dark">
-								Please write visit result
+								{{'ongoing_status.waiting_select' | translate}}
 							</p>
 						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="6"
-							class="m-0 p-0"
-						>
-							<p class="fs-15 text-center text-dark">Cancel the purchase</p>
-						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="9"
-							class="m-0 p-0"
-						>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="3" class="m-0 p-0">
 							<p class="fs-15 text-center text-dark">
-								Please upload the certification
+								{{'ongoing_status.confirm' | translate}}
 							</p>
 						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="10"
-							class="m-0 p-0"
-						>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="4" class="m-0 p-0">
 							<p class="fs-15 text-center text-dark">
-								Please complete the payment
+								{{'ongoing_status.cancel_auction' | translate}}
 							</p>
 						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchCase="11"
-							class="m-0 p-0"
-						>
-							<p class="fs-15 text-center text-dark">Trade complete</p>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="5" class="m-0 p-0">
+							<p class="fs-15 text-center text-dark">
+								{{'ongoing_status.write_visit_result' | translate}}
+							</p>
 						</div>
-						<div
-							style="background: #bdc3c7; border-radius: 5px"
-							*ngSwitchDefault=""
-							class="m-0 p-0"
-						>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="6" class="m-0 p-0">
+							<p class="fs-15 text-center text-dark">
+								{{'ongoing_status.cancel_purchase' | translate}}
+							</p>
+						</div>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="9" class="m-0 p-0">
+							<p class="fs-15 text-center text-dark">
+								{{'ongoing_status.upload_certification' | translate}}
+							</p>
+						</div>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="10" class="m-0 p-0">
+							<p class="fs-15 text-center text-dark">
+								{{'ongoing_status.complete_payment' | translate}}
+							</p>
+						</div>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchCase="11" class="m-0 p-0">
+							<p class="fs-15 text-center text-dark">
+								{{'ongoing_status.trade_complete' | translate}}
+							</p>
+						</div>
+						<div style="background: #bdc3c7; border-radius: 5px" *ngSwitchDefault="" class="m-0 p-0">
 							<p class="fs-15 text-center text-dark">N/A</p>
 						</div>
 					</ion-col>
@@ -115,8 +81,7 @@
 				<div>
 					<p>
 						{{item.request?.miles | number}} Km
-						<span class="pull-right"
-							>￦{{item.request?.price || 0 | number}}
+						<span class="pull-right">￦{{item.request?.price || 0 | number}}
 						</span>
 					</p>
 				</div>

@@ -126,7 +126,7 @@
 			>
 				{{'signup.request_register' | translate}}
 				<ion-item *ngIf="percentage | async as pct">
-					Progress: {{ pct | number }}%
+					{{'signup.progress' | translate}}: {{ pct | number }}%
 					<ion-progress-bar value="{{ pct / 100 }}"></ion-progress-bar>
 				</ion-item>
 			</ion-button>

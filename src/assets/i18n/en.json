@@ -27,7 +27,8 @@
 		"privacy_usage_agreement": "Privacy Usage Agreement",
 		"agree_all": "Agree All",
 		"request_register": "Request Register",
-		"ask_for_login": "Already have an account? Log In"
+		"ask_for_login": "Already have an account? Log In",
+		"progress": "Progress"
 	},
 	"home_deal": {
 		"location_select": "Location Select",
@@ -141,5 +142,18 @@
 		"upload_certification": "Please upload the certification",
 		"complete_payment": "Please complete the payment",
 		"trade_complete": "Trade complete"
+	},
+	"error": {
+		"not_found": "404 not found",
+		"go_homepage": "Go to Homepage"
+	},
+	"certification_upload": {
+		"making_review": "Seller is making review",
+		"please_wait": "Please wait"
+	},
+	"cancel_page": {
+		"cancel": "Cancel",
+		"cancel_reason": "Cancel Reason",
+		"submit": "Submit"
 	}
 }
