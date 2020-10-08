@@ -38,9 +38,13 @@
 			lines="none"
 			[disabled]="item.status === 'Cancel' ? true : false"
 			[routerLink]="ongoing[i].deal?.status === 5 ? ['/','home','visit',item.dealId] : (ongoing[i].deal?.status >= 7 && ongoing[i].deal?.status <= 9 ? ['/','certificationupload',item.dealId] : (ongoing[i].deal?.status >= 10 ? ['/','home','payment',item.dealId] :  [item.dealId]))"
+			style="margin-bottom: 1.5rem"
 		>
 			<ion-thumbnail slot="start">
-				<img src="../../../../assets/images/photos/car_02.png" />
+				<img
+					style="border-radius: 6px"
+					src="../../../../assets/images/photos/car_02.png"
+				/>
 			</ion-thumbnail>
 			<ion-label [ngSwitch]="item.deal?.status">
 				<div style="background: #ffc107; border-radius: 5px" class="m-0 p-0">
