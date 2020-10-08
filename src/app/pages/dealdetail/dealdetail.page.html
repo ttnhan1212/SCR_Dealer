@@ -52,21 +52,39 @@
 									</div>
 								</div>
 							</div>
-							<ion-slides class="item-slides" pager="true" [options]="slideOpts">
+							<ion-slides
+								class="item-slides"
+								pager="true"
+								[options]="slideOpts"
+							>
 								<ion-slide>
-									<ion-img src="../../../assets/images/photos/car_01.png" alt="img"></ion-img>
+									<ion-img
+										src="../../../assets/images/photos/car_01.png"
+										alt="img"
+									></ion-img>
 								</ion-slide>
 								<ion-slide>
-									<img src="../../../assets/images/photos/car_02.png" alt="img" />
+									<img
+										src="../../../assets/images/photos/car_02.png"
+										alt="img"
+									/>
 								</ion-slide>
 								<ion-slide>
-									<img src="../../../assets/images/photos/car_01.png" alt="img" />
+									<img
+										src="../../../assets/images/photos/car_01.png"
+										alt="img"
+									/>
 								</ion-slide>
 							</ion-slides>
 						</div>
 					</div>
 
-					<ion-button class="mt-2 mb-5" expand="block" color="tertiary" size="medium">
+					<ion-button
+						class="mt-2 mb-5"
+						expand="block"
+						color="tertiary"
+						size="medium"
+					>
 						{{'home_deal_detail.see_insurance_history' | translate}}
 					</ion-button>
 
@@ -79,14 +97,20 @@
 							<ion-card-content>{{detail.location}}</ion-card-content>
 						</ion-card>
 						<ion-card>
-							<ion-card-header><i class="ti-location-pin text-muted mr-1"></i>
-								<strong>{{'home_deal_detail.mileages' | translate}}</strong></ion-card-header>
+							<ion-card-header
+								><i class="ti-location-pin text-muted mr-1"></i>
+								<strong
+									>{{'home_deal_detail.mileages' | translate}}</strong
+								></ion-card-header
+							>
 							<ion-card-content>{{detail.miles | number}} Km</ion-card-content>
 						</ion-card>
 						<ion-card>
 							<ion-card-header>
 								<i class="ti-location-pin text-muted mr-1"></i>
-								<strong>{{'home_deal_detail.vehicle' | translate}} 특이 사항</strong>
+								<strong
+									>{{'home_deal_detail.vehicle' | translate}} 특이 사항</strong
+								>
 							</ion-card-header>
 							<ion-card-content> {{detail.other}} </ion-card-content>
 						</ion-card>
@@ -94,18 +118,33 @@
 
 					<ion-card class="card-body">
 						<ion-card-content>
-							<div [hidden]="!participant">
-								<ion-button expand="full" color="tertiary" size="large" shape="round"
-									[routerLink]="['/','home','ongoing', id]">
+							<div *ngIf="participant === 1">
+								<ion-button
+									expand="full"
+									color="tertiary"
+									size="large"
+									shape="round"
+									[routerLink]="['/','home','ongoing', id]"
+								>
 									{{'home_deal_detail.ongoing_phase' | translate}}
 								</ion-button>
 							</div>
-							<div [hidden]="participant">
+							<div *ngIf="participant !== 1">
 								<div class="form-group">
-									<input type="number" class="form-control text-center"
-										placeholder="{{'home_deal_detail.input_bidding_price' | translate}}" [(ngModel)]="price" />
+									<input
+										type="number"
+										class="form-control text-center"
+										placeholder="{{'home_deal_detail.input_bidding_price' | translate}}"
+										[(ngModel)]="price"
+									/>
 								</div>
-								<ion-button expand="full" color="tertiary" size="large" shape="round" (click)="addDealerToDeal()">
+								<ion-button
+									expand="full"
+									color="tertiary"
+									size="large"
+									shape="round"
+									(click)="addDealerToDeal()"
+								>
 									<ion-icon name="wallet"></ion-icon>
 								</ion-button>
 							</div>

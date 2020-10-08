@@ -24,7 +24,7 @@ export class DealdetailPage implements OnInit, OnDestroy {
 	price: number;
 	userId: any;
 	bidTime = Math.floor(new Date().getTime() / 1000.0);
-	participant: boolean;
+	participant: any;
 
 	dealSub: Subscription;
 
@@ -52,14 +52,14 @@ export class DealdetailPage implements OnInit, OnDestroy {
 
 	ngOnInit() {
 		this.getUser();
-		this.getDealDetail(this.id);
-		this.getDealerInParticipant(this.id);
 	}
 
 	async getUser() {
 		await this.afAuth.currentUser.then((val) => {
 			if (val) {
 				this.userId = val.uid;
+				this.getDealDetail(this.id);
+				this.getDealerInParticipant(this.id);
 			}
 		});
 	}
@@ -77,12 +77,10 @@ export class DealdetailPage implements OnInit, OnDestroy {
 			});
 	}
 
-	getDealerInParticipant(id: string) {
-		this.dealsService.getDealerInParticipant(id).subscribe((val) => {
-			if (val.length === 0) {
-				return (this.participant = !Boolean(val));
-			} else {
-				return (this.participant = Boolean(val));
+	async getDealerInParticipant(id: string) {
+		await this.dealsService.getDealerInParticipant(id).subscribe((val) => {
+			if (val) {
+				this.participant = val.length;
 			}
 		});
 	}

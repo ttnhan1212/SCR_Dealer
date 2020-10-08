@@ -1,6 +1,7 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
+import { take } from 'rxjs/operators';
 
 @Injectable({
 	providedIn: 'root',
@@ -36,7 +37,8 @@ export class DealsService {
 			.collection('participants', (ref) =>
 				ref.where('userId', '==', this.loggedUser),
 			)
-			.valueChanges();
+			.snapshotChanges()
+			.pipe(take(1));
 	}
 
 	getSelectedDealer(id: string) {
